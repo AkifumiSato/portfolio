@@ -25,6 +25,14 @@
 .animation1 {
   animation: fadeIn 1s;
   animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.animation2 {
+  animation: fadeIn 1s;
+  animation-delay: .5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 @keyframes fadeIn {
@@ -37,21 +45,61 @@
   }
 }
 
-.animation2 {
-  animation: fadeIn2 1s;
-  animation-fill-mode: forwards;
+.menu {
+  bottom: 25%;
+  left: 0;
+  margin: auto;
+  max-width: 800px;
+  padding: 0 50px;
+  position: absolute;
+  right: 0;
+  text-align: center;
 }
 
-@keyframes fadeIn2 {
-  0% {
-    opacity: 0;
-  }
+.menu__list {
+  animation: menuFadeIn .3s;
+  animation-fill-mode: forwards;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0;
+}
 
-  25% {
+@keyframes menuFadeIn {
+  0% {
     opacity: 0;
   }
 
   100% {
     opacity: 1;
   }
+}
+
+.link {
+  color: #aaa;
+  font-size: 22px;
+  position: relative;
+  text-decoration: none;
+  transition: .3s;
+  transition-property: color;
+}
+
+.link:after {
+  background-color: #333;
+  content: '';
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  transition: .3s;
+  width: 0;
+  will-change: color, width;
+}
+
+.link:hover {
+  color: #333;
+}
+
+.link:hover:after {
+  width: 100%;
 }

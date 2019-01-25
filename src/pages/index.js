@@ -1,6 +1,7 @@
 import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
+import Link from 'gatsby-link'
 import styles from './index.module.css'
 import RalewayFonts from '../components/utils/raleway-fonts'
 
@@ -21,7 +22,15 @@ class RootIndex extends React.Component {
             <p className={ styles.title__sub }>frontend developer</p>
           </RalewayFonts>
         </div>
-
+        <div className={ styles.menu }>
+          <RalewayFonts>
+            <ul className={ styles.menu__list }>
+              <li><Link to={ '/about/' } className={ styles.link }>about</Link></li>
+              <li><Link to={ '/blog/' } className={ styles.link }>blog</Link></li>
+              <li><Link to={ '/contact/' } className={ styles.link }>contact</Link></li>
+            </ul>
+          </RalewayFonts>
+        </div>
       </div>
     )
   }
