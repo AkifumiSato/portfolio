@@ -24,13 +24,14 @@
 
 .animation1 {
   animation: fadeIn 1s;
+  animation-delay: .3s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
 
 .animation2 {
   animation: fadeIn 1s;
-  animation-delay: .5s;
+  animation-delay: .8s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
@@ -57,21 +58,8 @@
 }
 
 .menu__list {
-  animation: menuFadeIn .3s;
-  animation-fill-mode: forwards;
   display: flex;
   justify-content: space-between;
-  opacity: 0;
-}
-
-@keyframes menuFadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 .link {

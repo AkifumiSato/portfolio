@@ -7,12 +7,23 @@
 }
 
 body {
+  animation: fadeIn .3s;
   font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
   font-size: 1em;
   line-height: 1.2;
   color: #373F49;
   background: #fff;
   margin: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 * {
