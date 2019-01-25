@@ -22,9 +22,21 @@ class RootIndex extends React.Component {
         </div>
         <div className={ `${styles.menu} ${fonts.raleway}` }>
           <ul className={ styles.menu__list }>
-            <li><Link to={ '/about/' } className={ styles.link }>about</Link></li>
-            <li><Link to={ '/blog/' } className={ styles.link }>blog</Link></li>
-            <li><Link to={ '/contact/' } className={ styles.link }>contact</Link></li>
+            <li>
+              <Link to={ '/about/' } className={ styles.link }>
+                <span className={ styles.link__text }>about</span>
+              </Link>
+            </li>
+            <li>
+              <Link to={ '/blog/' } className={ styles.link }>
+                <span className={ styles.link__text }>blog</span>
+              </Link>
+            </li>
+            <li>
+              <Link to={ '/contact/' } className={ styles.link }>
+                <span className={ styles.link__text }>contact</span>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
