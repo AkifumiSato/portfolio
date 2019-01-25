@@ -1,24 +1,15 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import base from './base.css'
-import Container from '../components/container'
-import Navigation from '../components/navigation'
+import styles from './index.module.css'
 
 class Template extends React.Component {
   render() {
-    const { location, children } = this.props
-    let header
-
-    let rootPath = `/`
-    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = __PATH_PREFIX__ + `/`
-    }
+    const { children } = this.props
 
     return (
-      <Container>
-        <Navigation />
-        {children()}
-      </Container>
+      <div className={ styles.wrapper }>
+        { children() }
+      </div>
     )
   }
 }

@@ -1,0 +1,57 @@
+.title {
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 40%;
+  width: 100%;
+}
+
+.title__main {
+  font-size: 50px;
+}
+
+.strong {
+  color: #00C5B2;
+}
+
+.title__sub {
+  color: #aaa;
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+.animation1 {
+  animation: fadeIn 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.animation2 {
+  animation: fadeIn2 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn2 {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
