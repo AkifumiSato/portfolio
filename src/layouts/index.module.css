@@ -1,7 +1,5 @@
 .wrapper {
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
   padding: 50px 50px 20px;
   position: relative;
   min-height: 100vh;
@@ -17,4 +15,22 @@
   font-size: 14px;
   left: 7%;
   position: absolute;
+}
+
+.title {
+  text-align: left;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.strong {
+  color: #00C5B2;
 }

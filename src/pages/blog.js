@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styles from './blog.module.css'
 import ArticlePreview from '../components/article-preview'
+import MainTitle from '../components/main-title'
 
 class BlogIndex extends React.Component {
   render() {
@@ -11,11 +12,9 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
 
     return (
-      <div style={{ background: '#fff' }}>
+      <div>
         <Helmet title={siteTitle} />
-        <div className={styles.hero}>
-          Blog
-        </div>
+        <MainTitle title='Blog' />
         <div className="wrapper">
           <h2 className="section-headline">Recent articles</h2>
           <ul className="article-list">
