@@ -2,6 +2,7 @@
   position: fixed;
   right: 50px;
   top: 50px;
+  z-index: 2;
 }
 
 .trigger {
@@ -41,6 +42,7 @@
 }
 
 .open .hamburger {
+  transition: .3s;
   background-color: transparent;
 }
 
@@ -54,6 +56,10 @@
   transform: rotate(45deg);
 }
 
+.close .hamburger {
+  transition: .3s;
+}
+
 .menu {
   display: none;
   margin-top: 10px;
@@ -63,36 +69,15 @@
 }
 
 .close .menu {
-  animation: menuClose .3s;
+  animation: fadeOut .3s;
   animation-fill-mode: forwards;
   display: block;
 }
 
 .open .menu {
-  animation: menuOpen .3s;
+  animation: fadeIn .3s;
   animation-fill-mode: forwards;
   display: block;
-}
-
-@keyframes menuOpen {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes menuClose {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
 }
 
 .menu li {
@@ -132,4 +117,50 @@
 
 .link:hover:after {
   width: 100%;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.75);
+  bottom: 0;
+  display: none;
+  left: 0;
+  margin: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: .3s;
+  z-index: 1;
+}
+
+.open.overlay {
+  animation: fadeIn .3s;
+  animation-fill-mode: forwards;
+  display: block;
+}
+
+.close.overlay {
+  animation: fadeOut .3s;
+  animation-fill-mode: forwards;
+  display: block;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }

@@ -30,15 +30,18 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      <div className={ `${styles.wrapper}${ this.getToggleClass() }` }>
-        <a href="javascript:void(0)" className={ styles.trigger } onClick={ this.onClick }>
-          <span className={ styles.hamburger }> </span>
-        </a>
-        <ul className={ styles.menu }>
-          <li><Link to={ '/about/' } className={ styles.link }>about</Link></li>
-          <li><Link to={ '/blog/' } className={ styles.link }>blog</Link></li>
-          <li><Link to={ '/contact/' } className={ styles.link }>contact</Link></li>
-        </ul>
+      <div>
+        <div className={ `${styles.wrapper}${ this.getToggleClass() }` }>
+          <a href="javascript:void(0)" className={ styles.trigger } onClick={ this.onClick }>
+            <span className={ styles.hamburger }> </span>
+          </a>
+          <ul className={ styles.menu }>
+            <li><Link to={ '/about/' } className={ styles.link }>about</Link></li>
+            <li><Link to={ '/blog/' } className={ styles.link }>blog</Link></li>
+            <li><Link to={ '/contact/' } className={ styles.link }>contact</Link></li>
+          </ul>
+        </div>
+        <a className={ `${ styles.overlay }${ this.getToggleClass()}` } onClick={ this.onClick }> </a>
       </div>
     )
   }
