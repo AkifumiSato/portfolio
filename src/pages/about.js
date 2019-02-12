@@ -3,6 +3,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import styles from './about.module.css'
+import MainTitle from '../components/main-title'
 
 class RootIndex extends React.Component {
   render() {
@@ -11,7 +12,7 @@ class RootIndex extends React.Component {
     return (
       <div>
         <Helmet title={ siteTitle } />
-        <h1 className={ styles.title }>ABOUT</h1>
+        <MainTitle title="ABOUT" />
         <div>
           <div className={ styles.inner }>
             <h2 className={ styles.sub_title }>I am ...</h2>
