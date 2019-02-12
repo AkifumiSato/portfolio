@@ -6,8 +6,8 @@
 }
 
 .inner {
-  max-width: 1152px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto 100px;
 }
 
 .copyright {

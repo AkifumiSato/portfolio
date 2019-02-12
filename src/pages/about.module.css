@@ -1,0 +1,29 @@
+.title {
+  font-weight: bold;
+  font-size: 40px;
+  padding: 90px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.inner:not(:first-child) {
+  margin-top: 50px;
+}
+
+.sub_title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 2;
+  margin-top: 20px;
+}
+
+.link {
+  color: #00C5B2;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
