@@ -1,10 +1,15 @@
-.hero {
+.tag-list {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 61.8vh;
-  max-height: 400px;
-  background: #e1e1e1;
-  font-size: 2em;
-  overflow: hidden;
+}
+
+.tag-list li {
+  margin-left: 20px;
+}
+
+.tag-list li:first-child {
+  margin-left: 0;
+}
+
+.link {
+  color: #666;
 }

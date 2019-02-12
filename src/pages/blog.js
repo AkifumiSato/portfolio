@@ -13,18 +13,25 @@ class BlogIndex extends React.Component {
 
     return (
       <div>
-        <Helmet title={siteTitle} />
+        <Helmet title={ siteTitle } />
         <MainTitle title='Blog' />
-        <div className="wrapper">
-          <h2 className="section-headline">Recent articles</h2>
+        <ul className={ styles['tag-list'] }>
+          <li>
+            <Link to={ '/' } className={ styles.link }>gatsby</Link>
+          </li>
+          <li>
+            <Link to={ '/' } className={ styles.link }>react</Link>
+          </li>
+        </ul>
+        <div style={ { 'margin-top': '10px' } }>
           <ul className="article-list">
-            {posts.map(({ node }) => {
+            { posts.map(({ node }) => {
               return (
-                <li key={node.slug}>
-                  <ArticlePreview article={node} />
+                <li key={ node.slug }>
+                  <ArticlePreview article={ node } />
                 </li>
               )
-            })}
+            }) }
           </ul>
         </div>
       </div>
