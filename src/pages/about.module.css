@@ -1,4 +1,4 @@
-.inner:not(:first-child) {
+.wrap .sub_title:not(:first-child) {
   margin-top: 50px;
 }
 
