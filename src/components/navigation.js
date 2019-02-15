@@ -36,9 +36,9 @@ class Navigation extends React.Component {
             <span className={ styles.hamburger }> </span>
           </a>
           <ul className={ styles.menu }>
-            <li><Link to={ '/about/' } className={ styles.link }>about</Link></li>
-            <li><Link to={ '/blog/' } className={ styles.link }>blog</Link></li>
-            <li><Link to={ '/contact/' } className={ styles.link }>contact</Link></li>
+            <li><Link to={ '/about/' } className={ styles.link } onClick={ this.onClick }>about</Link></li>
+            <li><Link to={ '/blog/' } className={ styles.link } onClick={ this.onClick }>blog</Link></li>
+            <li><Link to={ '/contact/' } className={ styles.link } onClick={ this.onClick }>contact</Link></li>
           </ul>
         </div>
         <a className={ `${ styles.overlay }${ this.getToggleClass()}` } onClick={ this.onClick }> </a>
