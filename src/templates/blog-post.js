@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import Img from 'gatsby-image'
 
 import heroStyles from '../components/hero.module.css'
+import MainTitle from '../components/main-title'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -11,24 +12,25 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
-      <div style={{ background: '#fff' }}>
-        <Helmet title={`${post.title} | ${siteTitle}`} />
-        <div className={heroStyles.hero}>
-          <Img className={heroStyles.heroImage} alt={post.title} sizes={post.heroImage.sizes} />
+      <div>
+        <Helmet title={ siteTitle } />
+        <MainTitle category="BLOG" title={ post.title } />
+        <div className={ heroStyles.hero }>
+          <Img className={ heroStyles.heroImage } alt={ post.title } sizes={ post.heroImage.sizes } />
         </div>
         <div className="wrapper">
-          <h1 className="section-headline">{post.title}</h1>
+          <h1 className="section-headline">{ post.title }</h1>
           <p
-            style={{
+            style={ {
               display: 'block',
-            }}
+            } }
           >
-            {post.publishDate}
+            { post.publishDate }
           </p>
           <div
-            dangerouslySetInnerHTML={{
+            dangerouslySetInnerHTML={ {
               __html: post.body.childMarkdownRemark.html,
-            }}
+            } }
           />
         </div>
       </div>

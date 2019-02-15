@@ -4,3 +4,14 @@
   text-align: center;
   padding: 100px 0;
 }
+
+.category {
+  display: block;
+  font-size: 20px;
+}
+
+.main {
+  display: block;
+  font-size: 40px;
+  margin-top: 10px;
+}
