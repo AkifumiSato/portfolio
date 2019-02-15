@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styles from './blog.module.css'
@@ -20,9 +19,7 @@ class BlogIndex extends React.Component {
             { posts.map(({ node }) => {
               return (
                 <li key={ node.slug }>
-                  <Link to={`/blog/${node.slug}`} className={styles.link}>
-                    <ArticlePreview article={ node } />
-                  </Link>
+                  <ArticlePreview article={ node } />
                 </li>
               )
             }) }
