@@ -2,10 +2,10 @@
 
 body {
   animation: bodyFadeIn .3s;
+  color: #333;
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 1em;
   line-height: 1.2;
-  color: #373F49;
   background: #fff;
   margin: 0;
 }
@@ -43,18 +43,6 @@ a {
 
 li {
   list-style: none;
-}
-
-/**
- * article grid
- */
-.article-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 5vmin;
 }
 
 /**

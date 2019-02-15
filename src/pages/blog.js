@@ -15,20 +15,14 @@ class BlogIndex extends React.Component {
       <div>
         <Helmet title={ siteTitle } />
         <MainTitle title='Blog' />
-        <ul className={ styles['tag-list'] }>
-          <li>
-            <Link to={ '/' } className={ styles.link }>gatsby</Link>
-          </li>
-          <li>
-            <Link to={ '/' } className={ styles.link }>react</Link>
-          </li>
-        </ul>
         <div style={ { 'margin-top': '10px' } }>
-          <ul className="article-list">
+          <ul className={ styles.article_list }>
             { posts.map(({ node }) => {
               return (
                 <li key={ node.slug }>
-                  <ArticlePreview article={ node } />
+                  <Link to={`/blog/${node.slug}`} className={styles.link}>
+                    <ArticlePreview article={ node } />
+                  </Link>
                 </li>
               )
             }) }
@@ -48,7 +42,7 @@ export const pageQuery = graphql`
         node {
           title
           slug
-          publishDate(formatString: "MMMM Do, YYYY")
+          publishDate(formatString: "YYYY-MM-DD")
           tags
           heroImage {
             sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
@@ -56,9 +50,7 @@ export const pageQuery = graphql`
             }
           }
           description {
-            childMarkdownRemark {
-              html
-            }
+            description
           }
         }
       }
