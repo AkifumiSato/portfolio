@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 
-import heroStyles from '../components/hero.module.css'
+import styles from '../components/hero.module.css'
 import MainTitle from '../components/main-title'
 
 class BlogPostTemplate extends React.Component {
@@ -15,19 +15,10 @@ class BlogPostTemplate extends React.Component {
       <div>
         <Helmet title={ siteTitle } />
         <MainTitle category="BLOG" title={ post.title } />
-        <div className={ heroStyles.hero }>
-          <Img className={ heroStyles.heroImage } alt={ post.title } sizes={ post.heroImage.sizes } />
-        </div>
-        <div className="wrapper">
-          <h1 className="section-headline">{ post.title }</h1>
-          <p
-            style={ {
-              display: 'block',
-            } }
-          >
-            { post.publishDate }
-          </p>
-          <div
+        <Img className={ styles.mainImage } alt={ post.title } sizes={ post.heroImage.sizes } />
+        <div className={ styles.contents }>
+          <p className={ styles.publish }>{ post.publishDate }</p>
+          <div className={ styles.article }
             dangerouslySetInnerHTML={ {
               __html: post.body.childMarkdownRemark.html,
             } }
