@@ -4,6 +4,7 @@ import head from 'lodash/head'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import styles from './about.module.css'
+import articleStyles from '../components/article.module.css'
 import MainTitle from '../components/main-title'
 
 class RootIndex extends React.Component {
@@ -15,16 +16,16 @@ class RootIndex extends React.Component {
       <div>
         <Helmet title={ siteTitle } />
         <MainTitle title="ABOUT" />
-        <div className={ styles.wrap }>
+        <div className={ articleStyles.article }>
           { posts.map((({content, nodeType}, index) => {
             switch (nodeType) {
               case 'heading-2':
                 return (
-                  <h2 key={ index } className={ styles.sub_title }>{ head(content).value }</h2>
+                  <h2 key={ index }>{ head(content).value }</h2>
                 )
               case 'paragraph':
                 return (
-                  <p key={ index } className={ styles.text }>{ head(content).value }</p>
+                  <p key={ index }>{ head(content).value }</p>
                 )
               default:
                 break
