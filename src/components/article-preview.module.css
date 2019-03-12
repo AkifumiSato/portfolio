@@ -40,3 +40,40 @@
   line-height: 1.5;
   margin-top: 20px;
 }
+
+@media screen and (max-width: 768px) {
+  .link {
+    display: block;
+  }
+
+  .day {
+    display: block;
+    font-size: 14px;
+    margin-right: 0;
+    transform: rotate(0);
+    text-align: left;
+    writing-mode: initial;
+  }
+
+  .image {
+    height: 100px;
+    margin: 10px auto 0;
+    width: 200px;
+  }
+
+  .body {
+    margin-top: 10px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .paragraph {
+    margin-top: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}

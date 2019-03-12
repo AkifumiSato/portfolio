@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 
-import styles from '../components/hero.module.css'
+import styles from '../components/blog-post.module.css'
 import MainTitle from '../components/main-title'
 
 class BlogPostTemplate extends React.Component {
@@ -37,7 +37,7 @@ export const pageQuery = graphql`
       title
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
-        sizes(maxWidth: 1180, background: "rgb:000000") {
+        sizes(maxWidth: 1180) {
           ...GatsbyContentfulSizes_withWebp
         }
       }

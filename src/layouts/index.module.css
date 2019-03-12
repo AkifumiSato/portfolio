@@ -3,6 +3,7 @@
   padding: 50px 50px 20px;
   position: relative;
   min-height: 100vh;
+  min-width: 100vw;
 }
 
 .inner {
@@ -34,4 +35,14 @@
 
 .strong {
   color: #00C5B2;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding: 20px;
+  }
+
+  .copyright {
+    left: 20px;
+  }
 }

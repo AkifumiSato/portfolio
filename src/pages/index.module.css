@@ -96,3 +96,30 @@
 .link:hover .link__text:after {
   width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+  .title {
+    top: 35%;
+  }
+
+  .title__main {
+    font-size: 40px;
+  }
+
+  .title__sub {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  .menu {
+    bottom: 15%;
+  }
+
+  .menu__list {
+    display: block;
+  }
+
+  .link__text {
+    font-size: 20px;
+  }
+}

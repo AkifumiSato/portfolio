@@ -4,7 +4,7 @@ body {
   animation: bodyFadeIn .3s;
   color: #333;
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 1em;
+  font-size: 16px;
   line-height: 1.2;
   background: #fff;
   margin: 0;
@@ -44,16 +44,3 @@ a {
 li {
   list-style: none;
 }
-
-/**
- *
- */
-.list-inline {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-  .list-inline li {
-    display: inline-block;
-  }

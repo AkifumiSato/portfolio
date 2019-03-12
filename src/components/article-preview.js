@@ -7,7 +7,7 @@ export default ({ article }) => {
     <Link to={`/blog/${article.slug}`} className={styles.link}>
       <p className={styles.day}>{article.publishDate}</p>
       <img src={article.heroImage.sizes.srcWebp} className={styles.image} alt="" />
-      <div>
+      <div className={styles.body}>
         <h3 className={styles.title}>{article.title}</h3>
         <p className={styles.paragraph}>{article.description.description}</p>
       </div>
