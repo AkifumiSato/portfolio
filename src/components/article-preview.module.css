@@ -7,10 +7,12 @@
   transition: .3s;
 }
 
-.link:hover {
-  box-shadow: 0 4px 48px rgba(0, 0, 0, 0.3);
-  transition: .3s;
-  transform: translateY(-3px);
+@media screen and (min-width: 769px) {
+  .link:hover {
+    box-shadow: 0 4px 48px rgba(0, 0, 0, 0.3);
+    transition: .3s;
+    transform: translateY(-3px);
+  }
 }
 
 .day {
@@ -56,9 +58,7 @@
   }
 
   .image {
-    height: 100px;
-    margin: 10px auto 0;
-    width: 200px;
+    display: none;
   }
 
   .body {
@@ -74,6 +74,6 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 1;
   }
 }

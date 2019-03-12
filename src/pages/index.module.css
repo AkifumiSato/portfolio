@@ -89,12 +89,14 @@
   will-change: color, width;
 }
 
-.link:hover .link__text {
-  color: #333;
-}
+@media screen and (min-width: 769px) {
+  .link:hover .link__text {
+    color: #333;
+  }
 
-.link:hover .link__text:after {
-  width: 100%;
+  .link:hover .link__text:after {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 768px) {
