@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import base from './base.css'
+import './base.css'
 import styles from './index.module.css'
 import fonts from '../components/utils/fonts.module.css'
 import Navigation from '../components/navigation'

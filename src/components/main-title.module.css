@@ -1,8 +1,11 @@
 .title {
+  display: flex;
+  flex-direction: column;
   font-size: 40px;
   font-weight: bold;
+  height: 250px;
+  justify-content: center;
   text-align: center;
-  padding: 100px 0;
 }
 
 .category {
@@ -14,4 +17,20 @@
   display: block;
   font-size: 40px;
   margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 30px;
+    height: 150px;
+    padding: 0;
+  }
+
+  .category {
+    font-size: 16px;
+  }
+
+  .main {
+    font-size: 24px;
+  }
 }
