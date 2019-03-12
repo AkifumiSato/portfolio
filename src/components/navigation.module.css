@@ -111,12 +111,14 @@
   will-change: color, width;
 }
 
-.link:hover {
-  color: #333;
-}
+@media screen and (min-width: 769px) {
+  .link:hover {
+    color: #333;
+  }
 
-.link:hover:after {
-  width: 100%;
+  .link:hover:after {
+    width: 100%;
+  }
 }
 
 .overlay {
