@@ -5,32 +5,28 @@ import styles from './blog.module.css'
 import ArticlePreview from '../components/article-preview'
 import MainTitle from '../components/main-title'
 
-class BlogIndex extends React.Component {
-  render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+export default ({ data }) => {
+  const siteTitle = get(data, 'site.siteMetadata.title')
+  const posts = get(data, 'allContentfulBlogPost.edges')
 
-    return (
-      <div>
-        <Helmet title={ siteTitle } />
-        <MainTitle title='Blog' />
-        <div style={ { 'margin-top': '10px' } }>
-          <ul className={ styles.article_list }>
-            { posts.map(({ node }) => {
-              return (
-                <li key={ node.slug }>
-                  <ArticlePreview article={ node } heroImage={ node.heroImage } />
-                </li>
-              )
-            }) }
-          </ul>
-        </div>
+  return (
+    <div>
+      <Helmet title={ siteTitle } />
+      <MainTitle title='Blog' />
+      <div style={ { 'margin-top': '10px' } }>
+        <ul className={ styles.article_list }>
+          { posts.map(({ node }) => {
+            return (
+              <li key={ node.slug }>
+                <ArticlePreview article={ node } heroImage={ node.heroImage } />
+              </li>
+            )
+          }) }
+        </ul>
       </div>
-    )
-  }
+    </div>
+  )
 }
-
-export default BlogIndex
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
