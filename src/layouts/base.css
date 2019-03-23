@@ -1,9 +1,7 @@
-@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
-
 body {
   animation: bodyFadeIn .3s;
   color: #333;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont;
   font-size: 16px;
   line-height: 1.2;
   background: #fff;
