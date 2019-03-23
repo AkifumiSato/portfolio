@@ -9,6 +9,12 @@
 .inner {
   max-width: 800px;
   margin: 0 auto 100px;
+  position: relative;
+}
+
+.contents {
+  display: block;
+  padding-top: 20px;
 }
 
 .copyright {
@@ -23,6 +29,9 @@
   text-align: left;
   text-decoration: none;
   font-size: 18px;
+  left: 0;
+  position: absolute;
+  top: 0;
 }
 
 .show {
