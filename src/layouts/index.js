@@ -18,15 +18,13 @@ class Template extends React.Component {
     return (
       <div className={ styles.wrapper }>
         <Navigation />
+        <Link to={ '/' } className={ `${styles.title} ${fonts.raleway} ${this.isRoot() ? styles.hidden : styles.show}` }>
+          <span className={ styles.strong }>A</span>KIFUMI
+          &nbsp;
+          <span className={ styles.strong }>S</span>ATO
+        </Link>
         <div className={ styles.inner }>
-          <Link to={ '/' } className={ `${styles.title} ${fonts.raleway} ${this.isRoot() ? styles.hidden : styles.show}` }>
-            <span className={ styles.strong }>A</span>KIFUMI
-            &nbsp;
-            <span className={ styles.strong }>S</span>ATO
-          </Link>
-          <div className={ styles.contents }>
-            { children() }
-          </div>
+          { children() }
           <p className={ `${styles.copyright} ${fonts.raleway}` }>©︎akfm.sato.jp { year }</p>
         </div>
       </div>
