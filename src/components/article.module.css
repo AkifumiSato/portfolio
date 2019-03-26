@@ -24,6 +24,7 @@
 
 .article p {
   line-height: 2;
+  white-space: pre-line;
 }
 
 .article ul li:not(:first-child) {
