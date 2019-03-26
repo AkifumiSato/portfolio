@@ -14,7 +14,10 @@ export default ({ data }) => {
     <div>
       <Helmet title={ siteTitle } />
       <MainTitle category="BLOG" title={ post.title } />
-      <Img className={ styles.mainImage } alt={ post.title } sizes={ post.heroImage.sizes } />
+      <Img className={ styles.mainImage } alt={ post.title } sizes={ post.heroImage.sizes } imgStyle={{
+        objectFit: 'cover',
+        objectPosition: 'top',
+      }} />
       <div className={ styles.contents }>
         <p className={ styles.publish }>{ post.publishDate }</p>
         <div className={ styles.article }
@@ -33,7 +36,7 @@ export const pageQuery = graphql`
       title
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
-        sizes(maxWidth: 1180) {
+        sizes(maxHeight: 400) {
           ...GatsbyContentfulSizes_withWebp
         }
       }
