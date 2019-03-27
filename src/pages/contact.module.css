@@ -1,0 +1,92 @@
+.wrapper {
+  box-shadow: 0 4px 24px rgba(0,0,0,.15);
+  padding: 50px;
+}
+
+.itemWrapper:not(:first-child) {
+  margin-top: 50px;
+}
+
+.itemTitle {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.inputText {
+  margin-top: 30px;
+  position: relative;
+  width: 400px;
+}
+
+.inputText input {
+  font-size: 18px;
+  line-height: 3;
+  width: 100%;
+}
+
+.inputText input::placeholder {
+  color: #aaa;
+}
+
+.inputText:after {
+  background-color: #aaa;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transition: .3s;
+  width: 100%;
+}
+
+.inputText:focus-within:after {
+  background-color: #00C5B2;
+  transition: .3s;
+}
+
+.textarea {
+  margin-top: 30px;
+  position: relative;
+}
+
+.textarea textarea {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 20px;
+  transition: .3s;
+  width: 100%;
+}
+
+.textarea textarea:focus {
+  border-color: #00C5B2;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.buttonWrapper button {
+  background-color: #00C5B2;
+  border-radius: 3px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.15);
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 25px 0;
+  transition: .3s;
+  width: 200px;
+}
+
+.buttonWrapper button:hover {
+  opacity: .8;
+}
+
