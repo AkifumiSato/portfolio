@@ -50,9 +50,9 @@ class RootIndex extends React.Component {
               <input type="text" placeholder='Your name' />
             </div>
             <div className={ styles.inputText }>
-              <input type="mail" placeholder='xxxxx@xxx.com' />
+              <input type="mail" placeholder='Email: xxxx@mail.com' />
             </div>
-            <textarea className={ styles.textarea } cols="30" rows="5" maxLength="1000" placeholder='free text' />
+            <textarea className={ styles.textarea } cols="30" rows="5" maxLength="1000" placeholder='Free text' />
             <div className={ styles.buttonWrapper }>
               <button type="submit" className={ fonts.raleway }>Send</button>
             </div>

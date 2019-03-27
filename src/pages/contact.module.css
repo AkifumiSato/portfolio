@@ -34,12 +34,14 @@
   left: 0;
   position: absolute;
   transition: .3s;
-  width: 100%;
+  width: 300px;
 }
 
 .inputText:focus-within:after {
   background-color: #00C5B2;
+  height: 2px;
   transition: .3s;
+  width: 400px;
 }
 
 .textarea {
@@ -48,14 +50,15 @@
   box-sizing: border-box;
   font-size: 18px;
   line-height: 1.5;
+  outline: 1px solid transparent;
   padding: 20px;
   margin-top: 60px;
-  transition: .3s;
   width: 100%;
 }
 
 .textarea:focus {
-  border-color: #00C5B2;
+  border: 2px solid #00C5B2;
+  padding: 19px;
 }
 
 .textarea::placeholder {
