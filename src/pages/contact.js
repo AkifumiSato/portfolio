@@ -46,24 +46,13 @@ class RootIndex extends React.Component {
             // data-netlify-honeypot="bot-field"
             // onSubmit={this.handleSubmit}
           >
-            <div className={ styles.itemWrapper }>
-              <h2 className={ styles.itemTitle }>Name</h2>
-              <div className={ styles.inputText }>
-                <input type="text" placeholder='田中 太郎' />
-              </div>
+            <div className={ styles.inputText }>
+              <input type="text" placeholder='Your name' />
             </div>
-            <div className={ styles.itemWrapper }>
-              <h2 className={ styles.itemTitle }>Mail</h2>
-              <div className={ styles.inputText }>
-                <input type="mail" placeholder='xxxxx@xxx.com' />
-              </div>
+            <div className={ styles.inputText }>
+              <input type="mail" placeholder='xxxxx@xxx.com' />
             </div>
-            <div className={ styles.itemWrapper }>
-              <h2 className={ styles.itemTitle }>Message</h2>
-              <div className={ styles.textarea }>
-                <textarea className={ styles.textarea } cols="30" rows="5" maxLength="1000" />
-              </div>
-            </div>
+            <textarea className={ styles.textarea } cols="30" rows="5" maxLength="1000" placeholder='free text' />
             <div className={ styles.buttonWrapper }>
               <button type="submit" className={ fonts.raleway }>Send</button>
             </div>
