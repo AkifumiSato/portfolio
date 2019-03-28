@@ -3,6 +3,8 @@ import get from 'lodash/get'
 import head from 'lodash/head'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
+import { graphql } from 'gatsby'
+import Layout from '../components/layout'
 import styles from './about.module.css'
 import articleStyles from '../components/article.module.css'
 import MainTitle from '../components/main-title'
@@ -12,7 +14,7 @@ export default ({ data }) => {
   const posts = get(data, 'allContentfulPerson.edges[0].node.about.content')
 
   return (
-    <div>
+    <Layout>
       <Helmet title={ siteTitle } />
       <MainTitle title="ABOUT" />
       <div className={ articleStyles.article }>
@@ -27,13 +29,13 @@ export default ({ data }) => {
                 <p key={ index }>{ head(content).value }</p>
               )
             default:
-              break
+              return null
           }
         })) }
         <h2 className={ styles.sub_title }>contact</h2>
         <p className={ styles.text }><Link to={ '/contact/' } className={ styles.link }>&#x203A; go to contact</Link></p>
       </div>
-    </div>
+    </Layout>
   )
 }
 
