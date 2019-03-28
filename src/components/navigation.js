@@ -32,16 +32,16 @@ class Navigation extends React.Component {
     return (
       <div>
         <div className={ `${styles.wrapper}${ this.getToggleClass() }` }>
-          <a href="javascript:void(0)" className={ styles.trigger } onClick={ this.onClick }>
+          <button className={ styles.trigger } onClick={ this.onClick }>
             <span className={ styles.hamburger }> </span>
-          </a>
+          </button>
           <ul className={ styles.menu }>
             <li><Link to={ '/about/' } className={ styles.link } onClick={ this.onClick }>about</Link></li>
             <li><Link to={ '/blog/' } className={ styles.link } onClick={ this.onClick }>blog</Link></li>
             <li><Link to={ '/contact/' } className={ styles.link } onClick={ this.onClick }>contact</Link></li>
           </ul>
         </div>
-        <a className={ `${ styles.overlay }${ this.getToggleClass()}` } onClick={ this.onClick }> </a>
+        <div className={ `${ styles.overlay }${ this.getToggleClass()}` } onClick={ this.onClick }> </div>
       </div>
     )
   }

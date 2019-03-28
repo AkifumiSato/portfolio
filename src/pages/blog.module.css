@@ -1,3 +1,7 @@
+.article {
+  margin-top: 10px;
+}
+
 .article_list li:not(:first-child) {
   margin-top: 50px;
 }

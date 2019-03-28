@@ -42,3 +42,12 @@ a {
 li {
   list-style: none;
 }
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+}
