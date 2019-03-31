@@ -1,30 +1,45 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import { navigateTo } from 'gatsby-link'
+import { navigateTo } from 'gatsby-link'
 
-// const encode = data => Object.keys(data)
-//   .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-//   .join('&')
+const encode = data => Object.keys(data)
+  .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+  .join('&')
 
-const handleSubmit = e => {
+const handleSubmit = (e, params) => {
   e.preventDefault()
 
-  // const form = e.target
-  // fetch('/', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  //   body: encode({
-  //     'form-name': form.getAttribute('name'),
-  //     ...this.state,
-  //   }),
-  // })
-  //   .then(() => navigateTo(form.getAttribute('action')))
-  //   .catch(error => alert(error))
+  let isError = false
+  const sendBody = {}
+  for (const key in params) {
+    if (params.hasOwnProperty(key) && params[key].error) {
+      isError = true
+    } else {
+      sendBody[key] = params[key].value
+    }
+  }
+
+  if (isError) return false
+
+  const form = e.target
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: encode({
+      'form-name': form.getAttribute('name'),
+      ...sendBody,
+    }),
+  })
+    .then(() => navigateTo(form.getAttribute('action')))
+    .catch(error => alert(error))
 }
 
 const NetlifyForm = (props) => {
   const {
     children,
+    name,
+    email,
+    comment,
   } = props
 
   return (
@@ -34,7 +49,7 @@ const NetlifyForm = (props) => {
       // action="/thanks/"
       // data-netlify="true"
       // data-netlify-honeypot="bot-field"
-      onSubmit={ handleSubmit }
+      onSubmit={ e => handleSubmit(e, { name, email, comment }) }
     >
       { children }
       { /* The `form-name` hidden field is required to support form submissions without JavaScript */ }
