@@ -1,18 +1,23 @@
+import { createActions, handleActions, combineActions } from 'redux-actions'
+
 const initialState = {
   name: '',
 }
 
-const UPDATE_USER_NAME = 'UPDATE_USER_NAME'
-export const updateUserName = name => ({
-  type: UPDATE_USER_NAME,
-  name,
+export const { update } = createActions({
+  UPDATE: (name = '') => ({ name }),
 })
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case UPDATE_USER_NAME:
-      return { ...state, name: action.name }
-    default:
-      return state
-  }
-}
+const reducer = handleActions(
+  {
+    [combineActions(update)]: (
+      state,
+      { payload: { name } },
+    ) => {
+      return { ...state, name }
+    },
+  },
+  initialState,
+)
+
+export default reducer
