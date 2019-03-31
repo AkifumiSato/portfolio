@@ -3,9 +3,10 @@ import styles from '../../styles/form.module.css'
 
 export default (props) => {
   const {
-    type = 'text',
-    placeholder = '',
+    cols = '30',
+    rows = '5',
     value = '',
+    placeholder = 'Free Text',
     onBlur = () => true,
     error = '',
   } = props
@@ -14,12 +15,14 @@ export default (props) => {
   const [animationEnd, setAnimationEnd] = useState(false)
 
   return (
-    <div className={ styles.inputText } onAnimationEnd={() => setAnimationEnd(true)}>
-      <input
+    <div className={ styles.textareaWrap } onAnimationEnd={ () => setAnimationEnd(true) }>
+      <textarea
+        className={ styles.textarea }
+        cols={ cols }
+        rows={ rows }
         value={ tmpValue }
         onChange={ e => setTmpValue(e.target.value) }
         onBlur={ e => onBlur(e) && setAnimationEnd(false) }
-        type={ type }
         placeholder={ placeholder }
       />
       { (() => error && !animationEnd && <p className={ styles.error }>{ error }</p>)() }

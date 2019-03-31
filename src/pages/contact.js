@@ -5,8 +5,9 @@ import MainTitle from '../components/atoms/main-title'
 import { graphql } from 'gatsby'
 import { navigateTo } from 'gatsby-link'
 import Layout from '../components/organisms/layout'
-import UserName from '../container/user-name.jsx'
-import UserEmail from '../container/user-email.jsx'
+import UserName from '../container/user-name.js'
+import UserEmail from '../container/user-email.js'
+import UserComment from '../container/user-comment'
 import styles from './contact.module.css'
 import fonts from '../styles/fonts.module.css'
 
@@ -57,7 +58,7 @@ class RootIndex extends React.Component {
           >
             <UserName />
             <UserEmail />
-            <textarea className={ styles.textarea } cols="30" rows="5" maxLength="1000" placeholder='Free text' />
+            <UserComment />
             <div className={ styles.buttonWrapper }>
               <button type="submit" className={ fonts.raleway }>Send</button>
             </div>

@@ -5,66 +5,6 @@
   width: 600px;
 }
 
-.inputText {
-  position: relative;
-  width: 400px;
-}
-
-.inputText:not(:first-child) {
-  margin-top: 30px;
-}
-
-.inputText input {
-  font-size: 18px;
-  line-height: 2;
-  padding: 10px;
-  width: 100%;
-}
-
-.inputText input::placeholder {
-  color: #aaa;
-}
-
-.inputText:after {
-  background-color: #aaa;
-  bottom: 0;
-  content: '';
-  display: block;
-  height: 1px;
-  left: 0;
-  position: absolute;
-  transition: .3s;
-  width: 300px;
-}
-
-.inputText:focus-within:after {
-  background-color: #00C5B2;
-  height: 2px;
-  transition: .3s;
-  width: 400px;
-}
-
-.textarea {
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 18px;
-  line-height: 1.5;
-  outline: 1px solid transparent;
-  padding: 20px;
-  margin-top: 60px;
-  width: 100%;
-}
-
-.textarea:focus {
-  border: 2px solid #00C5B2;
-  padding: 19px;
-}
-
-.textarea::placeholder {
-  color: #aaa;
-}
-
 .buttonWrapper {
   display: flex;
   justify-content: center;

@@ -10,12 +10,17 @@ const initialState = {
     value: '',
     error: '',
   },
+  comment: {
+    value: '',
+    error: '',
+  },
 }
 
 const {
   user: {
     name,
     email,
+    comment,
   },
 } = createActions({
   USER: {
@@ -43,11 +48,23 @@ const {
         return { value, error }
       },
     },
+    COMMENT: {
+      UPDATE: (value) => {
+        let error = ''
+        if (isEmptyString(value)) {
+          error = 'コメントは必須です。'
+        } else if (isOverLength(1000, value)) {
+          error = 'コメントは1000文字までです。'
+        }
+        return { value, error }
+      },
+    },
   },
 })
 
 export const updateName = name.update
 export const updateEmail = email.update
+export const updateComment = comment.update
 
 const reducer = handleActions(
   {
@@ -59,6 +76,10 @@ const reducer = handleActions(
       state,
       { payload },
     ) => ({ ...state, email: payload }),
+    [combineActions(updateComment)]: (
+      state,
+      { payload },
+    ) => ({ ...state, comment: payload }),
   },
   initialState,
 )
