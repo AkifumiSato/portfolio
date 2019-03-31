@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import './style/base.css'
-import styles from '../components/layout.module.css'
-import fonts from '../components/utils/fonts.module.css'
-import Navigation from '../components/navigation'
+import '../../styles/base.css'
+import styles from './layout.module.css'
+import fonts from '../../styles/fonts.module.css'
+import Navigation from '../molecules/navigation'
 
 export default ({ children, rootLink = true }) => {
   const date = new Date()

@@ -1,12 +1,12 @@
 import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import MainTitle from '../components/main-title'
+import MainTitle from '../components/atoms/main-title'
 import { graphql } from 'gatsby'
 import { navigateTo } from 'gatsby-link'
-import Layout from '../components/layout'
+import Layout from '../components/organisms/layout'
 import styles from './contact.module.css'
-import fonts from '../components/utils/fonts.module.css'
+import fonts from '../styles/fonts.module.css'
 
 const encode = data => Object.keys(data)
   .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
