@@ -7,6 +7,7 @@ export default (props) => {
     placeholder = '',
     value = '',
     onBlur = () => true,
+    error = '',
   } = props
 
   const [tmpValue, setTmpValue] = useState(value)
@@ -20,6 +21,7 @@ export default (props) => {
         type={ type }
         placeholder={ placeholder }
       />
+      { (() => error &&  <p className={ styles.error }>{ error }</p>)() }
     </div>
   )
 

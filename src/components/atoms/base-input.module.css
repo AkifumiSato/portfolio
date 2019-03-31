@@ -36,3 +36,28 @@
   transition: .3s;
   width: 400px;
 }
+
+.error {
+  background-color: #f8BBd0;
+  bottom: -40px;
+  border-radius: 5px;
+  color: #b71c1c;
+  font-size: 14px;
+  left: 10px;
+  line-height: 1;
+  padding: 10px;
+  position: absolute;
+  z-index: 10;
+}
+
+.error::before {
+  border-color: transparent transparent #f8BBd0;
+  border-style: solid;
+  border-width: 6px;
+  content: '';
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: -12px;
+  transform: translateX(-50%);
+}

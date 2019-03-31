@@ -4,7 +4,7 @@ import { updateEmail } from '../redux/modules/user'
 import BaseInput from '../components/atoms/base-input'
 
 const UserEmail = (props) => {
-  const { email, onBlur } = props
+  const { email, onBlur, error } = props
 
   return (
     <BaseInput
@@ -12,12 +12,14 @@ const UserEmail = (props) => {
       placeholder='Email: xxxx@mail.com'
       value={ email }
       onBlur={ onBlur }
+      error = { error }
     />
   )
 }
 
 const mapStateToProps = state => ({
-  email: state.user.email,
+  email: state.user.email.value,
+  error: state.user.email.error,
 })
 
 const mapDispatchToProps = dispatch => ({

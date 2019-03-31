@@ -1,8 +1,15 @@
 import { createActions, handleActions, combineActions } from 'redux-actions'
+import { isEmptyString, isOverLength, isNotMailAddress } from '../utils/contactValidater'
 
 const initialState = {
-  name: '',
-  email: '',
+  name: {
+    value: '',
+    error: '',
+  },
+  email: {
+    value: '',
+    error: '',
+  },
 }
 
 const {
@@ -13,10 +20,28 @@ const {
 } = createActions({
   USER: {
     NAME: {
-      UPDATE: (name) => (name),
+      UPDATE: (value) => {
+        let error = ''
+        if (isEmptyString(value)) {
+          error = '名前は必須です。'
+        } else if (isOverLength(100, value)) {
+          error = '名前は100文字までです。'
+        }
+        return { value, error }
+      },
     },
     EMAIL: {
-      UPDATE: (name) => (name),
+      UPDATE: (value) => {
+        let error = ''
+        if (isEmptyString(value)) {
+          error = 'メールアドレスは必須です。'
+        } else if (isOverLength(200, value)) {
+          error = 'メールアドレスは200文字までです。'
+        } else if (isNotMailAddress(value)) {
+          error = 'メールアドレスが不正です。'
+        }
+        return { value, error }
+      },
     },
   },
 })

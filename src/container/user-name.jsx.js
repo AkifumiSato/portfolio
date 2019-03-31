@@ -4,7 +4,7 @@ import { updateName } from '../redux/modules/user'
 import BaseInput from '../components/atoms/base-input'
 
 const UserName = (props) => {
-  const { name, onBlur } = props
+  const { name, onBlur, error } = props
 
   return (
     <BaseInput
@@ -12,16 +12,18 @@ const UserName = (props) => {
       placeholder='Your name'
       value={ name }
       onBlur={ onBlur }
+      error={ error }
     />
   )
 }
 
 const mapStateToProps = state => ({
-  name: state.user.name,
+  name: state.user.name.value,
+  error: state.user.name.error,
 })
 
 const mapDispatchToProps = dispatch => ({
-  onBlur: (e) => dispatch(updateName(e.target.value))
+  onBlur: (e) => dispatch(updateName(e.target.value)),
 })
 
 export default connect(
