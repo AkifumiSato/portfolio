@@ -5,6 +5,7 @@ import MainTitle from '../components/atoms/main-title'
 import { graphql } from 'gatsby'
 import { navigateTo } from 'gatsby-link'
 import Layout from '../components/organisms/layout'
+import BaseInput from '../components/atoms/base-input'
 import styles from './contact.module.css'
 import fonts from '../styles/fonts.module.css'
 
@@ -53,12 +54,8 @@ class RootIndex extends React.Component {
             // data-netlify-honeypot="bot-field"
             // onSubmit={this.handleSubmit}
           >
-            <div className={ styles.inputText }>
-              <input type="text" placeholder='Your name' />
-            </div>
-            <div className={ styles.inputText }>
-              <input type="mail" placeholder='Email: xxxx@mail.com' />
-            </div>
+            <BaseInput placeholder='Your name' />
+            <BaseInput type="mail" placeholder='Email: xxxx@mail.com' />
             <textarea className={ styles.textarea } cols="30" rows="5" maxLength="1000" placeholder='Free text' />
             <div className={ styles.buttonWrapper }>
               <button type="submit" className={ fonts.raleway }>Send</button>
