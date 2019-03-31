@@ -4,18 +4,26 @@ const initialState = {
   name: '',
 }
 
-export const { update } = createActions({
-  UPDATE: (name = '') => ({ name }),
+const {
+  user: {
+    name,
+  },
+} = createActions({
+  USER: {
+    NAME: {
+      UPDATE: (name = '') => ({ name }),
+    },
+  },
 })
+
+export const updateName = name.update
 
 const reducer = handleActions(
   {
-    [combineActions(update)]: (
+    [combineActions(updateName)]: (
       state,
       { payload: { name } },
-    ) => {
-      return { ...state, name }
-    },
+    ) => ({ ...state, name }),
   },
   initialState,
 )

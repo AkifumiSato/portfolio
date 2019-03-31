@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { update } from '../redux/modules/user'
+import { updateName } from '../redux/modules/user'
 import BaseInput from '../components/atoms/base-input'
 
 const UserName = (props) => {
@@ -21,7 +21,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onChange: (e) => dispatch(update(e.target.value))
+  onChange: (e) => dispatch(updateName(e.target.value))
 })
 
 export default connect(
