@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './base-input.module.css'
 
-export default ({ type='text', placeholder='', value='', onChange }) => (
-  <div className={ styles.inputText }>
-    <input value={ value } onChange={ e => onChange(e) } type={ type } placeholder={ placeholder } />
-  </div>
-)
+export default (props) => {
+  const {
+    type = 'text',
+    placeholder = '',
+    value = '',
+    onBlur = () => true,
+  } = props
+
+  const [tmpValue, setTmpValue] = useState(value)
+
+  return (
+    <div className={ styles.inputText }>
+      <input
+        value={ tmpValue }
+        onChange={ e => setTmpValue(e.target.value) }
+        onBlur={ e => onBlur(e) }
+        type={ type }
+        placeholder={ placeholder }
+      />
+    </div>
+  )
+
+}

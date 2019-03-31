@@ -4,14 +4,14 @@ import { updateEmail } from '../redux/modules/user'
 import BaseInput from '../components/atoms/base-input'
 
 const UserEmail = (props) => {
-  const { email, onChange } = props
+  const { email, onBlur } = props
 
   return (
     <BaseInput
       type='mail'
       placeholder='Email: xxxx@mail.com'
       value={ email }
-      onChange={ onChange }
+      onBlur={ onBlur }
     />
   )
 }
@@ -21,7 +21,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onChange: (e) => dispatch(updateEmail(e.target.value))
+  onBlur: (e) => dispatch(updateEmail(e.target.value))
 })
 
 export default connect(
