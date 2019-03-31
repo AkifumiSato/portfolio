@@ -2,6 +2,8 @@ import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import MainTitle from '../components/main-title'
+import { graphql } from 'gatsby'
+import Layout from '../components/layout'
 import styles from './contact.module.css'
 import fonts from '../components/utils/fonts.module.css'
 
@@ -34,7 +36,7 @@ class RootIndex extends React.Component {
     const siteTitle = `CONTACT - ${get(this, 'props.data.site.siteMetadata.title')}`
 
     return (
-      <div>
+      <Layout>
         <Helmet title={ siteTitle } />
         <MainTitle title="CONTACT" />
         <div className={ styles.wrapper }>
@@ -60,7 +62,7 @@ class RootIndex extends React.Component {
             <input type="hidden" name="form-name" value="contact" />
           </form>
         </div>
-      </div>
+      </Layout>
     )
   }
 }

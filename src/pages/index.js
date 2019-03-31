@@ -2,6 +2,8 @@ import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
+import { graphql } from 'gatsby'
+import Layout from '../components/layout'
 import styles from './index.module.css'
 import fonts from '../components/utils/fonts.module.css'
 
@@ -9,8 +11,8 @@ export default ({ data }) => {
   const siteTitle = get(data, 'site.siteMetadata.title')
 
   return (
-    <div>
-      <Helmet title={ siteTitle }/>
+    <Layout rootLink={ false }>
+      <Helmet title={ siteTitle } />
       <div className={ `${styles.title} ${fonts.raleway}` }>
         <h1 className={ styles.title__main }>
           <span className={ `${styles.strong} ${styles.animation1}` }>A</span>KIFUMI
@@ -38,7 +40,7 @@ export default ({ data }) => {
           </li>
         </ul>
       </div>
-    </div>
+    </Layout>
   )
 }
 
