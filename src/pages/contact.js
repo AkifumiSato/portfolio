@@ -6,6 +6,7 @@ import { graphql } from 'gatsby'
 import { navigateTo } from 'gatsby-link'
 import Layout from '../components/organisms/layout'
 import BaseInput from '../components/atoms/base-input'
+import UserName from '../container/user-name.jsx'
 import styles from './contact.module.css'
 import fonts from '../styles/fonts.module.css'
 
@@ -54,7 +55,7 @@ class RootIndex extends React.Component {
             // data-netlify-honeypot="bot-field"
             // onSubmit={this.handleSubmit}
           >
-            <BaseInput placeholder='Your name' />
+            <UserName />
             <BaseInput type="mail" placeholder='Email: xxxx@mail.com' />
             <textarea className={ styles.textarea } cols="30" rows="5" maxLength="1000" placeholder='Free text' />
             <div className={ styles.buttonWrapper }>
