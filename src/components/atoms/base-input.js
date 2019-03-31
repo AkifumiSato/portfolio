@@ -11,17 +11,18 @@ export default (props) => {
   } = props
 
   const [tmpValue, setTmpValue] = useState(value)
+  const [animationEnd, setAnimationEnd] = useState(false)
 
   return (
-    <div className={ styles.inputText }>
+    <div className={ styles.inputText } onAnimationEnd={() => setAnimationEnd(true)}>
       <input
         value={ tmpValue }
         onChange={ e => setTmpValue(e.target.value) }
-        onBlur={ e => onBlur(e) }
+        onBlur={ e => onBlur(e) && setAnimationEnd(false) }
         type={ type }
         placeholder={ placeholder }
       />
-      { (() => error &&  <p className={ styles.error }>{ error }</p>)() }
+      { (() => error && !animationEnd && <p className={ styles.error }>{ error }</p>)() }
     </div>
   )
 
