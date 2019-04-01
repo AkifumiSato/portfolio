@@ -1,0 +1,9 @@
+.thanks {
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  height: 80vh;
+  justify-content: center;
+  line-height: 2;
+  text-align: center;
+}
