@@ -46,11 +46,14 @@ const NetlifyForm = (props) => {
     <form
       name="contact"
       method="post"
-      // action="/thanks/"
-      // data-netlify="true"
-      // data-netlify-honeypot="bot-field"
+      action="/thanks/"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
       onSubmit={ e => handleSubmit(e, { name, email, comment }) }
     >
+      <div style={ { display: 'none' } }>
+        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+      </div>
       { children }
       { /* The `form-name` hidden field is required to support form submissions without JavaScript */ }
       <input type="hidden" name="form-name" value="contact" />

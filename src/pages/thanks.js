@@ -9,7 +9,7 @@ export default ({ data }) => {
   const siteTitle = get(data, 'site.siteMetadata.title')
 
   return (
-    <Layout rootLink={ false }>
+    <Layout>
       <Helmet title={ siteTitle } />
       <p className={ styles.thanks }>お問い合わせ、ありがとうございました。</p>
     </Layout>

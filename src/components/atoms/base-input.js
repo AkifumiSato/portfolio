@@ -25,5 +25,4 @@ export default (props) => {
       { (() => error && !animationEnd && <p className={ styles.error }>{ error }</p>)() }
     </div>
   )
-
 }
