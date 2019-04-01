@@ -8,10 +8,18 @@ export default (props) => {
     value = '',
     onBlur = () => true,
     error = '',
+    counter = 0,
   } = props
 
   const [tmpValue, setTmpValue] = useState(value)
   const [animationEnd, setAnimationEnd] = useState(false)
+  const [counterState, setCounterState] = useState(counter)
+
+  // counter更新時にエラーがあれば表示するためにanimation初期化、ループしないようにcounterは同期
+  if (counterState !== counter) {
+    setCounterState(counter)
+    setAnimationEnd(false)
+  }
 
   return (
     <div className={ styles.inputText } onAnimationEnd={() => setAnimationEnd(true)}>

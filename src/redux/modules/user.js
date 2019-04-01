@@ -14,6 +14,9 @@ const initialState = {
     value: '',
     error: '',
   },
+  submit: {
+    counter: 0,
+  },
 }
 
 const {
@@ -21,6 +24,7 @@ const {
     name,
     email,
     comment,
+    submit,
   },
 } = createActions({
   USER: {
@@ -59,12 +63,16 @@ const {
         return { value, error }
       },
     },
+    SUBMIT: {
+      COUNTER: () => 1,
+    }
   },
 })
 
 export const updateName = name.update
 export const updateEmail = email.update
 export const updateComment = comment.update
+export const incrementSubmitCounter = submit.counter
 
 const reducer = handleActions(
   {
@@ -80,6 +88,9 @@ const reducer = handleActions(
       state,
       { payload },
     ) => ({ ...state, comment: payload }),
+    [combineActions(incrementSubmitCounter)]: (
+      state,
+    ) => ({ ...state, submit: { counter: state.submit.counter + 1 }  }),
   },
   initialState,
 )
