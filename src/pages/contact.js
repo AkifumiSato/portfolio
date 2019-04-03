@@ -1,9 +1,12 @@
 import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import MainTitle from '../components/main-title'
+import MainTitle from '../components/atoms/main-title'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '../components/organisms/layout'
+import NetlifyForm from '../container/netlify-form'
+import styles from './contact.module.css'
+import fonts from '../styles/fonts.module.css'
 
 export default ({ data }) => {
   const siteTitle = `CONTACT - ${get(data, 'site.siteMetadata.title')}`
@@ -12,14 +15,12 @@ export default ({ data }) => {
     <Layout>
       <Helmet title={ siteTitle } />
       <MainTitle title="CONTACT" />
-      <div>
-        <p style={
-          {
-            color: '#aaa',
-            fontSize: '30px',
-            textAlign: 'center',
-          }
-        }>作成中...</p>
+      <div className={ styles.wrapper }>
+        <NetlifyForm>
+          <div className={ styles.buttonWrapper }>
+            <button type="submit" className={ fonts.raleway }>Send</button>
+          </div>
+        </NetlifyForm>
       </div>
     </Layout>
   )

@@ -18,7 +18,10 @@
     "lodash": "^4.17.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
+    "redux-actions": "^2.6.5"
   },
   "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
   "keywords": [

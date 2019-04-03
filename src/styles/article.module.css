@@ -16,10 +16,9 @@
 }
 
 .article h2 {
-  color: #333;
   font-size: 30px;
   font-weight: bold;
-  line-height: 2.1;
+  line-height: 1;
 }
 
 .article p {

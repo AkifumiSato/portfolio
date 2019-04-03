@@ -3,9 +3,9 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import styles from '../components/article.module.css'
-import MainTitle from '../components/main-title'
+import Layout from '../components/organisms/layout'
+import styles from '../styles/article.module.css'
+import MainTitle from '../components/atoms/main-title'
 
 export default ({ data }) => {
   const post = get(data, 'contentfulBlogPost')

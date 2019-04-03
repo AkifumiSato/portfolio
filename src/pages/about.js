@@ -4,10 +4,10 @@ import head from 'lodash/head'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '../components/organisms/layout'
 import styles from './about.module.css'
-import articleStyles from '../components/article.module.css'
-import MainTitle from '../components/main-title'
+import articleStyles from '../styles/article.module.css'
+import MainTitle from '../components/atoms/main-title'
 
 export default ({ data }) => {
   const siteTitle = `About - ${get(data, 'site.siteMetadata.title')}`

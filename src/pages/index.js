@@ -3,9 +3,9 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '../components/organisms/layout'
 import styles from './index.module.css'
-import fonts from '../components/utils/fonts.module.css'
+import fonts from '../styles/fonts.module.css'
 
 export default ({ data }) => {
   const siteTitle = get(data, 'site.siteMetadata.title')

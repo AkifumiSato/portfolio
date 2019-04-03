@@ -1,0 +1,32 @@
+.wrapper {
+  box-shadow: 0 4px 24px rgba(0,0,0,.15);
+  padding: 50px;
+  margin: 0 auto;
+  width: 600px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.buttonWrapper button {
+  background-color: #00C5B2;
+  border: 1px solid #00C5B2;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 20px 0;
+  transition: .3s;
+  width: 200px;
+}
+
+.buttonWrapper button:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,.3);
+  opacity: 0.8;
+}
+

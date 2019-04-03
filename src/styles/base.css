@@ -43,6 +43,19 @@ li {
   list-style: none;
 }
 
+input,
+textarea {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+.input:focus {
+  border: none;
+  outline: none;
+}
+
 button {
   -webkit-appearance: none;
   -moz-appearance: none;
