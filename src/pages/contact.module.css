@@ -30,3 +30,10 @@
   opacity: 0.8;
 }
 
+@media screen and (max-width: 768px) {
+  .wrapper {
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+

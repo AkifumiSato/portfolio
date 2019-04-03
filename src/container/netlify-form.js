@@ -67,8 +67,8 @@ const NetlifyForm = (props) => {
       name="contact"
       method="post"
       action="/thanks/"
-      // data-netlify="true"
-      // data-netlify-honeypot="bot-field"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
       onSubmit={ e => handleSubmit(e, { name, email, comment }) || validate() }
     >
       <div style={ { display: 'none' } }>
