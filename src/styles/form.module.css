@@ -118,3 +118,17 @@
     opacity: 0;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .inputText {
+    width: 100%;
+  }
+
+  .inputText:after {
+    width: 100%;
+  }
+
+  .inputText:focus-within:after {
+    width: 100%;
+  }
+}
