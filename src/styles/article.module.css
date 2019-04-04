@@ -15,27 +15,39 @@
   margin-top: 50px;
 }
 
-.article h2 {
+.article > h2 {
   font-size: 30px;
   font-weight: bold;
   line-height: 1;
 }
 
-.article p {
+.article > p {
   line-height: 2;
   white-space: pre-line;
 }
 
-.article ul li:not(:first-child) {
+.article > ul > li {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+.article > ol > li {
+  list-style: decimal;
+  margin-left: 20px;
+}
+
+.article > ul > li:not(:first-child),
+.article > ol > li:not(:first-child) {
   margin-top: 10px;
 }
 
-.article h2:not(:first-child) {
+.article > h2:not(:first-child) {
   margin-top: 50px;
 }
 
-.article p:not(:first-child),
-.article ul:not(:first-child) {
+.article > p:not(:first-child),
+.article > ul:not(:first-child),
+.article > ol:not(:first-child) {
   margin-top: 30px;
 }
 
@@ -52,28 +64,30 @@
     margin-top: 30px;
   }
 
-  .article h2 {
+  .article > h2 {
     font-size: 20px;
     font-weight: bold;
     line-height: 2.1;
   }
 
-  .article p {
+  .article > p {
     font-size: 14px;
     line-height: 2;
     margin-top: 10px;
   }
 
-  .article ul li:not(:first-child) {
+  .article > ul > li:not(:first-child),
+  .article > ol > li:not(:first-child) {
     margin-top: 5px;
   }
 
-  .article h2:not(:first-child) {
+  .article > h2:not(:first-child) {
     margin-top: 50px;
   }
 
-  .article p:not(:first-child),
-  .article ul:not(:first-child) {
+  .article > p:not(:first-child),
+  .article > ul:not(:first-child),
+  .article > ol:not(:first-child) {
     margin-top: 10px;
   }
 }
