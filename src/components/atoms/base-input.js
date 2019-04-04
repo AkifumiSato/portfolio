@@ -4,6 +4,7 @@ import styles from '../../styles/form.module.css'
 export default (props) => {
   const {
     type = 'text',
+    name,
     placeholder = '',
     value = '',
     onBlur = () => true,
@@ -28,6 +29,7 @@ export default (props) => {
         onChange={ e => setTmpValue(e.target.value) }
         onBlur={ e => onBlur(e) && setAnimationEnd(false) }
         type={ type }
+        name={ name }
         placeholder={ placeholder }
       />
       { (() => error && !animationEnd && <p className={ styles.error }>{ error }</p>)() }

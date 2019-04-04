@@ -3,6 +3,7 @@ import styles from '../../styles/form.module.css'
 
 export default (props) => {
   const {
+    name,
     cols = '30',
     rows = '5',
     value = '',
@@ -26,6 +27,7 @@ export default (props) => {
     <div className={ styles.textareaWrap } onAnimationEnd={ () => setAnimationEnd(true) }>
       <textarea
         className={ styles.textarea }
+        name={ name }
         cols={ cols }
         rows={ rows }
         value={ tmpValue }
