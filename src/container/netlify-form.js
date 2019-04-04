@@ -76,6 +76,7 @@ const NetlifyForm = (props) => {
       </div>
       <BaseInput
         type='text'
+        name='name'
         placeholder='Your name'
         value={ name.value }
         onBlur={ e => nameDispatcher(e.target.value) }
@@ -84,6 +85,7 @@ const NetlifyForm = (props) => {
       />
       <BaseInput
         type='mail'
+        name='email'
         placeholder='Email: xxxx@mail.com'
         value={ email.value }
         onBlur={ e => emailDispatcher(e.target.value) }
@@ -91,6 +93,7 @@ const NetlifyForm = (props) => {
         counter={ submit.counter }
       />
       <BaseTextArea
+        name='comment'
         value={ comment.value }
         onBlur={ e => commentDispatcher(e.target.value) }
         error={ comment.error }
