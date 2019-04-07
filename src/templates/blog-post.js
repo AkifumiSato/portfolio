@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Prism from 'prismjs'
+import 'prismjs/themes/prism.css'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
@@ -10,6 +12,10 @@ import MainTitle from '../components/atoms/main-title'
 export default ({ data }) => {
   const post = get(data, 'contentfulBlogPost')
   const siteTitle = get(data, 'site.siteMetadata.title')
+
+  useEffect(() => {
+    Prism.highlightAll()
+  })
 
   return (
     <Layout>

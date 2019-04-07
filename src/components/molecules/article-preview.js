@@ -7,7 +7,9 @@ export default ({ article, heroImage }) => {
   return (
     <Link to={ `/blog/${article.slug}` } className={ styles.link }>
       <p className={ styles.day }>{ article.publishDate }</p>
-      <Img sizes={ heroImage.sizes } className={ styles.image } alt="" />
+      <Img sizes={ heroImage.sizes } className={ styles.image } imgStyle={{
+        objectFit: 'contain',
+      }} alt="" />
       <div className={ styles.body }>
         <h3 className={ styles.title }>{ article.title }</h3>
         <p className={ styles.paragraph }>{ article.description.description }</p>
