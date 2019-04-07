@@ -9,7 +9,7 @@ import styles from './contact.module.css'
 import fonts from '../styles/fonts.module.css'
 
 export default ({ data }) => {
-  const siteTitle = `CONTACT - ${get(data, 'site.siteMetadata.title')}`
+  const siteTitle = `Contact - ${get(data, 'site.siteMetadata.title')}`
 
   return (
     <Layout>
