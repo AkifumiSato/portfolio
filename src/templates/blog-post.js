@@ -11,7 +11,7 @@ import MainTitle from '../components/atoms/main-title'
 
 export default ({ data }) => {
   const post = get(data, 'contentfulBlogPost')
-  const siteTitle = get(data, 'site.siteMetadata.title')
+  const siteTitle = `${post.title} - ${get(data, 'site.siteMetadata.title')}`
 
   useEffect(() => {
     Prism.highlightAll()
@@ -21,10 +21,10 @@ export default ({ data }) => {
     <Layout>
       <Helmet title={ siteTitle } />
       <MainTitle category="BLOG" title={ post.title } />
-      <Img className={ styles.mainImage } alt={ post.title } sizes={ post.heroImage.sizes } imgStyle={{
+      <Img className={ styles.mainImage } alt={ post.title } sizes={ post.heroImage.sizes } imgStyle={ {
         objectFit: 'cover',
         objectPosition: 'top',
-      }} />
+      } } />
       <div className={ styles.contents }>
         <p className={ styles.publish }>{ post.publishDate }</p>
         <div className={ styles.article }
@@ -51,6 +51,11 @@ export const pageQuery = graphql`
         childMarkdownRemark {
           html
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }

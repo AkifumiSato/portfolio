@@ -8,8 +8,8 @@ import ArticlePreview from '../components/molecules/article-preview'
 import MainTitle from '../components/atoms/main-title'
 
 export default ({ data }) => {
-  const siteTitle = get(data, 'site.siteMetadata.title')
   const posts = get(data, 'allContentfulBlogPost.edges')
+  const siteTitle = `Blog - ${get(data, 'site.siteMetadata.title')}`
 
   return (
     <Layout>
@@ -48,6 +48,11 @@ export const pageQuery = graphql`
             description
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }

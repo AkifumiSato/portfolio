@@ -6,7 +6,7 @@ import Layout from '../components/organisms/layout'
 import styles from './thanks.module.css'
 
 export default ({ data }) => {
-  const siteTitle = get(data, 'site.siteMetadata.title')
+  const siteTitle = `Thanks - ${get(data, 'site.siteMetadata.title')}`
 
   return (
     <Layout>
