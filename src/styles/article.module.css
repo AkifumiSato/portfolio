@@ -90,6 +90,12 @@
     margin-top: 10px;
   }
 
+  .article > ul > li,
+  .article > ol > li {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
   .article > ul > li:not(:first-child),
   .article > ol > li:not(:first-child) {
     margin-top: 5px;
