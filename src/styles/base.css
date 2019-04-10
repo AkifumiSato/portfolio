@@ -23,6 +23,11 @@ body {
   padding: 0;
 }
 
+::selection {
+  background-color: #00C5B2;
+  color: #fff;
+}
+
 img {
   display: block;
   width: 100%;
