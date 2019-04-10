@@ -21,6 +21,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <Helmet>
+        <html lang="ja" />
         <title>{ siteTitle }</title>
         <meta content={ description } name="description" />
       </Helmet>

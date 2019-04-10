@@ -32,7 +32,7 @@ class Navigation extends React.Component {
     return (
       <div>
         <div className={ `${styles.wrapper}${ this.getToggleClass() }` }>
-          <button className={ styles.trigger } onClick={ this.onClick }>
+          <button aria-label="menu" className={ styles.trigger } onClick={ this.onClick }>
             <span className={ styles.hamburger }> </span>
           </button>
           <ul className={ styles.menu }>
