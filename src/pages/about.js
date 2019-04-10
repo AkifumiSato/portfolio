@@ -15,7 +15,10 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Helmet title={ siteTitle } />
+      <Helmet>
+        <title>{ siteTitle }</title>
+        <meta content="東京のフロントエンドエンジニア、佐藤昭文のポートフォリオサイトです。"  name="description" />
+      </Helmet>
       <MainTitle title="ABOUT" />
       <div className={ articleStyles.article }>
         { posts.map((({content, nodeType}, index) => {

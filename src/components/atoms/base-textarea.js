@@ -10,21 +10,12 @@ export default (props) => {
     placeholder = 'Free Text',
     onBlur = () => true,
     error = '',
-    counter = 0,
   } = props
 
   const [tmpValue, setTmpValue] = useState(value)
-  const [animationEnd, setAnimationEnd] = useState(false)
-  const [counterState, setCounterState] = useState(counter)
-
-  // counter更新時にエラーがあれば表示するためにanimation初期化、ループしないようにcounterは同期
-  if (counterState !== counter) {
-    setCounterState(counter)
-    setAnimationEnd(false)
-  }
 
   return (
-    <div className={ styles.textareaWrap } onAnimationEnd={ () => setAnimationEnd(true) }>
+    <div className={ styles.textareaWrap }>
       <textarea
         className={ styles.textarea }
         name={ name }
@@ -32,10 +23,10 @@ export default (props) => {
         rows={ rows }
         value={ tmpValue }
         onChange={ e => setTmpValue(e.target.value) }
-        onBlur={ e => onBlur(e) && setAnimationEnd(false) }
+        onBlur={ e => onBlur(e) }
         placeholder={ placeholder }
       />
-      { (() => error && !animationEnd && <p className={ styles.error }>{ error }</p>)() }
+      { (() => error && <p className={ styles.error }>{ error }</p>)() }
     </div>
   )
 
