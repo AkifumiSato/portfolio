@@ -47,7 +47,6 @@ const NetlifyForm = (props) => {
     name,
     email,
     comment,
-    submit,
     nameDispatcher,
     emailDispatcher,
     commentDispatcher,
