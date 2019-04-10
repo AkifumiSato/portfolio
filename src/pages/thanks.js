@@ -10,7 +10,10 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Helmet title={ siteTitle } />
+      <Helmet>
+        <html lang="ja" />
+        <title>{ siteTitle }</title>
+      </Helmet>
       <p className={ styles.thanks }>お問い合わせ、ありがとうございました。</p>
     </Layout>
   )

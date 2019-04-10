@@ -13,7 +13,10 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Helmet title={ siteTitle } />
+      <Helmet>
+        <html lang="ja" />
+        <title>{ siteTitle }</title>
+      </Helmet>
       <MainTitle title="CONTACT" />
       <div className={ styles.wrapper }>
         <NetlifyForm>

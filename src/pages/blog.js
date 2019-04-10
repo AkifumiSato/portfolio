@@ -13,7 +13,10 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Helmet title={ siteTitle } />
+      <Helmet>
+        <html lang="ja" />
+        <title>{ siteTitle }</title>
+      </Helmet>
       <MainTitle title='Blog' />
       <div className={ styles.article }>
         <ul className={ styles.article_list }>

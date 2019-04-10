@@ -12,7 +12,10 @@ export default ({ data }) => {
 
   return (
     <Layout rootLink={ false }>
-      <Helmet title={ siteTitle } />
+      <Helmet>
+        <html lang="ja" />
+        <title>{ siteTitle }</title>
+      </Helmet>
       <div className={ `${styles.title} ${fonts.raleway}` }>
         <h1 className={ styles.title__main }>
           <span className={ `${styles.strong} ${styles.animation1}` }>A</span>KIFUMI

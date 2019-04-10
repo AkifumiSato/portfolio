@@ -16,6 +16,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <Helmet>
+        <html lang="ja" />
         <title>{ siteTitle }</title>
         <meta content="東京のフロントエンドエンジニア、佐藤昭文のポートフォリオサイトです。"  name="description" />
       </Helmet>
