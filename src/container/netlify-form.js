@@ -5,7 +5,6 @@ import {
   updateName,
   updateEmail,
   updateComment,
-  incrementSubmitCounter,
 } from '../redux/modules/user'
 import BaseInput from '../components/atoms/base-input'
 import BaseTextArea from '../components/atoms/base-textarea'
@@ -52,14 +51,12 @@ const NetlifyForm = (props) => {
     nameDispatcher,
     emailDispatcher,
     commentDispatcher,
-    submitCounterDispatcher,
   } = props
 
   const validate = () => {
     nameDispatcher(name.value)
     emailDispatcher(email.value)
     commentDispatcher(comment.value)
-    submitCounterDispatcher()
   }
 
   return (
@@ -81,7 +78,6 @@ const NetlifyForm = (props) => {
         value={ name.value }
         onBlur={ e => nameDispatcher(e.target.value) }
         error={ name.error }
-        counter={ submit.counter }
       />
       <BaseInput
         type='mail'
@@ -90,14 +86,12 @@ const NetlifyForm = (props) => {
         value={ email.value }
         onBlur={ e => emailDispatcher(e.target.value) }
         error={ email.error }
-        counter={ submit.counter }
       />
       <BaseTextArea
         name='comment'
         value={ comment.value }
         onBlur={ e => commentDispatcher(e.target.value) }
         error={ comment.error }
-        counter={ submit.counter }
       />
       { children }
       { /* The `form-name` hidden field is required to support form submissions without JavaScript */ }
@@ -117,7 +111,6 @@ const mapDispatchToProps = dispatch => ({
   nameDispatcher: (value) => dispatch(updateName(value)),
   emailDispatcher: (value) => dispatch(updateEmail(value)),
   commentDispatcher: (value) => dispatch(updateComment(value)),
-  submitCounterDispatcher: () => dispatch(incrementSubmitCounter()),
 })
 
 export default connect(
