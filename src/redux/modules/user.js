@@ -1,5 +1,5 @@
 import { createActions, handleActions, combineActions } from 'redux-actions'
-import { isEmptyString, isOverLength, isNotMailAddress } from '../utils/contactValidater'
+import { getRequiredError, getMaxLengthError, getMailAddressFormatError } from '../utils/contactValidater'
 
 const initialState = {
   name: {
@@ -19,6 +19,7 @@ const initialState = {
   },
 }
 
+// actions
 const {
   user: {
     name,
@@ -48,17 +49,14 @@ export const updateEmail = email.update
 export const updateComment = comment.update
 export const incrementSubmitCounter = submit.counter
 
+// reducer
 const reducer = handleActions(
   new Map([
     [
       combineActions(updateName),
       (state, { payload }) => {
-        let error = ''
-        if (isEmptyString(payload)) {
-          error = '名前は必須です。'
-        } else if (isOverLength(100, payload)) {
-          error = '名前は100文字までです。'
-        }
+        const error = getRequiredError(payload, '名前') ||
+          getMaxLengthError(payload, '名前', 100) || ''
         return {
           ...state,
           name: {
@@ -71,14 +69,9 @@ const reducer = handleActions(
     [
       combineActions(updateEmail),
       (state, { payload }) => {
-        let error = ''
-        if (isEmptyString(payload)) {
-          error = 'メールアドレスは必須です。'
-        } else if (isOverLength(200, payload)) {
-          error = 'メールアドレスは200文字までです。'
-        } else if (isNotMailAddress(payload)) {
-          error = 'メールアドレスが不正です。'
-        }
+        const error = getRequiredError(payload, 'メールアドレス') ||
+          getMaxLengthError(payload, 'メールアドレス', 200) ||
+          getMailAddressFormatError(payload) || ''
         return {
           ...state,
           email: {
@@ -91,12 +84,8 @@ const reducer = handleActions(
     [
       combineActions(updateComment),
       (state, { payload }) => {
-        let error = ''
-        if (isEmptyString(payload)) {
-          error = 'コメントは必須です。'
-        } else if (isOverLength(1000, payload)) {
-          error = 'コメントは1000文字までです。'
-        }
+        const error = getRequiredError(payload, 'コメント') ||
+          getMaxLengthError(payload, 'コメント', 1000) || ''
         return {
           ...state,
           comment: {
