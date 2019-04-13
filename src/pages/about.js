@@ -37,7 +37,9 @@ export default ({ data }) => {
           }
         })) }
         <h2 className={ styles.sub_title }>contact</h2>
-        <p className={ styles.text }><Link to={ '/contact/' } className={ styles.link }>&#x203A; go to contact</Link></p>
+        <p className={ styles.text }>
+          <Link to={ '/contact/' } className={ styles.link }>&#x203A; go to contact</Link>
+        </p>
       </div>
     </Layout>
   )

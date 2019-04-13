@@ -32,6 +32,11 @@
   white-space: pre-line;
 }
 
+.article a {
+  color: #00C5B2;
+  text-decoration: underline;
+}
+
 .article > ul > li {
   list-style: disc;
   margin-left: 20px;

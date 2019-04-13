@@ -43,7 +43,7 @@ export const pageQuery = graphql`
           publishDate(formatString: "YYYY-MM-DD")
           tags
           heroImage {
-            sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+            sizes(maxWidth: 350, resizingBehavior: SCALE) {
               ...GatsbyContentfulSizes_withWebp
             }
           }
