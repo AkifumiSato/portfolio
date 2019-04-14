@@ -2,6 +2,7 @@ import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/layout'
 import styles from './thanks.module.css'
 
@@ -10,10 +11,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Helmet>
-        <html lang="ja" />
-        <title>{ siteTitle }</title>
-      </Helmet>
+      <CustomHead title={ siteTitle } />
       <p className={ styles.thanks }>お問い合わせ、ありがとうございました。</p>
     </Layout>
   )

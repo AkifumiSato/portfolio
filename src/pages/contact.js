@@ -3,6 +3,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import MainTitle from '../components/atoms/main-title'
 import { graphql } from 'gatsby'
+import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/layout'
 import NetlifyForm from '../container/netlify-form'
 import styles from './contact.module.css'
@@ -13,10 +14,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Helmet>
-        <html lang="ja" />
-        <title>{ siteTitle }</title>
-      </Helmet>
+      <CustomHead title={ siteTitle } />
       <MainTitle title="CONTACT" />
       <div className={ styles.wrapper }>
         <NetlifyForm>

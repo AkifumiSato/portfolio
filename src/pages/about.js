@@ -4,6 +4,7 @@ import head from 'lodash/head'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
+import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/layout'
 import styles from './about.module.css'
 import articleStyles from '../styles/article.module.css'
@@ -15,11 +16,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Helmet>
-        <html lang="ja" />
-        <title>{ siteTitle }</title>
-        <meta content="東京のフロントエンドエンジニア、佐藤昭文のポートフォリオサイトです。"  name="description" />
-      </Helmet>
+      <CustomHead title={ siteTitle } />
       <MainTitle title="ABOUT" />
       <div className={ articleStyles.article }>
         { posts.map((({content, nodeType}, index) => {

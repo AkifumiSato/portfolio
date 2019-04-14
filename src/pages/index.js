@@ -1,8 +1,8 @@
 import React from 'react'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
+import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/layout'
 import styles from './index.module.css'
 import fonts from '../styles/fonts.module.css'
@@ -12,10 +12,7 @@ export default ({ data }) => {
 
   return (
     <Layout rootLink={ false }>
-      <Helmet>
-        <html lang="ja" />
-        <title>{ siteTitle }</title>
-      </Helmet>
+      <CustomHead title={ siteTitle } />
       <div className={ `${styles.title} ${fonts.raleway}` }>
         <h1 className={ styles.title__main }>
           <span className={ `${styles.strong} ${styles.animation1}` }>A</span>KIFUMI

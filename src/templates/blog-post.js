@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
+import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/layout'
 import styles from '../styles/article.module.css'
 import MainTitle from '../components/atoms/main-title'
@@ -20,11 +21,10 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Helmet>
-        <html lang="ja" />
-        <title>{ siteTitle }</title>
-        <meta content={ description } name="description" />
-      </Helmet>
+      <CustomHead
+        title={ siteTitle }
+        description={ description }
+      />
       <MainTitle category="BLOG" title={ post.title } />
       <Img className={ styles.mainImage } alt={ post.title } sizes={ post.heroImage.sizes } imgStyle={ {
         objectFit: 'cover',
