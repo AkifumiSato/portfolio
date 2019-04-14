@@ -1,6 +1,5 @@
 import React from 'react'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/layout'

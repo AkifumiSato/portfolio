@@ -1,6 +1,5 @@
 import React from 'react'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
 import MainTitle from '../components/atoms/main-title'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'

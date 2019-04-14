@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import Prism from 'prismjs'
 import 'prismjs/themes/prism.css'
-import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
