@@ -1,11 +1,11 @@
 import React from 'react'
 import get from 'lodash/get'
 import { graphql } from 'gatsby'
-import CustomHead from '../components/atoms/custom-head'
+import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/layout'
 import styles from './blog.module.css'
-import ArticlePreview from '../components/molecules/article-preview'
-import MainTitle from '../components/atoms/main-title'
+import ArticlePreview from '../components/molecules/ArticlePreview'
+import MainTitle from '../components/atoms/MainTitle'
 
 export default ({ data }) => {
   const posts = get(data, 'allContentfulBlogPost.edges')

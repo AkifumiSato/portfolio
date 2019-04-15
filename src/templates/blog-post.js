@@ -4,10 +4,10 @@ import 'prismjs/themes/prism.css'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
-import CustomHead from '../components/atoms/custom-head'
+import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/layout'
 import styles from '../styles/article.module.css'
-import MainTitle from '../components/atoms/main-title'
+import MainTitle from '../components/atoms/MainTitle'
 
 export default ({ data }) => {
   const post = get(data, 'contentfulBlogPost')

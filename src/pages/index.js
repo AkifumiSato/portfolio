@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
-import CustomHead from '../components/atoms/custom-head'
+import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/layout'
 import styled, { keyframes } from 'styled-components'
 import { ralewayMixin } from '../styles/mixin/font'

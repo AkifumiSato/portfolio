@@ -3,11 +3,11 @@ import get from 'lodash/get'
 import head from 'lodash/head'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
-import CustomHead from '../components/atoms/custom-head'
+import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/layout'
 import styles from './about.module.css'
 import articleStyles from '../styles/article.module.css'
-import MainTitle from '../components/atoms/main-title'
+import MainTitle from '../components/atoms/MainTitle'
 
 export default ({ data }) => {
   const siteTitle = `About - ${get(data, 'site.siteMetadata.title')}`

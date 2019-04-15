@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Error from '../atoms/form-error'
+import Error from '../atoms/FormError'
 import styled  from 'styled-components'
 
 const Wrapper = styled.div`

@@ -6,8 +6,8 @@ import {
   updateEmail,
   updateComment,
 } from '../redux/modules/user'
-import BaseInput from '../components/molecules/custom-input'
-import BaseTextArea from '../components/molecules/custom-textarea'
+import BaseInput from '../components/molecules/CustomInput'
+import BaseTextArea from '../components/molecules/CustomTextarea'
 
 const encode = data => Object.keys(data)
   .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
