@@ -1,11 +1,43 @@
 import React from 'react'
-import styles from './main-title.module.css'
+import styled  from 'styled-components'
+
+const MainTitle = styled.h1`
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  font-weight: bold;
+  height: 250px;
+  justify-content: center;
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+    height: 150px;
+    padding: 0;
+  }
+`
+
+const Category = styled.span`
+  display: block;
+  font-size: 20px;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
+`
+
+const MainText = styled.span`
+  display: block;
+  font-size: 40px;
+  margin-top: 10px;
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
+`
 
 export default ({ title, category = '' }) => category ? (
-  <h1 className={ styles.title }>
-    <span className={styles.category}>{ category }</span>
-    <span className={styles.main}>{ title }</span>
-  </h1>
+  <MainTitle>
+    <Category>{ category }</Category>
+    <MainText>{ title }</MainText>
+  </MainTitle>
 ) : (
-  <h1 className={ styles.title }>{ title }</h1>
+  <MainTitle>{ title }</MainTitle>
 )

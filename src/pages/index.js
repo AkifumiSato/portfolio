@@ -15,18 +15,23 @@ const TitleWrap = styled.div`
   text-align: center;
   top: 40%;
   width: 100%;
+  @media screen and (max-width: 768px) {
+    top: 35%;
+  }
 `
 
 const MainTitle = styled.h1`
   font-size: 50px;
   ${ralewayMixin};
+  @media screen and (max-width: 768px) {
+    font-size: 40px;
+  }
 `
 
 const fadeIn = keyframes`
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
@@ -46,6 +51,10 @@ const SubTitle = styled.p`
   font-size: 25px;
   ${ralewayMixin};
   margin-top: 15px;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    margin-top: 5px;
+  }
 `
 
 const IndexMenu = styled.div`
@@ -58,11 +67,23 @@ const IndexMenu = styled.div`
   position: absolute;
   right: 0;
   text-align: center;
+  @media screen and (max-width: 768px) {
+    bottom: 15%;
+  }
 `
 
 const MenuList = styled.ul`
   display: flex;
   justify-content: space-between;
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+`
+
+const MenuListItem = styled.li`
+  @media screen and (max-width: 768px) {
+    padding: 10px 25px;
+  }
 `
 
 const MenuLinkText = styled.span`
@@ -71,6 +92,9 @@ const MenuLinkText = styled.span`
   position: relative;
   transition: .3s;
   transition-property: color;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
   &:after {
     background-color: #333;
     content: '';
@@ -96,6 +120,10 @@ const MenuLink = styled(Link)`
         width: 100%;
       }
     }
+  }
+  @media screen and (max-width: 768px) {
+    display: inline-block;
+    padding: 0;
   }
 `
 
@@ -129,12 +157,12 @@ export default ({ data }) => {
       </TitleWrap>
       <IndexMenu>
         <MenuList>
-          { menuLinks.map((link) => (
-            <li>
+          { menuLinks.map((link, index) => (
+            <MenuListItem key={ index }>
               <MenuLink to={ link.url }>
                 <MenuLinkText>{ link.name }</MenuLinkText>
               </MenuLink>
-            </li>
+            </MenuListItem>
           )) }
         </MenuList>
       </IndexMenu>
