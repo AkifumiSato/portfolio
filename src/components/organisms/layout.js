@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import '../../styles/base.css'
 import styles from './layout.module.css'
 import fonts from '../../styles/fonts.module.css'
+import { GlobalStyles } from '../../styles/mixin/font'
 import Navigation from '../molecules/navigation'
 
 export default ({ children, rootLink = true }) => {
@@ -11,6 +12,7 @@ export default ({ children, rootLink = true }) => {
 
   return (
     <div className={ styles.wrapper }>
+      <GlobalStyles />
       <Navigation />
       <Link to={ '/' } className={ `${styles.title} ${fonts.raleway} ${ rootLink ? styles.show : styles.hidden}` }>
         <span className={ styles.strong }>A</span>KIFUMI
