@@ -1,7 +1,7 @@
 import React from 'react'
 import get from 'lodash/get'
 import { graphql } from 'gatsby'
-import CustomHead from '../components/atoms/CustomHead'
+import CustomHead from '../components/atoms/custom-head'
 import Layout from '../components/organisms/layout'
 import styles from './blog.module.css'
 import ArticlePreview from '../components/molecules/article-preview'
