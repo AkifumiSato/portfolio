@@ -44,7 +44,7 @@ const Copyright = styled.p`
   }
 `
 
-export default ({ children, rootLink = true }) => {
+const Layout = ({ children, rootLink = true }) => {
   const date = new Date()
   const year = date.getFullYear()
 
@@ -66,3 +66,5 @@ export default ({ children, rootLink = true }) => {
     </Wrapper>
   )
 }
+
+export default Layout

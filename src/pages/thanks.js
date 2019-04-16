@@ -2,7 +2,7 @@ import React from 'react'
 import get from 'lodash/get'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
-import Layout from '../components/organisms/layout'
+import Layout from '../components/organisms/Layout'
 import styles from './thanks.module.css'
 
 export default ({ data }) => {

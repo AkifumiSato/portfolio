@@ -5,7 +5,7 @@ import get from 'lodash/get'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
-import Layout from '../components/organisms/layout'
+import Layout from '../components/organisms/Layout'
 import styles from '../styles/article.module.css'
 import MainTitle from '../components/atoms/MainTitle'
 
