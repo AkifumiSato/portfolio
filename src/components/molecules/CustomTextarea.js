@@ -25,7 +25,7 @@ const MyTextarea = styled.textarea`
   }
 `
 
-export default (props) => {
+const CusomTextarea = (props) => {
   const {
     name,
     cols = '30',
@@ -52,5 +52,6 @@ export default (props) => {
       { (() => error && <Error text={ error } />)() }
     </Wrapper>
   )
-
 }
+
+export default CusomTextarea

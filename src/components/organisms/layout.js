@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { GlobalStyles, ralewayMixin } from '../../styles/mixin/font'
-import Navigation from '../molecules/navigation'
+import Navigation from '../molecules/Navigation'
 
 const Wrapper = styled.div`
   box-sizing: border-box;

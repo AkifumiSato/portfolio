@@ -79,7 +79,7 @@ const MyText = styled.p`
   }
 `
 
-export default ({ article, heroImage }) => {
+const ArticlePreview = ({ article, heroImage }) => {
   return (
     <MyLink to={ `/blog/${article.slug}` }>
       <DateView>{ article.publishDate }</DateView>
@@ -93,3 +93,5 @@ export default ({ article, heroImage }) => {
     </MyLink>
   )
 }
+
+export default ArticlePreview

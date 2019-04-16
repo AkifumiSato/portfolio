@@ -46,7 +46,7 @@ const MyInput = styled.input`
   }
 `
 
-export default (props) => {
+const CustomInput = (props) => {
   const {
     type = 'text',
     name,
@@ -72,3 +72,5 @@ export default (props) => {
     </Wrapper>
   )
 }
+
+export default CustomInput

@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-export default (props) => {
+const CustomHead = (props) => {
   const {
     title,
     description = '東京のフロントエンドエンジニア、佐藤昭文のポートフォリオサイトです。',
@@ -16,3 +16,4 @@ export default (props) => {
   )
 }
 
+export default CustomHead

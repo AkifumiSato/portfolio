@@ -1,7 +1,7 @@
 import React from 'react'
 import styled  from 'styled-components'
 
-const MainTitle = styled.h1`
+const MyTitle = styled.h1`
   display: flex;
   flex-direction: column;
   font-size: 40px;
@@ -33,11 +33,13 @@ const MainText = styled.span`
   }
 `
 
-export default ({ title, category = '' }) => category ? (
-  <MainTitle>
+const MainTitle = ({ title, category = '' }) => category ? (
+  <MyTitle>
     <Category>{ category }</Category>
     <MainText>{ title }</MainText>
-  </MainTitle>
+  </MyTitle>
 ) : (
-  <MainTitle>{ title }</MainTitle>
+  <MyTitle>{ title }</MyTitle>
 )
+
+export default MainTitle

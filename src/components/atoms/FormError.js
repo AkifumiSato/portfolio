@@ -26,6 +26,8 @@ const Error = styled.p`
   }
 `
 
-export default ({ text }) => (
+const FormError = ({ text }) => (
   <Error>{ text }</Error>
 )
+
+export default FormError
