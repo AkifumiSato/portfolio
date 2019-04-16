@@ -33,10 +33,12 @@ const Overlay = styled.div`
   top: 0;
   transition: .3s;
   z-index: 1;
-  ${({ open }) => open ? css`
+  ${({ open, init }) => open ? css`
     animation: ${fadeIn} .3s;
     animation-fill-mode: forwards;
     display: block;
+  ` : !init ? css`
+    transition: none;
   ` : css`
     animation: ${fadeOut} .3s;
     animation-fill-mode: forwards;
@@ -87,7 +89,7 @@ const MenuList = styled.ul`
   position: absolute;
   top: 50px;
   right: 10px;
-  ${({ open }) => open ? css`
+  ${({ open, init }) => init ? `` : open ? css`
     animation: ${fadeIn} .3s;
     animation-fill-mode: forwards;
     display: block;
@@ -156,8 +158,12 @@ const Wrapper = styled.div`
 `
 
 const Navigation = () => {
+  const [interact, setInteract] = useState(true)
   const [open, setOpen] = useState(false)
-  const onClick = () => setOpen(!open)
+  const onClick = () => {
+    setInteract(false)
+    setOpen(!open)
+  }
   const menuLinks = [
     {
       name: 'about',
@@ -179,7 +185,7 @@ const Navigation = () => {
         <NavigationTrigger aria-label="menu" onClick={ onClick }>
           <Hamburger open={ open }> </Hamburger>
         </NavigationTrigger>
-        <MenuList open={ open }>
+        <MenuList init={ interact } open={ open }>
           { menuLinks.map((link, index) => (
             <MenuListItem key={ index }>
               <MenuLink to={ link.url }>{ link.name }</MenuLink>
@@ -187,7 +193,7 @@ const Navigation = () => {
           )) }
         </MenuList>
       </Wrapper>
-      <Overlay open={ open } onClick={ onClick }> </Overlay>
+      <Overlay init={ interact } open={ open } onClick={ onClick }> </Overlay>
     </div>
   )
 }
