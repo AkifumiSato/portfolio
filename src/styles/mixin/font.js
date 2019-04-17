@@ -1,11 +1,11 @@
 import { createGlobalStyle, css } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Raleway');
+
   @font-face {
-    font-family: Raleway;
+    font-family: 'Raleway';
     font-display: swap;
-    src: local('Raleway'),
-    url('https://fonts.googleapis.com/css?family=Raleway');
   }
 
   body {
