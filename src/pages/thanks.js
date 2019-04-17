@@ -1,20 +1,27 @@
 import React from 'react'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import Layout from '../components/organisms/layout'
-import styles from './thanks.module.css'
+import CustomHead from '../components/atoms/CustomHead'
+import Layout from '../components/organisms/Layout'
+import styled  from 'styled-components'
+
+const Thanks = styled.p`
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  height: 80vh;
+  justify-content: center;
+  line-height: 2;
+  text-align: center;
+`
 
 export default ({ data }) => {
   const siteTitle = `Thanks - ${get(data, 'site.siteMetadata.title')}`
 
   return (
     <Layout>
-      <Helmet>
-        <html lang="ja" />
-        <title>{ siteTitle }</title>
-      </Helmet>
-      <p className={ styles.thanks }>お問い合わせ、ありがとうございました。</p>
+      <CustomHead title={ siteTitle } />
+      <Thanks>お問い合わせ、ありがとうございました。</Thanks>
     </Layout>
   )
 }

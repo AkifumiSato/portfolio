@@ -1,25 +1,38 @@
 import React from 'react'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import Layout from '../components/organisms/layout'
-import styles from './blog.module.css'
-import ArticlePreview from '../components/molecules/article-preview'
-import MainTitle from '../components/atoms/main-title'
+import CustomHead from '../components/atoms/CustomHead'
+import Layout from '../components/organisms/Layout'
+import styled from 'styled-components'
+import ArticlePreview from '../components/molecules/ArticlePreview'
+import MainTitle from '../components/atoms/MainTitle'
 
-export default ({ data }) => {
+const MyList = styled.ul`
+  & > li:not(:first-child) {
+    margin-top: 50px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    & > li:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+`
+
+const MyArticle = styled.div`
+  margin-top: 10px;
+`
+
+const BlogPage = ({ data }) => {
   const posts = get(data, 'allContentfulBlogPost.edges')
   const siteTitle = `Blog - ${get(data, 'site.siteMetadata.title')}`
 
   return (
     <Layout>
-      <Helmet>
-        <html lang="ja" />
-        <title>{ siteTitle }</title>
-      </Helmet>
+      <CustomHead title={ siteTitle } />
       <MainTitle title='Blog' />
-      <div className={ styles.article }>
-        <ul className={ styles.article_list }>
+      <MyArticle>
+        <MyList>
           { posts.map(({ node }) => {
             return (
               <li key={ node.slug }>
@@ -27,11 +40,13 @@ export default ({ data }) => {
               </li>
             )
           }) }
-        </ul>
-      </div>
+        </MyList>
+      </MyArticle>
     </Layout>
   )
 }
+
+export default BlogPage
 
 export const pageQuery = graphql`
   query BlogIndexQuery {

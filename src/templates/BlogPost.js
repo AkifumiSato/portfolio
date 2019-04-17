@@ -1,15 +1,35 @@
 import React, { useEffect } from 'react'
 import Prism from 'prismjs'
 import 'prismjs/themes/prism.css'
-import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
-import Layout from '../components/organisms/layout'
-import styles from '../styles/article.module.css'
-import MainTitle from '../components/atoms/main-title'
+import CustomHead from '../components/atoms/CustomHead'
+import Layout from '../components/organisms/Layout'
+import styled from 'styled-components'
+import MainTitle from '../components/atoms/MainTitle'
+import Article from '../components/organisms/Article'
 
-export default ({ data }) => {
+const Publish = styled.p`
+  color: #aaa;
+  font-size: 14px;
+`
+
+const MyContents = styled.div`
+  margin-top: 50px;
+  @media screen and (max-width: 768px) {
+    margin-top: 30px;
+  }
+`
+
+const MyImg = styled(Img)`
+  box-shadow: 0 4px 24px rgba(0, 0, 0, .35);
+  @media screen and (max-width: 768px) {
+    height: 100%;
+  }
+`
+
+const BlogPost = ({ data }) => {
   const post = get(data, 'contentfulBlogPost')
   const siteTitle = `${post.title} - ${get(data, 'site.siteMetadata.title')}`
   const { description } = get(data, 'contentfulBlogPost.description')
@@ -20,27 +40,28 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Helmet>
-        <html lang="ja" />
-        <title>{ siteTitle }</title>
-        <meta content={ description } name="description" />
-      </Helmet>
+      <CustomHead
+        title={ siteTitle }
+        description={ description }
+      />
       <MainTitle category="BLOG" title={ post.title } />
-      <Img className={ styles.mainImage } alt={ post.title } sizes={ post.heroImage.sizes } imgStyle={ {
+      <MyImg alt={ post.title } sizes={ post.heroImage.sizes } imgStyle={ {
         objectFit: 'cover',
         objectPosition: 'top',
       } } />
-      <div className={ styles.contents }>
-        <p className={ styles.publish }>{ post.publishDate }</p>
-        <div className={ styles.article }
+      <MyContents>
+        <Publish>{ post.publishDate }</Publish>
+        <Article
              dangerouslySetInnerHTML={ {
                __html: post.body.childMarkdownRemark.html,
              } }
         />
-      </div>
+      </MyContents>
     </Layout>
   )
 }
+
+export default BlogPost
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
