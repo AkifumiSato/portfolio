@@ -73,6 +73,9 @@ const MenuLink = styled(Link)`
       width: 100%;
     }
   }
+  @media screen and (max-width: 768px) {
+  font-size: 30px;
+  }
 `
 
 const MenuListItem = styled.li`
@@ -155,6 +158,10 @@ const Wrapper = styled.div`
   right: 50px;
   top: 50px;
   z-index: 2;
+  @media screen and (max-width: 768px) {
+    top: 20px;
+    right: 20px;
+  }
 `
 
 const Navigation = () => {
