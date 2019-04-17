@@ -39,6 +39,7 @@ const Wrapper = styled.div`
   width: 600px;
   @media screen and (max-width: 768px) {
     box-sizing: border-box;
+    padding: 30px;
     width: 100%;
   }
 

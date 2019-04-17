@@ -35,13 +35,13 @@ const Contents = styled.div`
 const Copyright = styled.p`
   bottom: 20px;
   color: #aaa;
-  ${ralewayMixin}
   font-size: 14px;
   left: 7%;
   position: absolute;
   @media screen and (max-width: 768px) {
     left: 20px;
   }
+  ${ralewayMixin}
 `
 
 const Layout = ({ children, rootLink = true }) => {
