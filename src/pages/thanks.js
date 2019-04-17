@@ -3,7 +3,17 @@ import get from 'lodash/get'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/Layout'
-import styles from './thanks.module.css'
+import styled  from 'styled-components'
+
+const Thanks = styled.p`
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  height: 80vh;
+  justify-content: center;
+  line-height: 2;
+  text-align: center;
+`
 
 export default ({ data }) => {
   const siteTitle = `Thanks - ${get(data, 'site.siteMetadata.title')}`
@@ -11,7 +21,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <CustomHead title={ siteTitle } />
-      <p className={ styles.thanks }>お問い合わせ、ありがとうございました。</p>
+      <Thanks>お問い合わせ、ありがとうございました。</Thanks>
     </Layout>
   )
 }

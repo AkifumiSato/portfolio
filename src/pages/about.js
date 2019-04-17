@@ -5,11 +5,17 @@ import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/Layout'
-import styles from './about.module.css'
-import articleStyles from '../styles/article.module.css'
+import styled from 'styled-components'
 import MainTitle from '../components/atoms/MainTitle'
+import Article from '../components/organisms/Article'
 
-export default ({ data }) => {
+const MyLink = styled(Link)`
+  color: #00C5B2;
+  font-size: 14px;
+  text-decoration: underline;
+`
+
+const AboutPage = ({ data }) => {
   const siteTitle = `About - ${get(data, 'site.siteMetadata.title')}`
   const posts = get(data, 'allContentfulPerson.edges[0].node.about.content')
 
@@ -17,7 +23,7 @@ export default ({ data }) => {
     <Layout>
       <CustomHead title={ siteTitle } />
       <MainTitle title="ABOUT" />
-      <div className={ articleStyles.article }>
+      <Article>
         { posts.map((({content, nodeType}, index) => {
           switch (nodeType) {
             case 'heading-2':
@@ -32,14 +38,16 @@ export default ({ data }) => {
               return null
           }
         })) }
-        <h2 className={ styles.sub_title }>contact</h2>
-        <p className={ styles.text }>
-          <Link to={ '/contact/' } className={ styles.link }>&#x203A; go to contact</Link>
+        <h2>contact</h2>
+        <p>
+          <MyLink to={ '/contact/' }>&#x203A; go to contact</MyLink>
         </p>
-      </div>
+      </Article>
     </Layout>
   )
 }
+
+export default AboutPage
 
 export const pageQuery = graphql`
   query AboutQuery {
