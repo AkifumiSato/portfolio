@@ -1,17 +1,11 @@
 import { createGlobalStyle, css } from "styled-components"
+import 'typeface-raleway'
 
 export const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Raleway');
-
-  @font-face {
-    font-family: 'Raleway';
-    font-display: swap;
-  }
-
   body {
     animation: bodyFadeIn .3s;
     color: #333;
-    font-family: -apple-system,BlinkMacSystemFont;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Yu Gothic", YuGothic, sans-serif;
     font-size: 16px;
     line-height: 1.2;
     background: #fff;
