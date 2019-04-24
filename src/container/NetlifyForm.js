@@ -18,15 +18,12 @@ const encode = data => Object.keys(data)
 const handleSubmit = (e, required, actionFlg) => {
   e.preventDefault()
 
-  let isError = false
-  const sendBody = {}
-  for (const key in required) {
-    if (required.hasOwnProperty(key) && (!required[key].value || required[key].error)) {
-      isError = true
-    } else {
-      sendBody[key] = required[key].value
-    }
-  }
+  const isError = Object.values(required).some(({ error }) => error)
+
+  const sendBody = Object.entries(required).reduce((accumulator, [key, { value }]) => {
+    accumulator[key] = value
+    return accumulator
+  }, {})
 
   if (!actionFlg || isError) return false
 
