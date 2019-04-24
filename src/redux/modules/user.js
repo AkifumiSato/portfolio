@@ -1,7 +1,8 @@
 import { createActions, handleActions, combineActions } from 'redux-actions'
-import { getRequiredError, getMaxLengthError, getMailAddressFormatError } from '../utils/contactValidater'
+import { nameValidate, mailValidate, commentValidate } from '../utils/contactValidater'
 
 const initialState = {
+  actionFlg: false,
   name: {
     value: '',
     error: '',
@@ -19,12 +20,15 @@ const initialState = {
 // actions
 const {
   user: {
+    action,
     name,
     email,
     comment,
+    validate,
   },
 } = createActions({
   USER: {
+    ACTION: () => true,
     NAME: {
       UPDATE: value => value,
     },
@@ -34,21 +38,31 @@ const {
     COMMENT: {
       UPDATE: value => value,
     },
+    VALIDATE: () => true,
   },
 })
 
 export const updateName = name.update
 export const updateEmail = email.update
 export const updateComment = comment.update
+export { action, validate }
 
 // reducer
 const reducer = handleActions(
   new Map([
     [
+      combineActions(action),
+      (state) => {
+        return {
+          ...state,
+          actionFlg: true,
+        }
+      },
+    ],
+    [
       combineActions(updateName),
       (state, { payload }) => {
-        const error = getRequiredError(payload, '名前') ||
-          getMaxLengthError(payload, '名前', 100) || ''
+        const error = nameValidate(payload)
         return {
           ...state,
           name: {
@@ -61,9 +75,7 @@ const reducer = handleActions(
     [
       combineActions(updateEmail),
       (state, { payload }) => {
-        const error = getRequiredError(payload, 'メールアドレス') ||
-          getMaxLengthError(payload, 'メールアドレス', 200) ||
-          getMailAddressFormatError(payload) || ''
+        const error = mailValidate(payload)
         return {
           ...state,
           email: {
@@ -76,13 +88,35 @@ const reducer = handleActions(
     [
       combineActions(updateComment),
       (state, { payload }) => {
-        const error = getRequiredError(payload, 'コメント') ||
-          getMaxLengthError(payload, 'コメント', 1000) || ''
+        const error = commentValidate(payload)
         return {
           ...state,
           comment: {
             value: payload,
             error,
+          },
+        }
+      },
+    ],
+    [
+      combineActions(validate),
+      (state) => {
+        const nameError = nameValidate(state.name.value)
+        const mailError = mailValidate(state.email.value)
+        const commentError = commentValidate(state.comment.value)
+        return {
+          ...state,
+          name: {
+            value: state.name.value,
+            error: nameError,
+          },
+          email: {
+            value: state.email.value,
+            error: mailError,
+          },
+          comment: {
+            value: state.comment.value,
+            error: commentError,
           },
         }
       },

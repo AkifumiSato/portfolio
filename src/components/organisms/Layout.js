@@ -61,7 +61,7 @@ const Layout = ({ children, rootLink = true }) => {
       ) }
       <Contents>
         { children }
-        <Copyright>©︎akfm.sato.jp { year }</Copyright>
+        <Copyright>©︎akfm.dev { year }</Copyright>
       </Contents>
     </Wrapper>
   )
