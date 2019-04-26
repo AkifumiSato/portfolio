@@ -4,7 +4,7 @@ import { nameValidate, mailValidate, commentValidate } from '../utils/contactVal
 
 // model
 const UserRecord = Record({
-  change: false,
+  changeFlg: false,
   name: {
     value: '',
     error: '',
@@ -79,7 +79,7 @@ const reducer = handleActions(
   new Map([
     [
       change,
-      (state) => state.set('change', true),
+      (state) => state.set('changeFlg', true),
     ],
     [
       updateName,

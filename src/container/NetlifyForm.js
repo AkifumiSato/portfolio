@@ -111,7 +111,7 @@ const NetlifyForm = (props) => {
 }
 
 const mapStateToProps = state => ({
-  change: state.user.change,
+  changeFlg: state.user.changeFlg,
   email: state.user.email,
   name: state.user.name,
   comment: state.user.comment,
