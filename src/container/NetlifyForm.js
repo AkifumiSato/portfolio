@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { navigateTo } from 'gatsby-link'
 import {
-  action,
+  change,
   updateName,
   updateEmail,
   updateComment,
@@ -15,7 +15,7 @@ const encode = data => Object.keys(data)
   .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
   .join('&')
 
-const handleSubmit = (e, required, actionFlg) => {
+const handleSubmit = (e, required, change) => {
   e.preventDefault()
 
   const isError = Object.values(required).some(({ error }) => error)
@@ -25,7 +25,7 @@ const handleSubmit = (e, required, actionFlg) => {
     return accumulator
   }, {})
 
-  if (!actionFlg || isError) return false
+  if (!change || isError) return false
 
   const form = e.target
   fetch('/', {
@@ -43,18 +43,18 @@ const handleSubmit = (e, required, actionFlg) => {
 const NetlifyForm = (props) => {
   const {
     children,
-    actionFlg,
+    changeFlg,
     name,
     email,
     comment,
-    actionDispatcher,
+    changeDispatcher,
     nameDispatcher,
     emailDispatcher,
     commentDispatcher,
     validateDispatcher,
   } = props
 
-  const updateActionFlg = () => !actionFlg && actionDispatcher()
+  const updateChangeFlg = () => !changeFlg && changeDispatcher()
 
   return (
     <form
@@ -64,8 +64,8 @@ const NetlifyForm = (props) => {
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       onSubmit={ e => {
-        handleSubmit(e, { name, email, comment }, actionFlg)
-        updateActionFlg()
+        handleSubmit(e, { name, email, comment }, changeFlg)
+        updateChangeFlg()
         validateDispatcher()
       } }
     >
@@ -79,7 +79,7 @@ const NetlifyForm = (props) => {
         value={ name.value }
         onBlur={ e => {
           nameDispatcher(e.target.value)
-          updateActionFlg()
+          updateChangeFlg()
         } }
         error={ name.error }
       />
@@ -90,7 +90,7 @@ const NetlifyForm = (props) => {
         value={ email.value }
         onBlur={ e => {
           emailDispatcher(e.target.value)
-          updateActionFlg()
+          updateChangeFlg()
         } }
         error={ email.error }
       />
@@ -99,7 +99,7 @@ const NetlifyForm = (props) => {
         value={ comment.value }
         onBlur={ e => {
           commentDispatcher(e.target.value)
-          updateActionFlg()
+          updateChangeFlg()
         } }
         error={ comment.error }
       />
@@ -111,14 +111,14 @@ const NetlifyForm = (props) => {
 }
 
 const mapStateToProps = state => ({
-  actionFlg: state.user.actionFlg,
+  changeFlg: state.user.changeFlg,
   email: state.user.email,
   name: state.user.name,
   comment: state.user.comment,
 })
 
 const mapDispatchToProps = dispatch => ({
-  actionDispatcher: () => dispatch(action()),
+  changeDispatcher: () => dispatch(change()),
   nameDispatcher: (value) => dispatch(updateName(value)),
   emailDispatcher: (value) => dispatch(updateEmail(value)),
   commentDispatcher: (value) => dispatch(updateComment(value)),

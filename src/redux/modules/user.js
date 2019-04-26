@@ -1,8 +1,10 @@
-import { createActions, handleActions, combineActions } from 'redux-actions'
+import { Record } from 'immutable'
+import { createActions, handleActions } from 'redux-actions'
 import { nameValidate, mailValidate, commentValidate } from '../utils/contactValidater'
 
-const initialState = {
-  actionFlg: false,
+// model
+const UserRecord = Record({
+  changeFlg: false,
   name: {
     value: '',
     error: '',
@@ -15,12 +17,37 @@ const initialState = {
     value: '',
     error: '',
   },
+})
+
+class UserModel extends UserRecord {
+  updateName(value) {
+    const error = nameValidate(value)
+    return this.withMutations(mut => mut.setIn(['name', 'value'], value).setIn(['name', 'error'], error))
+  }
+
+  updateEmail(value) {
+    const error = mailValidate(value)
+    return this.withMutations(mut => mut.setIn(['email', 'value'], value).setIn(['email', 'error'], error))
+  }
+
+  updateComment(value) {
+    const error = commentValidate(value)
+    return this.withMutations(mut => mut.setIn(['comment', 'value'], value).setIn(['comment', 'error'], error))
+  }
+
+  validate() {
+    return this.withMutations(mut => mut
+      .updateName(this.getIn(['name', 'value']))
+      .updateEmail(this.getIn(['email', 'value']))
+      .updateComment(this.getIn(['comment', 'value'])),
+    )
+  }
 }
 
 // actions
 const {
   user: {
-    action,
+    change,
     name,
     email,
     comment,
@@ -28,7 +55,7 @@ const {
   },
 } = createActions({
   USER: {
-    ACTION: () => true,
+    CHANGE: () => true,
     NAME: {
       UPDATE: value => value,
     },
@@ -45,84 +72,33 @@ const {
 export const updateName = name.update
 export const updateEmail = email.update
 export const updateComment = comment.update
-export { action, validate }
+export { change, validate }
 
 // reducer
 const reducer = handleActions(
   new Map([
     [
-      combineActions(action),
-      (state) => {
-        return {
-          ...state,
-          actionFlg: true,
-        }
-      },
+      change,
+      (state) => state.set('changeFlg', true),
     ],
     [
-      combineActions(updateName),
-      (state, { payload }) => {
-        const error = nameValidate(payload)
-        return {
-          ...state,
-          name: {
-            value: payload,
-            error,
-          },
-        }
-      },
+      updateName,
+      (state, { payload }) => state.updateName(payload),
     ],
     [
-      combineActions(updateEmail),
-      (state, { payload }) => {
-        const error = mailValidate(payload)
-        return {
-          ...state,
-          email: {
-            value: payload,
-            error,
-          },
-        }
-      },
+      updateEmail,
+      (state, { payload }) => state.updateEmail(payload),
     ],
     [
-      combineActions(updateComment),
-      (state, { payload }) => {
-        const error = commentValidate(payload)
-        return {
-          ...state,
-          comment: {
-            value: payload,
-            error,
-          },
-        }
-      },
+      updateComment,
+      (state, { payload }) => state.updateComment(payload),
     ],
     [
-      combineActions(validate),
-      (state) => {
-        const nameError = nameValidate(state.name.value)
-        const mailError = mailValidate(state.email.value)
-        const commentError = commentValidate(state.comment.value)
-        return {
-          ...state,
-          name: {
-            value: state.name.value,
-            error: nameError,
-          },
-          email: {
-            value: state.email.value,
-            error: mailError,
-          },
-          comment: {
-            value: state.comment.value,
-            error: commentError,
-          },
-        }
-      },
+      validate,
+      (state) => state.validate(),
     ],
   ]),
-  initialState,
+  new UserModel(),
 )
 
 export default reducer
