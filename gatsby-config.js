@@ -32,6 +32,37 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "AKIFUMI SATO",
+        short_name: "AKIFUMI SATO",
+        start_url: "/",
+        background_color: "#00C5B2",
+        theme_color: "#00C5B2",
+        display: "browser",
+        icon: "static/favicon-32.png",
+        icons: [
+          {
+            src: `static/favicon-32.png`,
+            sizes: `32x32`,
+            type: `image/png`,
+          },
+          {
+            src: `static/favicon-192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `static/favicon-512.png`,
+            sizes: `512x512`,
+            type: `image/svg`,
+          },
+        ],
+        crossOrigin: `use-credentials`,
+      },
+    },
+    'gatsby-plugin-offline',
   ],
 }

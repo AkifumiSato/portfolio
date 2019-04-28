@@ -65,8 +65,8 @@ const NetlifyForm = (props) => {
       data-netlify-honeypot="bot-field"
       onSubmit={ e => {
         handleSubmit(e, { name, email, comment })
-        updateChangeFlg()
         validateDispatcher()
+        updateChangeFlg()
       } }
     >
       <div style={ { display: 'none' } }>
