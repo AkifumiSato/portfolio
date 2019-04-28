@@ -41,7 +41,7 @@ module.exports = {
         start_url: "/",
         background_color: "#00C5B2",
         theme_color: "#00C5B2",
-        display: "browser",
+        display: "standalone",
         icon: "static/favicon-32.png",
         icons: [
           {
@@ -57,7 +57,7 @@ module.exports = {
           {
             src: `static/favicon-512.png`,
             sizes: `512x512`,
-            type: `image/svg`,
+            type: `image/png`,
           },
         ],
         crossOrigin: `use-credentials`,
