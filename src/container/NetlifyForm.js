@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { navigateTo } from 'gatsby-link'
 import {
-  change,
   updateName,
   updateEmail,
   updateComment,
   validate,
-} from '../redux/modules/user'
+} from '../redux/modules/app/user'
+import { change } from '../redux/modules/ui/form'
 import BaseInput from '../components/molecules/CustomInput'
 import BaseTextArea from '../components/molecules/CustomTextarea'
 
@@ -15,7 +15,7 @@ const encode = data => Object.keys(data)
   .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
   .join('&')
 
-const handleSubmit = (e, required, change) => {
+const handleSubmit = (e, required) => {
   e.preventDefault()
 
   const isError = Object.values(required).some(({ error }) => error)
@@ -25,7 +25,7 @@ const handleSubmit = (e, required, change) => {
     return accumulator
   }, {})
 
-  if (!change || isError) return false
+  if (isError) return false
 
   const form = e.target
   fetch('/', {
@@ -43,7 +43,7 @@ const handleSubmit = (e, required, change) => {
 const NetlifyForm = (props) => {
   const {
     children,
-    changeFlg,
+    isChanged,
     name,
     email,
     comment,
@@ -54,7 +54,7 @@ const NetlifyForm = (props) => {
     validateDispatcher,
   } = props
 
-  const updateChangeFlg = () => !changeFlg && changeDispatcher()
+  const updateChangeFlg = () => !isChanged && changeDispatcher()
 
   return (
     <form
@@ -64,7 +64,7 @@ const NetlifyForm = (props) => {
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       onSubmit={ e => {
-        handleSubmit(e, { name, email, comment }, changeFlg)
+        handleSubmit(e, { name, email, comment })
         updateChangeFlg()
         validateDispatcher()
       } }
@@ -81,7 +81,7 @@ const NetlifyForm = (props) => {
           nameDispatcher(e.target.value)
           updateChangeFlg()
         } }
-        error={ name.error }
+        error={ isChanged ? name.error : '' }
       />
       <BaseInput
         type='mail'
@@ -92,7 +92,7 @@ const NetlifyForm = (props) => {
           emailDispatcher(e.target.value)
           updateChangeFlg()
         } }
-        error={ email.error }
+        error={ isChanged ? email.error : '' }
       />
       <BaseTextArea
         name='comment'
@@ -101,7 +101,7 @@ const NetlifyForm = (props) => {
           commentDispatcher(e.target.value)
           updateChangeFlg()
         } }
-        error={ comment.error }
+        error={ isChanged ? comment.error : '' }
       />
       { children }
       { /* The `form-name` hidden field is required to support form submissions without JavaScript */ }
@@ -111,10 +111,10 @@ const NetlifyForm = (props) => {
 }
 
 const mapStateToProps = state => ({
-  changeFlg: state.user.changeFlg,
-  email: state.user.email,
-  name: state.user.name,
-  comment: state.user.comment,
+  isChanged: state.ui.form.isChanged,
+  email: state.app.user.email,
+  name: state.app.user.name,
+  comment: state.app.user.comment,
 })
 
 const mapDispatchToProps = dispatch => ({

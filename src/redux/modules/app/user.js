@@ -1,21 +1,20 @@
 import { Record } from 'immutable'
 import { createActions, handleActions } from 'redux-actions'
-import { nameValidate, mailValidate, commentValidate } from '../utils/contactValidater'
+import { nameValidate, mailValidate, commentValidate } from '../../utils/contactValidater'
 
 // model
 const UserRecord = Record({
-  changeFlg: false,
   name: {
     value: '',
-    error: '',
+    error: '初期値が設定されています。',
   },
   email: {
     value: '',
-    error: '',
+    error: '初期値が設定されています。',
   },
   comment: {
     value: '',
-    error: '',
+    error: '初期値が設定されています。',
   },
 })
 
@@ -47,7 +46,6 @@ class UserModel extends UserRecord {
 // actions
 const {
   user: {
-    change,
     name,
     email,
     comment,
@@ -55,7 +53,6 @@ const {
   },
 } = createActions({
   USER: {
-    CHANGE: () => true,
     NAME: {
       UPDATE: value => value,
     },
@@ -72,15 +69,11 @@ const {
 export const updateName = name.update
 export const updateEmail = email.update
 export const updateComment = comment.update
-export { change, validate }
+export { validate }
 
 // reducer
 const reducer = handleActions(
   new Map([
-    [
-      change,
-      (state) => state.set('changeFlg', true),
-    ],
     [
       updateName,
       (state, { payload }) => state.updateName(payload),
