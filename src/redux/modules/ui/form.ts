@@ -3,11 +3,11 @@ import actionCreatorFactory from 'typescript-fsa'
 import { reducerWithInitialState } from 'typescript-fsa-reducers'
 
 // model
-export interface IFormModel {
+export interface IFormMember {
   isChanged: boolean;
 }
 
-const FormModel = Record<IFormModel>({
+const FormModel = Record<IFormMember>({
   isChanged: false,
 })
 

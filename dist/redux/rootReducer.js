@@ -5,8 +5,9 @@ const user_1 = require("./modules/app/user");
 const form_1 = require("./modules/ui/form");
 const app = redux_1.combineReducers({ user: user_1.default });
 const ui = redux_1.combineReducers({ form: form_1.default });
-exports.default = redux_1.combineReducers({
+const root = redux_1.combineReducers({
     app,
     ui,
 });
+exports.default = root;
 //# sourceMappingURL=rootReducer.js.map

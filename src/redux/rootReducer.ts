@@ -1,11 +1,22 @@
 import { combineReducers } from 'redux'
-import user from './modules/app/user'
-import form from './modules/ui/form'
+import user, { IUserMember } from './modules/app/user'
+import form, { IFormMember } from './modules/ui/form'
 
-const app = combineReducers({ user })
-const ui = combineReducers({ form })
+interface UserState {
+  user: IUserMember
+}
 
-export default combineReducers({
+interface FormState {
+  form: IFormMember
+}
+
+const app = combineReducers<UserState>({ user })
+const ui = combineReducers<FormState>({ form })
+
+const root = combineReducers({
   app,
   ui,
 })
+
+export default root
+

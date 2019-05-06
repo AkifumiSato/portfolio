@@ -4,7 +4,6 @@ const immutable_1 = require("immutable");
 const typescript_fsa_1 = require("typescript-fsa");
 const typescript_fsa_reducers_1 = require("typescript-fsa-reducers");
 const contactValidater_1 = require("../../utils/contactValidater");
-// model
 const UserRecord = immutable_1.Record({
     name: {
         value: '',

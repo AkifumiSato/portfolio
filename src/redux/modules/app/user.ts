@@ -4,6 +4,21 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers'
 import { nameValidate, mailValidate, commentValidate } from '../../utils/contactValidater'
 
 // model
+export interface IUserMember {
+  name: {
+    value: string,
+    error: string,
+  },
+  email: {
+    value: string,
+    error: string,
+  },
+  comment: {
+    value: string,
+    error: string,
+  }
+}
+
 const UserRecord = Record({
   name: {
     value: '',
@@ -19,7 +34,7 @@ const UserRecord = Record({
   },
 })
 
-class UserModel extends UserRecord {
+class UserModel extends UserRecord implements IUserMember{
   updateName(value: string) {
     const error = nameValidate(value)
     return this.withMutations(mut => mut.setIn(['name', 'value'], value).setIn(['name', 'error'], error))
