@@ -7,8 +7,6 @@ const composeEnhancers = windowGlobal.devToolsExtension
     ? window.__REDUX_DEVTOOLS_EXTENSION__ &&
         window.__REDUX_DEVTOOLS_EXTENSION__()
     : redux_1.compose;
-const store = () => redux_1.createStore(rootReducer_1.default, 
-// @ts-ignore
-composeEnhancers);
+const store = () => redux_1.createStore(rootReducer_1.default, composeEnhancers);
 exports.default = store();
 //# sourceMappingURL=store.js.map
