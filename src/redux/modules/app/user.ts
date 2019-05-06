@@ -1,5 +1,6 @@
 import { Record } from 'immutable'
-import { createActions, handleActions } from 'redux-actions'
+import actionCreatorFactory from 'typescript-fsa'
+import { reducerWithInitialState } from 'typescript-fsa-reducers'
 import { nameValidate, mailValidate, commentValidate } from '../../utils/contactValidater'
 
 // model
@@ -19,17 +20,17 @@ const UserRecord = Record({
 })
 
 class UserModel extends UserRecord {
-  updateName(value) {
+  updateName(value: string) {
     const error = nameValidate(value)
     return this.withMutations(mut => mut.setIn(['name', 'value'], value).setIn(['name', 'error'], error))
   }
 
-  updateEmail(value) {
+  updateEmail(value: string) {
     const error = mailValidate(value)
     return this.withMutations(mut => mut.setIn(['email', 'value'], value).setIn(['email', 'error'], error))
   }
 
-  updateComment(value) {
+  updateComment(value: string) {
     const error = commentValidate(value)
     return this.withMutations(mut => mut.setIn(['comment', 'value'], value).setIn(['comment', 'error'], error))
   }
@@ -43,55 +44,26 @@ class UserModel extends UserRecord {
   }
 }
 
-// actions
-const {
-  user: {
-    name,
-    email,
-    comment,
-    validate,
-  },
-} = createActions({
-  USER: {
-    NAME: {
-      UPDATE: value => value,
-    },
-    EMAIL: {
-      UPDATE: value => value,
-    },
-    COMMENT: {
-      UPDATE: value => value,
-    },
-    VALIDATE: () => true,
-  },
-})
+// action
+const actionCreator = actionCreatorFactory()
 
-export const updateName = name.update
-export const updateEmail = email.update
-export const updateComment = comment.update
-export { validate }
+enum ActionType {
+  UpdateName = 'USER/NAME/UPDATE',
+  UpdateEmail = 'USER/EMAIL/UPDATE',
+  UpdateComment = 'USER/COMMENT/UPDATE',
+  Validate = 'USER/VALIDATE',
+}
+
+export const updateNameAction = actionCreator<string>(ActionType.UpdateName)
+export const updateEmailAction = actionCreator<string>(ActionType.UpdateEmail)
+export const updateCommentAction = actionCreator<string>(ActionType.UpdateComment)
+export const validateAction = actionCreator(ActionType.Validate)
 
 // reducer
-const reducer = handleActions(
-  new Map([
-    [
-      updateName,
-      (state, { payload }) => state.updateName(payload),
-    ],
-    [
-      updateEmail,
-      (state, { payload }) => state.updateEmail(payload),
-    ],
-    [
-      updateComment,
-      (state, { payload }) => state.updateComment(payload),
-    ],
-    [
-      validate,
-      (state) => state.validate(),
-    ],
-  ]),
-  new UserModel(),
-)
+const reducer = reducerWithInitialState(new UserModel())
+  .case(updateNameAction, (state, payload) => state.updateName(payload))
+  .case(updateEmailAction, (state, payload) => state.updateEmail(payload))
+  .case(updateCommentAction, (state, payload) => state.updateName(payload))
+  .case(validateAction, (state) => state.validate())
 
 export default reducer

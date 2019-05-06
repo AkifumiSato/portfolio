@@ -29,7 +29,9 @@
     "redux": "4.0.1",
     "redux-actions": "2.6.5",
     "styled-components": "4.2.0",
-    "typeface-raleway": "0.0.54"
+    "typeface-raleway": "0.0.54",
+    "typescript-fsa": "^3.0.0-beta-2",
+    "typescript-fsa-reducers": "^1.2.1"
   },
   "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
   "keywords": [

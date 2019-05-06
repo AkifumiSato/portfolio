@@ -9,5 +9,6 @@ const devtools = windowGlobal.devToolsExtension
     : f => f;
 const createStore = () => redux_1.createStore(rootReducer_1.default, redux_1.compose(devtools));
 exports.store = createStore();
-exports.default = ({ element }) => exports.store = { store: exports.store } > { element } < /Provider>;
+const RootComponent = ({ element }) => exports.store = { store: exports.store } > { element } < /Provider>;
+exports.default = RootComponent;
 //# sourceMappingURL=redux-wrapper.js.map

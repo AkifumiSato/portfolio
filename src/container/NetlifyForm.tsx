@@ -2,12 +2,13 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { navigateTo } from 'gatsby-link'
 import {
-  updateName,
-  updateEmail,
-  updateComment,
-  validate,
+  updateNameAction,
+  updateEmailAction,
+  updateCommentAction,
+  validateAction,
 } from '../redux/modules/app/user'
-import { change } from '../redux/modules/ui/form'
+import { changeAction } from '../redux/modules/ui/form'
+import store from '../redux/store'
 import BaseInput from '../components/molecules/CustomInput'
 import BaseTextArea from '../components/molecules/CustomTextarea'
 
@@ -138,7 +139,9 @@ const NetlifyForm: React.FC<INetlifyForm> = (props) => {
   )
 }
 
-const mapStateToProps = state => ({
+type AllState = ReturnType<typeof store.getState>
+
+const mapStateToProps = (state: AllState) => ({
   isChanged: state.ui.form.isChanged,
   email: state.app.user.email,
   name: state.app.user.name,
@@ -146,11 +149,11 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  changeDispatcher: () => dispatch(change()),
-  nameDispatcher: (value) => dispatch(updateName(value)),
-  emailDispatcher: (value) => dispatch(updateEmail(value)),
-  commentDispatcher: (value) => dispatch(updateComment(value)),
-  validateDispatcher: () => dispatch(validate()),
+  changeDispatcher: () => dispatch(changeAction()),
+  nameDispatcher: (value: string) => dispatch(updateNameAction(value)),
+  emailDispatcher: (value: string) => dispatch(updateEmailAction(value)),
+  commentDispatcher: (value: string) => dispatch(updateCommentAction(value)),
+  validateDispatcher: () => dispatch(validateAction()),
 })
 
 export default connect(

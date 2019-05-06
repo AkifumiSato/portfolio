@@ -1,24 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const immutable_1 = require("immutable");
-const redux_actions_1 = require("redux-actions");
-// model
+const typescript_fsa_1 = require("typescript-fsa");
+const typescript_fsa_reducers_1 = require("typescript-fsa-reducers");
 const FormModel = immutable_1.Record({
     isChanged: false,
 });
-// actions
-const { form: { change, }, } = redux_actions_1.createActions({
-    FORM: {
-        CHANGE: () => true,
-    },
-});
-exports.change = change;
+// action
+const actionCreator = typescript_fsa_1.default();
+var ActionType;
+(function (ActionType) {
+    ActionType["Change"] = "FORM/CHANGE";
+})(ActionType || (ActionType = {}));
+exports.changeAction = actionCreator(ActionType.Change);
 // reducer
-const reducer = redux_actions_1.handleActions(new Map([
-    [
-        change,
-        (state) => state.set('isChanged', true),
-    ],
-]), new FormModel());
+const reducer = typescript_fsa_reducers_1.reducerWithInitialState(new FormModel())
+    .case(exports.changeAction, (state) => state.set('isChanged', true));
 exports.default = reducer;
 //# sourceMappingURL=form.js.map

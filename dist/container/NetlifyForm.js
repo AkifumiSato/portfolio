@@ -58,18 +58,18 @@ const NetlifyForm = (props) => {
         children,
         React.createElement("input", { type: "hidden", name: "form-name", value: "contact" })));
 };
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     isChanged: state.ui.form.isChanged,
     email: state.app.user.email,
     name: state.app.user.name,
     comment: state.app.user.comment,
 });
 const mapDispatchToProps = (dispatch) => ({
-    changeDispatcher: () => dispatch(form_1.change()),
-    nameDispatcher: (value) => dispatch(user_1.updateName(value)),
-    emailDispatcher: (value) => dispatch(user_1.updateEmail(value)),
-    commentDispatcher: (value) => dispatch(user_1.updateComment(value)),
-    validateDispatcher: () => dispatch(user_1.validate()),
+    changeDispatcher: () => dispatch(form_1.changeAction()),
+    nameDispatcher: (value) => dispatch(user_1.updateNameAction(value)),
+    emailDispatcher: (value) => dispatch(user_1.updateEmailAction(value)),
+    commentDispatcher: (value) => dispatch(user_1.updateCommentAction(value)),
+    validateDispatcher: () => dispatch(user_1.validateAction()),
 });
 exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(NetlifyForm);
 //# sourceMappingURL=NetlifyForm.js.map
