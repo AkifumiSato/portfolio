@@ -1,5 +1,4 @@
-import React from 'react'
-import get from 'lodash/get'
+import * as React from 'react'
 import MainTitle from '../components/atoms/MainTitle'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
@@ -45,8 +44,18 @@ const Wrapper = styled.div`
 
 `
 
-export default ({ data }) => {
-  const siteTitle = `Contact - ${get(data, 'site.siteMetadata.title')}`
+interface IProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string;
+      }
+    }
+  }
+}
+
+const ContactPage: React.FC<IProps> = ({ data }) => {
+  const siteTitle = `Contact - ${data.site.siteMetadata.title}`
 
   return (
     <Layout>
@@ -62,6 +71,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default ContactPage
 
 export const pageQuery = graphql`
   query ContactQuery {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import Link from 'gatsby-link'
 import styled, { css, keyframes } from 'styled-components'
 
@@ -22,6 +22,11 @@ const fadeOut = keyframes`
   }
 `
 
+interface IOverlay {
+  init: boolean;
+  open: boolean;
+}
+
 const Overlay = styled.div`
   background-color: rgba(255, 255, 255, 0.75);
   bottom: 0;
@@ -33,7 +38,7 @@ const Overlay = styled.div`
   top: 0;
   transition: .3s;
   z-index: 1;
-  ${({ open, init }) => open ? css`
+  ${({ open, init }: IOverlay) => open ? css`
     animation: ${fadeIn} .3s;
     animation-fill-mode: forwards;
     display: block;
@@ -86,13 +91,18 @@ const MenuListItem = styled.li`
   }
 `
 
+interface IMenuList {
+  init: boolean;
+  open: boolean;
+}
+
 const MenuList = styled.ul`
   display: none;
   margin-top: 10px;
   position: absolute;
   top: 50px;
   right: 10px;
-  ${({ open, init }) => init ? `` : open ? css`
+  ${({ open, init }: IMenuList) => init ? `` : open ? css`
     animation: ${fadeIn} .3s;
     animation-fill-mode: forwards;
     display: block;
@@ -102,6 +112,10 @@ const MenuList = styled.ul`
     display: block;
   `}
 `
+
+interface IHamburger {
+  open: boolean;
+}
 
 const Hamburger = styled.span`
   &,
@@ -130,7 +144,7 @@ const Hamburger = styled.span`
     top: 11px;
     transition: .3s;
   }
-  ${props => props.open ? css`
+  ${(props: IHamburger) => props.open ? css`
     transition: .3s;
     background-color: transparent!important;
     &:before {
@@ -164,14 +178,20 @@ const Wrapper = styled.div`
   }
 `
 
-const Navigation = () => {
-  const [interact, setInteract] = useState(true)
-  const [open, setOpen] = useState(false)
+const Navigation: React.FC = () => {
+  const [interact, setInteract] = React.useState(true)
+  const [open, setOpen] = React.useState(false)
   const onClick = () => {
     setInteract(false)
     setOpen(!open)
   }
-  const menuLinks = [
+
+  interface IMenuLinks {
+    name: string;
+    url: string;
+  }
+
+  const menuLinks: Array<IMenuLinks> = [
     {
       name: 'about',
       url: '/about/',

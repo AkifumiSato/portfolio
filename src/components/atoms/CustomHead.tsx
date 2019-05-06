@@ -1,7 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 import Helmet from 'react-helmet'
 
-const CustomHead = (props) => {
+interface IProps {
+  title: string;
+  description?: string;
+}
+
+const CustomHead: React.FC<IProps> = (props) => {
   const {
     title,
     description = '東京のフロントエンドエンジニア、佐藤昭文のポートフォリオサイトです。',

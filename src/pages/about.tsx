@@ -1,6 +1,5 @@
-import React from 'react'
-import get from 'lodash/get'
-import head from 'lodash/head'
+import * as React from 'react'
+import { head } from 'lodash'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
@@ -15,16 +14,40 @@ const MyLink = styled(Link)`
   text-decoration: underline;
 `
 
-const AboutPage = ({ data }) => {
-  const siteTitle = `About - ${get(data, 'site.siteMetadata.title')}`
-  const posts = get(data, 'allContentfulPerson.edges[0].node.about.content')
+interface IProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string;
+      }
+    }
+    allContentfulPerson: {
+      edges: [{
+        node: {
+          about: {
+            content: [{
+              content: [{
+                value: string;
+              }]
+              nodeType: string;
+            }]
+          }
+        }
+      }]
+    }
+  }
+}
+
+const AboutPage: React.FC<IProps> = ({ data }) => {
+  const siteTitle = `About - ${data.site.siteMetadata.title}`
+  const posts = data.allContentfulPerson.edges[0].node.about.content
 
   return (
     <Layout>
       <CustomHead title={ siteTitle } />
       <MainTitle title="ABOUT" />
       <Article>
-        { posts.map((({content, nodeType}, index) => {
+        { posts.map((({ content, nodeType }, index) => {
           switch (nodeType) {
             case 'heading-2':
               return (

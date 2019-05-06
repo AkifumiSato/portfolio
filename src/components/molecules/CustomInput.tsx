@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import Error from '../atoms/FormError'
 import styled  from 'styled-components'
 
@@ -46,7 +46,16 @@ const MyInput = styled.input`
   }
 `
 
-const CustomInput = (props) => {
+interface IProps {
+  type?: string;
+  name: string;
+  placeholder?: string;
+  value?: string;
+  onBlur?: Function;
+  error?: string;
+}
+
+const CustomInput: React.FC<IProps> = (props) => {
   const {
     type = 'text',
     name,
@@ -56,7 +65,7 @@ const CustomInput = (props) => {
     error = '',
   } = props
 
-  const [tmpValue, setTmpValue] = useState(value)
+  const [tmpValue, setTmpValue] = React.useState(value)
 
   return (
     <Wrapper>

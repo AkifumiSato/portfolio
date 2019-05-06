@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { connect } from 'react-redux'
 import { navigateTo } from 'gatsby-link'
 import {
@@ -11,23 +11,34 @@ import { change } from '../redux/modules/ui/form'
 import BaseInput from '../components/molecules/CustomInput'
 import BaseTextArea from '../components/molecules/CustomTextarea'
 
-const encode = data => Object.keys(data)
+interface IEncode {
+  [key: string]: string;
+}
+
+const encode = (data: IEncode) => Object.keys(data)
   .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
   .join('&')
 
-const handleSubmit = (e, required) => {
+interface IRequired {
+  [key: string]: {
+    error: string;
+    value: string;
+  }
+}
+
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>, required: IRequired) => {
   e.preventDefault()
 
-  const isError = Object.values(required).some(({ error }) => error)
+  const isError = Object.values(required).some(({ error }) => Boolean(error))
 
-  const sendBody = Object.entries(required).reduce((accumulator, [key, { value }]) => {
+  const sendBody = Object.entries(required).reduce((accumulator: { [key: string]: string; }, [key, { value }]) => {
     accumulator[key] = value
     return accumulator
   }, {})
 
   if (isError) return false
 
-  const form = e.target
+  const form = e.currentTarget
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -40,7 +51,24 @@ const handleSubmit = (e, required) => {
     .catch(error => alert(error))
 }
 
-const NetlifyForm = (props) => {
+interface IFormIbject {
+  value: string;
+  error: string;
+}
+
+interface INetlifyForm {
+  isChanged: boolean;
+  name: IFormIbject;
+  email: IFormIbject;
+  comment: IFormIbject;
+  changeDispatcher: Function;
+  nameDispatcher: Function;
+  emailDispatcher: Function;
+  commentDispatcher: Function;
+  validateDispatcher: Function;
+}
+
+const NetlifyForm: React.FC<INetlifyForm> = (props) => {
   const {
     children,
     isChanged,
@@ -77,8 +105,8 @@ const NetlifyForm = (props) => {
         name='name'
         placeholder='Your name'
         value={ name.value }
-        onBlur={ e => {
-          nameDispatcher(e.target.value)
+        onBlur={ (e: React.FormEvent<HTMLInputElement>) => {
+          nameDispatcher(e.currentTarget.value)
           updateChangeFlg()
         } }
         error={ isChanged ? name.error : '' }
@@ -88,8 +116,8 @@ const NetlifyForm = (props) => {
         name='email'
         placeholder='Email: xxxx@mail.com'
         value={ email.value }
-        onBlur={ e => {
-          emailDispatcher(e.target.value)
+        onBlur={ (e: React.FormEvent<HTMLInputElement>) => {
+          emailDispatcher(e.currentTarget.value)
           updateChangeFlg()
         } }
         error={ isChanged ? email.error : '' }
@@ -97,8 +125,8 @@ const NetlifyForm = (props) => {
       <BaseTextArea
         name='comment'
         value={ comment.value }
-        onBlur={ e => {
-          commentDispatcher(e.target.value)
+        onBlur={ (e: React.FormEvent<HTMLInputElement>) => {
+          commentDispatcher(e.currentTarget.value)
           updateChangeFlg()
         } }
         error={ isChanged ? comment.error : '' }
@@ -117,7 +145,7 @@ const mapStateToProps = state => ({
   comment: state.app.user.comment,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: Function) => ({
   changeDispatcher: () => dispatch(change()),
   nameDispatcher: (value) => dispatch(updateName(value)),
   emailDispatcher: (value) => dispatch(updateEmail(value)),

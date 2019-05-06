@@ -1,4 +1,4 @@
-import React  from 'react'
+import * as React  from 'react'
 import styled from 'styled-components'
 
 const Error = styled.p`
@@ -26,7 +26,11 @@ const Error = styled.p`
   }
 `
 
-const FormError = ({ text }) => (
+interface IProps {
+  text: string;
+}
+
+const FormError: React.FC<IProps> = ({ text }) => (
   <Error>{ text }</Error>
 )
 

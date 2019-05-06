@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled  from 'styled-components'
 
 const MyTitle = styled.h1`
@@ -33,7 +33,12 @@ const MainText = styled.span`
   }
 `
 
-const MainTitle = ({ title, category = '' }) => category ? (
+interface IProps {
+  title: string;
+  category?: string;
+}
+
+const MainTitle: React.FC<IProps> = ({ title, category = '' }) => category ? (
   <MyTitle>
     <Category>{ category }</Category>
     <MainText>{ title }</MainText>

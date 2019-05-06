@@ -1,7 +1,7 @@
-import React from 'react'
+import * as React from 'react'
 import Link from 'gatsby-link'
-import Img from 'gatsby-image'
-import styled  from 'styled-components'
+import Img, { FluidObject } from 'gatsby-image'
+import styled from 'styled-components'
 
 const MyLink = styled(Link)`
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
@@ -79,16 +79,26 @@ const MyText = styled.p`
   }
 `
 
-const ArticlePreview = ({ article, heroImage }) => {
+interface IProps {
+  slug: string;
+  publishDate: string;
+  title: string;
+  description: string;
+  heroImage: {
+    sizes: FluidObject;
+  };
+}
+
+const ArticlePreview: React.FC<IProps> = ({ slug, publishDate, title, description, heroImage }) => {
   return (
-    <MyLink to={ `/blog/${article.slug}` }>
-      <DateView>{ article.publishDate }</DateView>
-      <MyImage sizes={ heroImage.sizes } imgStyle={{
+    <MyLink to={ `/blog/${slug}` }>
+      <DateView>{ publishDate }</DateView>
+      <MyImage sizes={ heroImage.sizes } imgStyle={ {
         objectFit: 'contain',
-      }} alt="" />
+      } } alt="" />
       <MyBody>
-        <MainTitle>{ article.title }</MainTitle>
-        <MyText>{ article.description.description }</MyText>
+        <MainTitle>{ title }</MainTitle>
+        <MyText>{ description }</MyText>
       </MyBody>
     </MyLink>
   )

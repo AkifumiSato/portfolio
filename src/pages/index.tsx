@@ -1,11 +1,10 @@
-import React from 'react'
+import * as React from 'react'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/Layout'
 import styled, { keyframes } from 'styled-components'
 import { ralewayMixin } from '../styles/mixin/font'
-import get from 'lodash/get'
 
 const TitleWrap = styled.div`
   left: 0;
@@ -37,11 +36,15 @@ const fadeIn = keyframes`
   }
 `
 
+interface IStrongFont {
+  delay: string;
+}
+
 const StrongFont = styled.strong`
   color: #00C5B2;
   font-weight: normal;
   animation: ${fadeIn} 1s;
-  animation-delay: ${props => props.delay};
+  animation-delay: ${(props: IStrongFont) => props.delay};
   animation-fill-mode: forwards;
   opacity: 0;
 `
@@ -127,9 +130,25 @@ const MenuLink = styled(Link)`
   }
 `
 
-export default ({ data }) => {
-  const siteTitle = get(data, 'site.siteMetadata.title')
-  const menuLinks = [
+interface IProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string;
+      }
+    }
+  }
+}
+
+const IndexPage: React.FC<IProps> = ({ data }) => {
+  const siteTitle = data.site.siteMetadata.title
+
+  interface IMenuLinks {
+    name: string;
+    url: string;
+  }
+
+  const menuLinks: Array<IMenuLinks> = [
     {
       name: 'about',
       url: '/about/',
@@ -145,7 +164,7 @@ export default ({ data }) => {
   ]
 
   return (
-    <Layout rootLink={ false }>
+    <Layout rootLinkDisplay={ false }>
       <CustomHead title={ siteTitle } />
       <TitleWrap className="raleway">
         <MainTitle>
@@ -169,6 +188,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default IndexPage
 
 export const pageQuery = graphql`
   query HomeQuery {

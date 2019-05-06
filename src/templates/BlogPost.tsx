@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
-import Prism from 'prismjs'
+import * as React from 'react'
+import * as Prism from 'prismjs'
 import 'prismjs/themes/prism.css'
-import get from 'lodash/get'
-import Img from 'gatsby-image'
+import { get } from 'lodash'
+import Img, { FluidObject } from 'gatsby-image'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/Layout'
@@ -29,12 +29,34 @@ const MyImg = styled(Img)`
   }
 `
 
-const BlogPost = ({ data }) => {
-  const post = get(data, 'contentfulBlogPost')
-  const siteTitle = `${post.title} - ${get(data, 'site.siteMetadata.title')}`
+interface IProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string;
+      }
+    }
+    contentfulBlogPost: {
+      title: string;
+      heroImage: {
+        sizes: FluidObject;
+      };
+      publishDate: string;
+      body: {
+        childMarkdownRemark: {
+          html: string;
+        }
+      };
+    }
+  }
+}
+
+const BlogPost: React.FC<IProps> = ({ data }) => {
+  const post = data.contentfulBlogPost
+  const siteTitle = `${post.title} - ${data.site.siteMetadata.title}`
   const { description } = get(data, 'contentfulBlogPost.description')
 
-  useEffect(() => {
+  React.useEffect(() => {
     Prism.highlightAll()
   })
 
@@ -52,9 +74,9 @@ const BlogPost = ({ data }) => {
       <MyContents>
         <Publish>{ post.publishDate }</Publish>
         <Article
-             dangerouslySetInnerHTML={ {
-               __html: post.body.childMarkdownRemark.html,
-             } }
+          dangerouslySetInnerHTML={ {
+            __html: post.body.childMarkdownRemark.html,
+          } }
         />
       </MyContents>
     </Layout>

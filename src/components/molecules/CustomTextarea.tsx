@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import Error from '../atoms/FormError'
 import styled  from 'styled-components'
 
@@ -25,18 +25,28 @@ const MyTextarea = styled.textarea`
   }
 `
 
-const CusomTextarea = (props) => {
+interface IProps {
+  name: string;
+  cols?: number;
+  rows?: number;
+  value?: string;
+  placeholder?: string;
+  onBlur?: Function;
+  error?: string;
+}
+
+const CustomTextarea: React.FC<IProps> = (props) => {
   const {
     name,
-    cols = '30',
-    rows = '5',
+    cols = 30,
+    rows = 5,
     value = '',
     placeholder = 'Free Text',
     onBlur = () => true,
     error = '',
   } = props
 
-  const [tmpValue, setTmpValue] = useState(value)
+  const [tmpValue, setTmpValue] = React.useState(value)
 
   return (
     <Wrapper>
@@ -54,4 +64,4 @@ const CusomTextarea = (props) => {
   )
 }
 
-export default CusomTextarea
+export default CustomTextarea

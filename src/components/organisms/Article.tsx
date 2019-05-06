@@ -1,8 +1,13 @@
-// eslint-disable-next-line
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 
-const Article = styled.div`
+interface IProps {
+  dangerouslySetInnerHTML?: {
+    __html: string;
+  };
+}
+
+const Article: React.FC<IProps> = styled.div`
   &:not(:first-child) {
     margin-top: 50px;
   }

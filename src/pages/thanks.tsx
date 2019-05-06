@@ -1,5 +1,4 @@
-import React from 'react'
-import get from 'lodash/get'
+import * as React from 'react'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/Layout'
@@ -15,8 +14,18 @@ const Thanks = styled.p`
   text-align: center;
 `
 
-export default ({ data }) => {
-  const siteTitle = `Thanks - ${get(data, 'site.siteMetadata.title')}`
+interface IProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string;
+      }
+    }
+  }
+}
+
+const ThanksPage: React.FC<IProps> = ({ data }) => {
+  const siteTitle = `Thanks - ${data.site.siteMetadata.title}`
 
   return (
     <Layout>
@@ -25,6 +34,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default ThanksPage
 
 export const pageQuery = graphql`
   query ThanksQuery {

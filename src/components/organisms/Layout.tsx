@@ -1,8 +1,10 @@
-import React from 'react'
+import * as React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import { GlobalStyles, ralewayMixin } from '../../styles/mixin/font'
+import * as font from '../../styles/mixin/font'
 import Navigation from '../molecules/Navigation'
+
+const { GlobalStyles, ralewayMixin } = font
 
 const Wrapper = styled.div`
   box-sizing: border-box;
@@ -44,7 +46,11 @@ const Copyright = styled.p`
   ${ralewayMixin}
 `
 
-const Layout = ({ children, rootLink = true }) => {
+interface IProps {
+  rootLinkDisplay?: boolean;
+}
+
+const Layout: React.FC<IProps> = ({ children, rootLinkDisplay = true }) => {
   const date = new Date()
   const year = date.getFullYear()
 
@@ -52,7 +58,7 @@ const Layout = ({ children, rootLink = true }) => {
     <Wrapper>
       <GlobalStyles />
       <Navigation />
-      { rootLink && (
+      { rootLinkDisplay && (
         <SiteRootLink to={ '/' }>
           <StrongFont>A</StrongFont>KIFUMI
           &nbsp;

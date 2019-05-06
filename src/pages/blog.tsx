@@ -1,11 +1,12 @@
-import React from 'react'
-import get from 'lodash/get'
+import * as React from 'react'
+import { get } from 'lodash'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/Layout'
 import styled from 'styled-components'
 import ArticlePreview from '../components/molecules/ArticlePreview'
 import MainTitle from '../components/atoms/MainTitle'
+import { FluidObject } from 'gatsby-image'
 
 const MyList = styled.ul`
   & > li:not(:first-child) {
@@ -23,9 +24,34 @@ const MyArticle = styled.div`
   margin-top: 10px;
 `
 
-const BlogPage = ({ data }) => {
-  const posts = get(data, 'allContentfulBlogPost.edges')
-  const siteTitle = `Blog - ${get(data, 'site.siteMetadata.title')}`
+interface IProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string;
+      }
+    }
+    allContentfulBlogPost: {
+      edges: [{
+        node: {
+          slug: string;
+          publishDate: string;
+          title: string;
+          description: {
+            description: string;
+          };
+          heroImage: {
+            sizes: FluidObject;
+          };
+        };
+      }]
+    }
+  }
+}
+
+const BlogPage: React.FC<IProps> = ({ data }) => {
+  const posts = data.allContentfulBlogPost.edges
+  const siteTitle = `Blog - ${data.site.siteMetadata.title}`
 
   return (
     <Layout>
@@ -36,7 +62,13 @@ const BlogPage = ({ data }) => {
           { posts.map(({ node }) => {
             return (
               <li key={ node.slug }>
-                <ArticlePreview article={ node } heroImage={ node.heroImage } />
+                <ArticlePreview
+                  slug={ node.slug }
+                  publishDate={ node.publishDate }
+                  title={ node.title }
+                  description={ node.description.description }
+                  heroImage={ node.heroImage }
+                />
               </li>
             )
           }) }
