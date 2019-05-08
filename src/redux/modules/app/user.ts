@@ -22,15 +22,15 @@ export interface IUserMember {
 const UserRecord = Record({
   name: {
     value: '',
-    error: '初期値が設定されています。',
+    error: '',
   },
   email: {
     value: '',
-    error: '初期値が設定されています。',
+    error: '',
   },
   comment: {
     value: '',
-    error: '初期値が設定されています。',
+    error: '',
   },
 })
 
