@@ -7,15 +7,15 @@ const contactValidater_1 = require("../../utils/contactValidater");
 const UserRecord = immutable_1.Record({
     name: {
         value: '',
-        error: '初期値が設定されています。',
+        error: '',
     },
     email: {
         value: '',
-        error: '初期値が設定されています。',
+        error: '',
     },
     comment: {
         value: '',
-        error: '初期値が設定されています。',
+        error: '',
     },
 });
 class UserModel extends UserRecord {

@@ -75,7 +75,7 @@ const MyText = styled_components_1.default.p `
   }
 `;
 const ArticlePreview = ({ slug, publishDate, title, description, heroImage }) => {
-    return (React.createElement(MyLink, { to: `/blog/${slug}` },
+    return (React.createElement(MyLink, { to: `/blog/${publishDate}/${slug}.html` },
         React.createElement(DateView, null, publishDate),
         React.createElement(MyImage, { sizes: heroImage.sizes, imgStyle: {
                 objectFit: 'contain',

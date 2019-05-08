@@ -86,8 +86,8 @@ const BlogPost: React.FC<IProps> = ({ data }) => {
 export default BlogPost
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    contentfulBlogPost(slug: { eq: $slug }) {
+  query BlogPostBySlug($id: String!) {
+    contentfulBlogPost(id: { eq: $id }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
