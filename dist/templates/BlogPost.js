@@ -49,8 +49,8 @@ const BlogPost = ({ data }) => {
 };
 exports.default = BlogPost;
 exports.pageQuery = gatsby_1.graphql `
-  query BlogPostBySlug($slug: String!) {
-    contentfulBlogPost(slug: { eq: $slug }) {
+  query BlogPostBySlug($id: String!) {
+    contentfulBlogPost(id: { eq: $id }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {

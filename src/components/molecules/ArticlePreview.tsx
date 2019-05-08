@@ -91,7 +91,7 @@ interface IProps {
 
 const ArticlePreview: React.FC<IProps> = ({ slug, publishDate, title, description, heroImage }) => {
   return (
-    <MyLink to={ `/blog/${slug}` }>
+    <MyLink to={ `/blog/${publishDate}/${slug}.html` }>
       <DateView>{ publishDate }</DateView>
       <MyImage sizes={ heroImage.sizes } imgStyle={ {
         objectFit: 'contain',
