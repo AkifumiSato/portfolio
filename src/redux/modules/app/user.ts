@@ -6,16 +6,16 @@ import { nameValidate, mailValidate, commentValidate } from '../../utils/contact
 // model
 export interface IUserMember {
   name: {
-    value: string,
-    error: string,
+    value: string;
+    error: string;
   },
   email: {
-    value: string,
-    error: string,
+    value: string;
+    error: string;
   },
   comment: {
-    value: string,
-    error: string,
+    value: string;
+    error: string;
   }
 }
 
