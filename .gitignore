@@ -67,4 +67,4 @@ public
 .contentful.json
 
 # typescript dist
-# dist
+dist
