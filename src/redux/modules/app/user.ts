@@ -78,7 +78,7 @@ export const validateAction = actionCreator(ActionType.Validate)
 const reducer = reducerWithInitialState(new UserModel())
   .case(updateNameAction, (state, payload) => state.updateName(payload))
   .case(updateEmailAction, (state, payload) => state.updateEmail(payload))
-  .case(updateCommentAction, (state, payload) => state.updateName(payload))
+  .case(updateCommentAction, (state, payload) => state.updateComment(payload))
   .case(validateAction, (state) => state.validate())
 
 export default reducer
