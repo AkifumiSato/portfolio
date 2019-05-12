@@ -1,14 +1,16 @@
 {
-  "name": "contentful-starter-gatsby-blog",
-  "description": "Contentful Gatsby Starter Blog",
+  "name": "portofolio",
+  "description": "Akifumi Sato Portofolio",
   "private": true,
-  "version": "0.0.1",
-  "author": "Contentful <opensource@contentful.com>",
-  "bugs": {
-    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
+  "version": "1.0.1",
+  "author": "Akifumi Sato",
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "heroku-postbuild": "gatsby build",
+    "serve": "gatsby serve"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "2.3.32",
     "gatsby-image": "2.0.35",
     "gatsby-link": "2.0.16",
@@ -27,29 +29,10 @@
     "react-helmet": "5.2.0",
     "react-redux": "6.0.1",
     "redux": "4.0.1",
-    "redux-actions": "2.6.5",
     "styled-components": "4.2.0",
     "typeface-raleway": "0.0.54",
     "typescript-fsa": "^3.0.0-beta-2",
     "typescript-fsa-reducers": "^1.2.1"
-  },
-  "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
-  "keywords": [
-    "gatsby",
-    "contentful",
-    "starter"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/contentful/starter-gatsby-blog.git"
-  },
-  "scripts": {
-    "dev": "gatsby develop",
-    "build": "gatsby build",
-    "heroku-postbuild": "gatsby build",
-    "serve": "gatsby serve"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.123",
@@ -58,6 +41,7 @@
     "@types/react-redux": "^7.0.8",
     "@types/redux-actions": "^2.6.0",
     "@types/styled-components": "^4.1.14",
+    "babel-plugin-styled-components": "^1.10.0",
     "gatsby-plugin-typescript": "^2.0.13"
   }
 }

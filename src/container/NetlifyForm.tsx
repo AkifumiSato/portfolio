@@ -28,8 +28,6 @@ interface IRequired {
 }
 
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>, required: IRequired) => {
-  e.preventDefault()
-
   const isError = Object.values(required).some(({ error }) => Boolean(error))
 
   const sendBody = Object.entries(required).reduce((accumulator: { [key: string]: string; }, [key, { value }]) => {
@@ -93,7 +91,8 @@ const NetlifyForm: React.FC<INetlifyForm> = (props) => {
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       onSubmit={ e => {
-        handleSubmit(e, { name, email, comment })
+        e.preventDefault()
+        isChanged && handleSubmit(e, { name, email, comment })
         validateDispatcher()
         updateChangeFlg()
       } }
