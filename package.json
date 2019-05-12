@@ -4,6 +4,10 @@
   "private": true,
   "version": "1.0.1",
   "author": "Akifumi Sato",
+  "engines": {
+    "node": "10.10.x",
+    "npm": "6.4.1"
+  },
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",

@@ -5,7 +5,7 @@ import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/Layout'
 import NetlifyForm from '../container/NetlifyForm'
 import styled from 'styled-components'
-import { ralewayMixin } from '../styles/mixin/font'
+import { ralewayMixin } from '../styles/font'
 
 const ButtonWrapper = styled.div`
   display: flex;

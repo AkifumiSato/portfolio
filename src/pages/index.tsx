@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/Layout'
 import styled, { keyframes } from 'styled-components'
-import { ralewayMixin } from '../styles/mixin/font'
+import { ralewayMixin } from '../styles/font'
 
 const TitleWrap = styled.div`
   left: 0;

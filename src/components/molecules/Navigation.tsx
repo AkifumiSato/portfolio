@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import styled, { css, keyframes } from 'styled-components'
+import { zIndex } from '../../styles/layout'
 
 const fadeIn = keyframes`
   0% {
@@ -37,7 +38,7 @@ const Overlay = styled.div`
   right: 0;
   top: 0;
   transition: .3s;
-  z-index: 1;
+  z-index: ${zIndex.overlay};
   ${({ open, init }: IOverlay) => open ? css`
     animation: ${fadeIn} .3s;
     animation-fill-mode: forwards;
@@ -171,7 +172,7 @@ const Wrapper = styled.div`
   position: fixed;
   right: 50px;
   top: 50px;
-  z-index: 2;
+  z-index: ${zIndex.overlayContained};
   @media screen and (max-width: 768px) {
     top: 20px;
     right: 20px;
