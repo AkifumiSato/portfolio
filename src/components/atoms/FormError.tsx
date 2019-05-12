@@ -1,5 +1,6 @@
 import * as React  from 'react'
 import styled from 'styled-components'
+import { zIndex} from '../../styles/layout'
 
 const Error = styled.p`
   cursor: pointer;
@@ -12,7 +13,7 @@ const Error = styled.p`
   line-height: 1;
   padding: 10px;
   position: absolute;
-  z-index: 10;
+  z-index: ${zIndex.itemFixed};
   &:before {
     border-color: transparent transparent #f8BBd0;
     border-style: solid;

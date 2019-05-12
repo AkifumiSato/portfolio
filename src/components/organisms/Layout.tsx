@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import * as font from '../../styles/mixin/font'
+import * as font from '../../styles/font'
 import Navigation from '../molecules/Navigation'
 
 const { GlobalStyles, ralewayMixin } = font
