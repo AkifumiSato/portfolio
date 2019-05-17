@@ -12,7 +12,9 @@
     "dev": "gatsby develop",
     "build": "gatsby build",
     "heroku-postbuild": "gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "gatsby": "2.3.32",
@@ -40,13 +42,26 @@
     "typescript-fsa-reducers": "^1.2.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-info": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addons": "^5.0.11",
+    "@storybook/react": "^5.0.11",
     "@types/lodash": "^4.14.123",
     "@types/prismjs": "^1.16.0",
     "@types/react-helmet": "^5.0.8",
     "@types/react-redux": "^7.0.8",
     "@types/redux-actions": "^2.6.0",
+    "@types/storybook__addon-actions": "^3.4.2",
+    "@types/storybook__addon-links": "^3.3.4",
+    "@types/storybook__react": "^4.0.1",
     "@types/styled-components": "^4.1.14",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.0",
-    "gatsby-plugin-typescript": "^2.0.13"
+    "gatsby-plugin-typescript": "^2.0.13",
+    "react-docgen-typescript-loader": "^3.1.0",
+    "typescript": "^3.4.5"
   }
 }

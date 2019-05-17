@@ -5,6 +5,7 @@
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "esnext",
+    "rootDirs": ["src", "stories"],
     "jsx": "react",
     "lib": ["dom", "es2018"]
   },
