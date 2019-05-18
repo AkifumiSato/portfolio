@@ -23,7 +23,7 @@ const StoryWrapper = (storyFn: () => React.FC) => (
   </div>
 )
 
-storiesOf(FormError.name, module)
+storiesOf(`atom|${FormError.name}`, module)
   .addDecorator(StoryWrapper)
   .add('FormError',
     withInfo(`

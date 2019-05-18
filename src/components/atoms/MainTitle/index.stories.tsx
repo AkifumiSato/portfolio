@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info'
 import MainTitle from './index'
 
-storiesOf(MainTitle.name, module)
+storiesOf(`atom|${MainTitle.name}`, module)
   .add('Single Title',
     withInfo(`
     上位の階層のタイトルに使用します。

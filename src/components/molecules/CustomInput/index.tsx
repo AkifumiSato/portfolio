@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Error from '../atoms/FormError'
+import Error from '../../atoms/FormError'
 import styled  from 'styled-components'
 
 const Wrapper = styled.div`

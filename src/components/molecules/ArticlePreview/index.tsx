@@ -80,7 +80,7 @@ const MyText = styled.p`
 `
 
 interface IProps {
-  slug: string;
+  url: string;
   publishDate: string;
   title: string;
   description: string;
@@ -89,9 +89,9 @@ interface IProps {
   };
 }
 
-const ArticlePreview: React.FC<IProps> = ({ slug, publishDate, title, description, heroImage }) => {
+const ArticlePreview: React.FC<IProps> = ({ url, publishDate, title, description, heroImage }) => {
   return (
-    <MyLink to={ `/blog/${publishDate}/${slug}.html` }>
+    <MyLink to={ url }>
       <DateView>{ publishDate }</DateView>
       <MyImage sizes={ heroImage.sizes } imgStyle={ {
         objectFit: 'contain',
