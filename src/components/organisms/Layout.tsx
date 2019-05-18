@@ -2,9 +2,10 @@ import * as React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import * as font from '../../styles/font'
+import { GlobalStyles } from '../../styles/global'
 import Navigation from '../molecules/Navigation'
 
-const { GlobalStyles, ralewayMixin } = font
+const { ralewayMixin } = font
 
 const Wrapper = styled.div`
   box-sizing: border-box;
