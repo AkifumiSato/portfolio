@@ -1,6 +1,6 @@
 import * as React  from 'react'
 import styled from 'styled-components'
-import { zIndex} from '../../styles/layout'
+import { zIndex } from '../../../styles/layout'
 
 const Error = styled.p`
   cursor: pointer;

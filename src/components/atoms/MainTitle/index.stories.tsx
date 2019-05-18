@@ -4,9 +4,15 @@ import { withInfo } from '@storybook/addon-info'
 import MainTitle from './index'
 
 storiesOf(MainTitle.name, module)
-  .addDecorator((story, context) => withInfo({
-    text: `記事のメインタイトルなどに使用します。`
-  })(story)(context))
-  .add('Single Title',() => <MainTitle title="Single Title" />)
-  .add('Multi Title',() => <MainTitle title="Single Title" category="BLOG" />)
-
+  .add('Single Title',
+    withInfo(`
+    上位の階層のタイトルに使用します。
+    `)(() =>
+      <MainTitle title="Single Title" />
+    ))
+  .add('Multi Title',
+    withInfo(`
+    下位の階層のタイトルに使用します。
+    `)(() =>
+      <MainTitle title="Multi Title" category="BLOG" />
+    ))

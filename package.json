@@ -60,6 +60,8 @@
     "@types/styled-components": "^4.1.14",
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.0",
-    "gatsby-plugin-typescript": "^2.0.13"
+    "gatsby-plugin-typescript": "^2.0.13",
+    "react-docgen-typescript-loader": "^3.1.0",
+    "typescript": "^3.4.5"
   }
 }
