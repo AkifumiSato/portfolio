@@ -37,6 +37,7 @@ const Wrapper = styled.div`
 `
 
 const MyInput = styled.input`
+  background-color: transparent;
   font-size: 18px;
   line-height: 2;
   padding: 10px;

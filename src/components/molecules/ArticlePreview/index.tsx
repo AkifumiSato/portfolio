@@ -4,6 +4,7 @@ import Img, { FluidObject } from 'gatsby-image'
 import styled from 'styled-components'
 
 const MyLink = styled(Link)`
+  background-color: #fff;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   display: flex;
