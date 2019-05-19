@@ -9,6 +9,7 @@
     "npm": "6.4.1"
   },
   "scripts": {
+    "start": "gatsby develop & npm run storybook",
     "dev": "gatsby develop",
     "build": "gatsby build",
     "heroku-postbuild": "gatsby build",

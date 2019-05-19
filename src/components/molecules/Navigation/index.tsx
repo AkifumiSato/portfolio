@@ -179,33 +179,22 @@ const Wrapper = styled.div`
   }
 `
 
-const Navigation: React.FC = () => {
+interface IMenuLinks {
+  name: string;
+  url: string;
+}
+
+interface IProps {
+  links: IMenuLinks[];
+}
+
+const Navigation: React.FC<IProps> = ({ links }) => {
   const [interact, setInteract] = React.useState(true)
   const [open, setOpen] = React.useState(false)
   const onClick = () => {
     setInteract(false)
     setOpen(!open)
   }
-
-  interface IMenuLinks {
-    name: string;
-    url: string;
-  }
-
-  const menuLinks: Array<IMenuLinks> = [
-    {
-      name: 'about',
-      url: '/about/',
-    },
-    {
-      name: 'blog',
-      url: '/blog/',
-    },
-    {
-      name: 'contact',
-      url: '/contact/',
-    },
-  ]
 
   return (
     <div>
@@ -214,7 +203,7 @@ const Navigation: React.FC = () => {
           <Hamburger open={ open }> </Hamburger>
         </NavigationTrigger>
         <MenuList init={ interact } open={ open }>
-          { menuLinks.map((link, index) => (
+          { links.map((link, index) => (
             <MenuListItem key={ index }>
               <MenuLink to={ link.url }>{ link.name }</MenuLink>
             </MenuListItem>
