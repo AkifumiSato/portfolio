@@ -13,10 +13,10 @@ module.exports = ({ config }) => {
       },
       {
         loader: require.resolve('@storybook/addon-storysource/loader'),
-        options: { parser: 'typescript' }
-      }
+        options: { parser: 'typescript' },
+      },
     ],
-  });
-  config.resolve.extensions.push('.ts', '.tsx');
-  return config;
-};
+  })
+  config.resolve.extensions.push('.ts', '.tsx')
+  return config
+}

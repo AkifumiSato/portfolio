@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
+import * as React from 'react'
+import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { action } from '@storybook/addon-actions'
 import { createGlobalStyle } from 'styled-components'
@@ -13,16 +13,16 @@ const InjectionStyle = createGlobalStyle`
 `
 
 const StoryWrapper = (storyFn: () => React.FC) => (
-  <div style={{
+  <div style={ {
     padding: '30px'
-  }}>
+  } }>
     <GlobalStyles />
     <InjectionStyle />
     { storyFn() }
   </div>
 )
 
-storiesOf(`molecules|${CustomInput.name}`, module)
+storiesOf(`molecules|${ CustomInput.name }`, module)
   .addDecorator(StoryWrapper)
   .add('default',
     withInfo(`
@@ -30,7 +30,7 @@ storiesOf(`molecules|${CustomInput.name}`, module)
     `)(() =>
       <CustomInput
         name="test"
-        onBlur={action('onBlur')}
+        onBlur={ action('onBlur') }
       />
     ))
   .add('custom attribute',
@@ -42,6 +42,6 @@ storiesOf(`molecules|${CustomInput.name}`, module)
         type="mail"
         error="メールアドレスは必須です。"
         placeholder="story@rect.com"
-        onBlur={action('onBlur')}
+        onBlur={ action('onBlur') }
       />
     ))

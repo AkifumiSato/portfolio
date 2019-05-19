@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
+import * as React from 'react'
+import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { createGlobalStyle } from 'styled-components'
 import { GlobalStyles } from '../../../styles/global'
@@ -12,9 +12,9 @@ const InjectionStyle = createGlobalStyle`
 `
 
 const StoryWrapper = (storyFn: () => React.FC) => (
-  <div style={{
+  <div style={ {
     padding: '30px'
-  }}>
+  } }>
     <GlobalStyles />
     <InjectionStyle />
     { storyFn() }
@@ -58,5 +58,5 @@ export default ({ data }) =&gt; {
   )
 }
 </code></pre>`
-        } }/>
+        } } />
     ))

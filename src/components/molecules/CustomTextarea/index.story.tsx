@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
+import * as React from 'react'
+import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { action } from '@storybook/addon-actions'
 import { createGlobalStyle } from 'styled-components'
@@ -13,23 +13,23 @@ const InjectionStyle = createGlobalStyle`
 `
 
 const StoryWrapper = (storyFn: () => React.FC) => (
-  <div style={{
+  <div style={ {
     padding: '30px'
-  }}>
+  } }>
     <GlobalStyles />
     <InjectionStyle />
     { storyFn() }
   </div>
 )
 
-storiesOf(`molecules|${CustomTextarea.name}`, module)
+storiesOf(`molecules|${ CustomTextarea.name }`, module)
   .addDecorator(StoryWrapper)
   .add('default',
     withInfo(`
     defaultのtextareaです。
     `)(() =>
       <CustomTextarea
-        onBlur={action('onBlur')}
+        onBlur={ action('onBlur') }
       />
     ))
   .add('custom attribute',
@@ -37,7 +37,7 @@ storiesOf(`molecules|${CustomTextarea.name}`, module)
     defaultのtextareaです。
     `)(() =>
       <CustomTextarea
-        onBlur={action('onBlur')}
+        onBlur={ action('onBlur') }
         placeholder="サンプル文です。"
         error="本文は必須です。"
       />

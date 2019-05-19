@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
+import * as React from 'react'
+import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { createGlobalStyle } from 'styled-components'
 import { GlobalStyles } from '../../../styles/global'
@@ -19,7 +19,7 @@ const StoryWrapper = (storyFn: () => React.FC) => (
   </div>
 )
 
-storiesOf(`atom|${MainTitle.name}`, module)
+storiesOf(`atom|${ MainTitle.name }`, module)
   .addDecorator(StoryWrapper)
   .add('Single Title',
     withInfo(`
