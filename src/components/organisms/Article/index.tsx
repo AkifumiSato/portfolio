@@ -1,13 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-interface IProps {
-  dangerouslySetInnerHTML?: {
-    __html: string;
-  };
-}
-
-const Article: React.FC<IProps> = styled.div`
+const Article: React.FC<React.DOMAttributes<HTMLDivElement>> = styled.div`
   &:not(:first-child) {
     margin-top: 50px;
   }
