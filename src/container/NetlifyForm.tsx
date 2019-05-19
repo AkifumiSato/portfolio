@@ -134,7 +134,6 @@ const NetlifyForm: React.FC<INetlifyForm> = (props) => {
         error={ isChanged ? email.error : '' }
       />
       <BaseTextArea
-        name='comment'
         value={ comment.value }
         onBlur={ onBlurCommentText }
         error={ isChanged ? comment.error : '' }

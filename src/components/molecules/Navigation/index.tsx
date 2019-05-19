@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import styled, { css, keyframes } from 'styled-components'
-import { zIndex } from '../../styles/layout'
+import { zIndex } from '../../../styles/layout'
 
 const fadeIn = keyframes`
   0% {

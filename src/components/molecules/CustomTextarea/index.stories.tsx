@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info'
 import { action } from '@storybook/addon-actions'
 import { createGlobalStyle } from 'styled-components'
 import { GlobalStyles } from '../../../styles/global'
-import CustomInput from './index'
+import CustomTextarea from './index'
 
 const InjectionStyle = createGlobalStyle`
   body {
@@ -22,26 +22,23 @@ const StoryWrapper = (storyFn: () => React.FC) => (
   </div>
 )
 
-storiesOf(`molecules|${CustomInput.name}`, module)
+storiesOf(`molecules|${CustomTextarea.name}`, module)
   .addDecorator(StoryWrapper)
   .add('default',
     withInfo(`
-    defaultのinputです。typeはtextになっています。
+    defaultのtextareaです。
     `)(() =>
-      <CustomInput
-        name="test"
+      <CustomTextarea
         onBlur={action('onBlur')}
       />
     ))
   .add('custom attribute',
     withInfo(`
-    placeholderやerror表示も可能です。
+    defaultのtextareaです。
     `)(() =>
-      <CustomInput
-        name="test"
-        type="mail"
-        error="メールアドレスは必須です。"
-        placeholder="story@rect.com"
+      <CustomTextarea
         onBlur={action('onBlur')}
+        placeholder="サンプル文です。"
+        error="本文は必須です。"
       />
     ))
