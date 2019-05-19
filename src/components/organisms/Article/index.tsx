@@ -3,7 +3,13 @@ import * as Prism from 'prismjs'
 import 'prismjs/themes/prism.css'
 import styled from 'styled-components'
 
-const Article: React.FC = styled.div`
+interface IProps {
+  dangerouslySetInnerHTML?: {
+    __html: string;
+  };
+}
+
+const ArticleInner: React.FC<IProps> = styled.div`
   &:not(:first-child) {
     margin-top: 50px;
   }
@@ -99,4 +105,6 @@ const PrismEffect = <T extends {}>(Component: React.FC<T>): React.FC<T> => (prop
   )
 }
 
-export default PrismEffect<React.DOMAttributes<HTMLDivElement>>(Article)
+const Article = PrismEffect(ArticleInner)
+
+export default Article

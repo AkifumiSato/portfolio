@@ -25,7 +25,8 @@ storiesOf(`organisms|Article`, module)
   .addDecorator(StoryWrapper)
   .add('article html',
     withInfo(`
-    Blogの記事にstyleを適用するComponentです。
+    Blogの記事にstyleを適用するComponentです。\n
+    PrismJSの適用を行なってソースコードを表示することもできます。
     `)(() =>
       <Article
         dangerouslySetInnerHTML={ {
@@ -56,7 +57,6 @@ export default ({ data }) =&gt; {
     &lt;/Layout&gt;
   )
 }
-</code></pre>
-            `,
+</code></pre>`
         } }/>
     ))
