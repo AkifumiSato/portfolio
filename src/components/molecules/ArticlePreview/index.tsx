@@ -4,6 +4,7 @@ import Img, { FluidObject } from 'gatsby-image'
 import styled from 'styled-components'
 
 const MyLink = styled(Link)`
+  background-color: #fff;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   display: flex;
@@ -80,7 +81,7 @@ const MyText = styled.p`
 `
 
 interface IProps {
-  slug: string;
+  url: string;
   publishDate: string;
   title: string;
   description: string;
@@ -89,9 +90,9 @@ interface IProps {
   };
 }
 
-const ArticlePreview: React.FC<IProps> = ({ slug, publishDate, title, description, heroImage }) => {
+const ArticlePreview: React.FC<IProps> = ({ url, publishDate, title, description, heroImage }) => {
   return (
-    <MyLink to={ `/blog/${publishDate}/${slug}.html` }>
+    <MyLink to={ url }>
       <DateView>{ publishDate }</DateView>
       <MyImage sizes={ heroImage.sizes } imgStyle={ {
         objectFit: 'contain',

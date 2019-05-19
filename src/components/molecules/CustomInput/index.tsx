@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Error from '../atoms/FormError'
+import Error from '../../atoms/FormError'
 import styled  from 'styled-components'
 
 const Wrapper = styled.div`
@@ -37,6 +37,7 @@ const Wrapper = styled.div`
 `
 
 const MyInput = styled.input`
+  background-color: transparent;
   font-size: 18px;
   line-height: 2;
   padding: 10px;

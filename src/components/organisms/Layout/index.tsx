@@ -1,10 +1,11 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import * as font from '../../styles/font'
-import Navigation from '../molecules/Navigation'
+import * as font from '../../../styles/font'
+import { GlobalStyles } from '../../../styles/global'
+import Navigation from '../../molecules/Navigation'
 
-const { GlobalStyles, ralewayMixin } = font
+const { ralewayMixin } = font
 
 const Wrapper = styled.div`
   box-sizing: border-box;
@@ -21,7 +22,7 @@ const SiteRootLink = styled(Link)`
   text-align: left;
   text-decoration: none;
   font-size: 18px;
-  ${ralewayMixin}
+  ${ ralewayMixin }
 `
 
 const StrongFont = styled.strong`
@@ -43,7 +44,7 @@ const Copyright = styled.p`
   @media screen and (max-width: 768px) {
     left: 20px;
   }
-  ${ralewayMixin}
+  ${ ralewayMixin }
 `
 
 interface IProps {
@@ -57,7 +58,22 @@ const Layout: React.FC<IProps> = ({ children, rootLinkDisplay = true }) => {
   return (
     <Wrapper>
       <GlobalStyles />
-      <Navigation />
+      <Navigation
+        links={ [
+          {
+            name: 'about',
+            url: '/about/',
+          },
+          {
+            name: 'blog',
+            url: '/blog/',
+          },
+          {
+            name: 'contact',
+            url: '/contact/',
+          },
+        ] }
+      />
       { rootLinkDisplay && (
         <SiteRootLink to={ '/' }>
           <StrongFont>A</StrongFont>KIFUMI

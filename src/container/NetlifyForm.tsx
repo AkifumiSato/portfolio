@@ -83,6 +83,28 @@ const NetlifyForm: React.FC<INetlifyForm> = (props) => {
 
   const updateChangeFlg = () => !isChanged && changeDispatcher()
 
+  const onSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    isChanged && handleSubmit(e, { name, email, comment })
+    validateDispatcher()
+    updateChangeFlg()
+  }
+
+  const onBlurNameInput = (e: React.FormEvent<HTMLInputElement>) => {
+    nameDispatcher(e.currentTarget.value)
+    updateChangeFlg()
+  }
+
+  const onBlurEmailInput = (e: React.FormEvent<HTMLInputElement>) => {
+    emailDispatcher(e.currentTarget.value)
+    updateChangeFlg()
+  }
+
+  const onBlurCommentText = (e: React.FormEvent<HTMLInputElement>) => {
+    commentDispatcher(e.currentTarget.value)
+    updateChangeFlg()
+  }
+
   return (
     <form
       name="contact"
@@ -90,12 +112,7 @@ const NetlifyForm: React.FC<INetlifyForm> = (props) => {
       action="/thanks/"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      onSubmit={ e => {
-        e.preventDefault()
-        isChanged && handleSubmit(e, { name, email, comment })
-        validateDispatcher()
-        updateChangeFlg()
-      } }
+      onSubmit={ onSubmitForm }
     >
       <div style={ { display: 'none' } }>
         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
@@ -105,10 +122,7 @@ const NetlifyForm: React.FC<INetlifyForm> = (props) => {
         name='name'
         placeholder='Your name'
         value={ name.value }
-        onBlur={ (e: React.FormEvent<HTMLInputElement>) => {
-          nameDispatcher(e.currentTarget.value)
-          updateChangeFlg()
-        } }
+        onBlur={ onBlurNameInput }
         error={ isChanged ? name.error : '' }
       />
       <BaseInput
@@ -116,19 +130,12 @@ const NetlifyForm: React.FC<INetlifyForm> = (props) => {
         name='email'
         placeholder='Email: xxxx@mail.com'
         value={ email.value }
-        onBlur={ (e: React.FormEvent<HTMLInputElement>) => {
-          emailDispatcher(e.currentTarget.value)
-          updateChangeFlg()
-        } }
+        onBlur={ onBlurEmailInput }
         error={ isChanged ? email.error : '' }
       />
       <BaseTextArea
-        name='comment'
         value={ comment.value }
-        onBlur={ (e: React.FormEvent<HTMLInputElement>) => {
-          commentDispatcher(e.currentTarget.value)
-          updateChangeFlg()
-        } }
+        onBlur={ onBlurCommentText }
         error={ isChanged ? comment.error : '' }
       />
       { children }

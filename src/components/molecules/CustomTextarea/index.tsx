@@ -1,9 +1,12 @@
 import * as React from 'react'
-import Error from '../atoms/FormError'
+import Error from '../../atoms/FormError'
 import styled  from 'styled-components'
 
 const Wrapper = styled.div`
   position: relative;
+  &:not(:first-child) {
+    margin-top: 60px;
+  }
 `
 
 const MyTextarea = styled.textarea`
@@ -14,7 +17,6 @@ const MyTextarea = styled.textarea`
   line-height: 1.5;
   outline: 1px solid transparent;
   padding: 20px;
-  margin-top: 60px;
   width: 100%;
   &:focus {
     border: 2px solid #00C5B2;
@@ -26,7 +28,6 @@ const MyTextarea = styled.textarea`
 `
 
 interface IProps {
-  name: string;
   cols?: number;
   rows?: number;
   value?: string;
@@ -37,7 +38,6 @@ interface IProps {
 
 const CustomTextarea: React.FC<IProps> = (props) => {
   const {
-    name,
     cols = 30,
     rows = 5,
     value = '',
@@ -51,7 +51,6 @@ const CustomTextarea: React.FC<IProps> = (props) => {
   return (
     <Wrapper>
       <MyTextarea
-        name={ name }
         cols={ cols }
         rows={ rows }
         value={ tmpValue }

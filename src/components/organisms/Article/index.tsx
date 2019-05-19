@@ -1,4 +1,6 @@
 import * as React from 'react'
+import * as Prism from 'prismjs'
+import 'prismjs/themes/prism.css'
 import styled from 'styled-components'
 
 interface IProps {
@@ -7,7 +9,7 @@ interface IProps {
   };
 }
 
-const Article: React.FC<IProps> = styled.div`
+const ArticleInner: React.FC<IProps> = styled.div`
   &:not(:first-child) {
     margin-top: 50px;
   }
@@ -91,5 +93,18 @@ const Article: React.FC<IProps> = styled.div`
     }
   }
 `
+
+// prism effect hoc
+const PrismEffect = <T extends {}>(Component: React.FC<T>): React.FC<T> => (props) => {
+  React.useEffect(() => {
+    Prism.highlightAll()
+  })
+
+  return (
+    <Component {...props} />
+  )
+}
+
+const Article = PrismEffect(ArticleInner)
 
 export default Article

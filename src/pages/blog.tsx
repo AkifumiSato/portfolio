@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { get } from 'lodash'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/Layout'
@@ -63,7 +62,7 @@ const BlogPage: React.FC<IProps> = ({ data }) => {
             return (
               <li key={ node.slug }>
                 <ArticlePreview
-                  slug={ node.slug }
+                  url={`/blog/${node.publishDate}/${node.slug}.html`}
                   publishDate={ node.publishDate }
                   title={ node.title }
                   description={ node.description.description }
