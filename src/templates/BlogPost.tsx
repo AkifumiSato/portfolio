@@ -1,6 +1,4 @@
 import * as React from 'react'
-import * as Prism from 'prismjs'
-import 'prismjs/themes/prism.css'
 import { get } from 'lodash'
 import Img, { FluidObject } from 'gatsby-image'
 import { graphql } from 'gatsby'
@@ -55,10 +53,6 @@ const BlogPost: React.FC<IProps> = ({ data }) => {
   const post = data.contentfulBlogPost
   const siteTitle = `${post.title} - ${data.site.siteMetadata.title}`
   const { description } = get(data, 'contentfulBlogPost.description')
-
-  React.useEffect(() => {
-    Prism.highlightAll()
-  })
 
   return (
     <Layout>

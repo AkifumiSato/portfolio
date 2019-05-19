@@ -30,8 +30,6 @@ storiesOf(`organisms|Article`, module)
       <Article
         dangerouslySetInnerHTML={ {
           __html: `
-            <html lang="ja">
-            <body>
               <h2>h2 title</h2>
               <h3>h3 title</h3>
               <p>paragraph</p>
@@ -44,8 +42,21 @@ storiesOf(`organisms|Article`, module)
                 <li>list item</li>
               </ol>
               <p><a href="#">link</a></p>
-            </body>
-            </html>
+<pre><code class="language-javascript">import React from 'react'
+import Helmet from 'react-helmet'
+import Layout from '../components/organisms/layout'
+
+export default ({ data }) =&gt; {
+  return (
+    &lt;Layout&gt;
+      &lt;Helmet&gt;
+        &lt;html lang="ja" /&gt;
+        &lt;title&gt;site title&lt;/title&gt;
+      &lt;/Helmet&gt;
+    &lt;/Layout&gt;
+  )
+}
+</code></pre>
             `,
         } }/>
     ))
