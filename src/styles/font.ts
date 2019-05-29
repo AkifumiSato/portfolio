@@ -1,5 +1,5 @@
 import { css } from "styled-components"
-import 'typeface-raleway'
+import 'typeface-raleway/index.css'
 
 export const ralewayMixin = css`
   font-family: 'Raleway', sans-serif;
