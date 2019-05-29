@@ -20,25 +20,27 @@ const StoryWrapper = (storyFn: () => React.FC) => (
 )
 
 storiesOf(`molecules|${ Navigation.name }`, module)
+  .addDecorator(withInfo)
   .addDecorator(StoryWrapper)
   .add('default',
-    withInfo(`
-    navigationのOverlayとリンクのセットです。
-    `)(() =>
-      <Navigation
-        links={ [
-          {
-            name: 'about',
-            url: '/about/',
-          },
-          {
-            name: 'blog',
-            url: '/blog/',
-          },
-          {
-            name: 'contact',
-            url: '/contact/',
-          },
-        ] }
-      />
-    ))
+    () => <Navigation
+      links={ [
+        {
+          name: 'about',
+          url: '/about/',
+        },
+        {
+          name: 'blog',
+          url: '/blog/',
+        },
+        {
+          name: 'contact',
+          url: '/contact/',
+        },
+      ] }
+    />,
+    {
+      info: `
+        navigationのOverlayとリンクのセットです。
+      `
+    })

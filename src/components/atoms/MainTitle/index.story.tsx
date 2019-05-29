@@ -20,16 +20,21 @@ const StoryWrapper = (storyFn: () => React.FC) => (
 )
 
 storiesOf(`atom|${ MainTitle.name }`, module)
+  .addDecorator(withInfo)
   .addDecorator(StoryWrapper)
-  .add('Single Title',
-    withInfo(`
-    上位の階層のタイトルに使用します。
-    `)(() =>
-      <MainTitle title="Single Title" />
-    ))
-  .add('Multi Title',
-    withInfo(`
-    下位の階層のタイトルに使用します。
-    `)(() =>
-      <MainTitle title="Multi Title" category="BLOG" />
-    ))
+  .add(
+    'Single Title',
+    () => <MainTitle title="Single Title" />,
+    {
+      info: `
+        上位の階層のタイトルに使用します。
+      `
+    })
+  .add(
+    'Multi Title', () =>
+      <MainTitle title="Multi Title" category="BLOG" />,
+    {
+      info: `
+        下位の階層のタイトルに使用します。
+      `
+    })
