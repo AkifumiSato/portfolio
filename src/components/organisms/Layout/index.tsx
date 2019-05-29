@@ -47,6 +47,10 @@ const Copyright = styled.p`
   ${ ralewayMixin }
 `
 
+const PolicyLink = styled.a`
+  font-style: italic;
+`
+
 interface IProps {
   rootLinkDisplay?: boolean;
 }
@@ -83,7 +87,7 @@ const Layout: React.FC<IProps> = ({ children, rootLinkDisplay = true }) => {
       ) }
       <Contents>
         { children }
-        <Copyright>©︎akfm.dev { year }</Copyright>
+        <Copyright>©︎akfm.dev { year }. Using <PolicyLink href="https://www.google.com/intl/ja/policies/privacy/partners/" target="_blank">Google Analytics</PolicyLink></Copyright>
       </Contents>
     </Wrapper>
   )
