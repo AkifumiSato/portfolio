@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<h1
+  className="sc-bdVaJa gUyIKe"
+>
+  <span
+    className="sc-bwzfXH dKffac"
+  >
+    BLOG
+  </span>
+  <span
+    className="sc-htpNat buhAHh"
+  >
+    Multi Title
+  </span>
+</h1>
+`;
