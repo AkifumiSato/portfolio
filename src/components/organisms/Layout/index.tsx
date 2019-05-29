@@ -87,7 +87,7 @@ const Layout: React.FC<IProps> = ({ children, rootLinkDisplay = true }) => {
       ) }
       <Contents>
         { children }
-        <Copyright>©︎akfm.dev { year }. Using <PolicyLink href="https://www.google.com/intl/ja/policies/privacy/partners/" target="_blank">Google Analytics</PolicyLink></Copyright>
+        <Copyright>©︎akfm.dev { year }. Using <PolicyLink href="https://www.google.com/intl/ja/policies/privacy/partners/" target="_blank" rel="noopener">Google Analytics</PolicyLink></Copyright>
       </Contents>
     </Wrapper>
   )
