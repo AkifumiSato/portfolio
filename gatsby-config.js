@@ -67,5 +67,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        respectDNT: true,
+        trackingId: "UA-141036262-1",
+      },
+    },
   ],
 }
