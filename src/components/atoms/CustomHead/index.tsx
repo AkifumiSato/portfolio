@@ -17,6 +17,7 @@ const CustomHead: React.FC<IProps> = (props) => {
       <html lang="ja" />
       <title>{ title }</title>
       <meta content={ description } name="description" />
+      <meta name="google-site-verification" content="vQCQ-0lH7yD8IMb3F4dAURg3-kY_unE4XAuySpNshZ8" />
     </Helmet>
   )
 }
