@@ -23,25 +23,31 @@ const StoryWrapper = (storyFn: () => React.FC) => (
 )
 
 storiesOf(`molecules|${ CustomInput.name }`, module)
+  .addDecorator(withInfo)
   .addDecorator(StoryWrapper)
-  .add('default',
-    withInfo(`
-    defaultのinputです。typeはtextになっています。
-    `)(() =>
-      <CustomInput
-        name="test"
-        onBlur={ action('onBlur') }
-      />
-    ))
-  .add('custom attribute',
-    withInfo(`
-    placeholderやerror表示も可能です。
-    `)(() =>
+  .add(
+    'default',
+    () => <CustomInput
+      name="test"
+      onBlur={ action('onBlur') }
+    />,
+    {
+      info: `
+        defaultのinputです。typeはtextになっています。
+      `
+    })
+  .add(
+    'custom attribute',
+    () =>
       <CustomInput
         name="test"
         type="mail"
         error="メールアドレスは必須です。"
         placeholder="story@rect.com"
         onBlur={ action('onBlur') }
-      />
-    ))
+      />,
+    {
+      info: `
+        placeholderやerror表示も可能です。
+      `
+    })

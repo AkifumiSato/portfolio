@@ -1,9 +1,26 @@
+# build process
+* web
+* storybook
+* jest
+
 # command
-### dependencies install
-npm i
+## develop
+```sh
+npm start
+```
 
-### develop
-gatsby develop
+## test
+```sh
+npm test
+```
 
-### build
+## build
+### web
+```sh
 gatsby build
+```
+
+### storybook
+```sh
+npm run build-storybook
+```

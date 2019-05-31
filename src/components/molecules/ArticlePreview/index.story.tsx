@@ -22,12 +22,11 @@ const StoryWrapper = (storyFn: () => React.FC) => (
 )
 
 storiesOf(`molecules|${ ArticlePreview.name }`, module)
+  .addDecorator(withInfo)
   .addDecorator(StoryWrapper)
-  .add('Simple cassette',
-    withInfo(`
-    Blogの一覧表示時のカセットです。gatsby-imageに渡しているのでheroImageの型には注意してください。
-    `)(() =>
-      <ArticlePreview
+  .add(
+    'Simple cassette',
+    () => <ArticlePreview
         url="/blog/yyyy-mm-dd/slug.html"
         publishDate="yyyy/mm/dd"
         title="post title"
@@ -42,5 +41,9 @@ storiesOf(`molecules|${ ArticlePreview.name }`, module)
             sizes: '(max-width: 350px) 100vw, 350px',
           }
         } }
-      />
-    ))
+      />,
+    {
+      info: `
+        Blogの一覧表示時のカセットです。gatsby-imageに渡しているのでheroImageの型には注意してください。
+      `
+    })

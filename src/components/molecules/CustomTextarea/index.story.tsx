@@ -23,22 +23,27 @@ const StoryWrapper = (storyFn: () => React.FC) => (
 )
 
 storiesOf(`molecules|${ CustomTextarea.name }`, module)
+  .addDecorator(withInfo)
   .addDecorator(StoryWrapper)
-  .add('default',
-    withInfo(`
-    defaultのtextareaです。
-    `)(() =>
-      <CustomTextarea
-        onBlur={ action('onBlur') }
-      />
-    ))
-  .add('custom attribute',
-    withInfo(`
-    defaultのtextareaです。
-    `)(() =>
-      <CustomTextarea
-        onBlur={ action('onBlur') }
-        placeholder="サンプル文です。"
-        error="本文は必須です。"
-      />
-    ))
+  .add(
+    'default',
+    () => <CustomTextarea
+      onBlur={ action('onBlur') }
+    />,
+    {
+      info: `
+        defaultのtextareaです。
+      `
+    })
+  .add(
+    'custom attribute',
+    () => <CustomTextarea
+      onBlur={ action('onBlur') }
+      placeholder="サンプル文です。"
+      error="本文は必須です。"
+    />,
+    {
+      info: `
+        defaultのtextareaです。
+      `
+    })

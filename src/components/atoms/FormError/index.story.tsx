@@ -33,10 +33,13 @@ const StoryWrapper = (storyFn: () => React.FC) => (
 )
 
 storiesOf(`atom|${ FormError.name }`, module)
+  .addDecorator(withInfo)
   .addDecorator(StoryWrapper)
   .add('FormError',
-    withInfo(`
-    formパーツでエラーを表現するのに使用します。
-    `)(() =>
-      <FormError text="名前は必須です。" />
-    ))
+    () =>
+      <FormError text="名前は必須です。" />,
+    {
+      info: `
+        formパーツでエラーを表現するのに使用します。
+      `
+    })
