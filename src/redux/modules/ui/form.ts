@@ -7,14 +7,14 @@ export interface IFormMember {
   isChanged: boolean;
 }
 
-const FormModel = Record<IFormMember>({
+export const FormModel = Record<IFormMember>({
   isChanged: false,
 })
 
 // action
 const actionCreator = actionCreatorFactory()
 
-enum ActionType {
+export enum ActionType {
   Change = 'FORM/CHANGE',
 }
 

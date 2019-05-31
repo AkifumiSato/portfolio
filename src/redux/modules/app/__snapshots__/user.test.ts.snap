@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[app user state]: empty comment 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,8 +1,8 @@
+  Immutable.Record {
+    \\"name\\": Object {
+-     \\"error\\": \\"\\",
++     \\"error\\": \\"名前は必須です。\\",
+      \\"value\\": \\"\\",
+    },
+    \\"email\\": Object {
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\","
+`;
+
+exports[`[app user state]: empty email 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -2,11 +2,11 @@
+    \\"name\\": Object {
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\",
+    },
+    \\"email\\": Object {
+-     \\"error\\": \\"\\",
++     \\"error\\": \\"メールアドレスは必須です。\\",
+      \\"value\\": \\"\\",
+    },
+    \\"comment\\": Object {
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\","
+`;
+
+exports[`[app user state]: empty name 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,8 +1,8 @@
+  Immutable.Record {
+    \\"name\\": Object {
+-     \\"error\\": \\"\\",
++     \\"error\\": \\"名前は必須です。\\",
+      \\"value\\": \\"\\",
+    },
+    \\"email\\": Object {
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\","
+`;
+
+exports[`[app user state]: error email 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -2,12 +2,12 @@
+    \\"name\\": Object {
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\",
+    },
+    \\"email\\": Object {
+-     \\"error\\": \\"\\",
+-     \\"value\\": \\"\\",
++     \\"error\\": \\"メールアドレスが不正です。\\",
++     \\"value\\": \\"test@test\\",
+    },
+    \\"comment\\": Object {
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\",
+    },"
+`;
+
+exports[`[app user state]: init 1`] = `
+"Snapshot Diff:
+  Comparing two different types of values. Expected undefined but received object."
+`;
+
+exports[`[app user state]: too long comment 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,9 +1,9 @@
+  Immutable.Record {
+    \\"name\\": Object {
+-     \\"error\\": \\"\\",
+-     \\"value\\": \\"\\",
++     \\"error\\": \\"名前は100文字までです。\\",
++     \\"value\\": \\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\",
+    },
+    \\"email\\": Object {
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\",
+    },"
+`;
+
+exports[`[app user state]: too long email 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,9 +1,9 @@
+  Immutable.Record {
+    \\"name\\": Object {
+-     \\"error\\": \\"\\",
+-     \\"value\\": \\"\\",
++     \\"error\\": \\"名前は100文字までです。\\",
++     \\"value\\": \\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@test.com\\",
+    },
+    \\"email\\": Object {
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\",
+    },"
+`;
+
+exports[`[app user state]: too long name 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,9 +1,9 @@
+  Immutable.Record {
+    \\"name\\": Object {
+-     \\"error\\": \\"\\",
+-     \\"value\\": \\"\\",
++     \\"error\\": \\"名前は100文字までです。\\",
++     \\"value\\": \\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\",
+    },
+    \\"email\\": Object {
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\",
+    },"
+`;
+
+exports[`[app user state]: update comment 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,9 +1,9 @@
+  Immutable.Record {
+    \\"name\\": Object {
+      \\"error\\": \\"\\",
+-     \\"value\\": \\"\\",
++     \\"value\\": \\"test\\",
+    },
+    \\"email\\": Object {
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\",
+    },"
+`;
+
+exports[`[app user state]: update email 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -3,11 +3,11 @@
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\",
+    },
+    \\"email\\": Object {
+      \\"error\\": \\"\\",
+-     \\"value\\": \\"\\",
++     \\"value\\": \\"test@test.com\\",
+    },
+    \\"comment\\": Object {
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\",
+    },"
+`;
+
+exports[`[app user state]: update name 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,9 +1,9 @@
+  Immutable.Record {
+    \\"name\\": Object {
+      \\"error\\": \\"\\",
+-     \\"value\\": \\"\\",
++     \\"value\\": \\"test\\",
+    },
+    \\"email\\": Object {
+      \\"error\\": \\"\\",
+      \\"value\\": \\"\\",
+    },"
+`;
