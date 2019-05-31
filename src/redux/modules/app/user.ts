@@ -34,7 +34,7 @@ const UserRecord = Record({
   },
 })
 
-class UserModel extends UserRecord implements IUserMember{
+export class UserModel extends UserRecord implements IUserMember{
   updateName(value: string) {
     const error = nameValidate(value)
     return this.withMutations(mut => mut.setIn(['name', 'value'], value).setIn(['name', 'error'], error))

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[form ui state]: change 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+  Immutable.Record {
+-   \\"isChanged\\": false,
++   \\"isChanged\\": true,
+  }"
+`;
+
+exports[`[form ui state]: init 1`] = `
+"Snapshot Diff:
+  Comparing two different types of values. Expected undefined but received object."
+`;
