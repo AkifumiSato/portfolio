@@ -38,18 +38,18 @@ const Overlay = styled.div`
   right: 0;
   top: 0;
   transition: .3s;
-  z-index: ${zIndex.overlay};
-  ${({ open, init }: IOverlay) => open ? css`
-    animation: ${fadeIn} .3s;
+  z-index: ${ zIndex.overlay };
+  ${ ({ open, init }: IOverlay) => open ? css`
+    animation: ${ fadeIn } .3s;
     animation-fill-mode: forwards;
     display: block;
   ` : !init ? css`
     transition: none;
   ` : css`
-    animation: ${fadeOut} .3s;
+    animation: ${ fadeOut } .3s;
     animation-fill-mode: forwards;
     display: block;
-  `}
+  ` }
 `
 
 const MenuLink = styled(Link)`
@@ -59,6 +59,7 @@ const MenuLink = styled(Link)`
   text-decoration: none;
   transition: .3s;
   transition-property: color;
+  white-space: nowrap;
   &::after {
     background-color: #333;
     content: '';
@@ -84,6 +85,8 @@ const MenuLink = styled(Link)`
   }
 `
 
+const ExternalLink = MenuLink.withComponent('a')
+
 const MenuListItem = styled.li`
   margin-top: 20px;
   text-align: right;
@@ -103,15 +106,15 @@ const MenuList = styled.ul`
   position: absolute;
   top: 50px;
   right: 10px;
-  ${({ open, init }: IMenuList) => init ? `` : open ? css`
-    animation: ${fadeIn} .3s;
+  ${ ({ open, init }: IMenuList) => init ? `` : open ? css`
+    animation: ${ fadeIn } .3s;
     animation-fill-mode: forwards;
     display: block;
   ` : css`
-    animation: ${fadeOut} .3s;
+    animation: ${ fadeOut } .3s;
     animation-fill-mode: forwards;
     display: block;
-  `}
+  ` }
 `
 
 interface IHamburger {
@@ -145,7 +148,7 @@ const Hamburger = styled.span`
     top: 11px;
     transition: .3s;
   }
-  ${(props: IHamburger) => props.open ? css`
+  ${ (props: IHamburger) => props.open ? css`
     transition: .3s;
     background-color: transparent!important;
     &:before {
@@ -158,7 +161,7 @@ const Hamburger = styled.span`
     }
   ` : css`
     transition: .3s;
-  `}
+  ` }
 `
 
 const NavigationTrigger = styled.button`
@@ -172,23 +175,40 @@ const Wrapper = styled.div`
   position: fixed;
   right: 50px;
   top: 50px;
-  z-index: ${zIndex.overlayContained};
+  z-index: ${ zIndex.overlayContained };
   @media screen and (max-width: 768px) {
     top: 20px;
     right: 20px;
   }
 `
 
-interface IMenuLinks {
+type TUrl = {
   name: string;
   url: string;
+  external?: boolean;
 }
 
-interface IProps {
-  links: IMenuLinks[];
-}
+const urlMap: TUrl[] = [
+  {
+    name: 'about',
+    url: '/about/',
+  },
+  {
+    name: 'blog',
+    url: '/blog/',
+  },
+  {
+    name: 'contact',
+    url: '/contact/',
+  },
+  {
+    name: 'story book',
+    url: 'https://storybook.akfm.dev',
+    external: true,
+  },
+]
 
-const Navigation: React.FC<IProps> = ({ links }) => {
+const Navigation = () => {
   const [interact, setInteract] = React.useState(true)
   const [open, setOpen] = React.useState(false)
   const onClick = () => {
@@ -203,9 +223,11 @@ const Navigation: React.FC<IProps> = ({ links }) => {
           <Hamburger open={ open }> </Hamburger>
         </NavigationTrigger>
         <MenuList init={ interact } open={ open }>
-          { links.map((link, index) => (
+          { urlMap.map((link, index) => (
             <MenuListItem key={ index }>
-              <MenuLink to={ link.url }>{ link.name }</MenuLink>
+              { link.external ?
+                <ExternalLink href={ link.url } target="blank" rel="noopener">{ link.name }</ExternalLink> :
+                <MenuLink to={ link.url }>{ link.name }</MenuLink> }
             </MenuListItem>
           )) }
         </MenuList>
