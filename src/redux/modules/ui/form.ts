@@ -14,7 +14,7 @@ export const FormModel = Record<IFormMember>({
 // action
 const actionCreator = actionCreatorFactory()
 
-export enum ActionType {
+enum ActionType {
   Change = 'FORM/CHANGE',
 }
 

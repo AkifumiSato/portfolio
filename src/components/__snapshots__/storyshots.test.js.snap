@@ -3024,29 +3024,29 @@ exports[`Storyshots molecules|Navigation default 1`] = `
     >
       <div>
         <div
-          className="sc-kGXeez kPrwuU"
+          className="sc-kpOJdX iGSgSj"
         >
           <button
             aria-label="menu"
-            className="sc-kgoBCf kQmZeC"
+            className="sc-kGXeez gzIwYh"
             onClick={[Function]}
           >
             <span
-              className="sc-chPdSV TuSMQ"
+              className="sc-kgoBCf bXhBXS"
               open={false}
             >
                
             </span>
           </button>
           <ul
-            className="sc-kAzzGY gItmTQ"
+            className="sc-chPdSV bTGkpD"
             open={false}
           >
             <li
-              className="sc-cSHVUG eKFkSn"
+              className="sc-kAzzGY dYuWNU"
             >
               <a
-                className="sc-jzJRlG ksAtoR"
+                className="sc-jzJRlG jJqoyo"
                 href="/about/"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
@@ -3055,10 +3055,10 @@ exports[`Storyshots molecules|Navigation default 1`] = `
               </a>
             </li>
             <li
-              className="sc-cSHVUG eKFkSn"
+              className="sc-kAzzGY dYuWNU"
             >
               <a
-                className="sc-jzJRlG ksAtoR"
+                className="sc-jzJRlG jJqoyo"
                 href="/blog/"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
@@ -3067,15 +3067,27 @@ exports[`Storyshots molecules|Navigation default 1`] = `
               </a>
             </li>
             <li
-              className="sc-cSHVUG eKFkSn"
+              className="sc-kAzzGY dYuWNU"
             >
               <a
-                className="sc-jzJRlG ksAtoR"
+                className="sc-jzJRlG jJqoyo"
                 href="/contact/"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
               >
                 contact
+              </a>
+            </li>
+            <li
+              className="sc-kAzzGY dYuWNU"
+            >
+              <a
+                className="sc-cSHVUG gdAtAu"
+                href="https://storybook.akfm.dev"
+                rel="noopener"
+                target="blank"
+              >
+                story book
               </a>
             </li>
           </ul>
@@ -3560,7 +3572,7 @@ exports[`Storyshots organisms|Article article html 1`] = `
       }
     >
       <div
-        className="sc-kpOJdX dbwhai"
+        className="sc-dxgOiQ kuKpGT"
         dangerouslySetInnerHTML={
           Object {
             "__html": "
@@ -3926,33 +3938,33 @@ exports[`Storyshots organisms|Layout default 1`] = `
       }
     >
       <div
-        className="sc-dxgOiQ kGlyWT"
+        className="sc-ckVGcZ kudLTb"
       >
         <div>
           <div
-            className="sc-kGXeez kPrwuU"
+            className="sc-kpOJdX iGSgSj"
           >
             <button
               aria-label="menu"
-              className="sc-kgoBCf kQmZeC"
+              className="sc-kGXeez gzIwYh"
               onClick={[Function]}
             >
               <span
-                className="sc-chPdSV TuSMQ"
+                className="sc-kgoBCf bXhBXS"
                 open={false}
               >
                  
               </span>
             </button>
             <ul
-              className="sc-kAzzGY gItmTQ"
+              className="sc-chPdSV bTGkpD"
               open={false}
             >
               <li
-                className="sc-cSHVUG eKFkSn"
+                className="sc-kAzzGY dYuWNU"
               >
                 <a
-                  className="sc-jzJRlG ksAtoR"
+                  className="sc-jzJRlG jJqoyo"
                   href="/about/"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
@@ -3961,10 +3973,10 @@ exports[`Storyshots organisms|Layout default 1`] = `
                 </a>
               </li>
               <li
-                className="sc-cSHVUG eKFkSn"
+                className="sc-kAzzGY dYuWNU"
               >
                 <a
-                  className="sc-jzJRlG ksAtoR"
+                  className="sc-jzJRlG jJqoyo"
                   href="/blog/"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
@@ -3973,15 +3985,27 @@ exports[`Storyshots organisms|Layout default 1`] = `
                 </a>
               </li>
               <li
-                className="sc-cSHVUG eKFkSn"
+                className="sc-kAzzGY dYuWNU"
               >
                 <a
-                  className="sc-jzJRlG ksAtoR"
+                  className="sc-jzJRlG jJqoyo"
                   href="/contact/"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
                 >
                   contact
+                </a>
+              </li>
+              <li
+                className="sc-kAzzGY dYuWNU"
+              >
+                <a
+                  className="sc-cSHVUG gdAtAu"
+                  href="https://storybook.akfm.dev"
+                  rel="noopener"
+                  target="blank"
+                >
+                  story book
                 </a>
               </li>
             </ul>
@@ -3996,36 +4020,36 @@ exports[`Storyshots organisms|Layout default 1`] = `
         </div>
         <a
           aria-current="page"
-          className="sc-ckVGcZ gPRinc"
+          className="sc-jKJlTe kfAdUV"
           href="/"
           onClick={[Function]}
           onMouseEnter={[Function]}
           style={Object {}}
         >
           <strong
-            className="sc-jKJlTe lafMvR"
+            className="sc-eNQAEJ dhFSpp"
           >
             A
           </strong>
           KIFUMI  
           <strong
-            className="sc-jKJlTe lafMvR"
+            className="sc-eNQAEJ dhFSpp"
           >
             S
           </strong>
           ATO
         </a>
         <div
-          className="sc-eNQAEJ fTEUzT"
+          className="sc-hMqMXs iueHuX"
         >
           <p
-            className="sc-hMqMXs heYErG"
+            className="sc-kEYyzF hioqcw"
           >
             ©︎akfm.dev 
             2019
             . Using 
             <a
-              className="sc-kEYyzF kfPZQw"
+              className="sc-kkGfuU cHnrvZ"
               href="https://www.google.com/intl/ja/policies/privacy/partners/"
               rel="noopener"
               target="_blank"
@@ -4305,33 +4329,33 @@ exports[`Storyshots organisms|Layout root 1`] = `
       }
     >
       <div
-        className="sc-dxgOiQ kGlyWT"
+        className="sc-ckVGcZ kudLTb"
       >
         <div>
           <div
-            className="sc-kGXeez kPrwuU"
+            className="sc-kpOJdX iGSgSj"
           >
             <button
               aria-label="menu"
-              className="sc-kgoBCf kQmZeC"
+              className="sc-kGXeez gzIwYh"
               onClick={[Function]}
             >
               <span
-                className="sc-chPdSV TuSMQ"
+                className="sc-kgoBCf bXhBXS"
                 open={false}
               >
                  
               </span>
             </button>
             <ul
-              className="sc-kAzzGY gItmTQ"
+              className="sc-chPdSV bTGkpD"
               open={false}
             >
               <li
-                className="sc-cSHVUG eKFkSn"
+                className="sc-kAzzGY dYuWNU"
               >
                 <a
-                  className="sc-jzJRlG ksAtoR"
+                  className="sc-jzJRlG jJqoyo"
                   href="/about/"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
@@ -4340,10 +4364,10 @@ exports[`Storyshots organisms|Layout root 1`] = `
                 </a>
               </li>
               <li
-                className="sc-cSHVUG eKFkSn"
+                className="sc-kAzzGY dYuWNU"
               >
                 <a
-                  className="sc-jzJRlG ksAtoR"
+                  className="sc-jzJRlG jJqoyo"
                   href="/blog/"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
@@ -4352,15 +4376,27 @@ exports[`Storyshots organisms|Layout root 1`] = `
                 </a>
               </li>
               <li
-                className="sc-cSHVUG eKFkSn"
+                className="sc-kAzzGY dYuWNU"
               >
                 <a
-                  className="sc-jzJRlG ksAtoR"
+                  className="sc-jzJRlG jJqoyo"
                   href="/contact/"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
                 >
                   contact
+                </a>
+              </li>
+              <li
+                className="sc-kAzzGY dYuWNU"
+              >
+                <a
+                  className="sc-cSHVUG gdAtAu"
+                  href="https://storybook.akfm.dev"
+                  rel="noopener"
+                  target="blank"
+                >
+                  story book
                 </a>
               </li>
             </ul>
@@ -4374,16 +4410,16 @@ exports[`Storyshots organisms|Layout root 1`] = `
           </div>
         </div>
         <div
-          className="sc-eNQAEJ fTEUzT"
+          className="sc-hMqMXs iueHuX"
         >
           <p
-            className="sc-hMqMXs heYErG"
+            className="sc-kEYyzF hioqcw"
           >
             ©︎akfm.dev 
             2019
             . Using 
             <a
-              className="sc-kEYyzF kfPZQw"
+              className="sc-kkGfuU cHnrvZ"
               href="https://www.google.com/intl/ja/policies/privacy/partners/"
               rel="noopener"
               target="_blank"

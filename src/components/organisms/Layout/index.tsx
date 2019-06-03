@@ -62,22 +62,7 @@ const Layout: React.FC<IProps> = ({ children, rootLinkDisplay = true }) => {
   return (
     <Wrapper>
       <GlobalStyles />
-      <Navigation
-        links={ [
-          {
-            name: 'about',
-            url: '/about/',
-          },
-          {
-            name: 'blog',
-            url: '/blog/',
-          },
-          {
-            name: 'contact',
-            url: '/contact/',
-          },
-        ] }
-      />
+      <Navigation />
       { rootLinkDisplay && (
         <SiteRootLink to={ '/' }>
           <StrongFont>A</StrongFont>KIFUMI
