@@ -1,5 +1,10 @@
 import * as snapshotDiff from 'snapshot-diff'
-import reducer, { FormModel, changeAction } from './form'
+import reducer, {
+  FormModel,
+  changeCommentAction,
+  changeEmailAction,
+  changeNameAction,
+} from './form'
 
 const initialState = new FormModel()
 
@@ -9,8 +14,20 @@ test('[form ui state]: init', () => {
   ).toMatchSnapshot()
 })
 
-test('[form ui state]: change', () => {
+test('[form ui state]: name change', () => {
   expect(
-    snapshotDiff(initialState, reducer(initialState, changeAction()))
+    snapshotDiff(initialState, reducer(initialState, changeNameAction()))
+  ).toMatchSnapshot()
+})
+
+test('[form ui state]: email change', () => {
+  expect(
+    snapshotDiff(initialState, reducer(initialState, changeEmailAction()))
+  ).toMatchSnapshot()
+})
+
+test('[form ui state]: comment change', () => {
+  expect(
+    snapshotDiff(initialState, reducer(initialState, changeCommentAction()))
   ).toMatchSnapshot()
 })

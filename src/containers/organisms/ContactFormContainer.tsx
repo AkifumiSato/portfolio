@@ -6,11 +6,10 @@ import {
   updateEmailAction,
   updateCommentAction,
   validateAction,
-} from '../redux/modules/app/user'
-import { changeAction } from '../redux/modules/ui/form'
-import store from '../redux/store'
-import BaseInput from '../components/molecules/CustomInput'
-import BaseTextArea from '../components/molecules/CustomTextarea'
+} from '../../redux/modules/app/user'
+import { changeNameAction, changeEmailAction, changeCommentAction } from '../../redux/modules/ui/form'
+import store from '../../redux/store'
+import ContactForm from '../../components/organisms/ContactForm'
 
 interface IEncode {
   [key: string]: string;
@@ -50,112 +49,112 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>, required: IRequired) 
     .catch(error => alert(error))
 }
 
-interface IFormIbject {
+interface IFormObject {
   value: string;
   error: string;
 }
 
-interface INetlifyForm {
-  isChanged: boolean;
-  name: IFormIbject;
-  email: IFormIbject;
-  comment: IFormIbject;
-  changeDispatcher: Function;
-  nameDispatcher: Function;
-  emailDispatcher: Function;
-  commentDispatcher: Function;
-  validateDispatcher: Function;
+interface IContactFormContainer {
+  isChangeName: boolean;
+  isChangeEmail: boolean;
+  isChangeComment: boolean;
+  name: IFormObject;
+  email: IFormObject;
+  comment: IFormObject;
+  changeNameDispatcher: () => void;
+  changeEmailDispatcher: () => void;
+  changeCommentDispatcher: () => void;
+  nameDispatcher: (a: string) => void;
+  emailDispatcher: (a: string) => void;
+  commentDispatcher: (a: string) => void;
+  validateDispatcher: () => void;
 }
 
-const NetlifyForm: React.FC<INetlifyForm> = (props) => {
+const ContactFormContainer: React.FC<IContactFormContainer> = (props) => {
   const {
-    children,
-    isChanged,
+    isChangeName,
+    isChangeEmail,
+    isChangeComment,
     name,
     email,
     comment,
-    changeDispatcher,
+    changeNameDispatcher,
+    changeEmailDispatcher,
+    changeCommentDispatcher,
     nameDispatcher,
     emailDispatcher,
     commentDispatcher,
     validateDispatcher,
   } = props
 
-  const updateChangeFlg = () => !isChanged && changeDispatcher()
+  const isSubmit = () => !name.error && !email.error && !comment.error
+
+  const onceChangeNameDispatch = () => !isChangeName && changeNameDispatcher()
+  const onceEmailDispatch = () => !isChangeEmail && changeEmailDispatcher()
+  const onceCommentDispatch = () => !isChangeComment && changeCommentDispatcher()
 
   const onSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    isChanged && handleSubmit(e, { name, email, comment })
+    isSubmit() && handleSubmit(e, { name, email, comment })
     validateDispatcher()
-    updateChangeFlg()
+    onceChangeNameDispatch()
+    onceEmailDispatch()
+    onceCommentDispatch()
   }
 
   const onBlurNameInput = (e: React.FormEvent<HTMLInputElement>) => {
     nameDispatcher(e.currentTarget.value)
-    updateChangeFlg()
+    onceChangeNameDispatch()
   }
 
   const onBlurEmailInput = (e: React.FormEvent<HTMLInputElement>) => {
     emailDispatcher(e.currentTarget.value)
-    updateChangeFlg()
+    onceEmailDispatch()
   }
 
   const onBlurCommentText = (e: React.FormEvent<HTMLInputElement>) => {
     commentDispatcher(e.currentTarget.value)
-    updateChangeFlg()
+    onceCommentDispatch()
   }
 
   return (
-    <form
-      name="contact"
-      method="post"
-      action="/thanks/"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      onSubmit={ onSubmitForm }
-    >
-      <div style={ { display: 'none' } }>
-        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-      </div>
-      <BaseInput
-        type='text'
-        name='name'
-        placeholder='Your name'
-        value={ name.value }
-        onBlur={ onBlurNameInput }
-        error={ isChanged ? name.error : '' }
-      />
-      <BaseInput
-        type='mail'
-        name='email'
-        placeholder='Email: xxxx@mail.com'
-        value={ email.value }
-        onBlur={ onBlurEmailInput }
-        error={ isChanged ? email.error : '' }
-      />
-      <BaseTextArea
-        value={ comment.value }
-        onBlur={ onBlurCommentText }
-        error={ isChanged ? comment.error : '' }
-      />
-      { children }
-      { /* The `form-name` hidden field is required to support form submissions without JavaScript */ }
-      <input type="hidden" name="form-name" value="contact" />
-    </form>
+    <ContactForm
+      action='/thanks/'
+      name={ {
+        value: name.value,
+        error: isChangeName ? name.error : '',
+      } }
+      email={ {
+        value: email.value,
+        error: isChangeEmail ? email.error : '',
+      } }
+      comment={ {
+        value: comment.value,
+        error: isChangeComment ? comment.error : '',
+      } }
+      onSubmitForm={ onSubmitForm }
+      onBlurNameInput={ onBlurNameInput }
+      onBlurEmailInput={ onBlurEmailInput }
+      onBlurCommentText={ onBlurCommentText }
+    />
   )
 }
 
 type AllState = ReturnType<typeof store.getState>
 
 const mapStateToProps = (state: AllState) => ({
-  isChanged: state.ui.form.isChanged,
+  isChangeName: state.ui.form.isChangeName,
+  isChangeEmail: state.ui.form.isChangeEmail,
+  isChangeComment: state.ui.form.isChangeComment,
   email: state.app.user.email,
   name: state.app.user.name,
   comment: state.app.user.comment,
 })
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  changeDispatcher: () => dispatch(changeAction()),
+  changeNameDispatcher: () => dispatch(changeNameAction()),
+  changeEmailDispatcher: () => dispatch(changeEmailAction()),
+  changeCommentDispatcher: () => dispatch(changeCommentAction()),
   nameDispatcher: (value: string) => dispatch(updateNameAction(value)),
   emailDispatcher: (value: string) => dispatch(updateEmailAction(value)),
   commentDispatcher: (value: string) => dispatch(updateCommentAction(value)),
@@ -165,4 +164,4 @@ const mapDispatchToProps = (dispatch: Function) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(NetlifyForm)
+)(ContactFormContainer)

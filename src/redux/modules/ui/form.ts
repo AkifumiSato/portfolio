@@ -4,24 +4,34 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers'
 
 // model
 export interface IFormMember {
-  isChanged: boolean;
+  isChangeName: boolean;
+  isChangeEmail: boolean;
+  isChangeComment: boolean;
 }
 
 export const FormModel = Record<IFormMember>({
-  isChanged: false,
+  isChangeName: false,
+  isChangeEmail: false,
+  isChangeComment: false,
 })
 
 // action
 const actionCreator = actionCreatorFactory()
 
 enum ActionType {
-  Change = 'FORM/CHANGE',
+  ChangeName = 'FORM/CHANGE/NAME',
+  ChangeEmail = 'FORM/CHANGE/EMAIL',
+  ChangeComment = 'FORM/CHANGE/COMMENT',
 }
 
-export const changeAction = actionCreator(ActionType.Change)
+export const changeNameAction = actionCreator(ActionType.ChangeName)
+export const changeEmailAction = actionCreator(ActionType.ChangeEmail)
+export const changeCommentAction = actionCreator(ActionType.ChangeComment)
 
 // reducer
 const reducer = reducerWithInitialState(new FormModel())
-  .case(changeAction, (state) => state.set('isChanged', true))
+  .case(changeNameAction, (state) => state.set('isChangeName', true))
+  .case(changeEmailAction, (state) => state.set('isChangeEmail', true))
+  .case(changeCommentAction, (state) => state.set('isChangeComment', true))
 
 export default reducer

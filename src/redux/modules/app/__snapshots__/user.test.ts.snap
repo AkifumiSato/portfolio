@@ -7,11 +7,11 @@ exports[`[app user state]: empty comment 1`] = `
 
 @@ -6,9 +6,9 @@
     \\"email\\": Object {
-      \\"error\\": \\"\\",
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\",
     },
     \\"comment\\": Object {
--     \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 +     \\"error\\": \\"コメントは必須です。\\",
       \\"value\\": \\"\\",
     },
@@ -25,16 +25,16 @@ exports[`[app user state]: empty email 1`] = `
 
 @@ -2,11 +2,11 @@
     \\"name\\": Object {
-      \\"error\\": \\"\\",
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\",
     },
     \\"email\\": Object {
--     \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 +     \\"error\\": \\"メールアドレスは必須です。\\",
       \\"value\\": \\"\\",
     },
     \\"comment\\": Object {
-      \\"error\\": \\"\\",
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\","
 `;
 
@@ -46,12 +46,12 @@ exports[`[app user state]: empty name 1`] = `
 @@ -1,8 +1,8 @@
   Immutable.Record {
     \\"name\\": Object {
--     \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 +     \\"error\\": \\"名前は必須です。\\",
       \\"value\\": \\"\\",
     },
     \\"email\\": Object {
-      \\"error\\": \\"\\",
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\","
 `;
 
@@ -62,17 +62,17 @@ exports[`[app user state]: error email 1`] = `
 
 @@ -2,12 +2,12 @@
     \\"name\\": Object {
-      \\"error\\": \\"\\",
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\",
     },
     \\"email\\": Object {
--     \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 -     \\"value\\": \\"\\",
 +     \\"error\\": \\"メールアドレスが不正です。\\",
 +     \\"value\\": \\"test@test\\",
     },
     \\"comment\\": Object {
-      \\"error\\": \\"\\",
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\",
     },"
 `;
@@ -89,11 +89,11 @@ exports[`[app user state]: too long comment 1`] = `
 
 @@ -6,9 +6,9 @@
     \\"email\\": Object {
-      \\"error\\": \\"\\",
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\",
     },
     \\"comment\\": Object {
--     \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 -     \\"value\\": \\"\\",
 +     \\"error\\": \\"コメントは1000文字までです。\\",
 +     \\"value\\": \\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\",
@@ -109,13 +109,13 @@ exports[`[app user state]: too long email 1`] = `
 @@ -1,9 +1,9 @@
   Immutable.Record {
     \\"name\\": Object {
--     \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 -     \\"value\\": \\"\\",
 +     \\"error\\": \\"名前は100文字までです。\\",
 +     \\"value\\": \\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@test.com\\",
     },
     \\"email\\": Object {
-      \\"error\\": \\"\\",
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\",
     },"
 `;
@@ -128,13 +128,13 @@ exports[`[app user state]: too long name 1`] = `
 @@ -1,9 +1,9 @@
   Immutable.Record {
     \\"name\\": Object {
--     \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 -     \\"value\\": \\"\\",
 +     \\"error\\": \\"名前は100文字までです。\\",
 +     \\"value\\": \\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\",
     },
     \\"email\\": Object {
-      \\"error\\": \\"\\",
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\",
     },"
 `;
@@ -144,13 +144,15 @@ exports[`[app user state]: update comment 1`] = `
 - First value
 + Second value
 
-@@ -7,8 +7,8 @@
-      \\"error\\": \\"\\",
+@@ -6,9 +6,9 @@
+    \\"email\\": Object {
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\",
     },
     \\"comment\\": Object {
-      \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 -     \\"value\\": \\"\\",
++     \\"error\\": \\"\\",
 +     \\"value\\": \\"test\\",
     },
   }"
@@ -161,17 +163,19 @@ exports[`[app user state]: update email 1`] = `
 - First value
 + Second value
 
-@@ -3,11 +3,11 @@
-      \\"error\\": \\"\\",
+@@ -2,12 +2,12 @@
+    \\"name\\": Object {
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\",
     },
     \\"email\\": Object {
-      \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 -     \\"value\\": \\"\\",
++     \\"error\\": \\"\\",
 +     \\"value\\": \\"test@test.com\\",
     },
     \\"comment\\": Object {
-      \\"error\\": \\"\\",
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\",
     },"
 `;
@@ -184,12 +188,13 @@ exports[`[app user state]: update name 1`] = `
 @@ -1,9 +1,9 @@
   Immutable.Record {
     \\"name\\": Object {
-      \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 -     \\"value\\": \\"\\",
++     \\"error\\": \\"\\",
 +     \\"value\\": \\"test\\",
     },
     \\"email\\": Object {
-      \\"error\\": \\"\\",
+      \\"error\\": \\"初期値のままです。\\",
       \\"value\\": \\"\\",
     },"
 `;
@@ -201,17 +206,17 @@ exports[`[app user state]: validation 1`] = `
 
   Immutable.Record {
     \\"name\\": Object {
--     \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 +     \\"error\\": \\"名前は必須です。\\",
       \\"value\\": \\"\\",
     },
     \\"email\\": Object {
--     \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 +     \\"error\\": \\"メールアドレスは必須です。\\",
       \\"value\\": \\"\\",
     },
     \\"comment\\": Object {
--     \\"error\\": \\"\\",
+-     \\"error\\": \\"初期値のままです。\\",
 +     \\"error\\": \\"コメントは必須です。\\",
       \\"value\\": \\"\\",
     },

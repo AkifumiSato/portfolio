@@ -3,33 +3,8 @@ import MainTitle from '../components/atoms/MainTitle'
 import { graphql } from 'gatsby'
 import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/Layout'
-import NetlifyForm from '../container/NetlifyForm'
+import ContactFormContainer from '../containers/organisms/ContactFormContainer'
 import styled from 'styled-components'
-import { ralewayMixin } from '../styles/font'
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  & > button {
-    background-color: #00C5B2;
-    border: 1px solid #00C5B2;
-    border-radius: 3px;
-    color: #fff;
-    display: block;
-    ${ralewayMixin};
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1;
-    padding: 20px 0;
-    transition: .3s;
-    width: 200px;
-    &:hover {
-      box-shadow: 0 4px 24px rgba(0,0,0,.3);
-      opacity: 0.8;
-    }
-  }  
-`
 
 const Wrapper = styled.div`
   box-shadow: 0 4px 24px rgba(0,0,0,.15);
@@ -62,11 +37,7 @@ const ContactPage: React.FC<IProps> = ({ data }) => {
       <CustomHead title={ siteTitle } />
       <MainTitle title="CONTACT" />
       <Wrapper>
-        <NetlifyForm>
-          <ButtonWrapper>
-            <button type="submit">Send</button>
-          </ButtonWrapper>
-        </NetlifyForm>
+        <ContactFormContainer />
       </Wrapper>
     </Layout>
   )

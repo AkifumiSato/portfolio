@@ -16,7 +16,8 @@
     "serve": "gatsby serve",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest"
+    "test": "jest",
+    "snapshot-update": "jest --updateSnapshot"
   },
   "dependencies": {
     "gatsby": "2.3.32",
