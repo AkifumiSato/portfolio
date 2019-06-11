@@ -28,7 +28,6 @@ storiesOf(`organisms|ContactForm`, module)
   .add('contact form',
     () => <ContactForm
       action='javascript:void(0)'
-      isChanged={ false }
       name={ {
         value: '',
         error: '',
@@ -56,7 +55,6 @@ storiesOf(`organisms|ContactForm`, module)
   .add('contact form error',
     () => <ContactForm
       action='javascript:void(0)'
-      isChanged={ true }
       name={ {
         value: 'test',
         error: 'error!',

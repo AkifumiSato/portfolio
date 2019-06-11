@@ -7,7 +7,7 @@ import {
   updateCommentAction,
   validateAction,
 } from '../../redux/modules/app/user'
-import { changeAction } from '../../redux/modules/ui/form'
+import { changeNameAction, changeEmailAction, changeCommentAction } from '../../redux/modules/ui/form'
 import store from '../../redux/store'
 import ContactForm from '../../components/organisms/ContactForm'
 
@@ -55,61 +55,83 @@ interface IFormObject {
 }
 
 interface IContactFormContainer {
-  isChanged: boolean;
+  isChangeName: boolean;
+  isChangeEmail: boolean;
+  isChangeComment: boolean;
   name: IFormObject;
   email: IFormObject;
   comment: IFormObject;
-  changeDispatcher: Function;
-  nameDispatcher: Function;
-  emailDispatcher: Function;
-  commentDispatcher: Function;
-  validateDispatcher: Function;
+  changeNameDispatcher: () => void;
+  changeEmailDispatcher: () => void;
+  changeCommentDispatcher: () => void;
+  nameDispatcher: (a: string) => void;
+  emailDispatcher: (a: string) => void;
+  commentDispatcher: (a: string) => void;
+  validateDispatcher: () => void;
 }
 
 const ContactFormContainer: React.FC<IContactFormContainer> = (props) => {
   const {
-    isChanged,
+    isChangeName,
+    isChangeEmail,
+    isChangeComment,
     name,
     email,
     comment,
-    changeDispatcher,
+    changeNameDispatcher,
+    changeEmailDispatcher,
+    changeCommentDispatcher,
     nameDispatcher,
     emailDispatcher,
     commentDispatcher,
     validateDispatcher,
   } = props
 
-  const updateChangeFlg = () => !isChanged && changeDispatcher()
+  const isSubmit = () => !name.error && !email.error && !comment.error
+
+  const onceChangeNameDispatch = () => !isChangeName && changeNameDispatcher()
+  const onceEmailDispatch = () => !isChangeEmail && changeEmailDispatcher()
+  const onceCommentDispatch = () => !isChangeComment && changeCommentDispatcher()
 
   const onSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    isChanged && handleSubmit(e, { name, email, comment })
+    isSubmit() && handleSubmit(e, { name, email, comment })
     validateDispatcher()
-    updateChangeFlg()
+    onceChangeNameDispatch()
+    onceEmailDispatch()
+    onceCommentDispatch()
   }
 
   const onBlurNameInput = (e: React.FormEvent<HTMLInputElement>) => {
     nameDispatcher(e.currentTarget.value)
-    updateChangeFlg()
+    onceChangeNameDispatch()
   }
 
   const onBlurEmailInput = (e: React.FormEvent<HTMLInputElement>) => {
     emailDispatcher(e.currentTarget.value)
-    updateChangeFlg()
+    onceEmailDispatch()
   }
 
   const onBlurCommentText = (e: React.FormEvent<HTMLInputElement>) => {
     commentDispatcher(e.currentTarget.value)
-    updateChangeFlg()
+    onceCommentDispatch()
   }
 
   return (
     <ContactForm
       action='/thanks/'
-      isChanged={ isChanged }
-      name={ name }
-      email={ email }
-      comment={ comment }
+      name={ {
+        value: name.value,
+        error: isChangeName ? name.error : '',
+      } }
+      email={ {
+        value: email.value,
+        error: isChangeEmail ? email.error : '',
+      } }
+      comment={ {
+        value: comment.value,
+        error: isChangeComment ? comment.error : '',
+      } }
       onSubmitForm={ onSubmitForm }
       onBlurNameInput={ onBlurNameInput }
       onBlurEmailInput={ onBlurEmailInput }
@@ -121,14 +143,18 @@ const ContactFormContainer: React.FC<IContactFormContainer> = (props) => {
 type AllState = ReturnType<typeof store.getState>
 
 const mapStateToProps = (state: AllState) => ({
-  isChanged: state.ui.form.isChanged,
+  isChangeName: state.ui.form.isChangeName,
+  isChangeEmail: state.ui.form.isChangeEmail,
+  isChangeComment: state.ui.form.isChangeComment,
   email: state.app.user.email,
   name: state.app.user.name,
   comment: state.app.user.comment,
 })
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  changeDispatcher: () => dispatch(changeAction()),
+  changeNameDispatcher: () => dispatch(changeNameAction()),
+  changeEmailDispatcher: () => dispatch(changeEmailAction()),
+  changeCommentDispatcher: () => dispatch(changeCommentAction()),
   nameDispatcher: (value: string) => dispatch(updateNameAction(value)),
   emailDispatcher: (value: string) => dispatch(updateEmailAction(value)),
   commentDispatcher: (value: string) => dispatch(updateCommentAction(value)),

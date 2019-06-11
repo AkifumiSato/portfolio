@@ -36,7 +36,6 @@ interface IFormObject {
 
 interface IContactForm {
   action: string;
-  isChanged: boolean;
   name: IFormObject;
   email: IFormObject;
   comment: IFormObject;
@@ -49,7 +48,6 @@ interface IContactForm {
 const ContactForm: React.FC<IContactForm> = (props) => {
   const {
     action,
-    isChanged,
     name,
     email,
     comment,
@@ -77,7 +75,7 @@ const ContactForm: React.FC<IContactForm> = (props) => {
         placeholder='Your name'
         value={ name.value }
         onBlur={ onBlurNameInput }
-        error={ isChanged ? name.error : '' }
+        error={ name.error }
       />
       <BaseInput
         type='mail'
@@ -85,12 +83,12 @@ const ContactForm: React.FC<IContactForm> = (props) => {
         placeholder='Email: xxxx@mail.com'
         value={ email.value }
         onBlur={ onBlurEmailInput }
-        error={ isChanged ? email.error : '' }
+        error={ email.error }
       />
       <BaseTextArea
         value={ comment.value }
         onBlur={ onBlurCommentText }
-        error={ isChanged ? comment.error : '' }
+        error={ comment.error }
       />
       <ButtonWrapper>
         <Button type="submit">Send</Button>

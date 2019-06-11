@@ -4042,35 +4042,6 @@ exports[`Storyshots organisms|ContactForm contact form 1`] = `
                       <span
                         style={Object {}}
                       >
-                        isChanged
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#a11",
-                              }
-                            }
-                          >
-                            false
-                          </span>
-                          }
-                        </span>
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
                         name
                       </span>
                       <span>
@@ -4804,17 +4775,6 @@ exports[`Storyshots organisms|ContactForm contact form error 1`] = `
                           </span>
                           "
                         </span>
-                      </span>
-                    </span>
-                    <span>
-                      <span>
-                        <br />
-                          
-                      </span>
-                      <span
-                        style={Object {}}
-                      >
-                        isChanged
                       </span>
                     </span>
                     <span>
