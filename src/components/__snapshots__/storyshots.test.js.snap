@@ -3279,209 +3279,7 @@ exports[`Storyshots molecules|Navigation default 1`] = `
                     &lt;
                     Navigation
                   </span>
-                  <span>
-                    <span>
-                       
-                      <span
-                        style={Object {}}
-                      >
-                        links
-                      </span>
-                      <span>
-                        =
-                        <span
-                          style={Object {}}
-                        >
-                          {
-                          <span
-                            style={
-                              Object {
-                                "color": "#666",
-                              }
-                            }
-                          >
-                            [
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    name
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'about'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    url
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  '/about/'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ,
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    name
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'blog'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    url
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  '/blog/'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ,
-                            <span>
-                              <span
-                                style={
-                                  Object {
-                                    "color": "#666",
-                                  }
-                                }
-                              >
-                                {
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    name
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  'contact'
-                                </span>
-                                ,
-                                <span>
-                                  <span
-                                    style={
-                                      Object {
-                                        "color": "#666",
-                                      }
-                                    }
-                                  >
-                                    url
-                                  </span>
-                                </span>
-                                : 
-                                <span
-                                  style={
-                                    Object {
-                                      "color": "#22a",
-                                      "wordBreak": "break-word",
-                                    }
-                                  }
-                                >
-                                  '/contact/'
-                                </span>
-                                }
-                              </span>
-                            </span>
-                            ]
-                          </span>
-                          }
-                        </span>
-                      </span>
-                       
-                    </span>
-                  </span>
+                  <span />
                   <span
                     style={
                       Object {
@@ -3920,6 +3718,1520 @@ export default ({ data }) =&gt; {
 </div>
 `;
 
+exports[`Storyshots organisms|ContactForm contact form 1`] = `
+<div
+  style={
+    Object {
+      "padding": "30px",
+    }
+  }
+>
+  <div>
+    <div
+      style={
+        Object {
+          "position": "relative",
+          "zIndex": 0,
+        }
+      }
+    >
+      <form
+        action="javascript:void(0)"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        method="post"
+        name="contact"
+        onSubmit={[Function]}
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <label>
+            Don’t fill this out if you're human: 
+            <input
+              name="bot-field"
+            />
+          </label>
+        </div>
+        <div
+          className="sc-gZMcBi kCSaqp"
+        >
+          <input
+            className="sc-gqjmRU jHVNZV"
+            name="name"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Your name"
+            type="text"
+            value=""
+          />
+          
+        </div>
+        <div
+          className="sc-gZMcBi kCSaqp"
+        >
+          <input
+            className="sc-gqjmRU jHVNZV"
+            name="email"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Email: xxxx@mail.com"
+            type="mail"
+            value=""
+          />
+          
+        </div>
+        <div
+          className="sc-VigVT gALjHw"
+        >
+          <textarea
+            className="sc-jTzLTM gKqRYU"
+            cols={30}
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Free Text"
+            rows={5}
+            value=""
+          />
+          
+        </div>
+        <div
+          className="sc-ckVGcZ hCdRyJ"
+        >
+          <button
+            className="sc-jKJlTe gNmXrB"
+            type="submit"
+          >
+            Send
+          </button>
+        </div>
+        <input
+          name="form-name"
+          type="hidden"
+          value="contact"
+        />
+      </form>
+    </div>
+    <button
+      className="info__show-button"
+      onClick={[Function]}
+      style={
+        Object {
+          "background": "#027ac5",
+          "border": "none",
+          "borderRadius": "0 0 0 5px",
+          "color": "#fff",
+          "cursor": "pointer",
+          "display": "block",
+          "fontFamily": "sans-serif",
+          "fontSize": "12px",
+          "padding": "5px 15px",
+          "position": "fixed",
+          "right": 0,
+          "top": 0,
+        }
+      }
+      type="button"
+    >
+      Show Info
+    </button>
+    <div
+      className="info__overlay"
+      style={
+        Object {
+          "background": "white",
+          "bottom": 0,
+          "display": "none",
+          "left": 0,
+          "overflow": "auto",
+          "padding": "0 40px",
+          "position": "fixed",
+          "right": 0,
+          "top": 0,
+          "zIndex": 99999,
+        }
+      }
+    >
+      <button
+        className="info__close-button"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#027ac5",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        ×
+      </button>
+      <div>
+        <div
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "color": "black",
+              "fontFamily": "Helvetica Neue, Helvetica, Segoe UI, Arial, freesans, sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginBottom": "20px",
+              "marginTop": "20px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "borderBottom": "1px solid #eee",
+                "marginBottom": 10,
+                "paddingTop": 10,
+              }
+            }
+          >
+            <h1
+              style={
+                Object {
+                  "fontSize": "35px",
+                  "margin": 0,
+                  "padding": 0,
+                }
+              }
+            >
+              organisms|ContactForm
+            </h1>
+            <h2
+              style={
+                Object {
+                  "fontSize": "22px",
+                  "fontWeight": 400,
+                  "margin": "0 0 10px 0",
+                  "padding": 0,
+                }
+              }
+            >
+              contact form
+            </h2>
+          </div>
+          <div
+            style={
+              Object {
+                "marginBottom": 0,
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "fontSize": "15px",
+                }
+              }
+            >
+              Contact Formです。
+            </div>
+            <div
+              style={
+                Object {
+                  "fontSize": "15px",
+                }
+              }
+            >
+              見た目のみなので、propsでハンドラを設定してください。
+            </div>
+          </div>
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#fafafa",
+                  "display": "flex",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "justifyContent": "space-between",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#444",
+                      }
+                    }
+                  >
+                    &lt;
+                    ContactForm
+                  </span>
+                  <span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        action
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          "
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            javascript:void(0)
+                          </span>
+                          "
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        isChanged
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#a11",
+                              }
+                            }
+                          >
+                            false
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        name
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            {
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                value
+                              </span>
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              ''
+                            </span>
+                            ,
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                error
+                              </span>
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              ''
+                            </span>
+                            }
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        email
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            {
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                value
+                              </span>
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              ''
+                            </span>
+                            ,
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                error
+                              </span>
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              ''
+                            </span>
+                            }
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        comment
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            {
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                value
+                              </span>
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              ''
+                            </span>
+                            ,
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                error
+                              </span>
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              ''
+                            </span>
+                            }
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onSubmitForm
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            action
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onBlurNameInput
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            action
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onBlurEmailInput
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            action
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onBlurCommentText
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            action
+                          </span>
+                          }
+                        </span>
+                      </span>
+                      <br />
+                    </span>
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "#444",
+                      }
+                    }
+                  >
+                    /&gt;
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={[Function]}
+                style={
+                  Object {
+                    "alignSelf": "flex-start",
+                    "backgroundColor": "rgb(255, 255, 255)",
+                    "borderColor": "rgb(238, 238, 238)",
+                    "borderImage": "initial",
+                    "borderRadius": "3px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "cursor": "pointer",
+                    "flexShrink": "0",
+                    "fontSize": "13px",
+                    "overflow": "hidden",
+                    "padding": "3px 10px",
+                  }
+                }
+                type="button"
+              >
+                Copy
+              </button>
+            </pre>
+          </div>
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Prop Types
+            </h1>
+            <div>
+              <h3
+                style={
+                  Object {
+                    "margin": "20px 0 0 0",
+                  }
+                }
+              >
+                "
+                ContactForm
+                " Component
+              </h3>
+              <small>
+                No propTypes defined!
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots organisms|ContactForm contact form error 1`] = `
+<div
+  style={
+    Object {
+      "padding": "30px",
+    }
+  }
+>
+  <div>
+    <div
+      style={
+        Object {
+          "position": "relative",
+          "zIndex": 0,
+        }
+      }
+    >
+      <form
+        action="javascript:void(0)"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        method="post"
+        name="contact"
+        onSubmit={[Function]}
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <label>
+            Don’t fill this out if you're human: 
+            <input
+              name="bot-field"
+            />
+          </label>
+        </div>
+        <div
+          className="sc-gZMcBi kCSaqp"
+        >
+          <input
+            className="sc-gqjmRU jHVNZV"
+            name="name"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Your name"
+            type="text"
+            value="test"
+          />
+          <p
+            className="sc-bdVaJa gISZaR"
+          >
+            error!
+          </p>
+        </div>
+        <div
+          className="sc-gZMcBi kCSaqp"
+        >
+          <input
+            className="sc-gqjmRU jHVNZV"
+            name="email"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Email: xxxx@mail.com"
+            type="mail"
+            value="test"
+          />
+          <p
+            className="sc-bdVaJa gISZaR"
+          >
+            error!
+          </p>
+        </div>
+        <div
+          className="sc-VigVT gALjHw"
+        >
+          <textarea
+            className="sc-jTzLTM gKqRYU"
+            cols={30}
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Free Text"
+            rows={5}
+            value="test"
+          />
+          <p
+            className="sc-bdVaJa gISZaR"
+          >
+            error!
+          </p>
+        </div>
+        <div
+          className="sc-ckVGcZ hCdRyJ"
+        >
+          <button
+            className="sc-jKJlTe gNmXrB"
+            type="submit"
+          >
+            Send
+          </button>
+        </div>
+        <input
+          name="form-name"
+          type="hidden"
+          value="contact"
+        />
+      </form>
+    </div>
+    <button
+      className="info__show-button"
+      onClick={[Function]}
+      style={
+        Object {
+          "background": "#027ac5",
+          "border": "none",
+          "borderRadius": "0 0 0 5px",
+          "color": "#fff",
+          "cursor": "pointer",
+          "display": "block",
+          "fontFamily": "sans-serif",
+          "fontSize": "12px",
+          "padding": "5px 15px",
+          "position": "fixed",
+          "right": 0,
+          "top": 0,
+        }
+      }
+      type="button"
+    >
+      Show Info
+    </button>
+    <div
+      className="info__overlay"
+      style={
+        Object {
+          "background": "white",
+          "bottom": 0,
+          "display": "none",
+          "left": 0,
+          "overflow": "auto",
+          "padding": "0 40px",
+          "position": "fixed",
+          "right": 0,
+          "top": 0,
+          "zIndex": 99999,
+        }
+      }
+    >
+      <button
+        className="info__close-button"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#027ac5",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        ×
+      </button>
+      <div>
+        <div
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "border": "1px solid #eee",
+              "borderRadius": "2px",
+              "color": "black",
+              "fontFamily": "Helvetica Neue, Helvetica, Segoe UI, Arial, freesans, sans-serif",
+              "fontSize": "15px",
+              "fontWeight": 300,
+              "lineHeight": 1.45,
+              "marginBottom": "20px",
+              "marginTop": "20px",
+              "padding": "20px 40px 40px",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "borderBottom": "1px solid #eee",
+                "marginBottom": 10,
+                "paddingTop": 10,
+              }
+            }
+          >
+            <h1
+              style={
+                Object {
+                  "fontSize": "35px",
+                  "margin": 0,
+                  "padding": 0,
+                }
+              }
+            >
+              organisms|ContactForm
+            </h1>
+            <h2
+              style={
+                Object {
+                  "fontSize": "22px",
+                  "fontWeight": 400,
+                  "margin": "0 0 10px 0",
+                  "padding": 0,
+                }
+              }
+            >
+              contact form error
+            </h2>
+          </div>
+          <div
+            style={
+              Object {
+                "marginBottom": 0,
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "fontSize": "15px",
+                }
+              }
+            >
+              Contact Formです。
+            </div>
+            <div
+              style={
+                Object {
+                  "fontSize": "15px",
+                }
+              }
+            >
+              見た目のみなので、propsでハンドラを設定してください。
+            </div>
+          </div>
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Story Source
+            </h1>
+            <pre
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#fafafa",
+                  "display": "flex",
+                  "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                  "fontSize": ".88em",
+                  "justifyContent": "space-between",
+                  "lineHeight": 1.5,
+                  "overflowX": "scroll",
+                  "padding": ".5rem",
+                }
+              }
+            >
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 18,
+                      "paddingRight": 3,
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#444",
+                      }
+                    }
+                  >
+                    &lt;
+                    ContactForm
+                  </span>
+                  <span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        action
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          "
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }
+                          >
+                            javascript:void(0)
+                          </span>
+                          "
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        isChanged
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        name
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            {
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                value
+                              </span>
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              'test'
+                            </span>
+                            ,
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                error
+                              </span>
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              'error!'
+                            </span>
+                            }
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        email
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            {
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                value
+                              </span>
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              'test'
+                            </span>
+                            ,
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                error
+                              </span>
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              'error!'
+                            </span>
+                            }
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        comment
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }
+                          >
+                            {
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                value
+                              </span>
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              'test'
+                            </span>
+                            ,
+                            <span>
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#666",
+                                  }
+                                }
+                              >
+                                error
+                              </span>
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }
+                            >
+                              'error!'
+                            </span>
+                            }
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onSubmitForm
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            action
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onBlurNameInput
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            action
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onBlurEmailInput
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            action
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onBlurCommentText
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#170",
+                              }
+                            }
+                          >
+                            action
+                          </span>
+                          }
+                        </span>
+                      </span>
+                      <br />
+                    </span>
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "#444",
+                      }
+                    }
+                  >
+                    /&gt;
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={[Function]}
+                style={
+                  Object {
+                    "alignSelf": "flex-start",
+                    "backgroundColor": "rgb(255, 255, 255)",
+                    "borderColor": "rgb(238, 238, 238)",
+                    "borderImage": "initial",
+                    "borderRadius": "3px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "cursor": "pointer",
+                    "flexShrink": "0",
+                    "fontSize": "13px",
+                    "overflow": "hidden",
+                    "padding": "3px 10px",
+                  }
+                }
+                type="button"
+              >
+                Copy
+              </button>
+            </pre>
+          </div>
+          <div>
+            <h1
+              style={
+                Object {
+                  "borderBottom": "1px solid #EEE",
+                  "fontSize": "25px",
+                  "margin": "20px 0 0 0",
+                  "padding": "0 0 5px 0",
+                }
+              }
+            >
+              Prop Types
+            </h1>
+            <div>
+              <h3
+                style={
+                  Object {
+                    "margin": "20px 0 0 0",
+                  }
+                }
+              >
+                "
+                ContactForm
+                " Component
+              </h3>
+              <small>
+                No propTypes defined!
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots organisms|Layout default 1`] = `
 <div
   style={
@@ -3938,7 +5250,7 @@ exports[`Storyshots organisms|Layout default 1`] = `
       }
     >
       <div
-        className="sc-ckVGcZ kudLTb"
+        className="sc-eNQAEJ fGAGmj"
       >
         <div>
           <div
@@ -4020,36 +5332,36 @@ exports[`Storyshots organisms|Layout default 1`] = `
         </div>
         <a
           aria-current="page"
-          className="sc-jKJlTe kfAdUV"
+          className="sc-hMqMXs jHNhU"
           href="/"
           onClick={[Function]}
           onMouseEnter={[Function]}
           style={Object {}}
         >
           <strong
-            className="sc-eNQAEJ dhFSpp"
+            className="sc-kEYyzF dltAIt"
           >
             A
           </strong>
           KIFUMI  
           <strong
-            className="sc-eNQAEJ dhFSpp"
+            className="sc-kEYyzF dltAIt"
           >
             S
           </strong>
           ATO
         </a>
         <div
-          className="sc-hMqMXs iueHuX"
+          className="sc-kkGfuU jKxUyv"
         >
           <p
-            className="sc-kEYyzF hioqcw"
+            className="sc-iAyFgw iVOBbq"
           >
             ©︎akfm.dev 
             2019
             . Using 
             <a
-              className="sc-kkGfuU cHnrvZ"
+              className="sc-hSdWYo elsfab"
               href="https://www.google.com/intl/ja/policies/privacy/partners/"
               rel="noopener"
               target="_blank"
@@ -4329,7 +5641,7 @@ exports[`Storyshots organisms|Layout root 1`] = `
       }
     >
       <div
-        className="sc-ckVGcZ kudLTb"
+        className="sc-eNQAEJ fGAGmj"
       >
         <div>
           <div
@@ -4410,16 +5722,16 @@ exports[`Storyshots organisms|Layout root 1`] = `
           </div>
         </div>
         <div
-          className="sc-hMqMXs iueHuX"
+          className="sc-kkGfuU jKxUyv"
         >
           <p
-            className="sc-kEYyzF hioqcw"
+            className="sc-iAyFgw iVOBbq"
           >
             ©︎akfm.dev 
             2019
             . Using 
             <a
-              className="sc-kkGfuU cHnrvZ"
+              className="sc-hSdWYo elsfab"
               href="https://www.google.com/intl/ja/policies/privacy/partners/"
               rel="noopener"
               target="_blank"

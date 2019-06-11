@@ -23,22 +23,7 @@ storiesOf(`molecules|${ Navigation.name }`, module)
   .addDecorator(withInfo)
   .addDecorator(StoryWrapper)
   .add('default',
-    () => <Navigation
-      links={ [
-        {
-          name: 'about',
-          url: '/about/',
-        },
-        {
-          name: 'blog',
-          url: '/blog/',
-        },
-        {
-          name: 'contact',
-          url: '/contact/',
-        },
-      ] }
-    />,
+    () => <Navigation />,
     {
       info: `
         navigationのOverlayとリンクのセットです。

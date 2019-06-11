@@ -6,11 +6,10 @@ import {
   updateEmailAction,
   updateCommentAction,
   validateAction,
-} from '../redux/modules/app/user'
-import { changeAction } from '../redux/modules/ui/form'
-import store from '../redux/store'
-import BaseInput from '../components/molecules/CustomInput'
-import BaseTextArea from '../components/molecules/CustomTextarea'
+} from '../../redux/modules/app/user'
+import { changeAction } from '../../redux/modules/ui/form'
+import store from '../../redux/store'
+import ContactForm from '../../components/organisms/ContactForm'
 
 interface IEncode {
   [key: string]: string;
@@ -50,16 +49,16 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>, required: IRequired) 
     .catch(error => alert(error))
 }
 
-interface IFormIbject {
+interface IFormObject {
   value: string;
   error: string;
 }
 
-interface INetlifyForm {
+interface IContactFormContainer {
   isChanged: boolean;
-  name: IFormIbject;
-  email: IFormIbject;
-  comment: IFormIbject;
+  name: IFormObject;
+  email: IFormObject;
+  comment: IFormObject;
   changeDispatcher: Function;
   nameDispatcher: Function;
   emailDispatcher: Function;
@@ -67,9 +66,8 @@ interface INetlifyForm {
   validateDispatcher: Function;
 }
 
-const NetlifyForm: React.FC<INetlifyForm> = (props) => {
+const ContactFormContainer: React.FC<IContactFormContainer> = (props) => {
   const {
-    children,
     isChanged,
     name,
     email,
@@ -106,42 +104,17 @@ const NetlifyForm: React.FC<INetlifyForm> = (props) => {
   }
 
   return (
-    <form
-      name="contact"
-      method="post"
-      action="/thanks/"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      onSubmit={ onSubmitForm }
-    >
-      <div style={ { display: 'none' } }>
-        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-      </div>
-      <BaseInput
-        type='text'
-        name='name'
-        placeholder='Your name'
-        value={ name.value }
-        onBlur={ onBlurNameInput }
-        error={ isChanged ? name.error : '' }
-      />
-      <BaseInput
-        type='mail'
-        name='email'
-        placeholder='Email: xxxx@mail.com'
-        value={ email.value }
-        onBlur={ onBlurEmailInput }
-        error={ isChanged ? email.error : '' }
-      />
-      <BaseTextArea
-        value={ comment.value }
-        onBlur={ onBlurCommentText }
-        error={ isChanged ? comment.error : '' }
-      />
-      { children }
-      { /* The `form-name` hidden field is required to support form submissions without JavaScript */ }
-      <input type="hidden" name="form-name" value="contact" />
-    </form>
+    <ContactForm
+      action='/thanks/'
+      isChanged={ isChanged }
+      name={ name }
+      email={ email }
+      comment={ comment }
+      onSubmitForm={ onSubmitForm }
+      onBlurNameInput={ onBlurNameInput }
+      onBlurEmailInput={ onBlurEmailInput }
+      onBlurCommentText={ onBlurCommentText }
+    />
   )
 }
 
@@ -165,4 +138,4 @@ const mapDispatchToProps = (dispatch: Function) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(NetlifyForm)
+)(ContactFormContainer)

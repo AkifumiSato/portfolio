@@ -12,6 +12,7 @@ npm start
 ## test
 ```sh
 npm test
+npm test -- --updateSnapshot
 ```
 
 ## build
