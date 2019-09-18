@@ -39,7 +39,7 @@ storiesOf(`organisms|Article`, module)
                 <li>list item</li>
                 <li>list item</li>
               </ol>
-              <p><a href="#">link</a></p>
+              <p><a href="#">1234567890123456789012345678901234567890</a></p>
 <pre><code class="language-javascript">import React from 'react'
 import Helmet from 'react-helmet'
 import Layout from '../components/organisms/layout'

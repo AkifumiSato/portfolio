@@ -9,7 +9,8 @@ interface IProps {
   };
 }
 
-const ArticleInner: React.FC<IProps> = styled.div`
+const ArticleInner: React.FC<IProps> = styled.div` 
+  word-break: break-word;
   &:not(:first-child) {
     margin-top: 50px;
   }
