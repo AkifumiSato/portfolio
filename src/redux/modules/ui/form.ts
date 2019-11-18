@@ -1,6 +1,7 @@
 import { Record } from 'immutable'
 import actionCreatorFactory from 'typescript-fsa'
 import { reducerWithInitialState } from 'typescript-fsa-reducers'
+import { IState } from '../../store'
 
 // model
 export interface IFormMember {
@@ -35,3 +36,6 @@ const reducer = reducerWithInitialState(new FormModel())
   .case(changeCommentAction, (state) => state.set('isChangeComment', true))
 
 export default reducer
+
+// selector
+export const formSelector = (state: IState) => state.ui.form

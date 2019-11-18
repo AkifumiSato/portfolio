@@ -28,34 +28,31 @@ const MyTextarea = styled.textarea`
 `
 
 interface IProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   cols?: number;
   rows?: number;
-  value?: string;
   placeholder?: string;
-  onBlur?: Function;
   error?: string;
 }
 
-const CustomTextarea: React.FC<IProps> = (props) => {
+const Textarea: React.FC<IProps> = (props) => {
   const {
+    value,
+    onChange,
     cols = 30,
     rows = 5,
-    value = '',
     placeholder = 'Free Text',
-    onBlur = () => true,
     error = '',
   } = props
-
-  const [tmpValue, setTmpValue] = React.useState(value)
 
   return (
     <Wrapper>
       <MyTextarea
         cols={ cols }
         rows={ rows }
-        value={ tmpValue }
-        onChange={ e => setTmpValue(e.target.value) }
-        onBlur={ e => onBlur(e) }
+        value={ value }
+        onChange={ onChange }
         placeholder={ placeholder }
       />
       { (() => error && <Error text={ error } />)() }
@@ -63,4 +60,4 @@ const CustomTextarea: React.FC<IProps> = (props) => {
   )
 }
 
-export default CustomTextarea
+export default Textarea

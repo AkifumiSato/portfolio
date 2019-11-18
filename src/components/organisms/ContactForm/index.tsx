@@ -1,6 +1,6 @@
 import * as React from 'react'
-import BaseInput from '../../molecules/CustomInput'
-import BaseTextArea from '../../molecules/CustomTextarea'
+import Input from '../../molecules/Input'
+import TextArea from '../../molecules/Textarea'
 import styled from 'styled-components'
 import { ralewayMixin } from '../../../styles/font'
 
@@ -40,9 +40,9 @@ interface IContactForm {
   email: IFormObject;
   comment: IFormObject;
   onSubmitForm: (e: React.FormEvent<HTMLFormElement>) => void;
-  onBlurNameInput: (e: React.FormEvent<HTMLInputElement>) => void;
-  onBlurEmailInput: (e: React.FormEvent<HTMLInputElement>) => void;
-  onBlurCommentText: (e: React.FormEvent<HTMLInputElement>) => void;
+  onChangeNameInput: (e: React.FormEvent<HTMLInputElement>) => void;
+  onChangeEmailInput: (e: React.FormEvent<HTMLInputElement>) => void;
+  onChangeCommentText: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 const ContactForm: React.FC<IContactForm> = (props) => {
@@ -52,9 +52,9 @@ const ContactForm: React.FC<IContactForm> = (props) => {
     email,
     comment,
     onSubmitForm,
-    onBlurNameInput,
-    onBlurEmailInput,
-    onBlurCommentText,
+    onChangeNameInput,
+    onChangeEmailInput,
+    onChangeCommentText,
   } = props
 
   return (
@@ -69,25 +69,25 @@ const ContactForm: React.FC<IContactForm> = (props) => {
       <div style={ { display: 'none' } }>
         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
       </div>
-      <BaseInput
+      <Input
         type='text'
         name='name'
         placeholder='Your name'
         value={ name.value }
-        onBlur={ onBlurNameInput }
+        onChange={ onChangeNameInput }
         error={ name.error }
       />
-      <BaseInput
+      <Input
         type='mail'
         name='email'
         placeholder='Email: xxxx@mail.com'
         value={ email.value }
-        onBlur={ onBlurEmailInput }
+        onChange={ onChangeEmailInput }
         error={ email.error }
       />
-      <BaseTextArea
+      <TextArea
         value={ comment.value }
-        onBlur={ onBlurCommentText }
+        onChange={ onChangeCommentText }
         error={ comment.error }
       />
       <ButtonWrapper>

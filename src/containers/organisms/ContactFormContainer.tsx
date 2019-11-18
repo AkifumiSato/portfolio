@@ -1,14 +1,13 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { navigateTo } from 'gatsby-link'
 import {
   updateNameAction,
   updateEmailAction,
   updateCommentAction,
-  validateAction,
+  validateAction, userSelector,
 } from '../../redux/modules/app/user'
-import { changeNameAction, changeEmailAction, changeCommentAction } from '../../redux/modules/ui/form'
-import store from '../../redux/store'
+import { changeNameAction, changeEmailAction, changeCommentAction, formSelector } from '../../redux/modules/ui/form'
 import ContactForm from '../../components/organisms/ContactForm'
 
 interface IEncode {
@@ -49,73 +48,40 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>, required: IRequired) 
     .catch(error => alert(error))
 }
 
-interface IFormObject {
-  value: string;
-  error: string;
-}
+const ContactFormContainer: React.FC = () => {
+  const dispatch = useDispatch()
+  const { name, email, comment } = useSelector(userSelector).toObject()
+  const { isChangeName, isChangeComment, isChangeEmail } = useSelector(formSelector).toObject()
 
-interface IContactFormContainer {
-  isChangeName: boolean;
-  isChangeEmail: boolean;
-  isChangeComment: boolean;
-  name: IFormObject;
-  email: IFormObject;
-  comment: IFormObject;
-  changeNameDispatcher: () => void;
-  changeEmailDispatcher: () => void;
-  changeCommentDispatcher: () => void;
-  nameDispatcher: (a: string) => void;
-  emailDispatcher: (a: string) => void;
-  commentDispatcher: (a: string) => void;
-  validateDispatcher: () => void;
-}
+  const isSubmit = !name.error && !email.error && !comment.error
 
-const ContactFormContainer: React.FC<IContactFormContainer> = (props) => {
-  const {
-    isChangeName,
-    isChangeEmail,
-    isChangeComment,
-    name,
-    email,
-    comment,
-    changeNameDispatcher,
-    changeEmailDispatcher,
-    changeCommentDispatcher,
-    nameDispatcher,
-    emailDispatcher,
-    commentDispatcher,
-    validateDispatcher,
-  } = props
+  const onceChangeNameDispatch = React.useCallback(() => !isChangeName && dispatch(changeNameAction()), [isChangeName])
+  const onceEmailDispatch = React.useCallback(() => !isChangeEmail && dispatch(changeEmailAction()), [isChangeEmail])
+  const onceCommentDispatch = React.useCallback(() => !isChangeComment && dispatch(changeCommentAction()), [isChangeComment])
 
-  const isSubmit = () => !name.error && !email.error && !comment.error
-
-  const onceChangeNameDispatch = () => !isChangeName && changeNameDispatcher()
-  const onceEmailDispatch = () => !isChangeEmail && changeEmailDispatcher()
-  const onceCommentDispatch = () => !isChangeComment && changeCommentDispatcher()
-
-  const onSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmitForm = React.useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    isSubmit() && handleSubmit(e, { name, email, comment })
-    validateDispatcher()
+    isSubmit && handleSubmit(e, { name, email, comment })
+    dispatch(validateAction())
     onceChangeNameDispatch()
     onceEmailDispatch()
     onceCommentDispatch()
-  }
+  }, [isSubmit])
 
-  const onBlurNameInput = (e: React.FormEvent<HTMLInputElement>) => {
-    nameDispatcher(e.currentTarget.value)
+  const onBlurNameInput = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(updateNameAction(e.currentTarget.value))
     onceChangeNameDispatch()
-  }
+  }, [])
 
-  const onBlurEmailInput = (e: React.FormEvent<HTMLInputElement>) => {
-    emailDispatcher(e.currentTarget.value)
+  const onBlurEmailInput = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(updateEmailAction(e.currentTarget.value))
     onceEmailDispatch()
-  }
+  }, [])
 
-  const onBlurCommentText = (e: React.FormEvent<HTMLInputElement>) => {
-    commentDispatcher(e.currentTarget.value)
+  const onBlurCommentText = React.useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    dispatch(updateCommentAction(e.currentTarget.value))
     onceCommentDispatch()
-  }
+  }, [])
 
   return (
     <ContactForm
@@ -133,35 +99,11 @@ const ContactFormContainer: React.FC<IContactFormContainer> = (props) => {
         error: isChangeComment ? comment.error : '',
       } }
       onSubmitForm={ onSubmitForm }
-      onBlurNameInput={ onBlurNameInput }
-      onBlurEmailInput={ onBlurEmailInput }
-      onBlurCommentText={ onBlurCommentText }
+      onChangeNameInput={ onBlurNameInput }
+      onChangeEmailInput={ onBlurEmailInput }
+      onChangeCommentText={ onBlurCommentText }
     />
   )
 }
 
-type AllState = ReturnType<typeof store.getState>
-
-const mapStateToProps = (state: AllState) => ({
-  isChangeName: state.ui.form.isChangeName,
-  isChangeEmail: state.ui.form.isChangeEmail,
-  isChangeComment: state.ui.form.isChangeComment,
-  email: state.app.user.email,
-  name: state.app.user.name,
-  comment: state.app.user.comment,
-})
-
-const mapDispatchToProps = (dispatch: Function) => ({
-  changeNameDispatcher: () => dispatch(changeNameAction()),
-  changeEmailDispatcher: () => dispatch(changeEmailAction()),
-  changeCommentDispatcher: () => dispatch(changeCommentAction()),
-  nameDispatcher: (value: string) => dispatch(updateNameAction(value)),
-  emailDispatcher: (value: string) => dispatch(updateEmailAction(value)),
-  commentDispatcher: (value: string) => dispatch(updateCommentAction(value)),
-  validateDispatcher: () => dispatch(validateAction()),
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ContactFormContainer)
+export default ContactFormContainer

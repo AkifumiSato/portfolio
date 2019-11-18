@@ -211,10 +211,10 @@ const urlMap: TUrl[] = [
 const Navigation = () => {
   const [interact, setInteract] = React.useState(true)
   const [open, setOpen] = React.useState(false)
-  const onClick = () => {
+  const onClick = React.useCallback(() => {
     setInteract(false)
     setOpen(!open)
-  }
+  }, [open])
 
   return (
     <div>
