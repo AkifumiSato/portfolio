@@ -1,24 +1,22 @@
-import { createStore, compose, StoreEnhancer } from 'redux'
-import rootReducer  from './rootReducer'
+import { createStore } from 'redux'
+import { combineReducers } from 'redux'
+import user from './modules/app/user'
+import form from './modules/ui/form'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-interface IWindow {
-  devToolsExtension: boolean
-  __REDUX_DEVTOOLS_EXTENSION__(): StoreEnhancer
-}
+const app = combineReducers({ user })
+const ui = combineReducers({ form })
 
-declare var window: IWindow
-
-const windowGlobal = typeof window !== 'undefined' && window
-
-const composeEnhancers =
-  windowGlobal.devToolsExtension
-    ? window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__()
-    : compose
+const root = combineReducers({
+  app,
+  ui,
+})
 
 const store = createStore(
-  rootReducer,
-  composeEnhancers,
+  root,
+  composeWithDevTools(),
 )
 
 export default store
+
+export type IState = ReturnType<typeof root>

@@ -2,7 +2,7 @@ import { Record } from 'immutable'
 import actionCreatorFactory from 'typescript-fsa'
 import { reducerWithInitialState } from 'typescript-fsa-reducers'
 import { nameValidate, mailValidate, commentValidate } from '../../utils/contactValidater'
-import { IState } from '../../rootReducer'
+import { IState } from '../../store'
 
 // model
 export interface IUserMember {

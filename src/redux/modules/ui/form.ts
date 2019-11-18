@@ -1,7 +1,7 @@
 import { Record } from 'immutable'
 import actionCreatorFactory from 'typescript-fsa'
 import { reducerWithInitialState } from 'typescript-fsa-reducers'
-import { IState } from '../../rootReducer'
+import { IState } from '../../store'
 
 // model
 export interface IFormMember {
