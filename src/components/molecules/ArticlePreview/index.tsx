@@ -90,19 +90,18 @@ interface IProps {
   };
 }
 
-const ArticlePreview: React.FC<IProps> = ({ url, publishDate, title, description, heroImage }) => {
-  return (
-    <MyLink to={ url }>
-      <DateView>{ publishDate }</DateView>
-      <MyImage sizes={ heroImage.sizes } imgStyle={ {
-        objectFit: 'contain',
-      } } alt="" />
-      <MyBody>
-        <MainTitle>{ title }</MainTitle>
-        <MyText>{ description }</MyText>
-      </MyBody>
-    </MyLink>
-  )
-}
+const ArticlePreview: React.FC<IProps> = ({ url, publishDate, title, description, heroImage }) => (
+  <MyLink to={ url }>
+    <DateView>{ publishDate }</DateView>
+    <MyImage sizes={ heroImage.sizes } imgStyle={ {
+      objectFit: 'contain',
+    } } alt="" />
+    <MyBody>
+      <MainTitle>{ title }</MainTitle>
+      <MyText>{ description }</MyText>
+    </MyBody>
+  </MyLink>
+)
+
 
 export default ArticlePreview

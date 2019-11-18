@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info'
 import { action } from '@storybook/addon-actions'
 import { createGlobalStyle } from 'styled-components'
 import { GlobalStyles } from '../../../styles/global'
-import CustomTextarea from './index'
+import Textarea from './index'
 
 const InjectionStyle = createGlobalStyle`
   body {
@@ -22,13 +22,15 @@ const StoryWrapper = (storyFn: () => React.FC) => (
   </div>
 )
 
-storiesOf(`molecules|${ CustomTextarea.name }`, module)
+storiesOf(`molecules|${ Textarea.name }`, module)
   .addDecorator(withInfo)
   .addDecorator(StoryWrapper)
   .add(
     'default',
-    () => <CustomTextarea
-      onBlur={ action('onBlur') }
+    () => <Textarea
+      value=""
+      placeholder="サンプル文です。"
+      onChange={ action('onChange') }
     />,
     {
       info: `
@@ -37,9 +39,9 @@ storiesOf(`molecules|${ CustomTextarea.name }`, module)
     })
   .add(
     'custom attribute',
-    () => <CustomTextarea
-      onBlur={ action('onBlur') }
-      placeholder="サンプル文です。"
+    () => <Textarea
+      value="サンプル文です"
+      onChange={ action('onChange') }
       error="本文は必須です。"
     />,
     {

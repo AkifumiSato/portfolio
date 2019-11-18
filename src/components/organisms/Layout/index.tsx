@@ -55,27 +55,25 @@ interface IProps {
   rootLinkDisplay?: boolean;
 }
 
-const Layout: React.FC<IProps> = ({ children, rootLinkDisplay = true }) => {
-  const date = new Date()
-  const year = date.getFullYear()
+const date = new Date()
+const year = date.getFullYear()
 
-  return (
-    <Wrapper>
-      <GlobalStyles />
-      <Navigation />
-      { rootLinkDisplay && (
-        <SiteRootLink to={ '/' }>
-          <StrongFont>A</StrongFont>KIFUMI
-          &nbsp;
-          <StrongFont>S</StrongFont>ATO
-        </SiteRootLink>
-      ) }
-      <Contents>
-        { children }
-        <Copyright>©︎akfm.dev { year }. Using <PolicyLink href="https://www.google.com/intl/ja/policies/privacy/partners/" target="_blank" rel="noopener">Google Analytics</PolicyLink></Copyright>
-      </Contents>
-    </Wrapper>
-  )
-}
+const Layout: React.FC<IProps> = ({ children, rootLinkDisplay = true }) => (
+  <Wrapper>
+    <GlobalStyles />
+    <Navigation />
+    { rootLinkDisplay && (
+      <SiteRootLink to={ '/' }>
+        <StrongFont>A</StrongFont>KIFUMI
+        &nbsp;
+        <StrongFont>S</StrongFont>ATO
+      </SiteRootLink>
+    ) }
+    <Contents>
+      { children }
+      <Copyright>©︎akfm.dev { year }. Using <PolicyLink href="https://www.google.com/intl/ja/policies/privacy/partners/" target="_blank" rel="noopener">Google Analytics</PolicyLink></Copyright>
+    </Contents>
+  </Wrapper>
+)
 
 export default Layout

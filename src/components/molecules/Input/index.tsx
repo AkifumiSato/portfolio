@@ -48,32 +48,29 @@ const MyInput = styled.input`
 `
 
 interface IProps {
-  type?: string;
   name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: string;
   placeholder?: string;
-  value?: string;
-  onBlur?: Function;
   error?: string;
 }
 
-const CustomInput: React.FC<IProps> = (props) => {
+const Input: React.FC<IProps> = (props) => {
   const {
-    type = 'text',
+    value,
+    onChange,
     name,
+    type = 'text',
     placeholder = '',
-    value = '',
-    onBlur = () => true,
     error = '',
   } = props
-
-  const [tmpValue, setTmpValue] = React.useState(value)
 
   return (
     <Wrapper>
       <MyInput
-        value={ tmpValue }
-        onChange={ e => setTmpValue(e.target.value) }
-        onBlur={ e => onBlur(e) }
+        value={ value }
+        onChange={ onChange }
         type={ type }
         name={ name }
         placeholder={ placeholder }
@@ -83,4 +80,4 @@ const CustomInput: React.FC<IProps> = (props) => {
   )
 }
 
-export default CustomInput
+export default Input

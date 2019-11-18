@@ -2,6 +2,7 @@ import { Record } from 'immutable'
 import actionCreatorFactory from 'typescript-fsa'
 import { reducerWithInitialState } from 'typescript-fsa-reducers'
 import { nameValidate, mailValidate, commentValidate } from '../../utils/contactValidater'
+import { IState } from '../../rootReducer'
 
 // model
 export interface IUserMember {
@@ -82,3 +83,6 @@ const reducer = reducerWithInitialState(new UserModel())
   .case(validateAction, (state) => state.validate())
 
 export default reducer
+
+// selector
+export const userSelector = (state: IState) => state.app.user

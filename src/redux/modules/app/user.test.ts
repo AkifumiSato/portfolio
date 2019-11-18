@@ -1,4 +1,3 @@
-import * as snapshotDiff from 'snapshot-diff'
 import reducer, {
   UserModel,
   updateNameAction,
@@ -7,80 +6,66 @@ import reducer, {
   validateAction
 } from './user'
 
-const initialState = new UserModel()
-
-test('[app user state]: init', () => {
-  expect(
-    snapshotDiff(undefined, reducer(undefined, { type: '@@INIT' }))
-  ).toMatchSnapshot()
-})
+const userState = new UserModel()
 
 // name
 test('[app user state]: update name', () => {
-  expect(
-    snapshotDiff(initialState, reducer(initialState, updateNameAction('test')))
-  ).toMatchSnapshot()
+  expect(reducer(userState, updateNameAction('test')))
+    .toEqual(userState.updateName('test'))
 })
 
 test('[app user state]: empty name', () => {
-  expect(
-    snapshotDiff(initialState, reducer(initialState, updateNameAction('')))
-  ).toMatchSnapshot()
+  expect(reducer(userState, updateNameAction('')))
+    .toEqual(userState.updateName(''))
 })
 
 test('[app user state]: too long name', () => {
-  expect(
-    snapshotDiff(initialState, reducer(initialState, updateNameAction('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')))
-  ).toMatchSnapshot()
+  const text = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+  expect(reducer(userState, updateNameAction(text)))
+    .toEqual(userState.updateName(text))
 })
 
 // email
 test('[app user state]: update email', () => {
-  expect(
-    snapshotDiff(initialState, reducer(initialState, updateEmailAction('test@test.com')))
-  ).toMatchSnapshot()
+  expect(reducer(userState, updateEmailAction('test@test.com')))
+    .toEqual(userState.updateEmail('test@test.com'))
 })
 
 test('[app user state]: empty email', () => {
-  expect(
-    snapshotDiff(initialState, reducer(initialState, updateEmailAction('')))
-  ).toMatchSnapshot()
+  expect(reducer(userState, updateEmailAction('')))
+    .toEqual(userState.updateEmail(''))
 })
 
 test('[app user state]: error email', () => {
-  expect(
-    snapshotDiff(initialState, reducer(initialState, updateEmailAction('test@test')))
-  ).toMatchSnapshot()
+  expect(reducer(userState, updateEmailAction('test@test')))
+    .toEqual(userState.updateEmail('test@test'))
 })
 
 test('[app user state]: too long email', () => {
-  expect(
-    snapshotDiff(initialState, reducer(initialState, updateNameAction('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@test.com')))
-  ).toMatchSnapshot()
+  const email = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@test.com'
+  expect(reducer(userState, updateEmailAction(email)))
+    .toEqual(userState.updateEmail(email))
 })
 
 // comment
 test('[app user state]: update comment', () => {
-  expect(
-    snapshotDiff(initialState, reducer(initialState, updateCommentAction('test')))
-  ).toMatchSnapshot()
+  expect(reducer(userState, updateCommentAction('test')))
+    .toEqual(userState.updateComment('test'))
 })
 
 test('[app user state]: empty comment', () => {
-  expect(
-    snapshotDiff(initialState, reducer(initialState, updateCommentAction('')))
-  ).toMatchSnapshot()
+  expect(reducer(userState, updateCommentAction('')))
+    .toEqual(userState.updateComment(''))
 })
 
 test('[app user state]: too long comment', () => {
-  expect(
-    snapshotDiff(initialState, reducer(initialState, updateCommentAction('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')))
-  ).toMatchSnapshot()
+  const text = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+  expect(reducer(userState, updateCommentAction(text)))
+    .toEqual(userState.updateComment(text))
 })
 
 // validation
 test('[app user state]: validation', () => {
-  expect(
-    snapshotDiff(initialState, reducer(initialState, validateAction()))
-  ).toMatchSnapshot()
+  expect(reducer(userState, validateAction))
+    .toEqual(userState.validate())
 })

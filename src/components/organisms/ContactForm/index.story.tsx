@@ -41,9 +41,9 @@ storiesOf(`organisms|ContactForm`, module)
         error: '',
       } }
       onSubmitForm={ action('onSubmitForm') }
-      onBlurNameInput={ action('onBlurNameInput') }
-      onBlurEmailInput={ action('onBlurEmailInput') }
-      onBlurCommentText={ action('onBlurCommentText') }
+      onChangeNameInput={ action('onChangeNameInput') }
+      onChangeEmailInput={ action('onChangeEmailInput') }
+      onChangeCommentText={ action('onChangeCommentText') }
     />,
     {
       info: `
@@ -68,9 +68,9 @@ storiesOf(`organisms|ContactForm`, module)
         error: 'error!',
       } }
       onSubmitForm={ action('onSubmitForm') }
-      onBlurNameInput={ action('onBlurNameInput') }
-      onBlurEmailInput={ action('onBlurEmailInput') }
-      onBlurCommentText={ action('onBlurCommentText') }
+      onChangeNameInput={ action('onChangeNameInput') }
+      onChangeEmailInput={ action('onChangeEmailInput') }
+      onChangeCommentText={ action('onChangeCommentText') }
     />,
     {
       info: `
