@@ -1,8 +1,44 @@
 const Promise = require('bluebird')
 const path = require('path')
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+
+  const result = await graphql(
+    `
+      {
+        allContentfulBlogPost(
+          sort: {fields: [createdAt], order: DESC}
+        ) {
+          edges {
+            node {
+              createdAt(formatString: "YYYY-MM-DD")
+            }
+          }
+        }
+      }
+    `,
+  )
+  if (result.errors) {
+    return
+  }
+  // ...
+  // Create blog-list pages
+  const posts = result.data.allContentfulBlogPost.edges
+  const limit = 10
+  const numPages = Math.ceil(posts.length / limit)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/blog` : `/blog/${ i + 1 }`,
+      component: path.resolve('./src/templates/BlogList.tsx'),
+      context: {
+        skip: i * limit,
+        limit,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
+  })
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/BlogPost.tsx')
@@ -13,7 +49,7 @@ exports.createPages = ({ graphql, actions }) => {
             allContentfulBlogPost {
               edges {
                 node {
-                  publishDate(formatString: "YYYY-MM-DD")
+                  createdAt(formatString: "YYYY-MM-DD")
                   slug
                   id
                 }

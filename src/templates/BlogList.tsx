@@ -1,11 +1,11 @@
-import * as React from 'react'
 import { graphql } from 'gatsby'
-import CustomHead from '../components/atoms/CustomHead'
-import Layout from '../components/organisms/Layout'
-import styled from 'styled-components'
-import ArticlePreview from '../components/molecules/ArticlePreview'
-import MainTitle from '../components/atoms/MainTitle'
 import { FluidObject } from 'gatsby-image'
+import * as React from 'react'
+import styled from 'styled-components'
+import CustomHead from '../components/atoms/CustomHead'
+import MainTitle from '../components/atoms/MainTitle'
+import ArticlePreview from '../components/molecules/ArticlePreview'
+import Layout from '../components/organisms/Layout'
 
 const MyList = styled.ul`
   & > li:not(:first-child) {
@@ -48,7 +48,7 @@ interface IProps {
   }
 }
 
-const BlogPage: React.FC<IProps> = ({ data }) => {
+const BlogListPage: React.FC<IProps> = ({ data }) => {
   const posts = data.allContentfulBlogPost.edges
   const siteTitle = `Blog - ${data.site.siteMetadata.title}`
 
@@ -77,32 +77,36 @@ const BlogPage: React.FC<IProps> = ({ data }) => {
   )
 }
 
-export default BlogPage
+export default BlogListPage
 
 export const pageQuery = graphql`
-  query BlogIndexQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "YYYY-MM-DD")
-          tags
-          heroImage {
-            sizes(maxWidth: 350, resizingBehavior: SCALE) {
-              ...GatsbyContentfulSizes_withWebp
+    query BlogListQuery($skip: Int!, $limit: Int!) {
+        allContentfulBlogPost(
+            sort: {fields: [createdAt], order: DESC}
+            limit: $limit
+            skip: $skip
+        ) {
+            edges {
+                node {
+                    title
+                    slug
+                    createdAt(formatString: "YYYY-MM-DD")
+                    tags
+                    heroImage {
+                        sizes(maxWidth: 350, resizingBehavior: SCALE) {
+                            ...GatsbyContentfulSizes_withWebp
+                        }
+                    }
+                    description {
+                        description
+                    }
+                }
             }
-          }
-          description {
-            description
-          }
         }
-      }
+        site {
+            siteMetadata {
+                title
+            }
+        }
     }
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
 `
