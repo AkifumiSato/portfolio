@@ -1,7 +1,6 @@
-const Promise = require('bluebird')
 const path = require('path')
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   const result = await graphql(
@@ -13,6 +12,8 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               createdAt(formatString: "YYYY-MM-DD")
+              slug
+              id
             }
           }
         }
@@ -20,10 +21,12 @@ exports.createPages = async ({ graphql, actions }) => {
     `,
   )
   if (result.errors) {
+    console.log(result.errors)
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  // ...
-  // Create blog-list pages
+
+  // Create blog list pages
   const posts = result.data.allContentfulBlogPost.edges
   const limit = 10
   const numPages = Math.ceil(posts.length / limit)
@@ -40,40 +43,14 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/BlogPost.tsx')
-    resolve(
-      graphql(
-        `
-          {
-            allContentfulBlogPost {
-              edges {
-                node {
-                  createdAt(formatString: "YYYY-MM-DD")
-                  slug
-                  id
-                }
-              }
-            }
-          }
-          `
-      ).then(result => {
-        if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
-        }
-
-        const posts = result.data.allContentfulBlogPost.edges
-        posts.forEach((post) => {
-          createPage({
-            path: `/blog/${post.node.publishDate}/${post.node.slug}.html`,
-            component: blogPost,
-            context: {
-              id: post.node.id,
-            },
-          })
-        })
-      })
-    )
+  // Create blog article pages
+  posts.forEach((post) => {
+    createPage({
+      path: `/blog/${ post.node.publishDate }/${ post.node.slug }.html`,
+      component: path.resolve('./src/templates/BlogPost.tsx'),
+      context: {
+        id: post.node.id,
+      },
+    })
   })
 }
