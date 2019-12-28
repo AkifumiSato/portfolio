@@ -1,29 +1,17 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
 import { action } from '@storybook/addon-actions'
-import { createGlobalStyle } from 'styled-components'
-import { GlobalStyles } from '../../../styles/global'
-import Input from './index'
-
-const InjectionStyle = createGlobalStyle`
-  body {
-    background: transparent;
-  }
-`
+import { storiesOf } from '@storybook/react'
+import * as React from 'react'
+import Input from '.'
 
 const StoryWrapper = (storyFn: () => React.FC) => (
   <div style={ {
     padding: '30px'
   } }>
-    <GlobalStyles />
-    <InjectionStyle />
     { storyFn() }
   </div>
 )
 
 storiesOf(`molecules|${ Input.name }`, module)
-  .addDecorator(withInfo)
   .addDecorator(StoryWrapper)
   .add(
     'default',
@@ -42,7 +30,7 @@ storiesOf(`molecules|${ Input.name }`, module)
     () =>
       <Input
         name="test"
-        value="test@example.com"
+        value=""
         type="mail"
         error="メールアドレスは必須です。"
         placeholder="story@rect.com"

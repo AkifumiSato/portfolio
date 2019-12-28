@@ -1,29 +1,17 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
 import { action } from '@storybook/addon-actions'
-import { createGlobalStyle } from 'styled-components'
-import { GlobalStyles } from '../../../styles/global'
-import ContactForm from './index'
-
-const InjectionStyle = createGlobalStyle`
-  body {
-    background: transparent;
-  }
-`
+import { storiesOf } from '@storybook/react'
+import * as React from 'react'
+import ContactForm from '.'
 
 const StoryWrapper = (storyFn: () => React.FC) => (
   <div style={ {
     padding: '30px'
   } }>
-    <GlobalStyles />
-    <InjectionStyle />
     { storyFn() }
   </div>
 )
 
 storiesOf(`organisms|ContactForm`, module)
-  .addDecorator(withInfo)
   .addDecorator(StoryWrapper)
   .add('contact form',
     () => <ContactForm

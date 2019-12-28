@@ -1,27 +1,8 @@
-import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
-import { createGlobalStyle } from 'styled-components'
-import { GlobalStyles } from '../../../styles/global'
-import MainTitle from './index'
-
-const InjectionStyle = createGlobalStyle`
-  body {
-    background: transparent;
-  }
-`
-
-const StoryWrapper = (storyFn: () => React.FC) => (
-  <div>
-    <GlobalStyles />
-    <InjectionStyle />
-    { storyFn() }
-  </div>
-)
+import * as React from 'react'
+import MainTitle from '.'
 
 storiesOf(`atom|${ MainTitle.name }`, module)
-  .addDecorator(withInfo)
-  .addDecorator(StoryWrapper)
   .add(
     'Single Title',
     () => <MainTitle title="Single Title" />,
