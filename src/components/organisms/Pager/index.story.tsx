@@ -16,6 +16,8 @@ storiesOf(`organisms|Pager`, module)
     () => <Pager
       current={ 1 }
       max={ 10 }
+      prevLink="/prevLink/"
+      nextLink="/nextLink/"
     />,
     {
       info: `
@@ -26,6 +28,8 @@ storiesOf(`organisms|Pager`, module)
     () => <Pager
       current={ 5 }
       max={ 10 }
+      prevLink="/prevLink/"
+      nextLink="/nextLink/"
     />,
     {
       info: `
@@ -36,6 +40,8 @@ storiesOf(`organisms|Pager`, module)
     () => <Pager
       current={ 10 }
       max={ 10 }
+      prevLink="/prevLink/"
+      nextLink="/nextLink/"
     />,
     {
       info: `

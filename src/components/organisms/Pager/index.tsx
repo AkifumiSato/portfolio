@@ -1,3 +1,4 @@
+import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
 import { ralewayMixin } from '../../../styles/font'
@@ -14,40 +15,42 @@ const ButtonSpace = styled.div`
   width: 100px;
 `
 
-const BaseButton = styled.a`
+const BaseButton = styled(Link)`
   align-items: center;
   border-radius: 3px;
+  border: 1px solid #00C5B2;
   box-sizing: border-box;
   box-shadow: 0 4px 24px rgba(0,0,0,.15);
+  color: #00C5B2;
   display: flex;
   ${ ralewayMixin };
   font-size:  15px;
   justify-content: center;
   text-decoration: none;
+  transition: .3s;
   height: 50px;
   width: 100px;
-`
-
-const PrevLink = styled(BaseButton)`
-  border: 1px solid #00C5B2;
-  color: #00C5B2;
-`
-
-const NextLink = styled(BaseButton)`
-  background-color: #00C5B2;
-  color: #FFF;
+  
+  &:hover {
+    box-shadow: 0 4px 48px rgba(0, 0, 0, 0.3);
+    background-color: #00C5B2;
+    color: #FFF;
+    letter-spacing: 2px;
+  }
 `
 
 interface IProps {
   current: number
   max: number
+  prevLink: string
+  nextLink: string
 }
 
-const Pager: React.FC<IProps> = ({ current, max }) => (
+const Pager: React.FC<IProps> = ({ current, max, prevLink, nextLink }) => (
   <Wrapper>
-    { current === 1 ? <ButtonSpace /> : <PrevLink>&lt; prev</PrevLink> }
+    { current === 1 ? <ButtonSpace /> : <BaseButton to={ prevLink }>&lt; prev</BaseButton> }
     { `${ current } / ${ max }` }
-    { current === max ? <ButtonSpace /> : <NextLink>next &gt;</NextLink> }
+    { current === max ? <ButtonSpace /> : <BaseButton to={ nextLink }>next &gt;</BaseButton> }
   </Wrapper>
 )
 

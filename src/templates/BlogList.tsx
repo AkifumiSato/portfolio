@@ -6,6 +6,9 @@ import CustomHead from '../components/atoms/CustomHead'
 import MainTitle from '../components/atoms/MainTitle'
 import ArticlePreview from '../components/molecules/ArticlePreview'
 import Layout from '../components/organisms/Layout'
+import Pager from '../components/organisms/Pager'
+
+const parsePagerUrl = (baseUrl: string, pageNumber: number) => pageNumber <= 1 ? `${ baseUrl }` : `${ baseUrl }/${ pageNumber }`
 
 const MyList = styled.ul`
   & > li:not(:first-child) {
@@ -20,10 +23,16 @@ const MyList = styled.ul`
 `
 
 const MyArticle = styled.div`
-  margin-top: 10px;
+  display: grid;
+  row-gap: 50px;
 `
 
 interface IProps {
+  pageContext: {
+    currentPage: number
+    pageCount: number
+    baseUrl: string
+  }
   data: {
     site: {
       siteMetadata: {
@@ -48,9 +57,9 @@ interface IProps {
   }
 }
 
-const BlogListPage: React.FC<IProps> = ({ data }) => {
-  const posts = data.allContentfulBlogPost.edges
-  const siteTitle = `Blog - ${data.site.siteMetadata.title}`
+const BlogListPage: React.FC<IProps> = ({ data, pageContext }) => {
+  const { edges } = data.allContentfulBlogPost
+  const siteTitle = `Blog - ${ data.site.siteMetadata.title }`
 
   return (
     <Layout>
@@ -58,11 +67,11 @@ const BlogListPage: React.FC<IProps> = ({ data }) => {
       <MainTitle title='Blog' />
       <MyArticle>
         <MyList>
-          { posts.map(({ node }) => {
+          { edges.map(({ node }) => {
             return (
               <li key={ node.slug }>
                 <ArticlePreview
-                  url={`/blog/${node.publishDate}/${node.slug}.html`}
+                  url={ `/blog/${ node.publishDate }/${ node.slug }.html` }
                   publishDate={ node.publishDate }
                   title={ node.title }
                   description={ node.description.description }
@@ -72,6 +81,12 @@ const BlogListPage: React.FC<IProps> = ({ data }) => {
             )
           }) }
         </MyList>
+        <Pager
+          current={ pageContext.currentPage }
+          max={ pageContext.pageCount }
+          prevLink={ parsePagerUrl(pageContext.baseUrl, pageContext.currentPage - 1) }
+          nextLink={ parsePagerUrl(pageContext.baseUrl, pageContext.currentPage + 1) }
+        />
       </MyArticle>
     </Layout>
   )
