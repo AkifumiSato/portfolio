@@ -35,7 +35,6 @@ const BaseButton = styled(Link)`
     box-shadow: 0 4px 48px rgba(0, 0, 0, 0.3);
     background-color: #00C5B2;
     color: #FFF;
-    letter-spacing: 2px;
   }
 `
 
