@@ -12,6 +12,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           edges {
             node {
               createdAt(formatString: "YYYY-MM-DD")
+              publishDate(formatString: "YYYY-MM-DD")
               slug
               id
             }

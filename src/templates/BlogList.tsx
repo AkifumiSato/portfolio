@@ -106,6 +106,7 @@ export const pageQuery = graphql`
                     title
                     slug
                     createdAt(formatString: "YYYY-MM-DD")
+                    publishDate(formatString: "YYYY-MM-DD")
                     tags
                     heroImage {
                         sizes(maxWidth: 350, resizingBehavior: SCALE) {
