@@ -1,5 +1,26 @@
-import { configure } from '@storybook/react'
+import * as React from 'react'
+import { addDecorator, configure } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import { withInfo } from '@storybook/addon-info'
+import { createGlobalStyle } from 'styled-components'
+import { GlobalStyles } from '../src/styles/global'
+
+const InjectionStyle = createGlobalStyle`
+  body {
+    background: transparent;
+  }
+`
+
+const StoryWrapper = (storyFn) => (
+  <>
+    <GlobalStyles />
+    <InjectionStyle />
+    { storyFn() }
+  </>
+)
+
+addDecorator(withInfo)
+addDecorator(StoryWrapper)
 
 // automatically import all files ending in *.stories.js
 const req = require.context('../src/components', true, /\.story\.tsx$/)

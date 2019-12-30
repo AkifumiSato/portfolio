@@ -1,28 +1,16 @@
-import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
-import { createGlobalStyle } from 'styled-components'
-import { GlobalStyles } from '../../../styles/global'
-import Article from './index'
-
-const InjectionStyle = createGlobalStyle`
-  body {
-    background: transparent;
-  }
-`
+import * as React from 'react'
+import Article from '.'
 
 const StoryWrapper = (storyFn: () => React.FC) => (
   <div style={ {
     padding: '30px'
   } }>
-    <GlobalStyles />
-    <InjectionStyle />
     { storyFn() }
   </div>
 )
 
 storiesOf(`organisms|Article`, module)
-  .addDecorator(withInfo)
   .addDecorator(StoryWrapper)
   .add('article html',
     () => <Article
@@ -39,7 +27,7 @@ storiesOf(`organisms|Article`, module)
                 <li>list item</li>
                 <li>list item</li>
               </ol>
-              <p><a href="#">1234567890123456789012345678901234567890</a></p>
+              <p><a href="#">link</a></p>
 <pre><code class="language-javascript">import React from 'react'
 import Helmet from 'react-helmet'
 import Layout from '../components/organisms/layout'

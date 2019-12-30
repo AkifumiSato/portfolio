@@ -1,28 +1,16 @@
-import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
-import { GlobalStyles } from '../../../styles/global'
-import { createGlobalStyle } from 'styled-components'
+import * as React from 'react'
 import ArticlePreview from './index'
-
-const InjectionStyle = createGlobalStyle`
-  body {
-    background: transparent;
-  }
-`
 
 const StoryWrapper = (storyFn: () => React.FC) => (
   <div style={ {
     padding: '30px'
   } }>
-    <GlobalStyles />
-    <InjectionStyle />
     { storyFn() }
   </div>
 )
 
 storiesOf(`molecules|${ ArticlePreview.name }`, module)
-  .addDecorator(withInfo)
   .addDecorator(StoryWrapper)
   .add(
     'Simple cassette',
