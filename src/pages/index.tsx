@@ -1,9 +1,9 @@
-import * as React from 'react'
-import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
+import Link from 'gatsby-link'
+import * as React from 'react'
+import styled, { keyframes } from 'styled-components'
 import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/Layout'
-import styled, { keyframes } from 'styled-components'
 import { ralewayMixin } from '../styles/font'
 
 const TitleWrap = styled.div`
@@ -21,7 +21,7 @@ const TitleWrap = styled.div`
 
 const MainTitle = styled.h1`
   font-size: 50px;
-  ${ralewayMixin};
+  ${ ralewayMixin };
   @media screen and (max-width: 768px) {
     font-size: 40px;
   }
@@ -43,8 +43,8 @@ interface IStrongFont {
 const StrongFont = styled.strong`
   color: #00C5B2;
   font-weight: normal;
-  animation: ${fadeIn} 1s;
-  animation-delay: ${(props: IStrongFont) => props.delay};
+  animation: ${ fadeIn } 1s;
+  animation-delay: ${ (props: IStrongFont) => props.delay };
   animation-fill-mode: forwards;
   opacity: 0;
 `
@@ -52,7 +52,7 @@ const StrongFont = styled.strong`
 const SubTitle = styled.p`
   color: #aaa;
   font-size: 25px;
-  ${ralewayMixin};
+  ${ ralewayMixin };
   margin-top: 15px;
   @media screen and (max-width: 768px) {
     font-size: 16px;
@@ -62,7 +62,7 @@ const SubTitle = styled.p`
 
 const IndexMenu = styled.div`
   bottom: 20%;
-  ${ralewayMixin};
+  ${ ralewayMixin };
   left: 0;
   margin: auto;
   max-width: 850px;
@@ -117,7 +117,7 @@ const MenuLink = styled(Link)`
   padding: 10px 25px;
   text-decoration: none;
   @media screen and (min-width: 769px) {
-    &:hover ${MenuLinkText} {
+    &:hover ${ MenuLinkText } {
       color: #333;
       &:after {
         width: 100%;
@@ -192,11 +192,11 @@ const IndexPage: React.FC<IProps> = ({ data }) => {
 export default IndexPage
 
 export const pageQuery = graphql`
-  query HomeQuery {
-    site {
-      siteMetadata {
-        title
-      }
+    query HomeQuery {
+        site {
+            siteMetadata {
+                title
+            }
+        }
     }
-  }
 `
