@@ -1,6 +1,9 @@
-import * as React from 'react'
 import * as Prism from 'prismjs'
+import 'prismjs/components/prism-elm.min.js'
+import 'prismjs/components/prism-haskell.min.js'
+import 'prismjs/components/prism-typescript.min.js'
 import 'prismjs/themes/prism.css'
+import * as React from 'react'
 import styled from 'styled-components'
 
 interface IProps {
