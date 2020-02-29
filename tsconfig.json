@@ -1,13 +1,19 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "sourceMap": true,
     "noImplicitAny": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
     "module": "commonjs",
-    "target": "esnext",
-    "rootDirs": ["src", "stories"],
     "jsx": "react",
-    "lib": ["dom", "es2018"]
+    "lib": [
+      "dom",
+      "es2018"
+    ],
+    "esModuleInterop": true,
+    "downlevelIteration": true
   },
   "include": ["./src/**/*"]
 }

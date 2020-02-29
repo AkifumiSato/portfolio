@@ -1,8 +1,8 @@
-import * as React from 'react'
 import { graphql } from 'gatsby'
+import * as React from 'react'
+import styled from 'styled-components'
 import CustomHead from '../components/atoms/CustomHead'
 import Layout from '../components/organisms/Layout'
-import styled  from 'styled-components'
 
 const Thanks = styled.p`
   align-items: center;
@@ -25,7 +25,7 @@ interface IProps {
 }
 
 const ThanksPage: React.FC<IProps> = ({ data }) => {
-  const siteTitle = `Thanks - ${data.site.siteMetadata.title}`
+  const siteTitle = `Thanks - ${ data.site.siteMetadata.title }`
 
   return (
     <Layout>
@@ -38,11 +38,11 @@ const ThanksPage: React.FC<IProps> = ({ data }) => {
 export default ThanksPage
 
 export const pageQuery = graphql`
-  query ThanksQuery {
-    site {
-      siteMetadata {
-        title
-      }
+    query ThanksQuery {
+        site {
+            siteMetadata {
+                title
+            }
+        }
     }
-  }
 `

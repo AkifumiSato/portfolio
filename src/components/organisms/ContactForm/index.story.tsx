@@ -3,19 +3,24 @@ import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import ContactForm from '.'
 
-const StoryWrapper = (storyFn: () => React.FC) => (
-  <div style={ {
-    padding: '30px'
-  } }>
-    { storyFn() }
-  </div>
-)
+const onSubmitForm = action('onSubmitForm')
+
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault()
+  onSubmitForm(e)
+}
 
 storiesOf(`organisms|ContactForm`, module)
-  .addDecorator(StoryWrapper)
+  .addDecorator((storyFn) => (
+    <div style={ {
+      padding: '30px'
+    } }>
+      { storyFn() }
+    </div>
+  ))
   .add('contact form',
     () => <ContactForm
-      action='javascript:void(0)'
+      action="/"
       name={ {
         value: '',
         error: '',
@@ -28,7 +33,7 @@ storiesOf(`organisms|ContactForm`, module)
         value: '',
         error: '',
       } }
-      onSubmitForm={ action('onSubmitForm') }
+      onSubmitForm={ handleSubmit }
       onChangeNameInput={ action('onChangeNameInput') }
       onChangeEmailInput={ action('onChangeEmailInput') }
       onChangeCommentText={ action('onChangeCommentText') }
@@ -42,7 +47,7 @@ storiesOf(`organisms|ContactForm`, module)
   )
   .add('contact form error',
     () => <ContactForm
-      action='javascript:void(0)'
+      action="/"
       name={ {
         value: 'test',
         error: 'error!',
@@ -55,7 +60,7 @@ storiesOf(`organisms|ContactForm`, module)
         value: 'test',
         error: 'error!',
       } }
-      onSubmitForm={ action('onSubmitForm') }
+      onSubmitForm={ handleSubmit }
       onChangeNameInput={ action('onChangeNameInput') }
       onChangeEmailInput={ action('onChangeEmailInput') }
       onChangeCommentText={ action('onChangeCommentText') }
