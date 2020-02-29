@@ -16,11 +16,13 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 200px 100px 100px;
+  padding: 150px 100px 100px;
   max-width: 1280px;
   width: 100%;
   min-width: 960px;
   margin: 0 auto;
+  min-height: 715px;
+  height: 90vh;
 `
 
 const CatchCopy = styled.p`
