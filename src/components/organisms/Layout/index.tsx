@@ -1,5 +1,5 @@
-import * as React from 'react'
 import Link from 'gatsby-link'
+import * as React from 'react'
 import styled from 'styled-components'
 import * as font from '../../../styles/font'
 import { GlobalStyles } from '../../../styles/global'
@@ -37,7 +37,7 @@ const Contents = styled.div`
 
 const Copyright = styled.p`
   bottom: 20px;
-  color: #aaa;
+  color: #666;
   font-size: 14px;
   left: 7%;
   position: absolute;
