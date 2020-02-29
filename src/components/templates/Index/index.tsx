@@ -1,14 +1,26 @@
 import Link from 'gatsby-link'
 import * as React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+// @ts-ignore
+import greenSquare from '../../../../static/images/greenSquare.svg'
+// @ts-ignore
+import navySquare from '../../../../static/images/navySquare.svg'
+// @ts-ignore
+import whiteSquare from '../../../../static/images/whiteSquare.svg'
 import color from '../../../styles/color'
 import { ralewayMixin, SansationLight } from '../../../styles/font'
 import CommonSetting from '../hoc/CommonSetting'
 
 const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   box-sizing: border-box;
   padding: 200px 100px 100px;
+  max-width: 1280px;
   width: 100%;
+  min-width: 960px;
+  margin: 0 auto;
 `
 
 const CatchCopy = styled.p`
@@ -34,37 +46,123 @@ const ButtonWrapper = styled.div`
 `
 
 const Button = styled(Link)`
-  background-color: ${ color.navy.deep };
   ${ ralewayMixin };
   color: ${ color.white.base };
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 200px;
   height: 50px;
+  position: relative;
   text-decoration: none;
-  transition-property: opacity, transform;
-  transition-duration: 0.5s;
+  transition-duration: 0.3s;
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    transition-duration: 0.3s;
+    width: 200px;
+    height: 50px;
+  }
+  
+  &::before {
+    background-color: ${ color.navy.deep };
+  }
+  
+  &::after {
+    opacity: 0;
+    border: 1px solid ${ color.navy.deep };
+    transform: scale(1.3, 1.3);
+  }
   
   &:hover {
-    opacity: 0.8;
-    transform: translateY(-2px);
+    color: ${ color.navy.deep };
+
+    &::before {
+      opacity: 0;
+      transform: scale(0.5, 0.5);
+    }
+    
+    &::after {
+      transform: scale(1, 1);
+      opacity: 1;
+    }
+  }  
+`
+
+const ButtonText = styled.span`
+  z-index: 1;
+`
+
+const SquareWrapper = styled.div`
+  width: 554px;
+  height: 277px;
+  position: relative;
+`
+
+const slide1 = keyframes`
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-100px);
+  }
+`
+
+const slide2 = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200px);
+  }
+`
+
+const Square = styled.img`
+  width: 277px;
+  height: 277px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+`
+
+const SlideSquare1 = styled(Square)`
+  animation: ${ slide1 } 1s;
+  animation-fill-mode: forwards;
+`
+
+const SlideSquare2 = styled(Square)`
+  animation: ${ slide2 } 1s;
+  animation-fill-mode: forwards;
 `
 
 const Index: React.FC = () => (
   <Wrapper>
-    <CatchCopy>
-      Innovation<br />
-      through<br />
-      Development.
-    </CatchCopy>
-    <SiteIntroduction>Akifumi Sato Portfolio</SiteIntroduction>
-    <ButtonWrapper>
-      <Button to="/about/">about</Button>
-      <Button to="/blog/">blog</Button>
-    </ButtonWrapper>
+    <div>
+      <CatchCopy>
+        Innovation<br />
+        through<br />
+        Development.
+      </CatchCopy>
+      <SiteIntroduction>Akifumi Sato Portfolio</SiteIntroduction>
+      <ButtonWrapper>
+        <Button to="/about/">
+          <ButtonText>about</ButtonText>
+        </Button>
+        <Button to="/blog/">
+          <ButtonText>blog</ButtonText>
+        </Button>
+      </ButtonWrapper>
+    </div>
+    <SquareWrapper>
+      <SlideSquare2 src={ navySquare } alt="" />
+      <SlideSquare1 src={ greenSquare } alt="" />
+      <Square src={ whiteSquare } alt="" />
+    </SquareWrapper>
   </Wrapper>
 )
 
