@@ -1,15 +1,15 @@
-import * as React from 'react'
-import { get } from 'lodash'
-import Img, { FluidObject } from 'gatsby-image'
 import { graphql } from 'gatsby'
-import CustomHead from '../components/atoms/CustomHead'
-import Layout from '../components/organisms/Layout'
+import Img, { FluidObject } from 'gatsby-image'
+import { get } from 'lodash'
+import * as React from 'react'
 import styled from 'styled-components'
+import CustomHead from '../components/atoms/CustomHead'
 import MainTitle from '../components/atoms/MainTitle'
 import Article from '../components/organisms/Article'
+import Layout from '../components/organisms/Layout'
 
 const Publish = styled.p`
-  color: #aaa;
+  color: #666;
   font-size: 14px;
 `
 
