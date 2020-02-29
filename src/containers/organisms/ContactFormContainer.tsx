@@ -1,14 +1,15 @@
+import { navigateTo } from 'gatsby-link'
 import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { navigateTo } from 'gatsby-link'
-import {
-  updateNameAction,
-  updateEmailAction,
-  updateCommentAction,
-  validateAction, userSelector,
-} from '../../redux/modules/app/user'
-import { changeNameAction, changeEmailAction, changeCommentAction, formSelector } from '../../redux/modules/ui/form'
 import ContactForm from '../../components/organisms/ContactForm'
+import {
+  updateCommentAction,
+  updateEmailAction,
+  updateNameAction,
+  userSelector,
+  validateAction,
+} from '../../redux/modules/app/user'
+import { changeCommentAction, changeEmailAction, changeNameAction, formSelector } from '../../redux/modules/ui/form'
 
 interface IEncode {
   [key: string]: string;
@@ -33,19 +34,19 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>, required: IRequired) 
     return accumulator
   }, {})
 
-  if (isError) return false
-
-  const form = e.currentTarget
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: encode({
-      'form-name': form.getAttribute('name'),
-      ...sendBody,
-    }),
-  })
-    .then(() => navigateTo(form.getAttribute('action')))
-    .catch(error => alert(error))
+  if (!isError) {
+    const form = e.currentTarget
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name') as string,
+        ...sendBody,
+      }),
+    })
+      .then(() => navigateTo(form.getAttribute('action') as string))
+      .catch(error => alert(error))
+  }
 }
 
 const ContactFormContainer: React.FC = () => {
@@ -68,17 +69,17 @@ const ContactFormContainer: React.FC = () => {
     onceCommentDispatch()
   }, [isSubmit])
 
-  const onBlurNameInput = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const onBlurNameInput = React.useCallback((e: React.FormEvent<HTMLInputElement>) => {
     dispatch(updateNameAction(e.currentTarget.value))
     onceChangeNameDispatch()
   }, [])
 
-  const onBlurEmailInput = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const onBlurEmailInput = React.useCallback((e: React.FormEvent<HTMLInputElement>) => {
     dispatch(updateEmailAction(e.currentTarget.value))
     onceEmailDispatch()
   }, [])
 
-  const onBlurCommentText = React.useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const onBlurCommentText = React.useCallback((e: React.FormEvent<HTMLTextAreaElement>) => {
     dispatch(updateCommentAction(e.currentTarget.value))
     onceCommentDispatch()
   }, [])
