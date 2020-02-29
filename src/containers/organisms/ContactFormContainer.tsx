@@ -1,4 +1,4 @@
-import { navigateTo } from 'gatsby-link'
+import { navigate } from 'gatsby-link'
 import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ContactForm from '../../components/organisms/ContactForm'
@@ -44,7 +44,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>, required: IRequired) 
         ...sendBody,
       }),
     })
-      .then(() => navigateTo(form.getAttribute('action') as string))
+      .then(() => navigate(form.getAttribute('action') as string))
       .catch(error => alert(error))
   }
 }
