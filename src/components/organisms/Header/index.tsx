@@ -5,22 +5,34 @@ import styled from 'styled-components'
 import logo from '../../../../static/images/logo.svg'
 import color from '../../../styles/color'
 import { ralewayMixin } from '../../../styles/font'
+import { zIndex } from '../../../styles/layout'
 import NavyButton from '../../atoms/NavyButton'
 import Navigation from '../../molecules/Navigation'
 
 const Wrapper = styled.div`
   background-color: ${ color.white.base };
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
   width: 100%;
-  max-width: 1280px;
-  padding: 25px 50px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  margin: auto;
+  z-index: ${ zIndex.fixed };
+  
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
+`
+
+const Inner = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 25px 50px;
+  max-width: 1280px;
+  width: 100%;
   margin: auto;
   
   @media screen and (max-width: 768px) {
@@ -73,17 +85,19 @@ const WhiteButton = styled(Link)`
 
 const Header: React.FC = ({}) => (
   <Wrapper>
-    <Link to="/">
-      <Logo src={ logo } alt="site logo" />
-    </Link>
-    <PCButtonWrapper>
-      <WhiteButton to="/about/">about</WhiteButton>
-      <WhiteButton to="/blog/">blog</WhiteButton>
-      <NavyButton to="/contact/">contact</NavyButton>
-    </PCButtonWrapper>
-    <SPButtonWrapper>
-      <Navigation />
-    </SPButtonWrapper>
+    <Inner>
+      <Link to="/">
+        <Logo src={ logo } alt="site logo" />
+      </Link>
+      <PCButtonWrapper>
+        <WhiteButton to="/about/">about</WhiteButton>
+        <WhiteButton to="/blog/">blog</WhiteButton>
+        <NavyButton to="/contact/">contact</NavyButton>
+      </PCButtonWrapper>
+      <SPButtonWrapper>
+        <Navigation />
+      </SPButtonWrapper>
+    </Inner>
   </Wrapper>
 )
 
