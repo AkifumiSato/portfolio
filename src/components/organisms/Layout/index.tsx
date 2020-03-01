@@ -1,11 +1,6 @@
-import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
-import * as font from '../../../styles/font'
-import { GlobalStyles } from '../../../styles/global'
-import Navigation from '../../molecules/Navigation'
-
-const { ralewayMixin } = font
+import Header from '../Header'
 
 const Wrapper = styled.div`
   box-sizing: border-box;
@@ -18,60 +13,16 @@ const Wrapper = styled.div`
   }
 `
 
-const SiteRootLink = styled(Link)`
-  text-align: left;
-  text-decoration: none;
-  font-size: 18px;
-  ${ ralewayMixin }
-`
-
-const StrongFont = styled.strong`
-  color: #00C5B2;
-  font-weight: normal;
-`
-
 const Contents = styled.div`
   max-width: 800px;
   margin: 0 auto 100px;
 `
 
-const Copyright = styled.p`
-  bottom: 20px;
-  color: #666;
-  font-size: 14px;
-  left: 7%;
-  position: absolute;
-  @media screen and (max-width: 768px) {
-    left: 20px;
-  }
-  ${ ralewayMixin }
-`
-
-const PolicyLink = styled.a`
-  font-style: italic;
-`
-
-interface IProps {
-  rootLinkDisplay?: boolean;
-}
-
-const date = new Date()
-const year = date.getFullYear()
-
-const Layout: React.FC<IProps> = ({ children, rootLinkDisplay = true }) => (
+const Layout: React.FC = ({ children }) => (
   <Wrapper>
-    <GlobalStyles />
-    <Navigation />
-    { rootLinkDisplay && (
-      <SiteRootLink to={ '/' }>
-        <StrongFont>A</StrongFont>KIFUMI
-        &nbsp;
-        <StrongFont>S</StrongFont>ATO
-      </SiteRootLink>
-    ) }
+    <Header />
     <Contents>
       { children }
-      <Copyright>©︎akfm.dev { year }. Using <PolicyLink href="https://www.google.com/intl/ja/policies/privacy/partners/" target="_blank" rel="noopener">Google Analytics</PolicyLink></Copyright>
     </Contents>
   </Wrapper>
 )

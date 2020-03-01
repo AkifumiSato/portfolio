@@ -1,18 +1,14 @@
-import * as React from 'react'
-import { head } from 'lodash'
-import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
+import * as React from 'react'
 import CustomHead from '../components/atoms/CustomHead'
-import Layout from '../components/organisms/Layout'
-import styled from 'styled-components'
-import MainTitle from '../components/atoms/MainTitle'
-import Article from '../components/organisms/Article'
+import About from '../components/templates/About'
 
-const MyLink = styled(Link)`
-  color: #00C5B2;
-  font-size: 14px;
-  text-decoration: underline;
-`
+type QueryResult = Array<{
+  content: [{
+    value: string;
+  }]
+  nodeType: string;
+}>
 
 interface IProps {
   data: {
@@ -25,12 +21,7 @@ interface IProps {
       edges: [{
         node: {
           about: {
-            content: [{
-              content: [{
-                value: string;
-              }]
-              nodeType: string;
-            }]
+            content: QueryResult
           }
         }
       }]
@@ -38,61 +29,49 @@ interface IProps {
   }
 }
 
+const postsParse = (data: QueryResult) => data.map(item => ({
+  node: {
+    contents: item.content[0] ? item.content[0].value : '',
+    type: item.nodeType,
+  }
+}))
+
 const AboutPage: React.FC<IProps> = ({ data }) => {
-  const siteTitle = `About - ${data.site.siteMetadata.title}`
-  const posts = data.allContentfulPerson.edges[0].node.about.content
+  const siteTitle = `About - ${ data.site.siteMetadata.title }`
+  const postsOrg = data.allContentfulPerson.edges[0].node.about.content
+  const posts = React.useMemo(() => postsParse(postsOrg), [postsOrg])
 
   return (
-    <Layout>
+    <>
       <CustomHead title={ siteTitle } />
-      <MainTitle title="ABOUT" />
-      <Article>
-        { posts.map((({ content, nodeType }, index) => {
-          switch (nodeType) {
-            case 'heading-2':
-              return (
-                <h2 key={ index }>{ head(content).value }</h2>
-              )
-            case 'paragraph':
-              return (
-                <p key={ index }>{ head(content).value }</p>
-              )
-            default:
-              return null
-          }
-        })) }
-        <h2>contact</h2>
-        <p>
-          <MyLink to={ '/contact/' }>&#x203A; go to contact</MyLink>
-        </p>
-      </Article>
-    </Layout>
+      <About posts={ posts } />
+    </>
   )
 }
 
 export default AboutPage
 
 export const pageQuery = graphql`
-  query AboutQuery {
-    allContentfulPerson {
-      edges {
-        node {
-          about {
-            content {
-              nodeType
-              content {
-                nodeType
-                value
-              }
+    query AboutQuery {
+        allContentfulPerson {
+            edges {
+                node {
+                    about {
+                        content {
+                            nodeType
+                            content {
+                                nodeType
+                                value
+                            }
+                        }
+                    }
+                }
             }
-          }
         }
-      }
+        site {
+            siteMetadata {
+                title
+            }
+        }
     }
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
 `

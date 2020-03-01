@@ -9,6 +9,7 @@ import navySquare from '../../../../static/images/navySquare.svg'
 import whiteSquare from '../../../../static/images/whiteSquare.svg'
 import color from '../../../styles/color'
 import { ralewayMixin, SansationLight } from '../../../styles/font'
+import NavyButton from '../../atoms/NavyButton'
 import CommonSetting from '../hoc/CommonSetting'
 
 const Wrapper = styled.div`
@@ -231,12 +232,8 @@ const Index: React.FC = () => (
         <SiteIntroduction>Akifumi Sato Portfolio</SiteIntroduction>
       </CatchCopyWrapper>
       <ButtonWrapper>
-        <Button to="/about/">
-          <ButtonText>about</ButtonText>
-        </Button>
-        <Button to="/blog/">
-          <ButtonText>blog</ButtonText>
-        </Button>
+        <NavyButton to="/about/">about</NavyButton>
+        <NavyButton to="/blog/">blog</NavyButton>
       </ButtonWrapper>
     </div>
     <SquareWrapper>

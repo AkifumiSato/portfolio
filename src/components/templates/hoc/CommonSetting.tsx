@@ -24,7 +24,9 @@ const PolicyLink = styled.a`
 const date = new Date()
 const year = date.getFullYear()
 
-const CommonSetting = (Component: React.FC) => (props: any) => (
+type Hoc = <T>(Component: React.FC<T>) => (props: T) => ReturnType<React.FC<T>>
+
+const CommonSetting: Hoc = (Component) => (props) => (
   <>
     <GlobalStyles />
     <Component { ...props } />
