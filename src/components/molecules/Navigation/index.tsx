@@ -1,5 +1,5 @@
-import * as React from 'react'
 import Link from 'gatsby-link'
+import * as React from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { zIndex } from '../../../styles/layout'
 
@@ -208,7 +208,7 @@ const urlMap: TUrl[] = [
   },
 ]
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   const [interact, setInteract] = React.useState(true)
   const [open, setOpen] = React.useState(false)
   const onClick = React.useCallback(() => {

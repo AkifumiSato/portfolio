@@ -6,6 +6,7 @@ import logo from '../../../../static/images/logo.svg'
 import color from '../../../styles/color'
 import { ralewayMixin } from '../../../styles/font'
 import NavyButton from '../../atoms/NavyButton'
+import Navigation from '../../molecules/Navigation'
 
 const Wrapper = styled.div`
   background-color: ${ color.white.base };
@@ -21,6 +22,11 @@ const Wrapper = styled.div`
   left: 0;
   right: 0;
   margin: auto;
+  
+  @media screen and (max-width: 768px) {
+    padding: 10px 20px;
+    max-width: 100%;
+  }
 `
 
 const Logo = styled.img`
@@ -28,10 +34,22 @@ const Logo = styled.img`
   height: 38px;
 `
 
-const ButtonWrapper = styled.div`
+const PCButtonWrapper = styled.div`
   display: grid;
   grid-template-columns: 200px 200px 200px;
   column-gap: 20px;
+  
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`
+
+const SPButtonWrapper = styled.div`
+  display: none;
+  
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
 `
 
 const WhiteButton = styled(Link)`
@@ -58,11 +76,14 @@ const Header: React.FC = ({}) => (
     <Link to="/">
       <Logo src={ logo } alt="site logo" />
     </Link>
-    <ButtonWrapper>
+    <PCButtonWrapper>
       <WhiteButton to="/about/">about</WhiteButton>
       <WhiteButton to="/blog/">blog</WhiteButton>
       <NavyButton to="/contact/">contact</NavyButton>
-    </ButtonWrapper>
+    </PCButtonWrapper>
+    <SPButtonWrapper>
+      <Navigation />
+    </SPButtonWrapper>
   </Wrapper>
 )
 
