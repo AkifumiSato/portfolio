@@ -1,65 +1,39 @@
-import * as React from 'react'
 import Link from 'gatsby-link'
-import styled, { css, keyframes } from 'styled-components'
+import * as React from 'react'
+import styled, { css } from 'styled-components'
+import color from '../../../styles/color'
 import { zIndex } from '../../../styles/layout'
 
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`
-
-const fadeOut = keyframes`
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-`
-
-interface IOverlay {
-  init: boolean;
-  open: boolean;
+type MenuWrapperProps = {
+  open: boolean
 }
 
-const Overlay = styled.div`
-  background-color: rgba(255, 255, 255, 0.75);
-  bottom: 0;
-  display: none;
-  left: 0;
-  margin: auto;
-  position: fixed;
+const MenuWrapper = styled.div`
+  background-color: ${ color.gray.deep };
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
   right: 0;
   top: 0;
-  transition: .3s;
-  z-index: ${ zIndex.overlay };
-  ${ ({ open, init }: IOverlay) => open ? css`
-    animation: ${ fadeIn } .3s;
-    animation-fill-mode: forwards;
-    display: block;
-  ` : !init ? css`
-    transition: none;
+  transition-property: transform;
+  transition-duration: 0.5s;
+
+  ${ ({ open }: MenuWrapperProps) => open ? css`
+    transform: translateX(0);
   ` : css`
-    animation: ${ fadeOut } .3s;
-    animation-fill-mode: forwards;
-    display: block;
+    transform: translateX(100%);
   ` }
 `
 
 const MenuLink = styled(Link)`
-  color: #aaa;
+  color: ${ color.white.base };
   font-size: 35px;
   position: relative;
   text-decoration: none;
   transition: .3s;
   transition-property: color;
   white-space: nowrap;
+  
   &::after {
     background-color: #333;
     content: '';
@@ -72,16 +46,9 @@ const MenuLink = styled(Link)`
     width: 0;
     will-change: color, width;
   }
-  @media screen and (min-width: 769px) {
-    &:hover {
-      color: #333;
-    }
-    &:hover:after {
-      width: 100%;
-    }
-  }
+  
   @media screen and (max-width: 768px) {
-  font-size: 30px;
+    font-size: 30px;
   }
 `
 
@@ -95,26 +62,12 @@ const MenuListItem = styled.li`
   }
 `
 
-interface IMenuList {
-  init: boolean;
-  open: boolean;
-}
-
 const MenuList = styled.ul`
-  display: none;
   margin-top: 10px;
   position: absolute;
-  top: 50px;
+  top: 100px;
   right: 10px;
-  ${ ({ open, init }: IMenuList) => init ? `` : open ? css`
-    animation: ${ fadeIn } .3s;
-    animation-fill-mode: forwards;
-    display: block;
-  ` : css`
-    animation: ${ fadeOut } .3s;
-    animation-fill-mode: forwards;
-    display: block;
-  ` }
+  z-index: ${ zIndex.overlayContained };
 `
 
 interface IHamburger {
@@ -125,19 +78,19 @@ const Hamburger = styled.span`
   &,
   &:before,
   &:after {
-    background-color: #333;
+    background-color: ${ color.gray.base };
     content: '';
     display: block;
-    height: 1px;
+    height: 2px;
     position: absolute;
-    top: 11px;
     left: 0;
     right: 0;
     margin: 0 auto;
     width: 30px;
+    z-index: ${ zIndex.overlayContained };
   }
   & {
-    top: 16px;
+    top: 18px;
   }
   &:before {
     top: -11px;
@@ -154,10 +107,12 @@ const Hamburger = styled.span`
     &:before {
       top: 0;
       transform: rotate(-45deg);
+      background-color: ${ color.white.base };
     }
     &::after {
       top: 0;
       transform: rotate(45deg);
+      background-color: ${ color.white.base };
     }
   ` : css`
     transition: .3s;
@@ -165,21 +120,11 @@ const Hamburger = styled.span`
 `
 
 const NavigationTrigger = styled.button`
-  height: 33px;
-  display: block;
+  height: 38px;
   padding: 5px;
+  display: block;
   width: 40px;
-`
-
-const Wrapper = styled.div`
-  position: fixed;
-  right: 50px;
-  top: 50px;
-  z-index: ${ zIndex.overlayContained };
-  @media screen and (max-width: 768px) {
-    top: 20px;
-    right: 20px;
-  }
+  position: relative;
 `
 
 type TUrl = {
@@ -190,15 +135,15 @@ type TUrl = {
 
 const urlMap: TUrl[] = [
   {
-    name: 'about',
+    name: 'About',
     url: '/about/',
   },
   {
-    name: 'blog',
+    name: 'Blog',
     url: '/blog/',
   },
   {
-    name: 'contact',
+    name: 'Contact',
     url: '/contact/',
   },
   {
@@ -208,21 +153,19 @@ const urlMap: TUrl[] = [
   },
 ]
 
-const Navigation = () => {
-  const [interact, setInteract] = React.useState(true)
+const Navigation: React.FC = () => {
   const [open, setOpen] = React.useState(false)
   const onClick = React.useCallback(() => {
-    setInteract(false)
     setOpen(!open)
   }, [open])
 
   return (
-    <div>
-      <Wrapper>
-        <NavigationTrigger aria-label="menu" onClick={ onClick }>
-          <Hamburger open={ open }> </Hamburger>
-        </NavigationTrigger>
-        <MenuList init={ interact } open={ open }>
+    <>
+      <NavigationTrigger aria-label="menu" onClick={ onClick }>
+        <Hamburger open={ open } />
+      </NavigationTrigger>
+      <MenuWrapper open={ open }>
+        <MenuList>
           { urlMap.map((link, index) => (
             <MenuListItem key={ index }>
               { link.external ?
@@ -231,9 +174,8 @@ const Navigation = () => {
             </MenuListItem>
           )) }
         </MenuList>
-      </Wrapper>
-      <Overlay init={ interact } open={ open } onClick={ onClick }> </Overlay>
-    </div>
+      </MenuWrapper>
+    </>
   )
 }
 

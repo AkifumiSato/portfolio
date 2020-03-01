@@ -1,8 +1,8 @@
 import * as React from 'react'
-import Input from '../../molecules/Input'
-import TextArea from '../../molecules/Textarea'
 import styled from 'styled-components'
 import { ralewayMixin } from '../../../styles/font'
+import Input from '../../molecules/Input'
+import TextArea from '../../molecules/Textarea'
 
 const ButtonWrapper = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ interface IFormObject {
   error: string;
 }
 
-interface IContactForm {
+export interface IContactForm {
   action: string;
   name: IFormObject;
   email: IFormObject;

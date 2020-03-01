@@ -3,16 +3,14 @@ import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import Textarea from '.'
 
-const StoryWrapper = (storyFn: () => React.FC) => (
-  <div style={ {
-    padding: '30px'
-  } }>
-    { storyFn() }
-  </div>
-)
-
 storiesOf(`molecules|${ Textarea.name }`, module)
-  .addDecorator(StoryWrapper)
+  .addDecorator((storyFn) => (
+    <div style={ {
+      padding: '30px'
+    } }>
+      { storyFn() }
+    </div>
+  ))
   .add(
     'default',
     () => <Textarea

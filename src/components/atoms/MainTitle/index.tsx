@@ -1,50 +1,25 @@
 import * as React from 'react'
-import styled  from 'styled-components'
+import styled from 'styled-components'
+import color from '../../../styles/color'
+import { ralewayMixin } from '../../../styles/font'
 
 const MyTitle = styled.h1`
-  display: flex;
-  flex-direction: column;
+  display: block;
+  ${ ralewayMixin };
   font-size: 40px;
   font-weight: bold;
-  height: 250px;
-  justify-content: center;
-  text-align: center;
-  @media screen and (max-width: 768px) {
-    font-size: 30px;
-    height: 150px;
-    padding: 0;
-  }
-`
+  padding-bottom: 10px;
+  border-bottom: 1px solid ${ color.gray.base };
 
-const Category = styled.span`
-  display: block;
-  font-size: 20px;
-  @media screen and (max-width: 768px) {
-    font-size: 16px;
-  }
-`
-
-const MainText = styled.span`
-  display: block;
-  font-size: 40px;
-  margin-top: 10px;
   @media screen and (max-width: 768px) {
     font-size: 24px;
   }
 `
 
-interface IProps {
-  title: string;
-  category?: string;
-}
-
-const MainTitle: React.FC<IProps> = ({ title, category = '' }) => category ? (
+const MainTitle: React.FC = ({ children }) => (
   <MyTitle>
-    <Category>{ category }</Category>
-    <MainText>{ title }</MainText>
+    { children }
   </MyTitle>
-) : (
-  <MyTitle>{ title }</MyTitle>
 )
 
 export default MainTitle

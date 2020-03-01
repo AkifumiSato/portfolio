@@ -2,16 +2,14 @@ import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import Article from '.'
 
-const StoryWrapper = (storyFn: () => React.FC) => (
-  <div style={ {
-    padding: '30px'
-  } }>
-    { storyFn() }
-  </div>
-)
-
 storiesOf(`organisms|Article`, module)
-  .addDecorator(StoryWrapper)
+  .addDecorator((storyFn) => (
+    <div style={ {
+      padding: '30px'
+    } }>
+      { storyFn() }
+    </div>
+  ))
   .add('article html',
     () => <Article
       dangerouslySetInnerHTML={ {

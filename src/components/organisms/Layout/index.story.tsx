@@ -2,16 +2,14 @@ import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import Layout from '.'
 
-const StoryWrapper = (storyFn: () => React.FC) => (
-  <div style={ {
-    padding: '30px'
-  } }>
-    { storyFn() }
-  </div>
-)
-
 storiesOf(`organisms|${ Layout.name }`, module)
-  .addDecorator(StoryWrapper)
+  .addDecorator((storyFn) => (
+    <div style={ {
+      padding: '30px'
+    } }>
+      { storyFn() }
+    </div>
+  ))
   .add(
     'default',
     () => <Layout />,
@@ -22,7 +20,7 @@ storiesOf(`organisms|${ Layout.name }`, module)
     })
   .add(
     'root',
-    () => <Layout rootLinkDisplay={ false } />,
+    () => <Layout />,
     {
       info: `
         共通のlayoutを適用するComponentです。

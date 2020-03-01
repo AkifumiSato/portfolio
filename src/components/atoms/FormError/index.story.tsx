@@ -12,19 +12,17 @@ const MyText = styled.p`
   width: 30%;
 `
 
-const StoryWrapper = (storyFn: () => React.FC) => (
-  <div style={ {
-    margin: '30px',
-    position: 'relative'
-  } }>
-    <GlobalStyles />
-    <MyText>sample</MyText>
-    { storyFn() }
-  </div>
-)
-
 storiesOf(`atom|${ FormError.name }`, module)
-  .addDecorator(StoryWrapper)
+  .addDecorator((storyFn) => (
+    <div style={ {
+      margin: '30px',
+      position: 'relative'
+    } }>
+      <GlobalStyles />
+      <MyText>sample</MyText>
+      { storyFn() }
+    </div>
+  ))
   .add('FormError',
     () =>
       <FormError text="名前は必須です。" />,

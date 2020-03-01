@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Sansation-Light';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100;
+  src: local('Sansation-Light'),
+  local('Sansation-Light'),
+  url('./Sansation-Light.ttf.woff') format('woff');
+}

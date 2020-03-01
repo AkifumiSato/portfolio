@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
-import MainTitle from '.'
+import NavyButton from '.'
 
-storiesOf(`atom|${ MainTitle.name }`, module)
+storiesOf(`atom|${ NavyButton.name }`, module)
   .addDecorator((storyFn) => (
     <div style={ {
       padding: '30px'
@@ -11,10 +11,12 @@ storiesOf(`atom|${ MainTitle.name }`, module)
     </div>
   ))
   .add(
-    'Single Title',
-    () => <MainTitle>Title</MainTitle>,
+    'default',
+    () => (
+      <NavyButton to="/">button</NavyButton>
+    ),
     {
       info: `
-        上位の階層のタイトルに使用します。
+        default
       `
     })

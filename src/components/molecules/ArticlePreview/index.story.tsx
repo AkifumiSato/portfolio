@@ -2,16 +2,14 @@ import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import ArticlePreview from './index'
 
-const StoryWrapper = (storyFn: () => React.FC) => (
-  <div style={ {
-    padding: '30px'
-  } }>
-    { storyFn() }
-  </div>
-)
-
 storiesOf(`molecules|${ ArticlePreview.name }`, module)
-  .addDecorator(StoryWrapper)
+  .addDecorator((storyFn) => (
+    <div style={ {
+      padding: '30px'
+    } }>
+      { storyFn() }
+    </div>
+  ))
   .add(
     'Simple cassette',
     () => <ArticlePreview
