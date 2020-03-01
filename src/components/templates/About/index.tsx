@@ -23,7 +23,7 @@ export type Props = {
 
 const AboutPage: React.FC<Props> = ({ posts }) => (
   <Layout>
-    <MainTitle title="ABOUT" />
+    <MainTitle>About</MainTitle>
     <Article>
       { posts.map((({ node }, index) => {
         switch (node.type) {

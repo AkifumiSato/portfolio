@@ -4,7 +4,7 @@ import Header from '../Header'
 
 const Wrapper = styled.div`
   box-sizing: border-box;
-  padding: 50px 50px 20px;
+  padding: 170px 50px 100px;
   position: relative;
   min-height: 100vh;
   min-width: 100vw;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 
 const Contents = styled.div`
   max-width: 800px;
-  margin: 0 auto 100px;
+  margin: 0 auto;
 `
 
 const Layout: React.FC = ({ children }) => (

@@ -3,19 +3,18 @@ import * as React from 'react'
 import MainTitle from '.'
 
 storiesOf(`atom|${ MainTitle.name }`, module)
+  .addDecorator((storyFn) => (
+    <div style={ {
+      padding: '30px'
+    } }>
+      { storyFn() }
+    </div>
+  ))
   .add(
     'Single Title',
-    () => <MainTitle title="Single Title" />,
+    () => <MainTitle>Title</MainTitle>,
     {
       info: `
         上位の階層のタイトルに使用します。
-      `
-    })
-  .add(
-    'Multi Title', () =>
-      <MainTitle title="Multi Title" category="BLOG" />,
-    {
-      info: `
-        下位の階層のタイトルに使用します。
       `
     })
