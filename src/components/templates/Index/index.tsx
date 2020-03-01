@@ -1,4 +1,3 @@
-import Link from 'gatsby-link'
 import * as React from 'react'
 import styled, { keyframes } from 'styled-components'
 // @ts-ignore
@@ -80,65 +79,11 @@ const ButtonWrapper = styled.div`
   }
 `
 
-const Button = styled(Link)`
-  ${ ralewayMixin };
-  color: ${ color.white.base };
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 50px;
-  position: relative;
-  text-decoration: none;
-  transition-duration: 0.3s;
-  
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    transition-duration: 0.3s;
-    width: 200px;
-    height: 50px;
-  }
-  
-  &::before {
-    background-color: ${ color.navy.deep };
-  }
-  
-  &::after {
-    opacity: 0;
-    border: 1px solid ${ color.navy.deep };
-    transform: scale(1.3, 1.3);
-  }
-  
-  &:hover {
-    color: ${ color.navy.deep };
-
-    &::before {
-      opacity: 0;
-      transform: scale(0.5, 0.5);
-    }
-    
-    &::after {
-      transform: scale(1, 1);
-      opacity: 1;
-    }
-  }  
-  
-  @media screen and (max-width: 768px) {
-    margin: auto;
-  }
-`
-
-const ButtonText = styled.span`
-  z-index: 1;
-`
-
 const SquareWrapper = styled.div`
   width: 554px;
   height: 277px;
   position: relative;
+  transform: translateX(75px);
   
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -153,7 +98,7 @@ const slide1 = keyframes`
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100px);
+    transform: translateX(-33.3%);
   }
 `
 
@@ -162,25 +107,7 @@ const slide2 = keyframes`
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-200px);
-  }
-`
-
-const slide1SP = keyframes`
-  0% {
-    transform: translateX(75px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-`
-
-const slide2SP = keyframes`
-  0% {
-    transform: translateX(75px);
-  }
-  100% {
-    transform: translateX(-75px);
+    transform: translateX(-66.6%);
   }
 `
 
@@ -198,26 +125,17 @@ const Square = styled.img`
     height: 150px;
     left: 0;
     margin: auto;
-    transform: translateX(75px);
   }
 `
 
 const SlideSquare1 = styled(Square)`
   animation: ${ slide1 } 1s;
   animation-fill-mode: forwards;
-  
-  @media screen and (max-width: 768px) {
-    animation-name: ${ slide1SP };
-  }
 `
 
 const SlideSquare2 = styled(Square)`
   animation: ${ slide2 } 1s;
   animation-fill-mode: forwards;
-  
-  @media screen and (max-width: 768px) {
-    animation-name: ${ slide2SP };
-  }
 `
 
 const Index: React.FC = () => (
