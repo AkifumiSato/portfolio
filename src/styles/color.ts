@@ -4,6 +4,7 @@ export default {
   },
   gray: {
     base: '#ccc',
+    deep: '#333',
   },
   navy: {
     deep: '#01264A',
