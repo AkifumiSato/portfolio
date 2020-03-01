@@ -42,7 +42,7 @@ const Inner = styled.div`
 `
 
 const Logo = styled.img`
-  width: 55px;
+  width: 52px;
   height: 38px;
 `
 
