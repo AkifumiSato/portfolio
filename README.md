@@ -3,16 +3,32 @@
 * storybook
 * jest
 
-# command
+# docker command
 ## develop
 ```sh
-npm start
+docker-compose up
 ```
 
 ## test
 ```sh
-npm test
-npm test -- --updateSnapshot
+docker-compose exec web bash
+npm t
+```
+
+# local command
+## develop
+```sh
+npm run dev
+```
+
+## storybook
+```sh
+npm run storybook
+```
+
+## test
+```sh
+npm t
 ```
 
 ## build
