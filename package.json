@@ -15,6 +15,7 @@
     "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",
     "storybook": "start-storybook -p 6006",
+    "storybook:docker": "start-storybook -p 6006 --ci --quiet",
     "build-storybook": "build-storybook",
     "test": "jest",
     "snapshot-update": "jest --updateSnapshot"

@@ -4,8 +4,22 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: "npm run dev -- --host 0.0.0.0"
     ports:
       - "8000:8000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+    environment:
+      - NODE_ENV=development
+
+  storybook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: "npm run storybook:docker"
+    ports:
+      - "6006:6006"
     volumes:
       - /app/node_modules
       - .:/app
