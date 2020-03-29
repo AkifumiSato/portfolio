@@ -35,7 +35,7 @@ const ArticleInner: React.FC<IProps> = styled.div`
     white-space: pre-line;
   }
   & a {
-    color: #6495ed;
+    color: #3d69b7;
     text-decoration: underline;
   }
   & > ul > li {
