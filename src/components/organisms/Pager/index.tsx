@@ -18,10 +18,10 @@ const ButtonSpace = styled.div`
 const BaseButton = styled(Link)`
   align-items: center;
   border-radius: 3px;
-  border: 1px solid #00C5B2;
+  border: 1px solid #6495ed;
   box-sizing: border-box;
   box-shadow: 0 4px 24px rgba(0,0,0,.15);
-  color: #00C5B2;
+  color: #6495ed;
   display: flex;
   ${ ralewayMixin };
   font-size:  15px;
@@ -33,7 +33,7 @@ const BaseButton = styled(Link)`
   
   &:hover {
     box-shadow: 0 4px 48px rgba(0, 0, 0, 0.3);
-    background-color: #00C5B2;
+    background-color: #6495ed;
     color: #FFF;
   }
 `
