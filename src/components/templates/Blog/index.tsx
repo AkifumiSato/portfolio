@@ -32,11 +32,11 @@ const MyImg = styled(Img)`
 export type Props = {
   title: string
   mainImage: FluidObject
-  publishDate: string
+  createdAt: string
   html: string
 }
 
-const BlogPost: React.FC<Props> = ({ title, mainImage, publishDate, html }) => (
+const BlogPost: React.FC<Props> = ({ title, mainImage, createdAt, html }) => (
   <Layout>
     <MainTitle>{ title }</MainTitle>
     <Wrapper>
@@ -45,7 +45,7 @@ const BlogPost: React.FC<Props> = ({ title, mainImage, publishDate, html }) => (
         objectPosition: 'top',
       } } />
       <MyContents>
-        <Publish>{ publishDate }</Publish>
+        <Publish>{ createdAt }</Publish>
         <Article
           dangerouslySetInnerHTML={ {
             __html: html,

@@ -17,7 +17,7 @@ interface IProps {
       heroImage: {
         sizes: FluidObject;
       };
-      publishDate: string;
+      createdAt: string;
       body: {
         childMarkdownRemark: {
           html: string;
@@ -41,7 +41,7 @@ const BlogPost: React.FC<IProps> = ({ data }) => {
       <Blog
         title={ post.title }
         mainImage={ post.heroImage.sizes }
-        publishDate={ post.publishDate }
+        createdAt={ post.createdAt }
         html={ post.body.childMarkdownRemark.html }
       />
     </>
@@ -54,7 +54,7 @@ export const pageQuery = graphql`
     query BlogPostBySlug($id: String!) {
         contentfulBlogPost(id: { eq: $id }) {
             title
-            publishDate(formatString: "MMMM Do, YYYY")
+            createdAt(formatString: "MMMM Do, YYYY")
             heroImage {
                 sizes(maxHeight: 400) {
                     ...GatsbyContentfulSizes_withWebp

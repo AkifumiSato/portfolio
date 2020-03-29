@@ -1,6 +1,6 @@
-import * as React from 'react'
-import Link from 'gatsby-link'
 import Img, { FluidObject } from 'gatsby-image'
+import Link from 'gatsby-link'
+import * as React from 'react'
 import styled from 'styled-components'
 
 const MyLink = styled(Link)`
@@ -82,7 +82,7 @@ const MyText = styled.p`
 
 interface IProps {
   url: string;
-  publishDate: string;
+  createdAt: string;
   title: string;
   description: string;
   heroImage: {
@@ -90,9 +90,9 @@ interface IProps {
   };
 }
 
-const ArticlePreview: React.FC<IProps> = ({ url, publishDate, title, description, heroImage }) => (
+const ArticlePreview: React.FC<IProps> = ({ url, createdAt, title, description, heroImage }) => (
   <MyLink to={ url }>
-    <DateView>{ publishDate }</DateView>
+    <DateView>{ createdAt }</DateView>
     <MyImage sizes={ heroImage.sizes } imgStyle={ {
       objectFit: 'contain',
     } } alt="" />

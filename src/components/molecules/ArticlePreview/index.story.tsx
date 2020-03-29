@@ -13,11 +13,11 @@ storiesOf(`molecules|${ ArticlePreview.name }`, module)
   .add(
     'Simple cassette',
     () => <ArticlePreview
-        url="/blog/yyyy-mm-dd/slug.html"
-        publishDate="yyyy/mm/dd"
-        title="post title"
-        description="dummy dummy dummy dummy dummy dummy dummy dummy"
-        heroImage={ {
+      url="/blog/yyyy-mm-dd/slug.html"
+      createdAt="yyyy/mm/dd"
+      title="post title"
+      description="dummy dummy dummy dummy dummy dummy dummy dummy"
+      heroImage={ {
           sizes: {
             aspectRatio: 2.39880059970015,
             src: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAMAAADOQy/fAAAAZlBMVEX/////7On/9vT/9/X/19D/0Mf/9fPWyOT+/v7m3u6Xdbri2OvNzc3n5+fW1tbb29v4+Pj/2dP/z8fUxuLVx+P9/f6qjcbq4/G4uLi/v7+5ubmqqqr/29X9/P78+/3+/f7u6fTg1upBKkMcAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAB3RJTUUH4wULDBMVRs2X4AAAAEBJREFUCB2NwTcCgCAAALGzi4pIsff/f1KcWUiIkqQZobwoqWo80bSd7NWApw3WjYCY5mXddsnv4HT2InA/LzE+sNECb87AvvsAAAAASUVORK5CYII=',

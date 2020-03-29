@@ -7,7 +7,7 @@ import List, { BlogPost } from '../components/templates/List'
 type PostOrg = {
   node: {
     slug: string
-    publishDate: string
+    createdAt: string
     title: string
     description: {
       description: string
@@ -38,7 +38,7 @@ interface IProps {
 
 const parsePosts = (posts: PostOrg[]): BlogPost[] => posts.map(post => ({
   slug: post.node.slug,
-  publishDate: post.node.publishDate,
+  createdAt: post.node.createdAt,
   title: post.node.title,
   description: post.node.description.description,
   heroImage: {
@@ -79,7 +79,6 @@ export const pageQuery = graphql`
                     title
                     slug
                     createdAt(formatString: "YYYY-MM-DD")
-                    publishDate(formatString: "YYYY-MM-DD")
                     tags
                     heroImage {
                         sizes(maxWidth: 350, resizingBehavior: SCALE) {
