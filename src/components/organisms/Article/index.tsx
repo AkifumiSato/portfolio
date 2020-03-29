@@ -1,7 +1,10 @@
 import * as Prism from 'prismjs'
+import 'prismjs/components/prism-docker.min.js'
 import 'prismjs/components/prism-elm.min.js'
 import 'prismjs/components/prism-haskell.min.js'
+import 'prismjs/components/prism-json.min.js'
 import 'prismjs/components/prism-typescript.min.js'
+import 'prismjs/components/prism-yaml.min.js'
 import 'prismjs/themes/prism-tomorrow.css'
 import * as React from 'react'
 import styled from 'styled-components'
@@ -32,7 +35,7 @@ const ArticleInner: React.FC<IProps> = styled.div`
     white-space: pre-line;
   }
   & a {
-    color: #00C5B2;
+    color: #6495ed;
     text-decoration: underline;
   }
   & > ul > li {
