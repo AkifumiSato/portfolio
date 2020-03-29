@@ -67,6 +67,7 @@ const SPButtonWrapper = styled.div`
 const WhiteButton = styled(Link)`
   color: ${ color.navy.deep };
   font-size: 20px;
+  font-weight: bold;
   ${ ralewayMixin };
   line-height: 1;
   text-decoration: none;

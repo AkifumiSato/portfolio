@@ -5,7 +5,7 @@ import List, { BlogPost } from '.'
 const dummy: BlogPost[] = [
   {
     slug: 'slug',
-    publishDate: 'publishDate',
+    createdAt: 'createdAt',
     title: 'title',
     description: 'description',
     heroImage: {
@@ -20,7 +20,7 @@ const dummy: BlogPost[] = [
   },
   {
     slug: 'slug',
-    publishDate: 'publishDate',
+    createdAt: 'createdAt',
     title: 'title',
     description: 'description',
     heroImage: {
@@ -35,7 +35,7 @@ const dummy: BlogPost[] = [
   },
   {
     slug: 'slug',
-    publishDate: 'publishDate',
+    createdAt: 'createdAt',
     title: 'title',
     description: 'description',
     heroImage: {

@@ -11,7 +11,7 @@ const dummy: Props = {
     sizes: '350px',
     srcWebp: 'https://dummyimage.com/860x470/f1f1f1/999999',
   },
-  publishDate: 'publishDate',
+  createdAt: 'createdAt',
   html: `
     <h2>title</h2>
     <p>text text text text text </p>
@@ -36,7 +36,7 @@ storiesOf(`templates|Blog`, module)
     () => <Blog
       title={ dummy.title }
       mainImage={ dummy.mainImage }
-      publishDate={ dummy.publishDate }
+      createdAt={ dummy.createdAt }
       html={ dummy.html }
     />,
     {

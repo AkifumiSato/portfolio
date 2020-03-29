@@ -29,7 +29,7 @@ const MyArticle = styled.div`
 
 export type BlogPost = {
   slug: string
-  publishDate: string
+  createdAt: string
   title: string
   description: string
   heroImage: {
@@ -52,8 +52,8 @@ const BlogListPage: React.FC<Props> = ({ currentPage, pageCount, baseUrl, posts 
         { posts.map((post) => (
           <li key={ post.slug }>
             <ArticlePreview
-              url={ `/blog/${ post.publishDate }/${ post.slug }.html` }
-              publishDate={ post.publishDate }
+              url={ `/blog/${ post.createdAt }/${ post.slug }.html` }
+              createdAt={ post.createdAt }
               title={ post.title }
               description={ post.description }
               heroImage={ post.heroImage }

@@ -12,7 +12,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           edges {
             node {
               createdAt(formatString: "YYYY-MM-DD")
-              publishDate(formatString: "YYYY-MM-DD")
               slug
               id
             }
@@ -48,7 +47,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Create blog article pages
   posts.forEach((post) => {
     createPage({
-      path: `/blog/${ post.node.publishDate }/${ post.node.slug }.html`,
+      path: `/blog/${ post.node.createdAt }/${ post.node.slug }.html`,
       component: path.resolve('./src/templates/BlogPost.tsx'),
       context: {
         id: post.node.id,
