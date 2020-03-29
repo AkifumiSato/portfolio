@@ -8,6 +8,7 @@ const Button = styled(Link)`
   ${ ralewayMixin };
   color: ${ color.white.base };
   font-size: 20px;
+  background-color: ${ color.navy.deep };
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,39 +16,12 @@ const Button = styled(Link)`
   height: 50px;
   position: relative;
   text-decoration: none;
+  transition-property: opacity, transform;
   transition-duration: 0.3s;
   
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    transition-duration: 0.3s;
-    width: 200px;
-    height: 50px;
-  }
-  
-  &::before {
-    background-color: ${ color.navy.deep };
-  }
-  
-  &::after {
-    opacity: 0;
-    border: 1px solid ${ color.navy.deep };
-    transform: scale(1.3, 1.3);
-  }
-  
   &:hover {
-    color: ${ color.navy.deep };
-
-    &::before {
-      opacity: 0;
-      transform: scale(0.5, 0.5);
-    }
-    
-    &::after {
-      transform: scale(1, 1);
-      opacity: 1;
-    }
+    transform: translateY(-3px);
+    opacity: 0.9;
   }  
   
   @media screen and (max-width: 768px) {
