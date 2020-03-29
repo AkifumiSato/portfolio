@@ -7,7 +7,7 @@ import Layout from '../../organisms/Layout'
 import CommonSetting from '../hoc/CommonSetting'
 
 const MyLink = styled(Link)`
-  color: #6495ed;
+  color: #3d69b7;
   font-size: 14px;
   text-decoration: underline;
 `
