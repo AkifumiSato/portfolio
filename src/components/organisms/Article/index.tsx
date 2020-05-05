@@ -46,10 +46,6 @@ const ArticleInner: React.FC<IProps> = styled.div`
     list-style: decimal;
     margin-left: 20px;
   }
-  & > ul > li:not(:first-child),
-  & > ol > li:not(:first-child) {
-    margin-top: 10px;
-  }
   & > h2:not(:first-child) {
     margin-top: 50px;
   }
@@ -59,6 +55,13 @@ const ArticleInner: React.FC<IProps> = styled.div`
   & > ol:not(:first-child),
   & > pre:not(:first-child) {
     margin-top: 30px;
+  }
+  & > h3 + p:not(:first-child) {
+    margin-top: 10px;
+  }
+  & > ul > li:not(:first-child),
+  & > ol > li:not(:first-child) {
+    margin-top: 10px;
   }
   @media screen and (max-width: 768px) {
     &:not(:first-child) {
@@ -98,6 +101,9 @@ const ArticleInner: React.FC<IProps> = styled.div`
     & > pre:not(:first-child) {
       margin-top: 10px;
     }
+    & > h3 + p:not(:first-child) {
+      margin-top: 0;
+    }
   }
 `
 
@@ -108,7 +114,7 @@ const PrismEffect = <T extends {}>(Component: React.FC<T>): React.FC<T> => (prop
   })
 
   return (
-    <Component {...props} />
+    <Component { ...props } />
   )
 }
 
