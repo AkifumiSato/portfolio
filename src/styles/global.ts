@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import color from './color'
 import './fonts/font.css'
 
 export const GlobalStyles = createGlobalStyle`
@@ -28,8 +29,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   ::selection {
-    background-color: #00C5B2;
-    color: #fff;
+    background-color: ${ color.navy.light };
   }
   
   img {

@@ -7,6 +7,7 @@ export default {
     deep: '#333',
   },
   navy: {
+    light: '#C7E3FF',
     deep: '#01264A',
   },
   green: {

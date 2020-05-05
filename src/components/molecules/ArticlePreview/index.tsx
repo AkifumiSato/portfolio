@@ -4,13 +4,16 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 const MyLink = styled(Link)`
+  display: grid;
+  grid-template-columns: 20px 200px 1fr;
+  column-gap: 20px;
   background-color: #fff;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  display: flex;
   padding: 15px 20px;
   text-decoration: none;
   transition: .3s;
+
   @media screen and (min-width: 769px) {
     &:hover {
       box-shadow: 0 4px 48px rgba(0, 0, 0, 0.3);
@@ -18,23 +21,25 @@ const MyLink = styled(Link)`
       transform: translateY(-3px);
     }
   }
+
   @media screen and (max-width: 768px) {
-    display: block;
+    grid-template-columns: 1fr;
+    grid-template-rows: 15px 1fr;
+    row-gap: 10px;
   }
 `
 
 const DateView = styled.p`
   display: inline-block;
-  flex-shrink: 0;
-  -webkit-writing-mode: vertical-rl;
-  -ms-writing-mode: tb-rl;
+  height: 120px;
   writing-mode: vertical-rl;
   text-align: center;
   transform: rotate(180deg);
-  margin-right: 20px;
+
   @media screen and (max-width: 768px) {
     display: block;
     font-size: 14px;
+    height: auto;
     margin-right: 0;
     transform: rotate(0);
     text-align: left;
@@ -43,25 +48,20 @@ const DateView = styled.p`
 `
 
 const MyImage = styled(Img)`
-  flex-shrink: 0;
   height: 120px;
   object-fit: contain;
   margin-right: 20px;
   width: 200px;
+
   @media screen and (max-width: 768px) {
     display: none;
-  }
-`
-
-const MyBody = styled.div`
-  @media screen and (max-width: 768px) {
-    margin-top: 10px;
   }
 `
 
 const MainTitle = styled.h3`
   font-size: 18px;
   font-weight: bold;
+
   @media screen and (max-width: 768px) {
     font-size: 16px;
   }
@@ -71,6 +71,7 @@ const MyText = styled.p`
   font-size: 12px;
   line-height: 1.5;
   margin-top: 20px;
+
   @media screen and (max-width: 768px) {
     margin-top: 10px;
     overflow: hidden;
@@ -96,10 +97,10 @@ const ArticlePreview: React.FC<IProps> = ({ url, createdAt, title, description, 
     <MyImage sizes={ heroImage.sizes } imgStyle={ {
       objectFit: 'contain',
     } } alt="" />
-    <MyBody>
+    <div>
       <MainTitle>{ title }</MainTitle>
       <MyText>{ description }</MyText>
-    </MyBody>
+    </div>
   </MyLink>
 )
 
