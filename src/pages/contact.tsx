@@ -5,14 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import CustomHead from '../components/atoms/CustomHead'
 import { IContactForm } from '../components/organisms/ContactForm'
 import Contact from '../components/templates/Contact'
-import {
-  updateCommentAction,
-  updateEmailAction,
-  updateNameAction,
-  userSelector,
-  validateAction,
-} from '../redux/modules/app/user'
-import { changeCommentAction, changeEmailAction, changeNameAction, formSelector } from '../redux/modules/ui/form'
+import { updateComment, updateEmail, updateName, validate } from '../redux/modules/app/user'
+import { changeComment, changeEmail, changeName } from '../redux/modules/ui/form'
+import { IState } from '../redux/store'
 
 interface IEncode {
   [key: string]: string;
@@ -66,38 +61,34 @@ const ContactPage: React.FC<Props> = ({ data }) => {
   const siteTitle = `Contact - ${ data.site.siteMetadata.title }`
 
   const dispatch = useDispatch()
-  const { name, email, comment } = useSelector(userSelector).toObject()
-  const { isChangeName, isChangeComment, isChangeEmail } = useSelector(formSelector).toObject()
+  const { name, email, comment } = useSelector((state: IState) => state.app.user)
+  const { isChangeName, isChangeComment, isChangeEmail } = useSelector((state: IState) => state.ui.form)
 
   const isSubmit = !name.error && !email.error && !comment.error
-
-  const onceChangeNameDispatch = React.useCallback(() => !isChangeName && dispatch(changeNameAction()), [isChangeName])
-  const onceEmailDispatch = React.useCallback(() => !isChangeEmail && dispatch(changeEmailAction()), [isChangeEmail])
-  const onceCommentDispatch = React.useCallback(() => !isChangeComment && dispatch(changeCommentAction()), [isChangeComment])
 
   const onSubmitForm = React.useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     isSubmit && handleSubmit(e, { name, email, comment })
-    dispatch(validateAction())
-    onceChangeNameDispatch()
-    onceEmailDispatch()
-    onceCommentDispatch()
-  }, [isSubmit])
+    dispatch(validate())
+    !isChangeName && dispatch(changeName())
+    !isChangeEmail && dispatch(changeEmail())
+    !isChangeComment && dispatch(changeComment())
+  }, [isSubmit, isChangeName, isChangeEmail, isChangeComment])
 
   const onBlurNameInput = React.useCallback((e: React.FormEvent<HTMLInputElement>) => {
-    dispatch(updateNameAction(e.currentTarget.value))
-    onceChangeNameDispatch()
-  }, [])
+    dispatch(updateName(e.currentTarget.value))
+    !isChangeName && dispatch(changeName())
+  }, [isChangeName])
 
   const onBlurEmailInput = React.useCallback((e: React.FormEvent<HTMLInputElement>) => {
-    dispatch(updateEmailAction(e.currentTarget.value))
-    onceEmailDispatch()
-  }, [])
+    dispatch(updateEmail(e.currentTarget.value))
+    !isChangeEmail && dispatch(changeEmail())
+  }, [isChangeEmail])
 
   const onBlurCommentText = React.useCallback((e: React.FormEvent<HTMLTextAreaElement>) => {
-    dispatch(updateCommentAction(e.currentTarget.value))
-    onceCommentDispatch()
-  }, [])
+    dispatch(updateComment(e.currentTarget.value))
+    !isChangeComment && dispatch(changeComment())
+  }, [isChangeComment])
 
   const formProps: IContactForm = React.useMemo(() => ({
     action: '/thanks/',
