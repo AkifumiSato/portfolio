@@ -1,10 +1,6 @@
-import { Record } from 'immutable'
-import actionCreatorFactory from 'typescript-fsa'
-import { reducerWithInitialState } from 'typescript-fsa-reducers'
-import { nameValidate, mailValidate, commentValidate } from '../../utils/contactValidater'
-import { IState } from '../../store'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { commentValidate, mailValidate, nameValidate } from '../../utils/contactValidater'
 
-// model
 export interface IUserMember {
   name: {
     value: string,
@@ -20,69 +16,51 @@ export interface IUserMember {
   }
 }
 
-const UserRecord = Record({
-  name: {
-    value: '',
-    error: '初期値のままです。',
+const userSlice = createSlice({
+  name: 'user',
+  initialState: {
+    name: {
+      value: '',
+      error: '初期値のままです。',
+    },
+    email: {
+      value: '',
+      error: '初期値のままです。',
+    },
+    comment: {
+      value: '',
+      error: '初期値のままです。',
+    },
   },
-  email: {
-    value: '',
-    error: '初期値のままです。',
-  },
-  comment: {
-    value: '',
-    error: '初期値のままです。',
-  },
+  reducers: {
+    updateName: (state: IUserMember, { payload }: PayloadAction<string>) => {
+      const error = nameValidate(payload)
+      state.name.value = payload
+      state.name.error = error
+    },
+    updateEmail: (state: IUserMember, { payload }: PayloadAction<string>) => {
+      const error = mailValidate(payload)
+      state.email.value = payload
+      state.email.error = error
+    },
+    updateComment: (state: IUserMember, { payload }: PayloadAction<string>) => {
+      const error = commentValidate(payload)
+      state.comment.value = payload
+      state.comment.error = error
+    },
+    validate: (state: IUserMember) => {
+      state.name.error = nameValidate(state.name.value)
+      state.email.error = mailValidate(state.email.value)
+      state.comment.error = commentValidate(state.comment.value)
+    },
+  }
 })
 
-export class UserModel extends UserRecord implements IUserMember{
-  updateName(value: string) {
-    const error = nameValidate(value)
-    return this.withMutations(mut => mut.setIn(['name', 'value'], value).setIn(['name', 'error'], error))
-  }
+export const {
+  updateName,
+  updateEmail,
+  updateComment,
+  validate,
+} = userSlice.actions
 
-  updateEmail(value: string) {
-    const error = mailValidate(value)
-    return this.withMutations(mut => mut.setIn(['email', 'value'], value).setIn(['email', 'error'], error))
-  }
-
-  updateComment(value: string) {
-    const error = commentValidate(value)
-    return this.withMutations(mut => mut.setIn(['comment', 'value'], value).setIn(['comment', 'error'], error))
-  }
-
-  validate() {
-    return this.withMutations(mut => mut
-      .updateName(this.getIn(['name', 'value']))
-      .updateEmail(this.getIn(['email', 'value']))
-      .updateComment(this.getIn(['comment', 'value'])),
-    )
-  }
-}
-
-// action
-const actionCreator = actionCreatorFactory()
-
-enum ActionType {
-  UpdateName = 'USER/NAME/UPDATE',
-  UpdateEmail = 'USER/EMAIL/UPDATE',
-  UpdateComment = 'USER/COMMENT/UPDATE',
-  Validate = 'USER/VALIDATE',
-}
-
-export const updateNameAction = actionCreator<string>(ActionType.UpdateName)
-export const updateEmailAction = actionCreator<string>(ActionType.UpdateEmail)
-export const updateCommentAction = actionCreator<string>(ActionType.UpdateComment)
-export const validateAction = actionCreator(ActionType.Validate)
-
-// reducer
-const reducer = reducerWithInitialState(new UserModel())
-  .case(updateNameAction, (state, payload) => state.updateName(payload))
-  .case(updateEmailAction, (state, payload) => state.updateEmail(payload))
-  .case(updateCommentAction, (state, payload) => state.updateComment(payload))
-  .case(validateAction, (state) => state.validate())
-
-export default reducer
-
-// selector
-export const userSelector = (state: IState) => state.app.user
+export default userSlice.reducer
