@@ -16,7 +16,14 @@ export interface IUserMember {
   }
 }
 
-const userSlice = createSlice({
+type Reducer = {
+  updateName: (state: IUserMember, { payload }: PayloadAction<string>) => void
+  updateEmail: (state: IUserMember, { payload }: PayloadAction<string>) => void
+  updateComment: (state: IUserMember, { payload }: PayloadAction<string>) => void
+  validate: (state: IUserMember) => void
+}
+
+const userSlice = createSlice<IUserMember, Reducer>({
   name: 'user',
   initialState: {
     name: {
@@ -33,22 +40,22 @@ const userSlice = createSlice({
     },
   },
   reducers: {
-    updateName: (state: IUserMember, { payload }: PayloadAction<string>) => {
+    updateName: (state, { payload }) => {
       const error = nameValidate(payload)
       state.name.value = payload
       state.name.error = error
     },
-    updateEmail: (state: IUserMember, { payload }: PayloadAction<string>) => {
+    updateEmail: (state, { payload }) => {
       const error = mailValidate(payload)
       state.email.value = payload
       state.email.error = error
     },
-    updateComment: (state: IUserMember, { payload }: PayloadAction<string>) => {
+    updateComment: (state, { payload }) => {
       const error = commentValidate(payload)
       state.comment.value = payload
       state.comment.error = error
     },
-    validate: (state: IUserMember) => {
+    validate: (state) => {
       state.name.error = nameValidate(state.name.value)
       state.email.error = mailValidate(state.email.value)
       state.comment.error = commentValidate(state.comment.value)
