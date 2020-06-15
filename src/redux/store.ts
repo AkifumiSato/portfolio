@@ -1,8 +1,7 @@
-import { createStore } from 'redux'
+import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
 import user from './modules/app/user'
 import form from './modules/ui/form'
-import { composeWithDevTools } from 'redux-devtools-extension'
 
 const app = combineReducers({ user })
 const ui = combineReducers({ form })
@@ -12,10 +11,9 @@ const root = combineReducers({
   ui,
 })
 
-const store = createStore(
-  root,
-  composeWithDevTools(),
-)
+const store = configureStore({
+  reducer: root,
+})
 
 export default store
 

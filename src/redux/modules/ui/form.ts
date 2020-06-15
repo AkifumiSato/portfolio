@@ -1,7 +1,4 @@
-import { Record } from 'immutable'
-import actionCreatorFactory from 'typescript-fsa'
-import { reducerWithInitialState } from 'typescript-fsa-reducers'
-import { IState } from '../../store'
+import { createSlice } from '@reduxjs/toolkit'
 
 // model
 export interface IFormMember {
@@ -10,32 +7,36 @@ export interface IFormMember {
   isChangeComment: boolean;
 }
 
-export const FormModel = Record<IFormMember>({
-  isChangeName: false,
-  isChangeEmail: false,
-  isChangeComment: false,
-})
-
-// action
-const actionCreator = actionCreatorFactory()
-
-enum ActionType {
-  ChangeName = 'FORM/CHANGE/NAME',
-  ChangeEmail = 'FORM/CHANGE/EMAIL',
-  ChangeComment = 'FORM/CHANGE/COMMENT',
+type Reducer = {
+  changeName: (state: IFormMember) => void
+  changeEmail: (state: IFormMember) => void
+  changeComment: (state: IFormMember) => void
 }
 
-export const changeNameAction = actionCreator(ActionType.ChangeName)
-export const changeEmailAction = actionCreator(ActionType.ChangeEmail)
-export const changeCommentAction = actionCreator(ActionType.ChangeComment)
+const formSlice = createSlice<IFormMember, Reducer>({
+  name: 'form',
+  initialState: {
+    isChangeName: false,
+    isChangeEmail: false,
+    isChangeComment: false,
+  },
+  reducers: {
+    changeName(state) {
+      state.isChangeName = true
+    },
+    changeEmail(state) {
+      state.isChangeEmail = true
+    },
+    changeComment(state) {
+      state.isChangeComment = true
+    },
+  }
+})
 
-// reducer
-const reducer = reducerWithInitialState(new FormModel())
-  .case(changeNameAction, (state) => state.set('isChangeName', true))
-  .case(changeEmailAction, (state) => state.set('isChangeEmail', true))
-  .case(changeCommentAction, (state) => state.set('isChangeComment', true))
+export const {
+  changeName,
+  changeEmail,
+  changeComment
+} = formSlice.actions
 
-export default reducer
-
-// selector
-export const formSelector = (state: IState) => state.ui.form
+export default formSlice.reducer
