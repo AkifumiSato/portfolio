@@ -1,5 +1,4 @@
 import { graphql } from 'gatsby'
-import { navigate } from 'gatsby-link'
 import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CustomHead from '../components/atoms/CustomHead'
@@ -20,11 +19,7 @@ type Props = {
 const ContactPage: React.FC<Props> = ({ data }) => {
   const siteTitle = `Contact - ${ data.site.siteMetadata.title }`
   const dispatch = useDispatch()
-  const { name, email, comment, isCompletedSubmit } = useSelector((state: State) => state.app.user)
-
-  React.useEffect(() => {
-    isCompletedSubmit && navigate('/thanks/')
-  }, [isCompletedSubmit])
+  const { name, email, comment } = useSelector((state: State) => state.app.user)
 
   const onSubmitForm = React.useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

@@ -1,11 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { navigate } from 'gatsby-link'
 import { State } from '../../store'
 import { commentValidate, mailValidate, nameValidate } from '../../utils/contactValidater'
 import { encode } from '../../utils/encode'
-
-type Response = {
-  status: string
-}
 
 type ThunkConfig = {
   state: State
@@ -16,7 +13,7 @@ type ThunkConfig = {
   }
 }
 
-export const postContactForm = createAsyncThunk<Response | void, string, ThunkConfig>(
+export const postContactForm = createAsyncThunk<void, string, ThunkConfig>(
   'user/postContactForm',
   async (formName, { getState, rejectWithValue }) => {
     const {
@@ -51,7 +48,7 @@ export const postContactForm = createAsyncThunk<Response | void, string, ThunkCo
         comment: comment.value,
       }),
     })
-      .then(() => ({ status: 'success' }))
+      .then(() => navigate('/thanks/'))
       .catch(error => alert(error))
     return await req
   }
