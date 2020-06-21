@@ -1,7 +1,63 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { State } from '../../store'
 import { commentValidate, mailValidate, nameValidate } from '../../utils/contactValidater'
+import { encode } from '../../utils/encode'
 
-export interface IUserMember {
+type Response = {
+  status: string
+}
+
+type ThunkConfig = {
+  state: State
+  rejectValue: {
+    nameError: string
+    emailError: string
+    commentError: string
+  }
+}
+
+export const postContactForm = createAsyncThunk<Response | void, string, ThunkConfig>(
+  'user/postContactForm',
+  async (formName, { getState, rejectWithValue }) => {
+    const {
+      app: {
+        user: {
+          name,
+          email,
+          comment,
+        }
+      }
+    } = getState()
+
+    const nameError = nameValidate(name.value)
+    const emailError = mailValidate(email.value)
+    const commentError = commentValidate(comment.value)
+
+    if (nameError || emailError || commentError) {
+      return rejectWithValue({
+        nameError,
+        emailError,
+        commentError,
+      })
+    }
+
+    const req = fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': formName,
+        name: name.value,
+        email: email.value,
+        comment: comment.value,
+      }),
+    })
+      .then(() => ({ status: 'success' }))
+      .catch(error => alert(error))
+    return await req
+  }
+)
+
+export type UserState = {
   name: {
     value: string,
     error: string,
@@ -13,31 +69,32 @@ export interface IUserMember {
   comment: {
     value: string,
     error: string,
-  }
+  },
+  isCompletedSubmit: boolean
 }
 
 type Reducer = {
-  updateName: (state: IUserMember, { payload }: PayloadAction<string>) => void
-  updateEmail: (state: IUserMember, { payload }: PayloadAction<string>) => void
-  updateComment: (state: IUserMember, { payload }: PayloadAction<string>) => void
-  validate: (state: IUserMember) => void
+  updateName: (state: UserState, { payload }: PayloadAction<string>) => void
+  updateEmail: (state: UserState, { payload }: PayloadAction<string>) => void
+  updateComment: (state: UserState, { payload }: PayloadAction<string>) => void
 }
 
-const userSlice = createSlice<IUserMember, Reducer>({
+const userSlice = createSlice<UserState, Reducer>({
   name: 'user',
   initialState: {
     name: {
       value: '',
-      error: '初期値のままです。',
+      error: '',
     },
     email: {
       value: '',
-      error: '初期値のままです。',
+      error: '',
     },
     comment: {
       value: '',
-      error: '初期値のままです。',
+      error: '',
     },
+    isCompletedSubmit: false,
   },
   reducers: {
     updateName: (state, { payload }) => {
@@ -55,11 +112,18 @@ const userSlice = createSlice<IUserMember, Reducer>({
       state.comment.value = payload
       state.comment.error = error
     },
-    validate: (state) => {
-      state.name.error = nameValidate(state.name.value)
-      state.email.error = mailValidate(state.email.value)
-      state.comment.error = commentValidate(state.comment.value)
-    },
+  },
+  extraReducers: builder => {
+    builder.addCase(postContactForm.fulfilled, (state) => {
+      state.isCompletedSubmit = true
+    })
+    builder.addCase(postContactForm.rejected, (state, { payload }) => {
+      if (payload) {
+        state.name.error = payload.nameError
+        state.email.error = payload.emailError
+        state.comment.error = payload.commentError
+      }
+    })
   }
 })
 
@@ -67,7 +131,6 @@ export const {
   updateName,
   updateEmail,
   updateComment,
-  validate,
 } = userSlice.actions
 
 export default userSlice.reducer

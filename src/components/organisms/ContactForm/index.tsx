@@ -29,25 +29,23 @@ const Button = styled.button`
     }
 `
 
-interface IFormObject {
+type FormObject = {
   value: string;
   error: string;
 }
 
-export interface IContactForm {
-  action: string;
-  name: IFormObject;
-  email: IFormObject;
-  comment: IFormObject;
-  onSubmitForm: (e: React.FormEvent<HTMLFormElement>) => void;
-  onChangeNameInput: (e: React.FormEvent<HTMLInputElement>) => void;
-  onChangeEmailInput: (e: React.FormEvent<HTMLInputElement>) => void;
-  onChangeCommentText: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+export type ContactFormProps = {
+  name: FormObject
+  email: FormObject
+  comment: FormObject
+  onSubmitForm: (e: React.FormEvent<HTMLFormElement>) => void
+  onChangeNameInput: (e: React.FormEvent<HTMLInputElement>) => void
+  onChangeEmailInput: (e: React.FormEvent<HTMLInputElement>) => void
+  onChangeCommentText: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-const ContactForm: React.FC<IContactForm> = (props) => {
+const ContactForm: React.FC<ContactFormProps> = (props) => {
   const {
-    action,
     name,
     email,
     comment,
@@ -61,7 +59,6 @@ const ContactForm: React.FC<IContactForm> = (props) => {
     <form
       name="contact"
       method="post"
-      action={ action }
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       onSubmit={ onSubmitForm }

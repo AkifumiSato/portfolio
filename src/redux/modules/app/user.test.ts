@@ -1,7 +1,7 @@
 import produce from 'immer'
-import reducer, { IUserMember, updateComment, updateEmail, updateName, validate, } from './user'
+import reducer, { updateComment, updateEmail, updateName, UserState } from './user'
 
-const userState: IUserMember = {
+const userState: UserState = {
   name: {
     value: '',
     error: '初期値のままです。',
@@ -14,6 +14,7 @@ const userState: IUserMember = {
     value: '',
     error: '初期値のままです。',
   },
+  isCompletedSubmit: false,
 }
 
 // name
@@ -99,16 +100,6 @@ test('[app user state]: too long comment', () => {
     .toEqual(produce(userState, draftState => {
       draftState.comment.value = text
       draftState.comment.error = 'コメントは1000文字までです。'
-    }))
-})
-
-// validation
-test('[app user state]: validation', () => {
-  expect(reducer(userState, validate()))
-    .toEqual(produce(userState, draftState => {
-      draftState.name.error = '名前は必須です。'
-      draftState.email.error = 'メールアドレスは必須です。'
-      draftState.comment.error = 'コメントは必須です。'
     }))
 })
 
