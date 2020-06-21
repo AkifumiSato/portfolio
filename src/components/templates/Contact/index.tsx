@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import MainTitle from '../../atoms/MainTitle'
-import ContactForm, { IContactForm } from '../../organisms/ContactForm'
+import ContactForm, { ContactFormProps } from '../../organisms/ContactForm'
 import Layout from '../../organisms/Layout'
 import CommonSetting from '../hoc/CommonSetting'
 
@@ -16,21 +16,16 @@ const Wrapper = styled.div`
     padding: 30px;
     width: 100%;
   }
-
 `
 
-export type Props = {
-  form: IContactForm
-}
-
-const ContactPage: React.FC<Props> = ({ form }) => (
+const ContactPage: React.FC<ContactFormProps> = (props) => (
   <Layout>
     <MainTitle>Contact</MainTitle>
     <Wrapper>
-      <ContactForm { ...form } />
+      <ContactForm { ...props } />
     </Wrapper>
   </Layout>
 )
 
 
-export default CommonSetting<Props>(ContactPage)
+export default CommonSetting<ContactFormProps>(ContactPage)
