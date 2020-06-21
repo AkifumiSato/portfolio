@@ -83,6 +83,7 @@ const ContactForm: React.FC<ContactFormProps> = (props) => {
         error={ email.error }
       />
       <TextArea
+        name='comment'
         value={ comment.value }
         onChange={ onChangeCommentText }
         error={ comment.error }

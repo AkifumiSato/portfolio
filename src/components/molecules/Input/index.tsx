@@ -1,6 +1,6 @@
 import * as React from 'react'
+import styled from 'styled-components'
 import Error from '../../atoms/FormError'
-import styled  from 'styled-components'
 
 const Wrapper = styled.div`
   position: relative;
@@ -47,16 +47,16 @@ const MyInput = styled.input`
   }
 `
 
-interface IProps {
-  name: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  type?: string;
-  placeholder?: string;
-  error?: string;
+type Props = {
+  name: string
+  value: string
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  type?: string
+  placeholder?: string
+  error?: string
 }
 
-const Input: React.FC<IProps> = (props) => {
+const Input: React.FC<Props> = (props) => {
   const {
     value,
     onChange,

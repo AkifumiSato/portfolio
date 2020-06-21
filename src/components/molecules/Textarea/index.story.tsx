@@ -14,6 +14,7 @@ storiesOf(`molecules|${ Textarea.name }`, module)
   .add(
     'default',
     () => <Textarea
+      name="test"
       value=""
       onChange={ action('onChange') }
     />,
@@ -25,6 +26,7 @@ storiesOf(`molecules|${ Textarea.name }`, module)
   .add(
     'custom attribute',
     () => <Textarea
+      name="test"
       value="サンプル文です"
       onChange={ action('onChange') }
       error="本文は必須です。"

@@ -1,6 +1,6 @@
 import * as React from 'react'
+import styled from 'styled-components'
 import Error from '../../atoms/FormError'
-import styled  from 'styled-components'
 
 const Wrapper = styled.div`
   position: relative;
@@ -27,17 +27,19 @@ const MyTextarea = styled.textarea`
   }
 `
 
-interface IProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  cols?: number;
-  rows?: number;
-  placeholder?: string;
-  error?: string;
+type Props = {
+  name: string
+  value: string
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+  cols?: number
+  rows?: number
+  placeholder?: string
+  error?: string
 }
 
-const Textarea: React.FC<IProps> = (props) => {
+const Textarea: React.FC<Props> = (props) => {
   const {
+    name,
     value,
     onChange,
     cols = 30,
@@ -51,6 +53,7 @@ const Textarea: React.FC<IProps> = (props) => {
       <MyTextarea
         cols={ cols }
         rows={ rows }
+        name={ name }
         value={ value }
         onChange={ onChange }
         placeholder={ placeholder }
