@@ -1,5 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { combineReducers } from 'redux'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import user from './modules/app/user'
 
 const app = combineReducers({ user })
