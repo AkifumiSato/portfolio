@@ -20,6 +20,10 @@ const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
 
+  @media screen and (max-width: 834px) {
+    padding: 50px;
+  }
+
   @media screen and (max-width: 768px) {
     flex-direction: column;
     padding: 0 20px 100px;
