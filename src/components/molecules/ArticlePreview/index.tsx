@@ -1,4 +1,4 @@
-import Img, { FluidObject, GatsbyImageFluidProps } from 'gatsby-image'
+import Img, { FixedObject, GatsbyImageFixedProps } from 'gatsby-image'
 import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
@@ -47,7 +47,7 @@ const DateView = styled.p`
   }
 `
 
-const MyImage = styled(Img)<GatsbyImageFluidProps>`
+const MyImage = styled(Img)<GatsbyImageFixedProps>`
   height: 120px;
   object-fit: contain;
   margin-right: 20px;
@@ -58,7 +58,7 @@ const MyImage = styled(Img)<GatsbyImageFluidProps>`
   }
 `
 
-const MainTitle = styled.h3`
+const MainTitle = styled.h2`
   font-size: 18px;
   font-weight: bold;
 
@@ -87,7 +87,7 @@ type Props = {
   title: string
   description: string
   heroImage: {
-    sizes: FluidObject
+    fixed: FixedObject
   }
 }
 
@@ -101,7 +101,7 @@ const ArticlePreview: React.FC<Props> = ({
   <MyLink to={url}>
     <DateView>{createdAt}</DateView>
     <MyImage
-      fluid={heroImage.sizes}
+      fixed={heroImage.fixed}
       imgStyle={{
         objectFit: 'contain',
       }}

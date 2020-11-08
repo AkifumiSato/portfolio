@@ -1,4 +1,4 @@
-import { FluidObject } from 'gatsby-image'
+import { FixedObject } from 'gatsby-image'
 import * as React from 'react'
 import styled from 'styled-components'
 import MainTitle from '../../atoms/MainTitle'
@@ -34,7 +34,7 @@ export type BlogPost = {
   title: string
   description: string
   heroImage: {
-    sizes: FluidObject
+    fixed: FixedObject
   }
 }
 

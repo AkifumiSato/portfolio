@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import { FluidObject } from 'gatsby-image'
+import { FixedObject } from 'gatsby-image'
 import * as React from 'react'
 import CustomHead from '../components/atoms/CustomHead'
 import List, { BlogPost } from '../components/templates/List'
@@ -13,7 +13,7 @@ type PostOrg = {
       description: string
     }
     heroImage: {
-      sizes: FluidObject
+      fixed: FixedObject
     }
   }
 }
@@ -43,7 +43,7 @@ const parsePosts = (posts: PostOrg[]): BlogPost[] =>
     title: post.node.title,
     description: post.node.description.description,
     heroImage: {
-      sizes: post.node.heroImage.sizes,
+      fixed: post.node.heroImage.fixed,
     },
   }))
 
@@ -82,8 +82,13 @@ export const pageQuery = graphql`
           createdAt(formatString: "YYYY-MM-DD")
           tags
           heroImage {
-            sizes(maxWidth: 350, resizingBehavior: SCALE) {
-              ...GatsbyContentfulSizes_withWebp
+            fixed(
+              width: 200
+              height: 120
+              cropFocus: CENTER
+              resizingBehavior: PAD
+            ) {
+              ...GatsbyContentfulFixed_withWebp
             }
           }
           description {

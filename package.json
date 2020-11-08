@@ -11,7 +11,7 @@
   "scripts": {
     "start": "gatsby develop & npm run storybook",
     "dev": "gatsby develop",
-    "build": "gatsby build",
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "heroku-postbuild": "gatsby build",
     "storybook": "start-storybook -p 6006",
     "storybook:docker": "start-storybook -p 6006 --ci --quiet",

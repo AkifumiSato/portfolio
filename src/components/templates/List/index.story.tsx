@@ -9,12 +9,12 @@ const dummy: BlogPost[] = [
     title: 'title',
     description: 'description',
     heroImage: {
-      sizes: {
-        aspectRatio: 1.4,
-        src: 'https://dummyimage.com/860x470/f1f1f1/999999',
-        srcSet: 'https://dummyimage.com/860x470/f1f1f1/999999',
-        sizes: '350px',
-        srcWebp: 'https://dummyimage.com/860x470/f1f1f1/999999',
+      fixed: {
+        width: 200,
+        height: 120,
+        src: 'https://dummyimage.com/200x120/f1f1f1/999999',
+        srcSet: 'https://dummyimage.com/200x120/f1f1f1/999999',
+        srcWebp: 'https://dummyimage.com/200x120/f1f1f1/999999',
       },
     },
   },
@@ -24,12 +24,12 @@ const dummy: BlogPost[] = [
     title: 'title',
     description: 'description',
     heroImage: {
-      sizes: {
-        aspectRatio: 1.4,
-        src: 'https://dummyimage.com/860x470/f1f1f1/999999',
-        srcSet: 'https://dummyimage.com/860x470/f1f1f1/999999',
-        sizes: '350px',
-        srcWebp: 'https://dummyimage.com/860x470/f1f1f1/999999',
+      fixed: {
+        width: 200,
+        height: 120,
+        src: 'https://dummyimage.com/200x120/f1f1f1/999999',
+        srcSet: 'https://dummyimage.com/200x120/f1f1f1/999999',
+        srcWebp: 'https://dummyimage.com/200x120/f1f1f1/999999',
       },
     },
   },
@@ -39,12 +39,12 @@ const dummy: BlogPost[] = [
     title: 'title',
     description: 'description',
     heroImage: {
-      sizes: {
-        aspectRatio: 1.4,
-        src: 'https://dummyimage.com/860x470/f1f1f1/999999',
-        srcSet: 'https://dummyimage.com/860x470/f1f1f1/999999',
-        sizes: '350px',
-        srcWebp: 'https://dummyimage.com/860x470/f1f1f1/999999',
+      fixed: {
+        width: 200,
+        height: 120,
+        src: 'https://dummyimage.com/200x120/f1f1f1/999999',
+        srcSet: 'https://dummyimage.com/200x120/f1f1f1/999999',
+        srcWebp: 'https://dummyimage.com/200x120/f1f1f1/999999',
       },
     },
   },
