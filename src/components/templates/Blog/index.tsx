@@ -23,7 +23,7 @@ const MyContents = styled.div`
 `
 
 const MyImg = styled(Img)`
-  box-shadow: 0 4px 24px rgba(0, 0, 0, .35);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
   @media screen and (max-width: 768px) {
     height: 100%;
   }
@@ -38,18 +38,22 @@ export type Props = {
 
 const BlogPost: React.FC<Props> = ({ title, mainImage, createdAt, html }) => (
   <Layout>
-    <MainTitle>{ title }</MainTitle>
+    <MainTitle>{title}</MainTitle>
     <Wrapper>
-      <MyImg alt={ title } sizes={ mainImage } imgStyle={ {
-        objectFit: 'cover',
-        objectPosition: 'top',
-      } } />
+      <MyImg
+        alt={title}
+        sizes={mainImage}
+        imgStyle={{
+          objectFit: 'cover',
+          objectPosition: 'top',
+        }}
+      />
       <MyContents>
-        <Publish>{ createdAt }</Publish>
+        <Publish>{createdAt}</Publish>
         <Article
-          dangerouslySetInnerHTML={ {
+          dangerouslySetInnerHTML={{
             __html: html,
-          } }
+          }}
         />
       </MyContents>
     </Wrapper>

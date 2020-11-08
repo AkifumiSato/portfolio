@@ -11,27 +11,27 @@ const ButtonWrapper = styled.div`
 `
 
 const Button = styled.button`
-    background-color: #00C5B2;
-    border: 1px solid #00C5B2;
-    border-radius: 3px;
-    color: #fff;
-    display: block;
-    ${ ralewayMixin };
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1;
-    padding: 20px 0;
-    transition: .3s;
-    width: 200px;
-    &:hover {
-      box-shadow: 0 4px 24px rgba(0,0,0,.3);
-      opacity: 0.8;
-    }
+  background-color: #00c5b2;
+  border: 1px solid #00c5b2;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  ${ralewayMixin};
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 20px 0;
+  transition: 0.3s;
+  width: 200px;
+  &:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    opacity: 0.8;
+  }
 `
 
 type FormObject = {
-  value: string;
-  error: string;
+  value: string
+  error: string
 }
 
 export type ContactFormProps = {
@@ -61,37 +61,39 @@ const ContactForm: React.FC<ContactFormProps> = (props) => {
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      onSubmit={ onSubmitForm }
+      onSubmit={onSubmitForm}
     >
-      <div style={ { display: 'none' } }>
-        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+      <div style={{ display: 'none' }}>
+        <label>
+          Don’t fill this out if you're human: <input name="bot-field" />
+        </label>
       </div>
       <Input
-        type='text'
-        name='name'
-        placeholder='Your name'
-        value={ name.value }
-        onChange={ onChangeNameInput }
-        error={ name.error }
+        type="text"
+        name="name"
+        placeholder="Your name"
+        value={name.value}
+        onChange={onChangeNameInput}
+        error={name.error}
       />
       <Input
-        type='mail'
-        name='email'
-        placeholder='Email: xxxx@mail.com'
-        value={ email.value }
-        onChange={ onChangeEmailInput }
-        error={ email.error }
+        type="mail"
+        name="email"
+        placeholder="Email: xxxx@mail.com"
+        value={email.value}
+        onChange={onChangeEmailInput}
+        error={email.error}
       />
       <TextArea
-        name='comment'
-        value={ comment.value }
-        onChange={ onChangeCommentText }
-        error={ comment.error }
+        name="comment"
+        value={comment.value}
+        onChange={onChangeCommentText}
+        error={comment.error}
       />
       <ButtonWrapper>
         <Button type="submit">Send</Button>
       </ButtonWrapper>
-      { /* The `form-name` hidden field is required to support form submissions without JavaScript */ }
+      {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
       <input type="hidden" name="form-name" value="contact" />
     </form>
   )

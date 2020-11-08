@@ -1,8 +1,6 @@
 import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
-// @ts-ignore
-import logo from '../../../../static/images/logo.svg'
 import color from '../../../styles/color'
 import { ralewayMixin } from '../../../styles/font'
 import { zIndex } from '../../../styles/layout'
@@ -10,16 +8,16 @@ import NavyButton from '../../atoms/NavyButton'
 import Navigation from '../../molecules/Navigation'
 
 const Wrapper = styled.div`
-  background-color: ${ color.white.base };
-  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  background-color: ${color.white.base};
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   margin: auto;
-  z-index: ${ zIndex.fixed };
-  
+  z-index: ${zIndex.fixed};
+
   @media screen and (max-width: 768px) {
     max-width: 100%;
   }
@@ -34,7 +32,7 @@ const Inner = styled.div`
   max-width: 1280px;
   width: 100%;
   margin: auto;
-  
+
   @media screen and (max-width: 768px) {
     padding: 10px 20px;
     max-width: 100%;
@@ -50,7 +48,7 @@ const PCButtonWrapper = styled.div`
   display: grid;
   grid-template-columns: 200px 200px 200px;
   column-gap: 20px;
-  
+
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -58,17 +56,17 @@ const PCButtonWrapper = styled.div`
 
 const SPButtonWrapper = styled.div`
   display: none;
-  
+
   @media screen and (max-width: 768px) {
     display: block;
   }
 `
 
 const WhiteButton = styled(Link)`
-  color: ${ color.navy.deep };
+  color: ${color.navy.deep};
   font-size: 20px;
   font-weight: bold;
-  ${ ralewayMixin };
+  ${ralewayMixin};
   line-height: 1;
   text-decoration: none;
   display: flex;
@@ -78,17 +76,17 @@ const WhiteButton = styled(Link)`
   height: 50px;
   transition: color;
   transition-duration: 0.3s;
-  
+
   &:hover {
-    color: ${ color.green.base };
+    color: ${color.green.base};
   }
 `
 
-const Header: React.FC = ({}) => (
+const Header: React.FC = () => (
   <Wrapper>
     <Inner>
       <Link to="/">
-        <Logo src={ logo } alt="site logo" />
+        <Logo src="/images/logo.svg" alt="site logo" />
       </Link>
       <PCButtonWrapper>
         <WhiteButton to="/about/">about</WhiteButton>

@@ -29,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   ::selection {
-    background-color: ${ color.navy.light };
+    background-color: ${color.navy.light};
   }
   
   img {

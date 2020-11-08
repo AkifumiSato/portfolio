@@ -3,22 +3,22 @@ import * as React from 'react'
 import CustomHead from '../components/atoms/CustomHead'
 import Index from '../components/templates/Index'
 
-interface IProps {
+type Props = {
   data: {
     site: {
       siteMetadata: {
-        title: string;
+        title: string
       }
     }
   }
 }
 
-const IndexPage: React.FC<IProps> = ({ data }) => {
+const IndexPage: React.FC<Props> = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
     <>
-      <CustomHead title={ siteTitle } />
+      <CustomHead title={siteTitle} />
       <Index />
     </>
   )
@@ -27,11 +27,11 @@ const IndexPage: React.FC<IProps> = ({ data }) => {
 export default IndexPage
 
 export const pageQuery = graphql`
-    query HomeQuery {
-        site {
-            siteMetadata {
-                title
-            }
-        }
+  query HomeQuery {
+    site {
+      siteMetadata {
+        title
+      }
     }
+  }
 `

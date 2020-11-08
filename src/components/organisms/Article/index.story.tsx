@@ -4,16 +4,20 @@ import Article from '.'
 
 storiesOf(`organisms|Article`, module)
   .addDecorator((storyFn) => (
-    <div style={ {
-      padding: '30px'
-    } }>
-      { storyFn() }
+    <div
+      style={{
+        padding: '30px',
+      }}
+    >
+      {storyFn()}
     </div>
   ))
-  .add('article html',
-    () => <Article
-      dangerouslySetInnerHTML={ {
-        __html: `
+  .add(
+    'article html',
+    () => (
+      <Article
+        dangerouslySetInnerHTML={{
+          __html: `
               <h2>h2 title</h2>
               <h3>h3 title</h3>
               <p>paragraph</p>
@@ -40,11 +44,14 @@ export default ({ data }) =&gt; {
     &lt;/Layout&gt;
   )
 }
-</code></pre>`
-      } } />,
+</code></pre>`,
+        }}
+      />
+    ),
     {
       info: `
         Blogの記事にstyleを適用するComponentです。\n
         PrismJSの適用を行なってソースコードを表示することもできます。
-      `
-    })
+      `,
+    }
+  )

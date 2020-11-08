@@ -1,7 +1,11 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { navigate } from 'gatsby-link'
 import { State } from '../../store'
-import { commentValidate, mailValidate, nameValidate } from '../../utils/contactValidater'
+import {
+  commentValidate,
+  mailValidate,
+  nameValidate,
+} from '../../utils/contactValidater'
 import { encode } from '../../utils/encode'
 
 type ThunkConfig = {
@@ -18,12 +22,8 @@ export const postContactForm = createAsyncThunk<void, string, ThunkConfig>(
   async (formName, { getState, rejectWithValue }) => {
     const {
       app: {
-        user: {
-          name,
-          email,
-          comment,
-        }
-      }
+        user: { name, email, comment },
+      },
     } = getState()
 
     const nameError = nameValidate(name.value)
@@ -49,24 +49,24 @@ export const postContactForm = createAsyncThunk<void, string, ThunkConfig>(
       }),
     })
       .then(() => navigate('/thanks/'))
-      .catch(error => alert(error))
+      .catch((error) => alert(error))
     return await req
   }
 )
 
 export type UserState = {
   name: {
-    value: string,
-    error: string,
-  },
+    value: string
+    error: string
+  }
   email: {
-    value: string,
-    error: string,
-  },
+    value: string
+    error: string
+  }
   comment: {
-    value: string,
-    error: string,
-  },
+    value: string
+    error: string
+  }
   isCompletedSubmit: boolean
 }
 
@@ -110,7 +110,7 @@ const userSlice = createSlice<UserState, Reducer>({
       state.comment.error = error
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder.addCase(postContactForm.fulfilled, (state) => {
       state.isCompletedSubmit = true
     })
@@ -121,13 +121,9 @@ const userSlice = createSlice<UserState, Reducer>({
         state.comment.error = payload.commentError
       }
     })
-  }
+  },
 })
 
-export const {
-  updateName,
-  updateEmail,
-  updateComment,
-} = userSlice.actions
+export const { updateName, updateEmail, updateComment } = userSlice.actions
 
 export default userSlice.reducer

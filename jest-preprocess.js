@@ -1,5 +1,5 @@
 const babelOptions = {
-  presets: ["babel-preset-gatsby"],
+  presets: ["babel-preset-gatsby", "@babel/preset-typescript"],
   env: {
     test: {
       plugins: ["require-context-hook"]

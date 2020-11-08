@@ -25,23 +25,19 @@ const AboutPage: React.FC<Props> = ({ posts }) => (
   <Layout>
     <MainTitle>About</MainTitle>
     <Article>
-      { posts.map((({ node }, index) => {
+      {posts.map(({ node }, index) => {
         switch (node.type) {
           case 'heading-2':
-            return (
-              <h2 key={ index }>{ node.contents }</h2>
-            )
+            return <h2 key={index}>{node.contents}</h2>
           case 'paragraph':
-            return (
-              <p key={ index }>{ node.contents }</p>
-            )
+            return <p key={index}>{node.contents}</p>
           default:
             return null
         }
-      })) }
+      })}
       <h2>contact</h2>
       <p>
-        <MyLink to={ '/contact/' }>&#x203A; go to contact</MyLink>
+        <MyLink to={'/contact/'}>&#x203A; go to contact</MyLink>
       </p>
     </Article>
   </Layout>
