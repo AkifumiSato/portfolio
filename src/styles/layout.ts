@@ -4,7 +4,7 @@ type LayoutElevation = {
   item: number
   itemContained: number
   itemFixed: number
-  fixed: number
+  fluid: number
   fixedContained: number
   overlay: number
   overlayContained: number
@@ -16,7 +16,7 @@ export const zIndex: LayoutElevation = {
   item: 1,
   itemContained: 2,
   itemFixed: 3,
-  fixed: 4,
+  fluid: 4,
   fixedContained: 5,
   overlay: 6,
   overlayContained: 7,

@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 1.2;
     background: #fff;
     margin: 0;
+    word-break: break-all;
   }
   
   @keyframes bodyFadeIn {

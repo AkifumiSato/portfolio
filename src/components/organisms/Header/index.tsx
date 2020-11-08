@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   left: 0;
   right: 0;
   margin: auto;
-  z-index: ${zIndex.fixed};
+  z-index: ${zIndex.fluid};
 
   @media screen and (max-width: 768px) {
     max-width: 100%;
@@ -86,7 +86,7 @@ const Header: React.FC = () => (
   <Wrapper>
     <Inner>
       <Link to="/">
-        <Logo src="/images/logo.svg" alt="site logo" />
+        <Logo src="/images/logo.svg" alt="site logo" width="52" height="38" />
       </Link>
       <PCButtonWrapper>
         <WhiteButton to="/about/">about</WhiteButton>
