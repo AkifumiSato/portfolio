@@ -5,8 +5,8 @@ import Blog, { Props } from '.'
 const dummy: Props = {
   title: 'title',
   mainImage: {
-    width: 800,
-    height: 400,
+    aspectRatio: 1.4,
+    sizes: '350px',
     src: 'https://dummyimage.com/800x400/f1f1f1/999999',
     srcSet: 'https://dummyimage.com/800x400/f1f1f1/999999',
     srcWebp: 'https://dummyimage.com/800x400/f1f1f1/999999',

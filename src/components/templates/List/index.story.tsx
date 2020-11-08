@@ -4,14 +4,14 @@ import List, { BlogPost } from '.'
 
 const dummy: BlogPost[] = [
   {
-    slug: 'slug',
+    slug: 'slug1',
     createdAt: 'createdAt',
     title: 'title',
     description: 'description',
     heroImage: {
-      fixed: {
-        width: 200,
-        height: 120,
+      fluid: {
+        aspectRatio: 1.4,
+        sizes: '200px',
         src: 'https://dummyimage.com/200x120/f1f1f1/999999',
         srcSet: 'https://dummyimage.com/200x120/f1f1f1/999999',
         srcWebp: 'https://dummyimage.com/200x120/f1f1f1/999999',
@@ -19,14 +19,14 @@ const dummy: BlogPost[] = [
     },
   },
   {
-    slug: 'slug',
+    slug: 'slug2',
     createdAt: 'createdAt',
     title: 'title',
     description: 'description',
     heroImage: {
-      fixed: {
-        width: 200,
-        height: 120,
+      fluid: {
+        aspectRatio: 1.4,
+        sizes: '200px',
         src: 'https://dummyimage.com/200x120/f1f1f1/999999',
         srcSet: 'https://dummyimage.com/200x120/f1f1f1/999999',
         srcWebp: 'https://dummyimage.com/200x120/f1f1f1/999999',
@@ -34,14 +34,14 @@ const dummy: BlogPost[] = [
     },
   },
   {
-    slug: 'slug',
+    slug: 'slug3',
     createdAt: 'createdAt',
     title: 'title',
     description: 'description',
     heroImage: {
-      fixed: {
-        width: 200,
-        height: 120,
+      fluid: {
+        aspectRatio: 1.4,
+        sizes: '200px',
         src: 'https://dummyimage.com/200x120/f1f1f1/999999',
         srcSet: 'https://dummyimage.com/200x120/f1f1f1/999999',
         srcWebp: 'https://dummyimage.com/200x120/f1f1f1/999999',

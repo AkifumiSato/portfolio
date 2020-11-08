@@ -1,4 +1,4 @@
-import Img, { FixedObject, GatsbyImageFixedProps } from 'gatsby-image'
+import Img, { FluidObject, GatsbyImageFluidProps } from 'gatsby-image'
 import * as React from 'react'
 import styled from 'styled-components'
 import MainTitle from '../../atoms/MainTitle'
@@ -8,6 +8,10 @@ import CommonSetting from '../hoc/CommonSetting'
 
 const Wrapper = styled.div`
   margin-top: 50px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 30px;
+  }
 `
 
 const Publish = styled.p`
@@ -17,12 +21,13 @@ const Publish = styled.p`
 
 const MyContents = styled.div`
   margin-top: 50px;
+
   @media screen and (max-width: 768px) {
     margin-top: 30px;
   }
 `
 
-const MyImg = styled(Img)<GatsbyImageFixedProps>`
+const MyImg = styled(Img)<GatsbyImageFluidProps>`
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 
   @media screen and (max-width: 768px) {
@@ -32,7 +37,7 @@ const MyImg = styled(Img)<GatsbyImageFixedProps>`
 
 export type Props = {
   title: string
-  mainImage: FixedObject
+  mainImage: FluidObject
   createdAt: string
   html: string
 }
@@ -43,7 +48,7 @@ const BlogPost: React.FC<Props> = ({ title, mainImage, createdAt, html }) => (
     <Wrapper>
       <MyImg
         alt={title}
-        fixed={mainImage}
+        fluid={mainImage}
         imgStyle={{
           objectFit: 'cover',
           objectPosition: 'top',

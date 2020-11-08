@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   left: 0;
   right: 0;
   margin: auto;
-  z-index: ${zIndex.fixed};
+  z-index: ${zIndex.fluid};
 
   @media screen and (max-width: 768px) {
     max-width: 100%;
