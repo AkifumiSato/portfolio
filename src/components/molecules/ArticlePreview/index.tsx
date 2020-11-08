@@ -12,12 +12,12 @@ const MyLink = styled(Link)`
   border-radius: 5px;
   padding: 15px 20px;
   text-decoration: none;
-  transition: .3s;
+  transition: 0.3s;
 
   @media screen and (min-width: 769px) {
     &:hover {
       box-shadow: 0 4px 48px rgba(0, 0, 0, 0.3);
-      transition: .3s;
+      transition: 0.3s;
       transform: translateY(-3px);
     }
   }
@@ -81,28 +81,37 @@ const MyText = styled.p`
   }
 `
 
-interface IProps {
-  url: string;
-  createdAt: string;
-  title: string;
-  description: string;
+type Props = {
+  url: string
+  createdAt: string
+  title: string
+  description: string
   heroImage: {
-    sizes: FluidObject;
-  };
+    sizes: FluidObject
+  }
 }
 
-const ArticlePreview: React.FC<IProps> = ({ url, createdAt, title, description, heroImage }) => (
-  <MyLink to={ url }>
-    <DateView>{ createdAt }</DateView>
-    <MyImage sizes={ heroImage.sizes } imgStyle={ {
-      objectFit: 'contain',
-    } } alt="" />
+const ArticlePreview: React.FC<Props> = ({
+  url,
+  createdAt,
+  title,
+  description,
+  heroImage,
+}) => (
+  <MyLink to={url}>
+    <DateView>{createdAt}</DateView>
+    <MyImage
+      sizes={heroImage.sizes}
+      imgStyle={{
+        objectFit: 'contain',
+      }}
+      alt=""
+    />
     <div>
-      <MainTitle>{ title }</MainTitle>
-      <MyText>{ description }</MyText>
+      <MainTitle>{title}</MainTitle>
+      <MyText>{description}</MyText>
     </div>
   </MyLink>
 )
-
 
 export default ArticlePreview

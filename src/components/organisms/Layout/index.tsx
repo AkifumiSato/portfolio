@@ -21,9 +21,7 @@ const Contents = styled.div`
 const Layout: React.FC = ({ children }) => (
   <Wrapper>
     <Header />
-    <Contents>
-      { children }
-    </Contents>
+    <Contents>{children}</Contents>
   </Wrapper>
 )
 

@@ -14,22 +14,22 @@ const Thanks = styled.p`
   text-align: center;
 `
 
-interface IProps {
+type Props = {
   data: {
     site: {
       siteMetadata: {
-        title: string;
+        title: string
       }
     }
   }
 }
 
-const ThanksPage: React.FC<IProps> = ({ data }) => {
-  const siteTitle = `Thanks - ${ data.site.siteMetadata.title }`
+const ThanksPage: React.FC<Props> = ({ data }) => {
+  const siteTitle = `Thanks - ${data.site.siteMetadata.title}`
 
   return (
     <Layout>
-      <CustomHead title={ siteTitle } />
+      <CustomHead title={siteTitle} />
       <Thanks>お問い合わせ、ありがとうございました。</Thanks>
     </Layout>
   )
@@ -38,11 +38,11 @@ const ThanksPage: React.FC<IProps> = ({ data }) => {
 export default ThanksPage
 
 export const pageQuery = graphql`
-    query ThanksQuery {
-        site {
-            siteMetadata {
-                title
-            }
-        }
+  query ThanksQuery {
+    site {
+      siteMetadata {
+        title
+      }
     }
+  }
 `

@@ -6,7 +6,7 @@ import Layout from '../../organisms/Layout'
 import CommonSetting from '../hoc/CommonSetting'
 
 const Wrapper = styled.div`
-  box-shadow: 0 4px 24px rgba(0,0,0,.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
   padding: 50px;
   margin: 50px auto 0;
   width: 600px;
@@ -22,10 +22,9 @@ const ContactPage: React.FC<ContactFormProps> = (props) => (
   <Layout>
     <MainTitle>Contact</MainTitle>
     <Wrapper>
-      <ContactForm { ...props } />
+      <ContactForm {...props} />
     </Wrapper>
   </Layout>
 )
-
 
 export default CommonSetting<ContactFormProps>(ContactPage)

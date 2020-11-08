@@ -16,17 +16,17 @@ const Wrapper = styled.div`
     height: 1px;
     left: 0;
     position: absolute;
-    transition: .3s;
+    transition: 0.3s;
     width: 300px;
   }
   &:focus-within:after {
-    background-color: #00C5B2;
+    background-color: #00c5b2;
     height: 2px;
-    transition: .3s;
+    transition: 0.3s;
     width: 400px;
   }
   @media screen and (max-width: 768px) {
-    width: 100%;  
+    width: 100%;
     &:after {
       width: 100%;
     }
@@ -69,13 +69,13 @@ const Input: React.FC<Props> = (props) => {
   return (
     <Wrapper>
       <MyInput
-        value={ value }
-        onChange={ onChange }
-        type={ type }
-        name={ name }
-        placeholder={ placeholder }
+        value={value}
+        onChange={onChange}
+        type={type}
+        name={name}
+        placeholder={placeholder}
       />
-      { (() => error && <Error text={ error } />)() }
+      {error && <Error text={error} />}
     </Wrapper>
   )
 }

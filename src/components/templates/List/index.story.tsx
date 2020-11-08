@@ -15,8 +15,8 @@ const dummy: BlogPost[] = [
         srcSet: 'https://dummyimage.com/860x470/f1f1f1/999999',
         sizes: '350px',
         srcWebp: 'https://dummyimage.com/860x470/f1f1f1/999999',
-      }
-    }
+      },
+    },
   },
   {
     slug: 'slug',
@@ -30,8 +30,8 @@ const dummy: BlogPost[] = [
         srcSet: 'https://dummyimage.com/860x470/f1f1f1/999999',
         sizes: '350px',
         srcWebp: 'https://dummyimage.com/860x470/f1f1f1/999999',
-      }
-    }
+      },
+    },
   },
   {
     slug: 'slug',
@@ -45,21 +45,17 @@ const dummy: BlogPost[] = [
         srcSet: 'https://dummyimage.com/860x470/f1f1f1/999999',
         sizes: '350px',
         srcWebp: 'https://dummyimage.com/860x470/f1f1f1/999999',
-      }
-    }
+      },
+    },
   },
 ]
 
-storiesOf(`templates|List`, module)
-  .add('default',
-    () => <List
-      currentPage={ 1 }
-      pageCount={ 3 }
-      baseUrl="/blog/"
-      posts={ dummy }
-    />,
-    {
-      info: `
+storiesOf(`templates|List`, module).add(
+  'default',
+  () => <List currentPage={1} pageCount={3} baseUrl="/blog/" posts={dummy} />,
+  {
+    info: `
         default
-      `
-    })
+      `,
+  }
+)

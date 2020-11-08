@@ -1,11 +1,5 @@
 import * as React from 'react'
 import styled, { keyframes } from 'styled-components'
-// @ts-ignore
-import greenSquare from '../../../../static/images/greenSquare.svg'
-// @ts-ignore
-import navySquare from '../../../../static/images/navySquare.svg'
-// @ts-ignore
-import whiteSquare from '../../../../static/images/whiteSquare.svg'
 import color from '../../../styles/color'
 import { ralewayMixin, SansationLight } from '../../../styles/font'
 import NavyButton from '../../atoms/NavyButton'
@@ -25,7 +19,7 @@ const Wrapper = styled.div`
   height: 90vh;
   position: relative;
   overflow: hidden;
-  
+
   @media screen and (max-width: 768px) {
     flex-direction: column;
     padding: 0 20px 100px;
@@ -45,23 +39,23 @@ const CatchCopyWrapper = styled.div`
 `
 
 const CatchCopy = styled.p`
-  color: ${ color.navy.deep };
+  color: ${color.navy.deep};
   font-size: 70px;
   line-height: 1.5;
-  ${ SansationLight };
-  
+  ${SansationLight};
+
   @media screen and (max-width: 768px) {
     font-size: 45px;
   }
 `
 
 const SiteIntroduction = styled.h1`
-  ${ ralewayMixin };
-  color: ${ color.green.base };
+  ${ralewayMixin};
+  color: ${color.green.base};
   font-size: 25px;
   font-weight: bold;
   margin-top: 30px;
-  
+
   @media screen and (max-width: 768px) {
     font-size: 20px;
   }
@@ -72,7 +66,7 @@ const ButtonWrapper = styled.div`
   grid-template-columns: 200px 200px;
   column-gap: 100px;
   margin-top: 90px;
-  
+
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     row-gap: 25px;
@@ -85,7 +79,7 @@ const SquareWrapper = styled.div`
   height: 277px;
   position: relative;
   transform: translateX(75px);
-  
+
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 300px;
@@ -120,7 +114,7 @@ const Square = styled.img`
   top: 0;
   bottom: 0;
   margin: auto;
-  
+
   @media screen and (max-width: 768px) {
     width: 150px;
     height: 150px;
@@ -130,12 +124,12 @@ const Square = styled.img`
 `
 
 const SlideSquare1 = styled(Square)`
-  animation: ${ slide1 } 1s;
+  animation: ${slide1} 1s;
   animation-fill-mode: forwards;
 `
 
 const SlideSquare2 = styled(Square)`
-  animation: ${ slide2 } 1s;
+  animation: ${slide2} 1s;
   animation-fill-mode: forwards;
 `
 
@@ -144,8 +138,10 @@ const Index: React.FC = () => (
     <div>
       <CatchCopyWrapper>
         <CatchCopy>
-          Innovation<br />
-          through<br />
+          Innovation
+          <br />
+          through
+          <br />
           Development.
         </CatchCopy>
         <SiteIntroduction>Akifumi Sato Portfolio</SiteIntroduction>
@@ -156,9 +152,9 @@ const Index: React.FC = () => (
       </ButtonWrapper>
     </div>
     <SquareWrapper>
-      <SlideSquare2 src={ navySquare } alt="" />
-      <SlideSquare1 src={ greenSquare } alt="" />
-      <Square src={ whiteSquare } alt="" />
+      <SlideSquare2 src="/images/navySquare.svg" alt="" />
+      <SlideSquare1 src="/images/greenSquare.svg" alt="" />
+      <Square src="/images/whiteSquare.svg" alt="" />
     </SquareWrapper>
   </Wrapper>
 )

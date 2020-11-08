@@ -19,7 +19,7 @@ const MyTextarea = styled.textarea`
   padding: 20px;
   width: 100%;
   &:focus {
-    border: 2px solid #00C5B2;
+    border: 2px solid #00c5b2;
     padding: 19px;
   }
   &::placeholder {
@@ -51,14 +51,14 @@ const Textarea: React.FC<Props> = (props) => {
   return (
     <Wrapper>
       <MyTextarea
-        cols={ cols }
-        rows={ rows }
-        name={ name }
-        value={ value }
-        onChange={ onChange }
-        placeholder={ placeholder }
+        cols={cols}
+        rows={rows}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
       />
-      { (() => error && <Error text={ error } />)() }
+      {(() => error && <Error text={error} />)()}
     </Wrapper>
   )
 }

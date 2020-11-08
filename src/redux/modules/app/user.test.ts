@@ -4,7 +4,13 @@ import * as gatsbyLink from 'gatsby-link'
 import produce from 'immer'
 import configureMockStore from 'redux-mock-store'
 import { State } from '../../store'
-import reducer, { postContactForm, updateComment, updateEmail, updateName, UserState } from './user'
+import reducer, {
+  postContactForm,
+  updateComment,
+  updateEmail,
+  updateName,
+  UserState,
+} from './user'
 
 const userState: UserState = {
   name: {
@@ -41,8 +47,8 @@ describe('postContactForm', () => {
       app: {
         user: {
           ...userState,
-        }
-      }
+        },
+      },
     }
     const store = mockStore(state)
     return store.dispatch<any>(postContactForm('test')).then(() => {
@@ -52,7 +58,7 @@ describe('postContactForm', () => {
       expect(second.payload).toEqual({
         nameError: '名前は必須です。',
         emailError: 'メールアドレスは必須です。',
-        commentError: 'コメントは必須です。'
+        commentError: 'コメントは必須です。',
       })
     })
   })
@@ -60,7 +66,7 @@ describe('postContactForm', () => {
   test('fulfilled', () => {
     fetchMock.postOnce('/', {
       body: { status: 'success' },
-      headers: { 'content-type': 'application/json' }
+      headers: { 'content-type': 'application/json' },
     })
 
     const state: State = {
@@ -79,8 +85,8 @@ describe('postContactForm', () => {
             error: '',
           },
           isCompletedSubmit: false,
-        }
-      }
+        },
+      },
     }
     const store = mockStore(state)
     return store.dispatch<any>(postContactForm('test')).then(() => {
@@ -94,113 +100,131 @@ describe('postContactForm', () => {
 
 describe('reducer', () => {
   test('update name', () => {
-    expect(reducer(userState, updateName('test')))
-      .toEqual(produce(userState, draftState => {
+    expect(reducer(userState, updateName('test'))).toEqual(
+      produce(userState, (draftState) => {
         draftState.name.value = 'test'
         draftState.name.error = ''
-      }))
+      })
+    )
   })
 
   test('empty name', () => {
-    expect(reducer(userState, updateName('')))
-      .toEqual(produce(userState, draftState => {
+    expect(reducer(userState, updateName(''))).toEqual(
+      produce(userState, (draftState) => {
         draftState.name.value = ''
         draftState.name.error = '名前は必須です。'
-      }))
+      })
+    )
   })
 
   test('too long name', () => {
-    const text = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-    expect(reducer(userState, updateName(text)))
-      .toEqual(produce(userState, draftState => {
+    const text =
+      'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+    expect(reducer(userState, updateName(text))).toEqual(
+      produce(userState, (draftState) => {
         draftState.name.value = text
         draftState.name.error = '名前は100文字までです。'
-      }))
+      })
+    )
   })
 
   test('update email', () => {
-    expect(reducer(userState, updateEmail('test@test.com')))
-      .toEqual(produce(userState, draftState => {
+    expect(reducer(userState, updateEmail('test@test.com'))).toEqual(
+      produce(userState, (draftState) => {
         draftState.email.value = 'test@test.com'
         draftState.email.error = ''
-      }))
+      })
+    )
   })
 
   test('empty email', () => {
-    expect(reducer(userState, updateEmail('')))
-      .toEqual(produce(userState, draftState => {
+    expect(reducer(userState, updateEmail(''))).toEqual(
+      produce(userState, (draftState) => {
         draftState.email.value = ''
         draftState.email.error = 'メールアドレスは必須です。'
-      }))
+      })
+    )
   })
 
   test('error email', () => {
-    expect(reducer(userState, updateEmail('test@test')))
-      .toEqual(produce(userState, draftState => {
+    expect(reducer(userState, updateEmail('test@test'))).toEqual(
+      produce(userState, (draftState) => {
         draftState.email.value = 'test@test'
         draftState.email.error = 'メールアドレスが不正です。'
-      }))
+      })
+    )
   })
 
   test('too long email', () => {
-    const email = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@test.com'
-    expect(reducer(userState, updateEmail(email)))
-      .toEqual(produce(userState, draftState => {
+    const email =
+      'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@test.com'
+    expect(reducer(userState, updateEmail(email))).toEqual(
+      produce(userState, (draftState) => {
         draftState.email.value = email
         draftState.email.error = 'メールアドレスは200文字までです。'
-      }))
+      })
+    )
   })
 
   test('update comment', () => {
-    expect(reducer(userState, updateComment('test')))
-      .toEqual(produce(userState, draftState => {
+    expect(reducer(userState, updateComment('test'))).toEqual(
+      produce(userState, (draftState) => {
         draftState.comment.value = 'test'
         draftState.comment.error = ''
-      }))
+      })
+    )
   })
 
   test('empty comment', () => {
-    expect(reducer(userState, updateComment('')))
-      .toEqual(produce(userState, draftState => {
+    expect(reducer(userState, updateComment(''))).toEqual(
+      produce(userState, (draftState) => {
         draftState.comment.value = ''
         draftState.comment.error = 'コメントは必須です。'
-      }))
+      })
+    )
   })
 
   test('too long comment', () => {
-    const text = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-    expect(reducer(userState, updateComment(text)))
-      .toEqual(produce(userState, draftState => {
+    const text =
+      'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+    expect(reducer(userState, updateComment(text))).toEqual(
+      produce(userState, (draftState) => {
         draftState.comment.value = text
         draftState.comment.error = 'コメントは1000文字までです。'
-      }))
+      })
+    )
   })
 
   test('postContactForm fulfilled', () => {
-    expect(reducer(userState, { type: postContactForm.fulfilled }))
-      .toEqual(produce(userState, draftState => {
+    expect(reducer(userState, { type: postContactForm.fulfilled })).toEqual(
+      produce(userState, (draftState) => {
         draftState.isCompletedSubmit = true
-      }))
+      })
+    )
   })
 
   test('postContactForm rejected & no payload', () => {
-    expect(reducer(userState, { type: postContactForm.rejected }))
-      .toEqual(userState)
+    expect(reducer(userState, { type: postContactForm.rejected })).toEqual(
+      userState
+    )
   })
 
   test('postContactForm fulfilled', () => {
-    expect(reducer(userState, {
-      type: postContactForm.rejected,
-      payload: {
-        nameError: '[nameError]',
-        emailError: '[emailError]',
-        commentError: '[commentError]',
-      }
-    }))
-      .toEqual(produce(userState, draftState => {
+    expect(
+      reducer(userState, {
+        type: postContactForm.rejected,
+        payload: {
+          nameError: '[nameError]',
+          emailError: '[emailError]',
+          commentError: '[commentError]',
+        },
+      })
+    ).toEqual(
+      produce(userState, (draftState) => {
         draftState.name.error = '[nameError]'
         draftState.email.error = '[emailError]'
         draftState.comment.error = '[commentError]'
-      }))
+      })
+    )
   })
 })

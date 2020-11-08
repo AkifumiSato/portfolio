@@ -10,13 +10,13 @@ import 'prismjs/themes/prism-tomorrow.css'
 import * as React from 'react'
 import styled from 'styled-components'
 
-interface IProps {
+type Props = {
   dangerouslySetInnerHTML?: {
-    __html: string;
-  };
+    __html: string
+  }
 }
 
-const ArticleInner: React.FC<IProps> = styled.div` 
+const ArticleInner = styled.div`
   word-break: break-word;
   &:not(:first-child) {
     margin-top: 50px;
@@ -108,17 +108,12 @@ const ArticleInner: React.FC<IProps> = styled.div`
   }
 `
 
-// prism effect hoc
-const PrismEffect = <T extends {}>(Component: React.FC<T>): React.FC<T> => (props) => {
+const Article: React.FC<Props> = (props) => {
   React.useEffect(() => {
     Prism.highlightAll()
   })
 
-  return (
-    <Component { ...props } />
-  )
+  return <ArticleInner {...props} />
 }
-
-const Article = PrismEffect(ArticleInner)
 
 export default Article

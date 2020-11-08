@@ -1,16 +1,16 @@
-interface ILayoutElavation {
-  back: number;
-  base: number;
-  item: number;
-  itemContained: number;
-  itemFixed: number;
-  fixed: number;
-  fixedContained: number;
-  overlay: number;
-  overlayContained: number;
+type LayoutElevation = {
+  back: number
+  base: number
+  item: number
+  itemContained: number
+  itemFixed: number
+  fixed: number
+  fixedContained: number
+  overlay: number
+  overlayContained: number
 }
 
-export const zIndex: ILayoutElavation = {
+export const zIndex: LayoutElevation = {
   back: -1,
   base: 0,
   item: 1,

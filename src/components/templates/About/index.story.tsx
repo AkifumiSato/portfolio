@@ -28,14 +28,15 @@ const dummy: Props = {
         contents: 'paragraph paragraph paragraph paragraph',
       },
     },
-  ]
+  ],
 }
 
-storiesOf(`templates|About`, module)
-  .add('default',
-    () => <About posts={ dummy.posts } />,
-    {
-      info: `
+storiesOf(`templates|About`, module).add(
+  'default',
+  () => <About posts={dummy.posts} />,
+  {
+    info: `
         default
-      `
-    })
+      `,
+  }
+)

@@ -1,12 +1,12 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 
-interface IProps {
-  title: string;
-  description?: string;
+type Props = {
+  title: string
+  description?: string
 }
 
-const CustomHead: React.FC<IProps> = (props) => {
+const CustomHead: React.FC<Props> = (props) => {
   const {
     title,
     description = '東京のフロントエンドエンジニア、佐藤昭文のポートフォリオサイトです。',
@@ -15,9 +15,12 @@ const CustomHead: React.FC<IProps> = (props) => {
   return (
     <Helmet>
       <html lang="ja" />
-      <title>{ title }</title>
-      <meta content={ description } name="description" />
-      <meta name="google-site-verification" content="vQCQ-0lH7yD8IMb3F4dAURg3-kY_unE4XAuySpNshZ8" />
+      <title>{title}</title>
+      <meta content={description} name="description" />
+      <meta
+        name="google-site-verification"
+        content="vQCQ-0lH7yD8IMb3F4dAURg3-kY_unE4XAuySpNshZ8"
+      />
     </Helmet>
   )
 }

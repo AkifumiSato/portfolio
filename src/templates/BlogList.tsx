@@ -18,7 +18,7 @@ type PostOrg = {
   }
 }
 
-interface IProps {
+type Props = {
   pageContext: {
     currentPage: number
     pageCount: number
@@ -27,7 +27,7 @@ interface IProps {
   data: {
     site: {
       siteMetadata: {
-        title: string;
+        title: string
       }
     }
     allContentfulBlogPost: {
@@ -36,30 +36,31 @@ interface IProps {
   }
 }
 
-const parsePosts = (posts: PostOrg[]): BlogPost[] => posts.map(post => ({
-  slug: post.node.slug,
-  createdAt: post.node.createdAt,
-  title: post.node.title,
-  description: post.node.description.description,
-  heroImage: {
-    sizes: post.node.heroImage.sizes,
-  },
-}))
+const parsePosts = (posts: PostOrg[]): BlogPost[] =>
+  posts.map((post) => ({
+    slug: post.node.slug,
+    createdAt: post.node.createdAt,
+    title: post.node.title,
+    description: post.node.description.description,
+    heroImage: {
+      sizes: post.node.heroImage.sizes,
+    },
+  }))
 
-const BlogListPage: React.FC<IProps> = ({ data, pageContext }) => {
+const BlogListPage: React.FC<Props> = ({ data, pageContext }) => {
   const { edges } = data.allContentfulBlogPost
-  const siteTitle = `Blog - ${ data.site.siteMetadata.title }`
+  const siteTitle = `Blog - ${data.site.siteMetadata.title}`
 
   const posts = React.useMemo(() => parsePosts(edges), [edges])
 
   return (
     <>
-      <CustomHead title={ siteTitle } />
+      <CustomHead title={siteTitle} />
       <List
-        currentPage={ pageContext.currentPage }
-        pageCount={ pageContext.pageCount }
-        baseUrl={ pageContext.baseUrl }
-        posts={ posts }
+        currentPage={pageContext.currentPage}
+        pageCount={pageContext.pageCount}
+        baseUrl={pageContext.baseUrl}
+        posts={posts}
       />
     </>
   )
@@ -68,33 +69,33 @@ const BlogListPage: React.FC<IProps> = ({ data, pageContext }) => {
 export default BlogListPage
 
 export const pageQuery = graphql`
-    query BlogListQuery($skip: Int!, $limit: Int!) {
-        allContentfulBlogPost(
-            sort: {fields: [createdAt], order: DESC}
-            limit: $limit
-            skip: $skip
-        ) {
-            edges {
-                node {
-                    title
-                    slug
-                    createdAt(formatString: "YYYY-MM-DD")
-                    tags
-                    heroImage {
-                        sizes(maxWidth: 350, resizingBehavior: SCALE) {
-                            ...GatsbyContentfulSizes_withWebp
-                        }
-                    }
-                    description {
-                        description
-                    }
-                }
+  query BlogListQuery($skip: Int!, $limit: Int!) {
+    allContentfulBlogPost(
+      sort: { fields: [createdAt], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      edges {
+        node {
+          title
+          slug
+          createdAt(formatString: "YYYY-MM-DD")
+          tags
+          heroImage {
+            sizes(maxWidth: 350, resizingBehavior: SCALE) {
+              ...GatsbyContentfulSizes_withWebp
             }
+          }
+          description {
+            description
+          }
         }
-        site {
-            siteMetadata {
-                title
-            }
-        }
+      }
     }
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
 `

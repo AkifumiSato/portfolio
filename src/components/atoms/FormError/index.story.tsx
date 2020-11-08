@@ -12,22 +12,21 @@ const MyText = styled.p`
   width: 30%;
 `
 
-storiesOf(`atom|${ FormError.name }`, module)
+storiesOf(`atom|${FormError.name}`, module)
   .addDecorator((storyFn) => (
-    <div style={ {
-      margin: '30px',
-      position: 'relative'
-    } }>
+    <div
+      style={{
+        margin: '30px',
+        position: 'relative',
+      }}
+    >
       <GlobalStyles />
       <MyText>sample</MyText>
-      { storyFn() }
+      {storyFn()}
     </div>
   ))
-  .add('FormError',
-    () =>
-      <FormError text="名前は必須です。" />,
-    {
-      info: `
+  .add('FormError', () => <FormError text="名前は必須です。" />, {
+    info: `
         formパーツでエラーを表現するのに使用します。
-      `
-    })
+      `,
+  })
