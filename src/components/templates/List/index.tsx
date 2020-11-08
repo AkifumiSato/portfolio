@@ -8,7 +8,7 @@ import Pager from '../../organisms/Pager'
 import CommonSetting from '../hoc/CommonSetting'
 
 const parsePagerUrl = (baseUrl: string, pageNumber: number) =>
-  pageNumber <= 1 ? `${baseUrl}` : `${baseUrl}/${pageNumber}`
+  pageNumber <= 1 ? `${baseUrl}` : `${baseUrl}${pageNumber}`
 
 const MyList = styled.ul`
   & > li:not(:first-child) {
