@@ -13,30 +13,16 @@ storiesOf(`molecules|${Input.name}`, module)
       {storyFn()}
     </div>
   ))
-  .add(
-    'default',
-    () => <Input name="test" value="" onChange={action('onChange')} />,
-    {
-      info: `
-        defaultのinputです。typeはtextになっています。
-      `,
-    }
-  )
-  .add(
-    'custom attribute',
-    () => (
-      <Input
-        name="test"
-        value=""
-        type="mail"
-        error="メールアドレスは必須です。"
-        placeholder="story@rect.com"
-        onChange={action('onChange')}
-      />
-    ),
-    {
-      info: `
-        placeholderやerror表示も可能です。
-      `,
-    }
-  )
+  .add('default', () => (
+    <Input name="test" value="" onChange={action('onChange')} />
+  ))
+  .add('custom attribute', () => (
+    <Input
+      name="test"
+      value=""
+      type="mail"
+      error="メールアドレスは必須です。"
+      placeholder="story@rect.com"
+      onChange={action('onChange')}
+    />
+  ))

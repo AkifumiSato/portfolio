@@ -10,31 +10,23 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   onSubmitForm(e)
 }
 
-storiesOf(`templates|Contact`, module).add(
-  'default',
-  () => (
-    <Contact
-      name={{
-        value: '',
-        error: '',
-      }}
-      email={{
-        value: '',
-        error: '',
-      }}
-      comment={{
-        value: '',
-        error: '',
-      }}
-      onSubmitForm={handleSubmit}
-      onChangeNameInput={action('onChangeNameInput')}
-      onChangeEmailInput={action('onChangeEmailInput')}
-      onChangeCommentText={action('onChangeCommentText')}
-    />
-  ),
-  {
-    info: `
-        default
-      `,
-  }
-)
+storiesOf(`templates|Contact`, module).add('default', () => (
+  <Contact
+    name={{
+      value: '',
+      error: '',
+    }}
+    email={{
+      value: '',
+      error: '',
+    }}
+    comment={{
+      value: '',
+      error: '',
+    }}
+    onSubmitForm={handleSubmit}
+    onChangeNameInput={action('onChangeNameInput')}
+    onChangeEmailInput={action('onChangeEmailInput')}
+    onChangeCommentText={action('onChangeCommentText')}
+  />
+))

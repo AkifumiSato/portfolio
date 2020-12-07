@@ -12,8 +12,4 @@ storiesOf(`atom|${NavyButton.name}`, module)
       {storyFn()}
     </div>
   ))
-  .add('default', () => <NavyButton to="/">button</NavyButton>, {
-    info: `
-        default
-      `,
-  })
+  .add('default', () => <NavyButton to="/">button</NavyButton>)

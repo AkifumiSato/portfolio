@@ -12,13 +12,5 @@ storiesOf(`organisms|${Layout.name}`, module)
       {storyFn()}
     </div>
   ))
-  .add('default', () => <Layout />, {
-    info: `
-        共通のlayoutを適用するComponentです。
-      `,
-  })
-  .add('root', () => <Layout />, {
-    info: `
-        共通のlayoutを適用するComponentです。
-      `,
-  })
+  .add('default', () => <Layout />)
+  .add('root', () => <Layout />)

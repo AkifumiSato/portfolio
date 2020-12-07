@@ -12,41 +12,12 @@ storiesOf(`organisms|Pager`, module)
       {storyFn()}
     </div>
   ))
-  .add(
-    'current is 1, max is 10',
-    () => (
-      <Pager current={1} max={10} prevLink="/prevLink/" nextLink="/nextLink/" />
-    ),
-    {
-      info: `
-        current is 1, max is 10
-      `,
-    }
-  )
-  .add(
-    'current is 5, max is 10',
-    () => (
-      <Pager current={5} max={10} prevLink="/prevLink/" nextLink="/nextLink/" />
-    ),
-    {
-      info: `
-        current is 5, max is 10
-      `,
-    }
-  )
-  .add(
-    'current is 10, max is 10',
-    () => (
-      <Pager
-        current={10}
-        max={10}
-        prevLink="/prevLink/"
-        nextLink="/nextLink/"
-      />
-    ),
-    {
-      info: `
-        current is 10, max is 10
-      `,
-    }
-  )
+  .add('current is 1, max is 10', () => (
+    <Pager current={1} max={10} prevLink="/prevLink/" nextLink="/nextLink/" />
+  ))
+  .add('current is 5, max is 10', () => (
+    <Pager current={5} max={10} prevLink="/prevLink/" nextLink="/nextLink/" />
+  ))
+  .add('current is 10, max is 10', () => (
+    <Pager current={10} max={10} prevLink="/prevLink/" nextLink="/nextLink/" />
+  ))
