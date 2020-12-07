@@ -25,8 +25,4 @@ storiesOf(`atom|${FormError.name}`, module)
       {storyFn()}
     </div>
   ))
-  .add('FormError', () => <FormError text="名前は必須です。" />, {
-    info: `
-        formパーツでエラーを表現するのに使用します。
-      `,
-  })
+  .add('FormError', () => <FormError text="名前は必須です。" />)
