@@ -10,9 +10,11 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `
 
-const HomeLinkText = styled(Link)`
-  font-size: 20px;
-  font-weight: bold;
+const Logo = styled.img`
+  width: 100px;
+`
+
+const HomeLink = styled(Link)`
   padding: 10px;
 `
 
@@ -73,7 +75,13 @@ const Layout: React.FC<Props> = ({ isHome, children }) => (
     <GlobalStyles />
     <Header>
       {/* todo logo */}
-      <div>{!isHome && <HomeLinkText to="/">akfm.dev</HomeLinkText>}</div>
+      <div>
+        {!isHome && (
+          <HomeLink to="/">
+            <Logo src="/images/new/logo.svg" />
+          </HomeLink>
+        )}
+      </div>
       <HeaderLinks>
         <LinkText to="/about">about</LinkText>
         <LinkText to="/blog">blog</LinkText>
