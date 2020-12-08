@@ -15,10 +15,6 @@ module.exports = {
             presets: [['react-app', { flow: false, typescript: true }]],
           },
         },
-        // {
-        //   loader: require.resolve('@storybook/addon-storysource/loader'),
-        //   options: { parser: 'typescript' },
-        // },
       ],
     })
     config.resolve.extensions.push('.ts', '.tsx')

@@ -7,6 +7,8 @@ import { action } from "@storybook/addon-actions"
 const InjectionStyle = createGlobalStyle`
   body {
     background: transparent;
+    padding: 0!important;
+    margin: 0!important;
   }
 `
 

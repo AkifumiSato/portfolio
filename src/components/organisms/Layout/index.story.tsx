@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import Layout from '.'
 
-storiesOf(`organisms|${Layout.name}`, module)
+storiesOf(`organisms|old_${Layout.name}`, module)
   .addDecorator((storyFn) => (
     <div
       style={{
