@@ -1,11 +1,11 @@
 import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
-import color from '../../../../styles/color'
+import { colors } from '../../../../styles/color'
 import { GlobalStyles } from '../../../../styles/new/global'
 
 const Wrapper = styled.div`
-  background-color: ${color.white.base};
+  background-color: ${colors.white.base};
   box-sizing: border-box;
   min-height: 100vh;
 `
@@ -52,7 +52,7 @@ const Header = styled.header`
 const HeaderLinks = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 300px;
+  width: 500px;
 
   @media screen and (max-width: 768px) {
     width: 200px;
@@ -88,6 +88,8 @@ const Layout: React.FC<Props> = ({ isHome, children }) => (
         <ExternalLinkText href="https://github.com/AkifumiSato" target="_blank">
           github
         </ExternalLinkText>
+        <LinkText to="/blog">contact</LinkText>
+        <LinkText to="/blog">setting</LinkText>
       </HeaderLinks>
     </Header>
     <Main>{children}</Main>
