@@ -56,7 +56,7 @@ const Index: React.FC = () => (
       <OnlySP>
         <LinkWrapper>
           <BlackButton to="/about">about</BlackButton>
-          <BlackButton to="/blogs">blogs</BlackButton>
+          <BlackButton to="/blog">blog</BlackButton>
         </LinkWrapper>
       </OnlySP>
     </Wrapper>
