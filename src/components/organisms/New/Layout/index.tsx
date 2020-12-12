@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { colors } from '../../../../styles/color'
 import { GlobalStyles } from '../../../../styles/new/global'
 import MainTitle from '../../../atoms/New/MainTitle'
+import Navigation from '../../../molecules/New/Navigation'
+import { OnlyPC, OnlySP } from '../../../utils/Devise'
 
 const Wrapper = styled.div`
   background-color: ${colors.white.base};
@@ -12,10 +14,12 @@ const Wrapper = styled.div`
 `
 
 const Logo = styled.img`
+  display: block;
   width: 100px;
 `
 
 const HomeLink = styled(Link)`
+  display: block;
   padding: 10px;
 `
 
@@ -67,6 +71,10 @@ const Main = styled.main`
   padding: 120px 50px 50px;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media screen and (max-width: 768px) {
+    padding: 120px 20px 50px;
+  }
 `
 
 const MainInner = styled.div`
@@ -108,14 +116,22 @@ const Layout: React.FC<Props> = ({ isHome, title, children }) => (
           </HomeLink>
         )}
       </div>
-      <HeaderLinks>
-        <LinkText to="/about">about</LinkText>
-        <LinkText to="/blog">blog</LinkText>
-        <ExternalLinkText href="https://github.com/AkifumiSato" target="_blank">
-          github
-        </ExternalLinkText>
-        <LinkText to="/blog">contact</LinkText>
-      </HeaderLinks>
+      <OnlyPC>
+        <HeaderLinks>
+          <LinkText to="/about">about</LinkText>
+          <LinkText to="/blog">blog</LinkText>
+          <ExternalLinkText
+            href="https://github.com/AkifumiSato"
+            target="_blank"
+          >
+            github
+          </ExternalLinkText>
+          <LinkText to="/blog">contact</LinkText>
+        </HeaderLinks>
+      </OnlyPC>
+      <OnlySP>
+        <Navigation />
+      </OnlySP>
     </Header>
     <Main>
       {title ? (

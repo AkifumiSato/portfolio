@@ -1,16 +1,15 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
-import MainTitle from '.'
+import BlackButton from '.'
 
-storiesOf(`atom|${MainTitle.name}`, module)
+storiesOf(`atom|${BlackButton.name}`, module)
   .addDecorator((storyFn) => (
     <div
       style={{
-        backgroundColor: '#fff',
         padding: '30px',
       }}
     >
       {storyFn()}
     </div>
   ))
-  .add('Single Title', () => <MainTitle>Title</MainTitle>)
+  .add('default', () => <BlackButton to="/">button</BlackButton>)

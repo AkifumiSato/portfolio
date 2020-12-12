@@ -1,11 +1,14 @@
 import * as React from 'react'
 import styled, { keyframes } from 'styled-components'
+import BlackButton from '../../atoms/New/BlackButton'
 import Layout from '../../organisms/New/Layout'
+import { OnlySP } from '../../utils/Devise'
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
   max-height: 700px;
   height: calc(100vh - 120px);
@@ -38,10 +41,24 @@ const Title = styled.h1`
   font-weight: bold;
 `
 
+const LinkWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 30px;
+  width: 200px;
+  margin-top: 100px;
+`
+
 const Index: React.FC = () => (
   <Layout isHome={true}>
     <Wrapper>
       <Title>Hello, world.</Title>
+      <OnlySP>
+        <LinkWrapper>
+          <BlackButton to="/about">about</BlackButton>
+          <BlackButton to="/blogs">blogs</BlackButton>
+        </LinkWrapper>
+      </OnlySP>
     </Wrapper>
   </Layout>
 )
