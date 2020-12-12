@@ -68,7 +68,7 @@ const HeaderLinks = styled.div`
 const Main = styled.main`
   box-sizing: border-box;
   padding: 120px 50px 50px;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 
   @media screen and (max-width: 768px) {
@@ -100,7 +100,7 @@ const PolicyLink = styled.a`
 const year = new Date().getFullYear()
 
 type Props = {
-  page?: 'home' | 'detail'
+  page?: 'detail'
   title?: string
 }
 
@@ -109,11 +109,9 @@ const Layout: React.FC<Props> = ({ page, title, children }) => (
     <GlobalStyles />
     <Header>
       <div>
-        {page !== 'home' && (
-          <HomeLink to="/">
-            <Logo src="/images/new/logo.svg" />
-          </HomeLink>
-        )}
+        <HomeLink to="/">
+          <Logo src="/images/new/logo.svg" />
+        </HomeLink>
       </div>
       <OnlyPC>
         <HeaderLinks>

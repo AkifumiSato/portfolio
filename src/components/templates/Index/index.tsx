@@ -50,7 +50,7 @@ const LinkWrapper = styled.div`
 `
 
 const Index: React.FC = () => (
-  <Layout page="home">
+  <Layout>
     <Wrapper>
       <Title>Hello, world.</Title>
       <OnlySP>
