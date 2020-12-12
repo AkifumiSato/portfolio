@@ -3,6 +3,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { colors } from '../../../../styles/color'
 import { GlobalStyles } from '../../../../styles/new/global'
+import MainTitle from '../../../atoms/New/MainTitle'
 
 const Wrapper = styled.div`
   background-color: ${colors.white.base};
@@ -52,7 +53,7 @@ const Header = styled.header`
 const HeaderLinks = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 500px;
+  width: 400px;
 
   @media screen and (max-width: 768px) {
     width: 200px;
@@ -66,15 +67,19 @@ const Main = styled.main`
   margin: 0 auto;
 `
 
+const MainInner = styled.div`
+  margin-top: 50px;
+`
+
 type Props = {
   isHome?: boolean
+  title?: string
 }
 
-const Layout: React.FC<Props> = ({ isHome, children }) => (
+const Layout: React.FC<Props> = ({ isHome, title, children }) => (
   <Wrapper>
     <GlobalStyles />
     <Header>
-      {/* todo logo */}
       <div>
         {!isHome && (
           <HomeLink to="/">
@@ -89,10 +94,18 @@ const Layout: React.FC<Props> = ({ isHome, children }) => (
           github
         </ExternalLinkText>
         <LinkText to="/blog">contact</LinkText>
-        <LinkText to="/blog">setting</LinkText>
       </HeaderLinks>
     </Header>
-    <Main>{children}</Main>
+    <Main>
+      {title ? (
+        <>
+          <MainTitle>{title}</MainTitle>
+          <MainInner>{children}</MainInner>
+        </>
+      ) : (
+        <>{children}</>
+      )}
+    </Main>
   </Wrapper>
 )
 

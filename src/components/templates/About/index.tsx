@@ -1,9 +1,8 @@
 import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
-import MainTitle from '../../atoms/MainTitle'
-import Article from '../../organisms/Article'
-import Layout from '../../organisms/Layout'
+import Article from '../../organisms/New/Article'
+import Layout from '../../organisms/New/Layout'
 import CommonSetting from '../hoc/CommonSetting'
 
 const MyLink = styled(Link)`
@@ -22,8 +21,7 @@ export type Props = {
 }
 
 const AboutPage: React.FC<Props> = ({ posts }) => (
-  <Layout>
-    <MainTitle>About</MainTitle>
+  <Layout title="About">
     <Article>
       {posts.map(({ node }, index) => {
         switch (node.type) {
