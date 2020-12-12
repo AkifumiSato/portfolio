@@ -20,12 +20,14 @@ const HomeLink = styled(Link)`
 `
 
 const LinkText = styled(Link)`
+  color: ${colors.gray['700']};
   font-size: 15px;
   font-weight: bold;
   padding: 10px;
 `
 
 const ExternalLinkText = styled.a`
+  color: ${colors.gray['700']};
   font-size: 15px;
   font-weight: bold;
   padding: 10px;
@@ -71,6 +73,25 @@ const MainInner = styled.div`
   margin-top: 50px;
 `
 
+const Copyright = styled.p`
+  color: #666;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding-left: 50px;
+  max-width: 1280px;
+  margin: 0 auto 50px;
+
+  @media screen and (max-width: 768px) {
+    padding-left: 20px;
+  }
+`
+
+const PolicyLink = styled.a`
+  font-style: italic;
+`
+
+const year = new Date().getFullYear()
+
 type Props = {
   isHome?: boolean
   title?: string
@@ -106,6 +127,16 @@ const Layout: React.FC<Props> = ({ isHome, title, children }) => (
         <>{children}</>
       )}
     </Main>
+    <Copyright>
+      ©︎akfm.dev {year}. Using&nbsp;
+      <PolicyLink
+        href="https://www.google.com/intl/ja/policies/privacy/partners/"
+        target="_blank"
+        rel="noopener"
+      >
+        Google Analytics
+      </PolicyLink>
+    </Copyright>
   </Wrapper>
 )
 

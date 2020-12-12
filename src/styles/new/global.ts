@@ -146,13 +146,13 @@ address {
 a {
   background-color: transparent;
   text-decoration: none;
-  color: #2d3748;
+  color: #4299e1;
   cursor: pointer;
   transition: color 0.5s;
 }
 
 a:hover {
-  color: #a2a7b1;
+  color: #90cdf4;
 }
 
 /**

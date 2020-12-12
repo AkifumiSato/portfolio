@@ -9,7 +9,6 @@ import 'prismjs/components/prism-yaml.min.js'
 import 'prismjs/themes/prism-tomorrow.css'
 import * as React from 'react'
 import styled from 'styled-components'
-import { colors } from '../../../../styles/color'
 
 type Props = {
   dangerouslySetInnerHTML?: {
@@ -21,7 +20,7 @@ const ArticleInner = styled.div`
   word-break: break-word;
 
   & > h2 {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     line-height: 1;
   }
@@ -38,7 +37,6 @@ const ArticleInner = styled.div`
   }
 
   & a {
-    color: ${colors.blue['400']};
     text-decoration: underline;
   }
 

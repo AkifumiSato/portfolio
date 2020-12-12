@@ -3,10 +3,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Article from '../../organisms/New/Article'
 import Layout from '../../organisms/New/Layout'
-import CommonSetting from '../hoc/CommonSetting'
 
 const MyLink = styled(Link)`
-  color: #3d69b7;
   font-size: 14px;
   text-decoration: underline;
 `
@@ -41,4 +39,4 @@ const AboutPage: React.FC<Props> = ({ posts }) => (
   </Layout>
 )
 
-export default CommonSetting<Props>(AboutPage)
+export default AboutPage
