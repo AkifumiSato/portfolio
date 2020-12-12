@@ -28,14 +28,13 @@ const LinkText = styled(Link)`
   font-size: 15px;
   font-weight: bold;
   padding: 10px;
+
+  &:hover {
+    color: ${colors.gray['400']};
+  }
 `
 
-const ExternalLinkText = styled.a`
-  color: ${colors.gray['700']};
-  font-size: 15px;
-  font-weight: bold;
-  padding: 10px;
-`
+const ExternalLinkText = LinkText.withComponent('a')
 
 const Header = styled.header`
   background-color: rgba(255, 255, 255, 0.8);
