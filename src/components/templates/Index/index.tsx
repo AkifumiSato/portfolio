@@ -50,13 +50,13 @@ const LinkWrapper = styled.div`
 `
 
 const Index: React.FC = () => (
-  <Layout isHome={true}>
+  <Layout page="home">
     <Wrapper>
       <Title>Hello, world.</Title>
       <OnlySP>
         <LinkWrapper>
           <BlackButton to="/about">about</BlackButton>
-          <BlackButton to="/blog">blog</BlackButton>
+          <BlackButton to="/blog/">blog</BlackButton>
         </LinkWrapper>
       </OnlySP>
     </Wrapper>

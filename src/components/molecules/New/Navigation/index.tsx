@@ -20,7 +20,7 @@ const Hamburger = styled.span`
   &,
   &:before,
   &:after {
-    background-color: ${colors.gray['400']};
+    background-color: ${colors.darkBlue['400']};
     content: '';
     display: block;
     height: 1px;
@@ -84,7 +84,7 @@ const MenuWrapper = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  background-color: ${colors.gray['700']};
+  background-color: ${colors.darkBlue['700']};
   transition-property: transform;
   transition-duration: 0.5s;
   width: 70vw;

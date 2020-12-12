@@ -24,13 +24,13 @@ const HomeLink = styled(Link)`
 `
 
 const LinkText = styled(Link)`
-  color: ${colors.gray['700']};
+  color: ${colors.darkBlue['700']};
   font-size: 15px;
   font-weight: bold;
   padding: 10px;
 
   &:hover {
-    color: ${colors.gray['400']};
+    color: ${colors.darkBlue['400']};
   }
 `
 
@@ -100,16 +100,16 @@ const PolicyLink = styled.a`
 const year = new Date().getFullYear()
 
 type Props = {
-  isHome?: boolean
+  page?: 'home' | 'detail'
   title?: string
 }
 
-const Layout: React.FC<Props> = ({ isHome, title, children }) => (
+const Layout: React.FC<Props> = ({ page, title, children }) => (
   <Wrapper>
     <GlobalStyles />
     <Header>
       <div>
-        {!isHome && (
+        {page !== 'home' && (
           <HomeLink to="/">
             <Logo src="/images/new/logo.svg" />
           </HomeLink>
@@ -118,14 +118,14 @@ const Layout: React.FC<Props> = ({ isHome, title, children }) => (
       <OnlyPC>
         <HeaderLinks>
           <LinkText to="/about">about</LinkText>
-          <LinkText to="/blog">blog</LinkText>
+          <LinkText to="/blog/">blog</LinkText>
           <ExternalLinkText
             href="https://github.com/AkifumiSato"
             target="_blank"
           >
             github
           </ExternalLinkText>
-          <LinkText to="/blog">contact</LinkText>
+          <LinkText to="/blog/">contact</LinkText>
         </HeaderLinks>
       </OnlyPC>
       <OnlySP>
@@ -135,7 +135,9 @@ const Layout: React.FC<Props> = ({ isHome, title, children }) => (
     <Main>
       {title ? (
         <>
-          <MainTitle>{title}</MainTitle>
+          <MainTitle size={page === 'detail' ? 'normal' : undefined}>
+            {title}
+          </MainTitle>
           <MainInner>{children}</MainInner>
         </>
       ) : (

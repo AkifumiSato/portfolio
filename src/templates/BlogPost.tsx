@@ -1,5 +1,4 @@
 import { graphql } from 'gatsby'
-import { FluidObject } from 'gatsby-image'
 import { get } from 'lodash'
 import * as React from 'react'
 import CustomHead from '../components/atoms/CustomHead'
@@ -14,9 +13,6 @@ type Props = {
     }
     contentfulBlogPost: {
       title: string
-      heroImage: {
-        fluid: FluidObject
-      }
       createdAt: string
       body: {
         childMarkdownRemark: {
@@ -37,7 +33,6 @@ const BlogPost: React.FC<Props> = ({ data }) => {
       <CustomHead title={siteTitle} description={description} />
       <Blog
         title={post.title}
-        mainImage={post.heroImage.fluid}
         createdAt={post.createdAt}
         html={post.body.childMarkdownRemark.html}
       />
@@ -52,11 +47,6 @@ export const pageQuery = graphql`
     contentfulBlogPost(id: { eq: $id }) {
       title
       createdAt(formatString: "MMMM Do, YYYY")
-      heroImage {
-        fluid(maxHeight: 400, maxWidth: 800) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-      }
       body {
         childMarkdownRemark {
           html
