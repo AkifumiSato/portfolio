@@ -11,8 +11,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 100%;
   max-height: 700px;
-  height: calc(100vh - 120px);
-  padding-bottom: 120px;
+  height: calc(100vh - 234px);
+  padding: 70px 0 120px;
 `
 
 const flowColor = keyframes`

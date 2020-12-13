@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { colors } from '../color'
 
 export const GlobalStyles = createGlobalStyle`
 /*! destyle.css v1.0.15 | MIT License | https://github.com/nicolas-cusan/destyle.css */
@@ -509,5 +510,13 @@ template {
 
 [hidden] {
   display: none;
+}
+
+/**
+ * --akfm.dev--
+ custom property
+ */
+::selection {
+  background-color: ${colors.teal['100']};
 }
 `
