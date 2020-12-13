@@ -1,18 +1,31 @@
+import * as Prism from 'prismjs'
+import 'prismjs/components/prism-docker.min.js'
+import 'prismjs/components/prism-elm.min.js'
+import 'prismjs/components/prism-haskell.min.js'
+import 'prismjs/components/prism-json.min.js'
+import 'prismjs/components/prism-rust.min.js'
+import 'prismjs/components/prism-typescript.min.js'
+import 'prismjs/components/prism-yaml.min.js'
+import 'prismjs/themes/prism-tomorrow.css'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import Article from './index'
 
 storiesOf(`organisms|Article`, module)
-  .addDecorator((storyFn) => (
-    <div
-      style={{
-        padding: '30px',
-        backgroundColor: '#fff',
-      }}
-    >
-      {storyFn()}
-    </div>
-  ))
+  .addDecorator((storyFn) => {
+    React.useEffect(() => Prism.highlightAll())
+
+    return (
+      <div
+        style={{
+          padding: '30px',
+          backgroundColor: '#fff',
+        }}
+      >
+        {storyFn()}
+      </div>
+    )
+  })
   .add('article html', () => (
     <Article
       dangerouslySetInnerHTML={{
