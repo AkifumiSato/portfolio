@@ -112,7 +112,7 @@ const Layout: React.FC<Props> = ({ page, title, children }) => (
     <Header>
       <div>
         <HomeLink to="/">
-          <Logo src="/images/logo.svg" />
+          <Logo src="/images/logo.svg" alt="akfm.dev" />
         </HomeLink>
       </div>
       <OnlyPC>
@@ -122,6 +122,7 @@ const Layout: React.FC<Props> = ({ page, title, children }) => (
           <ExternalLinkText
             href="https://github.com/AkifumiSato"
             target="_blank"
+            rel="noopener"
           >
             github
           </ExternalLinkText>

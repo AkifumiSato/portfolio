@@ -147,13 +147,13 @@ address {
 a {
   background-color: transparent;
   text-decoration: none;
-  color: #4299e1;
+  color: ${colors.blue['700']};
   cursor: pointer;
   transition: color 0.5s;
 }
 
 a:hover {
-  color: #90cdf4;
+  color: ${colors.blue['300']};
 }
 
 /**
