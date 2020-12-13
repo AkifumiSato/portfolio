@@ -112,7 +112,7 @@ const Layout: React.FC<Props> = ({ page, title, children }) => (
     <Header>
       <div>
         <HomeLink to="/">
-          <Logo src="/images/logo.svg" alt="akfm.dev" />
+          <Logo src="/images/logo.svg" alt="akfm.dev" width="100" height="22" />
         </HomeLink>
       </div>
       <OnlyPC>
