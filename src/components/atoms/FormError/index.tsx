@@ -1,30 +1,12 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { zIndex } from '../../../styles/layout'
+import { colors } from '../../../styles/color'
 
 const Error = styled.p`
-  cursor: pointer;
-  background-color: #f8bbd0;
-  bottom: -45px;
-  border-radius: 5px;
-  color: #b71c1c;
+  color: ${colors.red['500']};
   font-size: 14px;
-  left: 10px;
-  line-height: 1;
-  padding: 10px;
-  position: absolute;
-  z-index: ${zIndex.itemFixed};
-  &:before {
-    border-color: transparent transparent #f8bbd0;
-    border-style: solid;
-    border-width: 6px;
-    content: '';
-    display: block;
-    left: 30px;
-    position: absolute;
-    top: -12px;
-    transform: translateX(-50%);
-  }
+  line-height: 1.5;
+  padding: 10px 0;
 `
 
 type Props = {

@@ -15,7 +15,7 @@ const ButtonLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: ${({ width = '100%' }: { width?: string }) => width};
   height: 50px;
   position: relative;
   text-decoration: none;
@@ -34,13 +34,18 @@ const Button = ButtonLink.withComponent('button')
 type Props = {
   to?: string
   onClick?: React.MouseEventHandler<HTMLButtonElement>
+  width?: string
 }
 
-const BlackButton: React.FC<Props> = ({ to, onClick, children }) =>
+const BlackButton: React.FC<Props> = ({ to, onClick, width, children }) =>
   to ? (
-    <ButtonLink to={to}>{children}</ButtonLink>
+    <ButtonLink to={to} width={width}>
+      {children}
+    </ButtonLink>
   ) : (
-    <Button onClick={onClick}>{children}</Button>
+    <Button onClick={onClick} width={width}>
+      {children}
+    </Button>
   )
 
 export default BlackButton

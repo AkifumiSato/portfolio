@@ -25,6 +25,8 @@ export const colors = {
     700: '#000',
   },
   gray: {
+    100: '#c4c4c4',
+    200: '#a1a1a1',
     300: '#666',
   },
   darkBlue: {
@@ -57,6 +59,9 @@ export const colors = {
   },
   pink: {
     500: '#ff0080',
+  },
+  red: {
+    500: '#ff2727',
   },
   orange: {
     500: '#ff4500',

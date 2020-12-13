@@ -1,47 +1,32 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { colors } from '../../../styles/color'
+import { ralewayMixin } from '../../../styles/font'
 import Error from '../../atoms/FormError'
 
 const Wrapper = styled.div`
-  position: relative;
-  width: 400px;
-  &:not(:first-child) {
-    margin-top: 30px;
-  }
-  &:after {
-    background-color: #aaa;
-    bottom: 0;
-    content: '';
-    display: block;
-    height: 1px;
-    left: 0;
-    position: absolute;
-    transition: 0.3s;
-    width: 300px;
-  }
-  &:focus-within:after {
-    background-color: #00c5b2;
-    height: 2px;
-    transition: 0.3s;
-    width: 400px;
-  }
+  width: 300px;
+  ${ralewayMixin};
+
   @media screen and (max-width: 768px) {
     width: 100%;
-    &:after {
-      width: 100%;
-    }
-    &:focus-within:after {
-      width: 100%;
-    }
   }
 `
 
+const Caption = styled.div`
+  color: ${colors.gray['300']};
+  font-size: 15px;
+`
+
 const MyInput = styled.input`
-  background-color: transparent;
-  font-size: 18px;
-  line-height: 2;
+  border: 1px solid ${colors.gray['100']};
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 1.5;
   padding: 10px;
+  margin-top: 10px;
   width: 100%;
+
   &::placeholder {
     color: #aaa;
   }
@@ -68,6 +53,7 @@ const Input: React.FC<Props> = (props) => {
 
   return (
     <Wrapper>
+      <Caption>{name}</Caption>
       <MyInput
         value={value}
         onChange={onChange}
