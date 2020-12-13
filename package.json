@@ -15,7 +15,7 @@
     "heroku-postbuild": "gatsby build",
     "storybook": "start-storybook -s ./static -p 6006",
     "storybook:docker": "start-storybook -s ./static -p 6006 --ci --quiet",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -s ./static",
     "test": "jest --runInBand",
     "type-check": "tsc",
     "lint": "eslint './**/*.{ts,tsx}'",
