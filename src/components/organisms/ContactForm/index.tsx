@@ -5,8 +5,12 @@ import TextArea from '../../molecules/Textarea'
 import BlackButton from '../../atoms/BlackButton'
 
 const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  width: 300px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 768px) {
+    width: 200px;
+  }
 `
 
 const GridBox = styled.div`
@@ -78,7 +82,7 @@ const ContactForm: React.FC<ContactFormProps> = (props) => {
           error={comment.error}
         />
         <ButtonWrapper>
-          <BlackButton width="300px">submit</BlackButton>
+          <BlackButton>submit</BlackButton>
         </ButtonWrapper>
       </GridBox>
       {/* The `form-name` hidden field is required to support form submissions without JavaScript */}

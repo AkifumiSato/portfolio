@@ -34,18 +34,13 @@ const Button = ButtonLink.withComponent('button')
 type Props = {
   to?: string
   onClick?: React.MouseEventHandler<HTMLButtonElement>
-  width?: string
 }
 
-const BlackButton: React.FC<Props> = ({ to, onClick, width, children }) =>
+const BlackButton: React.FC<Props> = ({ to, onClick, children }) =>
   to ? (
-    <ButtonLink to={to} width={width}>
-      {children}
-    </ButtonLink>
+    <ButtonLink to={to}>{children}</ButtonLink>
   ) : (
-    <Button onClick={onClick} width={width}>
-      {children}
-    </Button>
+    <Button onClick={onClick}>{children}</Button>
   )
 
 export default BlackButton
