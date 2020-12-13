@@ -64,6 +64,7 @@ const MyImage = styled(Img)<GatsbyImageFluidProps>`
 const MainTitle = styled.h2`
   font-size: 18px;
   font-weight: bold;
+  line-height: 1.5;
 
   @media screen and (max-width: 768px) {
     font-size: 16px;

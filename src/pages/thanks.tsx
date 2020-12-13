@@ -2,13 +2,13 @@ import { graphql } from 'gatsby'
 import * as React from 'react'
 import styled from 'styled-components'
 import CustomHead from '../components/atoms/CustomHead'
-import Layout from '../components/organisms/Layout'
+import Layout from '../components/organisms/New/Layout'
 
 const Thanks = styled.p`
   align-items: center;
   display: flex;
   font-size: 20px;
-  height: 80vh;
+  height: 70vh;
   justify-content: center;
   line-height: 2;
   text-align: center;
