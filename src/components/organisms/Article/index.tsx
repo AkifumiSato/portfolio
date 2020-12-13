@@ -43,11 +43,13 @@ const ArticleInner = styled.div`
   & > ul > li {
     list-style: disc;
     margin-left: 20px;
+    line-height: 1.5;
   }
 
   & > ol > li {
     list-style: decimal;
     margin-left: 20px;
+    line-height: 1.5;
   }
 
   & > h2:not(:first-child) {
