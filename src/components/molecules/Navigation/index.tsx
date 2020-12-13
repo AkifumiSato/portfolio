@@ -1,8 +1,8 @@
 import Link from 'gatsby-link'
 import * as React from 'react'
 import styled, { css } from 'styled-components'
-import color, { colors } from '../../../../styles/color'
-import { zIndex } from '../../../../styles/layout'
+import color, { colors } from '../../../styles/color'
+import { zIndex } from '../../../styles/layout'
 
 const NavigationTrigger = styled.button`
   height: 38px;

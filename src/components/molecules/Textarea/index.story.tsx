@@ -8,6 +8,8 @@ storiesOf(`molecules|${Textarea.name}`, module)
     <div
       style={{
         padding: '30px',
+        backgroundColor: '#fff',
+        height: '100vh',
       }}
     >
       {storyFn()}

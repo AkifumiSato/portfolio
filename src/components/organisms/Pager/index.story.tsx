@@ -7,6 +7,7 @@ storiesOf(`organisms|Pager`, module)
     <div
       style={{
         padding: '30px',
+        backgroundColor: '#fff',
       }}
     >
       {storyFn()}

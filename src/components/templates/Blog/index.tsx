@@ -2,8 +2,8 @@ import * as React from 'react'
 import Img, { FluidObject, GatsbyImageFluidProps } from 'gatsby-image'
 import styled from 'styled-components'
 import { colors, shadow } from '../../../styles/color'
-import Article from '../../organisms/New/Article'
-import Layout from '../../organisms/New/Layout'
+import Article from '../../organisms/Article'
+import Layout from '../../organisms/Layout'
 
 const Publish = styled.p`
   color: ${colors.gray['300']};

@@ -1,12 +1,12 @@
 import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
-import { colors } from '../../../../styles/color'
-import { ralewayMixin } from '../../../../styles/font'
-import { GlobalStyles } from '../../../../styles/new/global'
-import MainTitle from '../../../atoms/New/MainTitle'
-import Navigation from '../../../molecules/New/Navigation'
-import { OnlyPC, OnlySP } from '../../../utils/Devise'
+import { colors } from '../../../styles/color'
+import { ralewayMixin } from '../../../styles/font'
+import { GlobalStyles } from '../../../styles/global'
+import MainTitle from '../../atoms/MainTitle'
+import Navigation from '../../molecules/Navigation'
+import { OnlyPC, OnlySP } from '../../utils/Devise'
 
 const Wrapper = styled.div`
   background-color: ${colors.white.base};
@@ -112,7 +112,7 @@ const Layout: React.FC<Props> = ({ page, title, children }) => (
     <Header>
       <div>
         <HomeLink to="/">
-          <Logo src="/images/new/logo.svg" />
+          <Logo src="/images/logo.svg" />
         </HomeLink>
       </div>
       <OnlyPC>

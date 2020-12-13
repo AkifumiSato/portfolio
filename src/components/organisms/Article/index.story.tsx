@@ -1,12 +1,13 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
-import Article from '.'
+import Article from './index'
 
 storiesOf(`organisms|Article`, module)
   .addDecorator((storyFn) => (
     <div
       style={{
         padding: '30px',
+        backgroundColor: '#fff',
       }}
     >
       {storyFn()}

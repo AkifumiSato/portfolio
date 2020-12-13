@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { colors } from '../../../../styles/color'
-import { ralewayMixin } from '../../../../styles/font'
+import { colors } from '../../../styles/color'
+import { ralewayMixin } from '../../../styles/font'
 
 const MyTitle = styled.h1`
   font-size: ${({ fontSize }: SizeProperty) => fontSize};

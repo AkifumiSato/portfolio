@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { shadow } from '../../../styles/color'
 import ContactForm, { ContactFormProps } from '../../organisms/ContactForm'
-import Layout from '../../organisms/New/Layout'
+import Layout from '../../organisms/Layout'
 
 const Wrapper = styled.div`
   box-shadow: ${shadow.large};

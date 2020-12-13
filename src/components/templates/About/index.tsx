@@ -1,8 +1,8 @@
 import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
-import Article from '../../organisms/New/Article'
-import Layout from '../../organisms/New/Layout'
+import Article from '../../organisms/Article'
+import Layout from '../../organisms/Layout'
 
 const MyLink = styled(Link)`
   font-size: 14px;

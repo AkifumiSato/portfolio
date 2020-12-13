@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Input from '../../molecules/Input'
 import TextArea from '../../molecules/Textarea'
-import BlackButton from '../../atoms/New/BlackButton'
+import BlackButton from '../../atoms/BlackButton'
 
 const ButtonWrapper = styled.div`
   display: flex;

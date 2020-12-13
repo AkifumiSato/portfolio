@@ -1,8 +1,8 @@
 import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
-import { colors } from '../../../../styles/color'
-import { ralewayMixin } from '../../../../styles/font'
+import { colors } from '../../../styles/color'
+import { ralewayMixin } from '../../../styles/font'
 
 const ButtonLink = styled(Link)`
   color: ${colors.white.base};

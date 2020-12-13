@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled, { keyframes } from 'styled-components'
-import BlackButton from '../../atoms/New/BlackButton'
-import Layout from '../../organisms/New/Layout'
+import BlackButton from '../../atoms/BlackButton'
+import Layout from '../../organisms/Layout'
 import { OnlySP } from '../../utils/Devise'
 
 const Wrapper = styled.div`

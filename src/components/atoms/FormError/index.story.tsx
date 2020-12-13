@@ -16,11 +16,10 @@ storiesOf(`atom|${FormError.name}`, module)
   .addDecorator((storyFn) => (
     <div
       style={{
-        margin: '30px',
-        position: 'relative',
+        padding: '30px',
+        backgroundColor: '#fff',
       }}
     >
-      <GlobalStyles />
       <MyText>sample</MyText>
       {storyFn()}
     </div>

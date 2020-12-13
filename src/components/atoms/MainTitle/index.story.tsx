@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
-import Navigation from '.'
+import MainTitle from './index'
 
-storiesOf(`molecules|${Navigation.name}`, module)
+storiesOf(`atom|${MainTitle.name}`, module)
   .addDecorator((storyFn) => (
     <div
       style={{
@@ -13,4 +13,4 @@ storiesOf(`molecules|${Navigation.name}`, module)
       {storyFn()}
     </div>
   ))
-  .add('default', () => <Navigation />)
+  .add('Single Title', () => <MainTitle>Title</MainTitle>)

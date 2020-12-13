@@ -4,3 +4,6 @@ dist/
 public/
 .cache/
 *.test.ts
+gatsby-config.js
+gatsby-node.js
+gatsby-ssr.js

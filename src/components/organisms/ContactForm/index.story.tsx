@@ -15,6 +15,7 @@ storiesOf(`organisms|ContactForm`, module)
     <div
       style={{
         padding: '30px',
+        backgroundColor: '#fff',
       }}
     >
       {storyFn()}

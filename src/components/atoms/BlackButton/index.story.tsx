@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
-import BlackButton from '.'
+import BlackButton from './index'
 
 storiesOf(`atom|${BlackButton.name}`, module)
   .addDecorator((storyFn) => (

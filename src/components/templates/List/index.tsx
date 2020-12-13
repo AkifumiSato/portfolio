@@ -2,7 +2,7 @@ import { FluidObject } from 'gatsby-image'
 import * as React from 'react'
 import styled from 'styled-components'
 import ArticlePreview from '../../molecules/ArticlePreview'
-import Layout from '../../organisms/New/Layout'
+import Layout from '../../organisms/Layout'
 import Pager from '../../organisms/Pager'
 
 const parsePagerUrl = (baseUrl: string, pageNumber: number) =>
