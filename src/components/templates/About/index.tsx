@@ -1,13 +1,10 @@
 import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
-import MainTitle from '../../atoms/MainTitle'
 import Article from '../../organisms/Article'
 import Layout from '../../organisms/Layout'
-import CommonSetting from '../hoc/CommonSetting'
 
 const MyLink = styled(Link)`
-  color: #3d69b7;
   font-size: 14px;
   text-decoration: underline;
 `
@@ -22,8 +19,7 @@ export type Props = {
 }
 
 const AboutPage: React.FC<Props> = ({ posts }) => (
-  <Layout>
-    <MainTitle>About</MainTitle>
+  <Layout title="About">
     <Article>
       {posts.map(({ node }, index) => {
         switch (node.type) {
@@ -43,4 +39,4 @@ const AboutPage: React.FC<Props> = ({ posts }) => (
   </Layout>
 )
 
-export default CommonSetting<Props>(AboutPage)
+export default AboutPage

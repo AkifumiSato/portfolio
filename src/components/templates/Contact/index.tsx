@@ -1,15 +1,15 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import MainTitle from '../../atoms/MainTitle'
+import { shadow } from '../../../styles/color'
 import ContactForm, { ContactFormProps } from '../../organisms/ContactForm'
 import Layout from '../../organisms/Layout'
-import CommonSetting from '../hoc/CommonSetting'
 
 const Wrapper = styled.div`
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: ${shadow.large};
+  border-radius: 5px;
   padding: 50px;
-  margin: 50px auto 0;
-  width: 600px;
+  margin: 0 auto;
+  max-width: 800px;
 
   @media screen and (max-width: 768px) {
     box-sizing: border-box;
@@ -19,12 +19,11 @@ const Wrapper = styled.div`
 `
 
 const ContactPage: React.FC<ContactFormProps> = (props) => (
-  <Layout>
-    <MainTitle>Contact</MainTitle>
+  <Layout title="Contact">
     <Wrapper>
       <ContactForm {...props} />
     </Wrapper>
   </Layout>
 )
 
-export default CommonSetting<ContactFormProps>(ContactPage)
+export default ContactPage

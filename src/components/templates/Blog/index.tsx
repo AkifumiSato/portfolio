@@ -1,34 +1,27 @@
-import Img, { FluidObject, GatsbyImageFluidProps } from 'gatsby-image'
 import * as React from 'react'
+import Img, { FluidObject, GatsbyImageFluidProps } from 'gatsby-image'
 import styled from 'styled-components'
-import MainTitle from '../../atoms/MainTitle'
+import { colors, shadow } from '../../../styles/color'
 import Article from '../../organisms/Article'
 import Layout from '../../organisms/Layout'
-import CommonSetting from '../hoc/CommonSetting'
-
-const Wrapper = styled.div`
-  margin-top: 50px;
-
-  @media screen and (max-width: 768px) {
-    margin-top: 30px;
-  }
-`
 
 const Publish = styled.p`
-  color: #666;
+  color: ${colors.gray['300']};
   font-size: 14px;
 `
 
 const MyContents = styled.div`
-  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 100%;
+  row-gap: 50px;
 
   @media screen and (max-width: 768px) {
-    margin-top: 30px;
+    row-gap: 30px;
   }
 `
 
 const MyImg = styled(Img)<GatsbyImageFluidProps>`
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: ${shadow.large};
 
   @media screen and (max-width: 768px) {
     height: 100%;
@@ -43,9 +36,8 @@ export type Props = {
 }
 
 const BlogPost: React.FC<Props> = ({ title, mainImage, createdAt, html }) => (
-  <Layout>
-    <MainTitle>{title}</MainTitle>
-    <Wrapper>
+  <Layout title={title} page="detail">
+    <MyContents>
       <MyImg
         alt={title}
         fluid={mainImage}
@@ -54,16 +46,16 @@ const BlogPost: React.FC<Props> = ({ title, mainImage, createdAt, html }) => (
           objectPosition: 'top',
         }}
       />
-      <MyContents>
-        <Publish>{createdAt}</Publish>
+      <Publish>{createdAt}</Publish>
+      <div>
         <Article
           dangerouslySetInnerHTML={{
             __html: html,
           }}
         />
-      </MyContents>
-    </Wrapper>
+      </div>
+    </MyContents>
   </Layout>
 )
 
-export default CommonSetting<Props>(BlogPost)
+export default BlogPost

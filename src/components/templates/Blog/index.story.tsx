@@ -31,19 +31,11 @@ const dummy: Props = {
   `,
 }
 
-storiesOf(`templates|Blog`, module).add(
-  'default',
-  () => (
-    <Blog
-      title={dummy.title}
-      mainImage={dummy.mainImage}
-      createdAt={dummy.createdAt}
-      html={dummy.html}
-    />
-  ),
-  {
-    info: `
-        default
-      `,
-  }
-)
+storiesOf(`templates|Blog`, module).add('default', () => (
+  <Blog
+    title={dummy.title}
+    mainImage={dummy.mainImage}
+    createdAt={dummy.createdAt}
+    html={dummy.html}
+  />
+))

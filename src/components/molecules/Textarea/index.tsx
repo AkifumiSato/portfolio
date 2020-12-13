@@ -1,27 +1,25 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { colors } from '../../../styles/color'
+import { ralewayMixin } from '../../../styles/font'
 import Error from '../../atoms/FormError'
 
-const Wrapper = styled.div`
-  position: relative;
-  &:not(:first-child) {
-    margin-top: 60px;
-  }
+const Caption = styled.div`
+  color: ${colors.gray['300']};
+  font-size: 15px;
+  ${ralewayMixin};
 `
 
 const MyTextarea = styled.textarea`
-  border: 1px solid #aaa;
+  border: 1px solid ${colors.gray['100']};
   border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 18px;
+  font-size: 14px;
+  ${ralewayMixin};
   line-height: 1.5;
-  outline: 1px solid transparent;
-  padding: 20px;
+  padding: 10px;
+  margin-top: 10px;
   width: 100%;
-  &:focus {
-    border: 2px solid #00c5b2;
-    padding: 19px;
-  }
+
   &::placeholder {
     color: #aaa;
   }
@@ -49,7 +47,8 @@ const Textarea: React.FC<Props> = (props) => {
   } = props
 
   return (
-    <Wrapper>
+    <div>
+      <Caption>{name}</Caption>
       <MyTextarea
         cols={cols}
         rows={rows}
@@ -58,8 +57,8 @@ const Textarea: React.FC<Props> = (props) => {
         onChange={onChange}
         placeholder={placeholder}
       />
-      {(() => error && <Error text={error} />)()}
-    </Wrapper>
+      {error && <Error text={error} />}
+    </div>
   )
 }
 

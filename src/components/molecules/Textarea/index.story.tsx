@@ -8,33 +8,21 @@ storiesOf(`molecules|${Textarea.name}`, module)
     <div
       style={{
         padding: '30px',
+        backgroundColor: '#fff',
+        height: '100vh',
       }}
     >
       {storyFn()}
     </div>
   ))
-  .add(
-    'default',
-    () => <Textarea name="test" value="" onChange={action('onChange')} />,
-    {
-      info: `
-        defaultのtextareaです。
-      `,
-    }
-  )
-  .add(
-    'custom attribute',
-    () => (
-      <Textarea
-        name="test"
-        value="サンプル文です"
-        onChange={action('onChange')}
-        error="本文は必須です。"
-      />
-    ),
-    {
-      info: `
-        defaultのtextareaです。
-      `,
-    }
-  )
+  .add('default', () => (
+    <Textarea name="test" value="" onChange={action('onChange')} />
+  ))
+  .add('custom attribute', () => (
+    <Textarea
+      name="test"
+      value="サンプル文です"
+      onChange={action('onChange')}
+      error="本文は必須です。"
+    />
+  ))

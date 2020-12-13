@@ -1,76 +1,15 @@
 import Link from 'gatsby-link'
 import * as React from 'react'
 import styled, { css } from 'styled-components'
-import color from '../../../styles/color'
+import color, { colors } from '../../../styles/color'
 import { zIndex } from '../../../styles/layout'
 
-type MenuWrapperProps = {
-  open: boolean
-}
-
-const MenuWrapper = styled.div`
-  background-color: ${color.gray.deep};
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  right: 0;
-  top: 0;
-  transition-property: transform;
-  transition-duration: 0.5s;
-
-  ${({ open }: MenuWrapperProps) =>
-    open
-      ? css`
-          transform: translateX(0);
-        `
-      : css`
-          transform: translateX(100%);
-        `}
-`
-
-const MenuLink = styled(Link)`
-  color: ${color.white.base};
-  font-size: 35px;
+const NavigationTrigger = styled.button`
+  height: 38px;
+  padding: 5px;
+  display: block;
+  width: 40px;
   position: relative;
-  text-decoration: none;
-  transition: 0.3s;
-  transition-property: color;
-  white-space: nowrap;
-
-  &::after {
-    background-color: #333;
-    content: '';
-    display: block;
-    height: 1px;
-    left: 0;
-    position: absolute;
-    top: 100%;
-    transition: 0.3s;
-    width: 0;
-    will-change: color, width;
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 30px;
-  }
-`
-
-const ExternalLink = MenuLink.withComponent('a')
-
-const MenuListItem = styled.li`
-  margin-top: 20px;
-  text-align: right;
-  &:first-child {
-    margin-top: 0;
-  }
-`
-
-const MenuList = styled.ul`
-  margin-top: 10px;
-  position: absolute;
-  top: 100px;
-  right: 10px;
-  z-index: ${zIndex.overlayContained};
 `
 
 type HamburgerProps = {
@@ -81,10 +20,10 @@ const Hamburger = styled.span`
   &,
   &:before,
   &:after {
-    background-color: ${color.gray.base};
+    background-color: ${colors.darkBlue['400']};
     content: '';
     display: block;
-    height: 2px;
+    height: 1px;
     position: absolute;
     left: 0;
     right: 0;
@@ -125,12 +64,64 @@ const Hamburger = styled.span`
         `}
 `
 
-const NavigationTrigger = styled.button`
-  height: 38px;
-  padding: 5px;
-  display: block;
-  width: 40px;
-  position: relative;
+type MenuWrapperProps = {
+  open: boolean
+}
+
+const Overlay = styled.button`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: ${({ open }: MenuWrapperProps) => (open ? 'block' : 'none')};
+  background-color: rgba(0, 0, 0, 0.3);
+`
+
+const MenuWrapper = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: ${colors.darkBlue['700']};
+  transition-property: transform;
+  transition-duration: 0.5s;
+  width: 70vw;
+  height: 100vh;
+  margin-left: auto;
+
+  ${({ open }: MenuWrapperProps) =>
+    open
+      ? css`
+          transform: translateX(0);
+        `
+      : css`
+          transform: translateX(100%);
+        `}
+`
+
+const MenuLink = styled(Link)`
+  color: ${color.white.base};
+  font-size: 20px;
+  text-decoration: none;
+  white-space: nowrap;
+`
+
+const ExternalLink = MenuLink.withComponent('a')
+
+const MenuListItem = styled.li`
+  margin-top: 20px;
+  text-align: right;
+
+  &:first-child {
+    margin-top: 0;
+  }
+`
+
+const MenuList = styled.ul`
+  margin: 100px 10px 10px;
+  z-index: ${zIndex.overlayContained};
 `
 
 type TUrl = {
@@ -142,18 +133,23 @@ type TUrl = {
 const urlMap: TUrl[] = [
   {
     name: 'About',
-    url: '/about/',
+    url: '/about',
   },
   {
     name: 'Blog',
-    url: '/blog/',
+    url: '/blog',
   },
   {
     name: 'Contact',
-    url: '/contact/',
+    url: '/contact',
   },
   {
-    name: 'story book',
+    name: 'Github',
+    url: 'https://github.com/AkifumiSato',
+    external: true,
+  },
+  {
+    name: 'Storybook',
     url: 'https://storybook.akfm.dev',
     external: true,
   },
@@ -170,6 +166,7 @@ const Navigation: React.FC = () => {
       <NavigationTrigger aria-label="menu" onClick={onClick}>
         <Hamburger open={open} />
       </NavigationTrigger>
+      <Overlay open={open} onClick={onClick} />
       <MenuWrapper open={open}>
         <MenuList>
           {urlMap.map((link, index) => (

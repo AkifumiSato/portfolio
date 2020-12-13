@@ -31,12 +31,6 @@ const dummy: Props = {
   ],
 }
 
-storiesOf(`templates|About`, module).add(
-  'default',
-  () => <About posts={dummy.posts} />,
-  {
-    info: `
-        default
-      `,
-  }
-)
+storiesOf(`templates|About`, module).add('default', () => (
+  <About posts={dummy.posts} />
+))

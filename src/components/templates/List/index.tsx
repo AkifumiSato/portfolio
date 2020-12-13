@@ -1,11 +1,9 @@
 import { FluidObject } from 'gatsby-image'
 import * as React from 'react'
 import styled from 'styled-components'
-import MainTitle from '../../atoms/MainTitle'
 import ArticlePreview from '../../molecules/ArticlePreview'
 import Layout from '../../organisms/Layout'
 import Pager from '../../organisms/Pager'
-import CommonSetting from '../hoc/CommonSetting'
 
 const parsePagerUrl = (baseUrl: string, pageNumber: number) =>
   pageNumber <= 1 ? `${baseUrl}` : `${baseUrl}${pageNumber}`
@@ -51,8 +49,7 @@ const BlogListPage: React.FC<Props> = ({
   baseUrl,
   posts,
 }) => (
-  <Layout>
-    <MainTitle>Blog</MainTitle>
+  <Layout title="Blog">
     <MyArticle>
       <MyList>
         {posts.map((post) => (
@@ -77,4 +74,4 @@ const BlogListPage: React.FC<Props> = ({
   </Layout>
 )
 
-export default CommonSetting<Props>(BlogListPage)
+export default BlogListPage

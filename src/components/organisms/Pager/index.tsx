@@ -1,6 +1,7 @@
 import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
+import { colors } from '../../../styles/color'
 import { ralewayMixin } from '../../../styles/font'
 
 const Wrapper = styled.div`
@@ -18,10 +19,10 @@ const ButtonSpace = styled.div`
 const BaseButton = styled(Link)`
   align-items: center;
   border-radius: 3px;
-  border: 1px solid #01264a;
+  border: 1px solid ${colors.black['500']};
   box-sizing: border-box;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-  color: #01264a;
+  color: ${colors.black['500']};
   display: flex;
   ${ralewayMixin};
   font-size: 15px;
@@ -33,7 +34,7 @@ const BaseButton = styled(Link)`
 
   &:hover {
     box-shadow: 0 4px 48px rgba(0, 0, 0, 0.3);
-    background-color: #01264a;
+    background-color: ${colors.black['500']};
     color: #fff;
   }
 `

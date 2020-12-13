@@ -1,23 +1,22 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
-import Article from '.'
+import Article from './index'
 
 storiesOf(`organisms|Article`, module)
   .addDecorator((storyFn) => (
     <div
       style={{
         padding: '30px',
+        backgroundColor: '#fff',
       }}
     >
       {storyFn()}
     </div>
   ))
-  .add(
-    'article html',
-    () => (
-      <Article
-        dangerouslySetInnerHTML={{
-          __html: `
+  .add('article html', () => (
+    <Article
+      dangerouslySetInnerHTML={{
+        __html: `
               <h2>h2 title</h2>
               <h3>h3 title</h3>
               <p>paragraph</p>
@@ -45,13 +44,6 @@ export default ({ data }) =&gt; {
   )
 }
 </code></pre>`,
-        }}
-      />
-    ),
-    {
-      info: `
-        Blogの記事にstyleを適用するComponentです。\n
-        PrismJSの適用を行なってソースコードを表示することもできます。
-      `,
-    }
-  )
+      }}
+    />
+  ))

@@ -8,7 +8,7 @@ const Thanks = styled.p`
   align-items: center;
   display: flex;
   font-size: 20px;
-  height: 80vh;
+  height: 70vh;
   justify-content: center;
   line-height: 2;
   text-align: center;

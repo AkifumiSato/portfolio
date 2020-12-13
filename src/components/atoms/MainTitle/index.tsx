@@ -1,21 +1,48 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import color from '../../../styles/color'
+import { colors } from '../../../styles/color'
 import { ralewayMixin } from '../../../styles/font'
 
 const MyTitle = styled.h1`
-  display: block;
+  font-size: ${({ fontSize }: SizeProperty) => fontSize};
+  color: ${colors.teal['900']};
+  font-weight: normal;
   ${ralewayMixin};
-  font-size: 40px;
-  font-weight: bold;
-  padding-bottom: 10px;
-  border-bottom: 1px solid ${color.gray.base};
+  line-height: 1.2;
+  padding-bottom: 50px;
+  border-bottom: 1px solid ${colors.darkBlue['300']};
 
   @media screen and (max-width: 768px) {
     font-size: 24px;
   }
 `
 
-const MainTitle: React.FC = ({ children }) => <MyTitle>{children}</MyTitle>
+type SizeProperty = {
+  fontSize: string
+}
+
+type SizeDictionary = {
+  large: SizeProperty
+  normal: SizeProperty
+}
+
+const sizeProperty: SizeDictionary = {
+  large: {
+    fontSize: '50px',
+  },
+  normal: {
+    fontSize: '40px',
+  },
+}
+
+type SizeProps = keyof SizeDictionary
+
+const MainTitle: React.FC<{ size?: SizeProps }> = ({
+  size = 'large',
+  children,
+}) => {
+  const { fontSize } = sizeProperty[size]
+  return <MyTitle fontSize={fontSize}>{children}</MyTitle>
+}
 
 export default MainTitle

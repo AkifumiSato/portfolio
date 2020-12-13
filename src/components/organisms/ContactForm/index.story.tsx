@@ -15,66 +15,49 @@ storiesOf(`organisms|ContactForm`, module)
     <div
       style={{
         padding: '30px',
+        backgroundColor: '#fff',
       }}
     >
       {storyFn()}
     </div>
   ))
-  .add(
-    'contact form',
-    () => (
-      <ContactForm
-        name={{
-          value: '',
-          error: '',
-        }}
-        email={{
-          value: '',
-          error: '',
-        }}
-        comment={{
-          value: '',
-          error: '',
-        }}
-        onSubmitForm={handleSubmit}
-        onChangeNameInput={action('onChangeNameInput')}
-        onChangeEmailInput={action('onChangeEmailInput')}
-        onChangeCommentText={action('onChangeCommentText')}
-      />
-    ),
-    {
-      info: `
-        Contact Formです。\n
-        見た目のみなので、propsでハンドラを設定してください。
-      `,
-    }
-  )
-  .add(
-    'contact form error',
-    () => (
-      <ContactForm
-        name={{
-          value: 'test',
-          error: 'error!',
-        }}
-        email={{
-          value: 'test',
-          error: 'error!',
-        }}
-        comment={{
-          value: 'test',
-          error: 'error!',
-        }}
-        onSubmitForm={handleSubmit}
-        onChangeNameInput={action('onChangeNameInput')}
-        onChangeEmailInput={action('onChangeEmailInput')}
-        onChangeCommentText={action('onChangeCommentText')}
-      />
-    ),
-    {
-      info: `
-        Contact Formです。\n
-        見た目のみなので、propsでハンドラを設定してください。
-      `,
-    }
-  )
+  .add('contact form', () => (
+    <ContactForm
+      name={{
+        value: '',
+        error: '',
+      }}
+      email={{
+        value: '',
+        error: '',
+      }}
+      comment={{
+        value: '',
+        error: '',
+      }}
+      onSubmitForm={handleSubmit}
+      onChangeNameInput={action('onChangeNameInput')}
+      onChangeEmailInput={action('onChangeEmailInput')}
+      onChangeCommentText={action('onChangeCommentText')}
+    />
+  ))
+  .add('contact form error', () => (
+    <ContactForm
+      name={{
+        value: 'test',
+        error: 'error!',
+      }}
+      email={{
+        value: 'test',
+        error: 'error!',
+      }}
+      comment={{
+        value: 'test',
+        error: 'error!',
+      }}
+      onSubmitForm={handleSubmit}
+      onChangeNameInput={action('onChangeNameInput')}
+      onChangeEmailInput={action('onChangeEmailInput')}
+      onChangeCommentText={action('onChangeCommentText')}
+    />
+  ))

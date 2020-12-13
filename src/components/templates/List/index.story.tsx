@@ -50,12 +50,6 @@ const dummy: BlogPost[] = [
   },
 ]
 
-storiesOf(`templates|List`, module).add(
-  'default',
-  () => <List currentPage={1} pageCount={3} baseUrl="/blog/" posts={dummy} />,
-  {
-    info: `
-        default
-      `,
-  }
-)
+storiesOf(`templates|List`, module).add('default', () => (
+  <List currentPage={1} pageCount={3} baseUrl="/blog/" posts={dummy} />
+))

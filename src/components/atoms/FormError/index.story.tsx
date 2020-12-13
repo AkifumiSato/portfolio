@@ -16,17 +16,12 @@ storiesOf(`atom|${FormError.name}`, module)
   .addDecorator((storyFn) => (
     <div
       style={{
-        margin: '30px',
-        position: 'relative',
+        padding: '30px',
+        backgroundColor: '#fff',
       }}
     >
-      <GlobalStyles />
       <MyText>sample</MyText>
       {storyFn()}
     </div>
   ))
-  .add('FormError', () => <FormError text="名前は必須です。" />, {
-    info: `
-        formパーツでエラーを表現するのに使用します。
-      `,
-  })
+  .add('FormError', () => <FormError text="名前は必須です。" />)
