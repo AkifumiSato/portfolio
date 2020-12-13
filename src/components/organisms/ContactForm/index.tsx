@@ -3,30 +3,12 @@ import styled from 'styled-components'
 import { ralewayMixin } from '../../../styles/font'
 import Input from '../../molecules/Input'
 import TextArea from '../../molecules/Textarea'
+import BlackButton from '../../atoms/New/BlackButton'
 
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 50px;
-`
-
-const Button = styled.button`
-  background-color: #00c5b2;
-  border: 1px solid #00c5b2;
-  border-radius: 3px;
-  color: #fff;
-  display: block;
-  ${ralewayMixin};
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 1;
-  padding: 20px 0;
-  transition: 0.3s;
-  width: 200px;
-  &:hover {
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-    opacity: 0.8;
-  }
 `
 
 type FormObject = {
@@ -91,7 +73,7 @@ const ContactForm: React.FC<ContactFormProps> = (props) => {
         error={comment.error}
       />
       <ButtonWrapper>
-        <Button type="submit">Send</Button>
+        <BlackButton>submit</BlackButton>
       </ButtonWrapper>
       {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
       <input type="hidden" name="form-name" value="contact" />

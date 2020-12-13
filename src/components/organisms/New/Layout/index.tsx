@@ -125,7 +125,7 @@ const Layout: React.FC<Props> = ({ page, title, children }) => (
           >
             github
           </ExternalLinkText>
-          <LinkText to="/blog/">contact</LinkText>
+          <LinkText to="/contact/">contact</LinkText>
         </HeaderLinks>
       </OnlyPC>
       <OnlySP>
