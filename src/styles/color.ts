@@ -65,3 +65,7 @@ export const colors = {
     500: '#7928ca',
   },
 }
+
+export const shadow = {
+  large: '0 25px 50px rgba(0, 0, 0, 0.2)',
+}

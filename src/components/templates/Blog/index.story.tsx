@@ -4,6 +4,13 @@ import Blog, { Props } from '.'
 
 const dummy: Props = {
   title: 'title',
+  mainImage: {
+    aspectRatio: 1.4,
+    sizes: '350px',
+    src: 'https://dummyimage.com/800x400/f1f1f1/999999',
+    srcSet: 'https://dummyimage.com/800x400/f1f1f1/999999',
+    srcWebp: 'https://dummyimage.com/800x400/f1f1f1/999999',
+  },
   createdAt: 'createdAt',
   html: `
     <h2>title</h2>
@@ -25,5 +32,10 @@ const dummy: Props = {
 }
 
 storiesOf(`templates|Blog`, module).add('default', () => (
-  <Blog title={dummy.title} createdAt={dummy.createdAt} html={dummy.html} />
+  <Blog
+    title={dummy.title}
+    mainImage={dummy.mainImage}
+    createdAt={dummy.createdAt}
+    html={dummy.html}
+  />
 ))

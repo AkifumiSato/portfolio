@@ -1,6 +1,7 @@
 import * as React from 'react'
+import Img, { FluidObject, GatsbyImageFluidProps } from 'gatsby-image'
 import styled from 'styled-components'
-import { colors } from '../../../styles/color'
+import { colors, shadow } from '../../../styles/color'
 import Article from '../../organisms/New/Article'
 import Layout from '../../organisms/New/Layout'
 
@@ -19,15 +20,32 @@ const MyContents = styled.div`
   }
 `
 
+const MyImg = styled(Img)<GatsbyImageFluidProps>`
+  box-shadow: ${shadow.large};
+
+  @media screen and (max-width: 768px) {
+    height: 100%;
+  }
+`
+
 export type Props = {
   title: string
+  mainImage: FluidObject
   createdAt: string
   html: string
 }
 
-const BlogPost: React.FC<Props> = ({ title, createdAt, html }) => (
+const BlogPost: React.FC<Props> = ({ title, mainImage, createdAt, html }) => (
   <Layout title={title} page="detail">
     <MyContents>
+      <MyImg
+        alt={title}
+        fluid={mainImage}
+        imgStyle={{
+          objectFit: 'cover',
+          objectPosition: 'top',
+        }}
+      />
       <Publish>{createdAt}</Publish>
       <div>
         <Article
