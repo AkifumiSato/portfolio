@@ -1,11 +1,13 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { colors } from '../../../../styles/color'
+import { ralewayMixin } from '../../../../styles/font'
 
 const MyTitle = styled.h1`
   font-size: ${({ fontSize }: SizeProperty) => fontSize};
   color: ${colors.teal['900']};
   font-weight: normal;
+  ${ralewayMixin};
   line-height: 1.2;
   padding-bottom: 50px;
   border-bottom: 1px solid ${colors.darkBlue['300']};

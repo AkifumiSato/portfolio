@@ -2,6 +2,7 @@ import Img, { FluidObject, GatsbyImageFluidProps } from 'gatsby-image'
 import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
+import { colors } from '../../../styles/color'
 
 const MyLink = styled(Link)`
   display: grid;
@@ -13,9 +14,11 @@ const MyLink = styled(Link)`
   padding: 15px 20px;
   text-decoration: none;
   transition: 0.3s;
+  color: ${colors.darkBlue['700']};
 
   @media screen and (min-width: 769px) {
     &:hover {
+      color: ${colors.darkBlue['700']};
       box-shadow: 0 4px 48px rgba(0, 0, 0, 0.3);
       transition: 0.3s;
       transform: translateY(-3px);

@@ -2,6 +2,7 @@ import Link from 'gatsby-link'
 import * as React from 'react'
 import styled from 'styled-components'
 import { colors } from '../../../../styles/color'
+import { ralewayMixin } from '../../../../styles/font'
 import { GlobalStyles } from '../../../../styles/new/global'
 import MainTitle from '../../../atoms/New/MainTitle'
 import Navigation from '../../../molecules/New/Navigation'
@@ -27,6 +28,7 @@ const LinkText = styled(Link)`
   color: ${colors.darkBlue['700']};
   font-size: 15px;
   font-weight: bold;
+  ${ralewayMixin};
   padding: 10px;
 
   &:hover {
