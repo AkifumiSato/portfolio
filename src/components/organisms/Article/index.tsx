@@ -1,12 +1,3 @@
-import * as Prism from 'prismjs'
-import 'prismjs/components/prism-docker.min.js'
-import 'prismjs/components/prism-elm.min.js'
-import 'prismjs/components/prism-haskell.min.js'
-import 'prismjs/components/prism-json.min.js'
-import 'prismjs/components/prism-rust.min.js'
-import 'prismjs/components/prism-typescript.min.js'
-import 'prismjs/components/prism-yaml.min.js'
-import 'prismjs/themes/prism-tomorrow.css'
 import * as React from 'react'
 import styled from 'styled-components'
 
@@ -115,10 +106,6 @@ const ArticleInner = styled.div`
 `
 
 const Article: React.FC<Props> = (props) => {
-  React.useEffect(() => {
-    Prism.highlightAll()
-  })
-
   return <ArticleInner {...props} />
 }
 
