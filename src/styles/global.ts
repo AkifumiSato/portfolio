@@ -42,6 +42,7 @@ body {
   margin: 0;
   color: #2d3748;
   font-size: 15px;
+  font-family:"MS Pゴシック",sans-serif;
   line-height: 1;
 }
 
