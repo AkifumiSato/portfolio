@@ -1,6 +1,5 @@
 import { graphql } from 'gatsby'
 import { FluidObject } from 'gatsby-image'
-import { get } from 'lodash'
 import * as React from 'react'
 import CustomHead from '../components/atoms/CustomHead'
 import Blog from '../components/templates/Blog'
@@ -23,6 +22,9 @@ type Props = {
           html: string
         }
       }
+      description: {
+        description: string
+      }
     }
   }
 }
@@ -30,7 +32,7 @@ type Props = {
 const BlogPost: React.FC<Props> = ({ data }) => {
   const post = data.contentfulBlogPost
   const siteTitle = `${post.title} - ${data.site.siteMetadata.title}`
-  const { description } = get(data, 'contentfulBlogPost.description')
+  const { description } = data.contentfulBlogPost.description
 
   return (
     <>
